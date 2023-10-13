@@ -1,9 +1,88 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 
+# format: jb-book
+# root: intro
+# chapters:
+# - file: resources
+# - file: breakdown
+
+
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+  - caption: Overview
+    chapters:
+    - file: overview/overview-resources
+    - file: overview/overview-breakdown
+
+  - caption: ALMA Program 2021.1.00690.S
+    chapters:
+    - file: orientation/orientation-correlator-setup
+    - file: orientation/orientation-observation-summary
+    - file: orientation/orientation-pipeline-products
+
+  - caption: Step 0 - Getting set up
+    chapters:
+    - file: step0/step0-download-data
+    - file: step0/step0-restoring-pipeline-calibration
+    - file: step0/step0-weblog
+    - file: step0/step0-dictionaries
+
+  - caption: Step 1 - Prepare the continuum
+    chapters:
+    - file: step1/step1-manual-flags
+    - file: step1/step1-pseudo-continuum
+    - file: step1/step1-initial-continuum-images
+    - file: step1/step1-initial-self-calibration
+
+  - caption: Step 2 - Phase alignment
+    chapters:
+    - file: step2/step2-align-LBs
+    - file: step2/step2-align-SBs
+    - file: step2/step2-summary-of-shifts
+
+  - caption: Step 3 - Self-calibration of the continuum
+    chapters:
+    - file: step3/step3-selfcal-SBs
+    - file: step3/step3-selfcal-SBs+LBs
+
+  - caption: Step 4 - Prepare the lines
+    chapters:
+    - file: step4/step4-manual-flags
+    - file: step4/step4-split-spws
+    - file: step4/step4-apply-phase-alignments
+    - file: step4/step4-apply-self-cal-solutions
+    - file: step4/step4-continuum-subtraction
+
+  - caption: Imaging - Continuum
+    chapters:
+    - file: imaging-cont/imaging-cont-procedure
+    - file: imaging-cont/imaging-cont-preliminary-images
+
+  - caption: Imaging - Lines
+    chapters:
+    - file: imaging-lines/imaging-lines-dirty-images
+    - file: imaging-lines/imaging-lines-full-history
+    - file: imaging-lines/imaging-lines-adopted-approach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# sys.exit()
