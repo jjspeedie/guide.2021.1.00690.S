@@ -231,6 +231,11 @@
    Self-Calibration of SB+LB data
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="step3-continuum-ms-achieved.html">
+   Create final continuum measurement set
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -390,23 +395,42 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">
+   Summary of path through self-calibration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-of-parameter-choices">
+     Explanation of parameter choices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+   Achieved phase solutions as a function of time and antenna (the calibration tables)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sb-eb1">
+     SB EB1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sb-eb2">
+     SB EB2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images-made-after-each-round">
+   Images made after each round
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#the-results-before-and-after">
+   The results, before and after
   </a>
  </li>
 </ul>
@@ -430,23 +454,42 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">
+   Summary of path through self-calibration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-of-parameter-choices">
+     Explanation of parameter choices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+   Achieved phase solutions as a function of time and antenna (the calibration tables)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sb-eb1">
+     SB EB1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sb-eb2">
+     SB EB2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images-made-after-each-round">
+   Images made after each round
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#the-results-before-and-after">
+   The results, before and after
   </a>
  </li>
 </ul>
@@ -460,49 +503,92 @@
                 
   <section class="tex2jax_ignore mathjax_ignore" id="self-calibration-of-short-baseline-execution-blocks">
 <h1>Self-Calibration of Short-Baseline Execution Blocks<a class="headerlink" href="#self-calibration-of-short-baseline-execution-blocks" title="Permalink to this headline">¶</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+<section id="summary-of-path-through-self-calibration">
+<h2>Summary of path through self-calibration<a class="headerlink" href="#summary-of-path-through-self-calibration" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_concat_shifted_cont_summary.jpg"><img alt="ABAur_SB_concat_shifted_cont_summary" class="mb-1 align-center" src="../_images/ABAur_SB_concat_shifted_cont_summary.jpg" style="width: 100%;" /></a>
+<p>(Note: Empty cells are not meaningless; they mean ‘’, which in CASA either means ‘all’ or ‘nothing’.)</p>
+<section id="explanation-of-parameter-choices">
+<h3>Explanation of parameter choices<a class="headerlink" href="#explanation-of-parameter-choices" title="Permalink to this headline">¶</a></h3>
+<p><strong>gaincal spw</strong>: Selecting all spectral windows.</p>
+<p><strong>gaincal solint</strong>: The time interval on which to generate solutions. ‘inf’ goes as wide as the boundaries specified by the combine parameter. In the first and second round (p1, p2), 1 solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find 1 solution per scan again. For reference, here’s the number of seconds in each scan, in each execution block:</p>
+<figure class="align-center" id="id1">
+<a class="mb-1 reference internal image-reference" href="../_images/number-seconds-in-each-scan.png"><img alt="number-seconds-in-each-scan" class="mb-1" src="../_images/number-seconds-in-each-scan.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">For the SB-only self-cal, the solints 243s, 120s, 60s, 30s, 18s roughly correspond to: half a scan, a quarter of a scan, an eighth of a scan, a sixteenth of a scan, and then 3x the record length (6s).</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>gaincal combine</strong>: Dimensions of the data to combine when generating solutions. In the first two rounds, we avoid combining spectral windows (i.e., we generate per-spw solutions) to account for any per-spw phase offsets. Later, we have to combine spectral windows because the SNR of the solutions (in the line spws) is too low.</p>
+<p><strong>gaincal refant</strong>: Chosen by me, using the refant lists generated by the pipeline hif_refant task, shown in the weblog. Happy coincidence (?) that the 3 highest ranked antennas in SB EB1 were the same as in SB EB2. If I was more comprehensive, I would’ve also specified the antenna’s pad, in case any were moved between executions, but the weblog did not specify the pad.</p>
+<p><strong>gaincal minSNR</strong>: Minimum SNR of the solutions. If a solution has SNR below this threshold, then it (and the corresponding data) is flagged, and a statement is printed. For example: “3 of 41 solutions flagged due to SNR &lt; 3 in spw=10 at 2022/07/17/14:31:53.5”, and then later “7 of 36 solutions flagged due to SNR &lt; 3 in spw=15 at 2022/07/19/12:12:23.5”. Unfortunately there’s no way to access/save those printouts, so I just copy and paste them from the terminal into a script and count them up later. These printouts are one of the factors you use to decide whether to use the generated solutions. If applycal applymode=’calflag’, then you lose that flagged data. To get a sense of what relative amount of data did not meet the minSNR, you would have to multiply [the total number of solution intervals found (depends on solint and number of scans)] x [the number of antennas] x [the number of spectral windows (depends on combine)].</p>
+<p><strong>gaincal gaintype</strong>: Could’ve used ‘G’, we only have 1 polarization mode, but DSHARP uses ‘T’.</p>
+<p><strong>gaincal calmode</strong>: Sets ‘phase’ or ‘amplitude + phase’ self-cal. We attempt 1 round of amplitude+phase self-cal.</p>
+<p><strong>gaincal scan</strong>: Selecting all scans.</p>
+<p><strong>gaincal spwmap</strong>: I actually don’t know what this does.</p>
+<p><strong>gaincal num flagged solns</strong>: See “gaincal minSNR”.</p>
+<p><strong>applycal spw</strong>: Selecting all spectral windows.</p>
+<p><strong>applycal applymode</strong>: Leaving is as the default (‘’), which indicates ‘calflag’, meaning we apply the calibration and apply the flags.</p>
+<p><strong>applycal interp</strong>: The kind of interpolation to use between solutions. ‘Linear’ is the default. Linear ‘PD’ adds an additional term into the solve that accounts for the frequency-dependence if you have a large bandwidth. Ryan says in our case it’s overkill (“like using GR equations when in Newtonian regime”), but DSHARP uses it and I figured it doesn’t hurt.</p>
+<p><strong>applycal spwmap</strong>: Leave this as ‘’ if combine does not include spw. If combine does include spw, then you need to tell applycal which spws of the calibration table to apply to which spws of the data.</p>
+<div class="tip admonition">
+<p class="admonition-title">Mistake later realized…</p>
+<p>In the last round of self calibration on the SB concatenated data (which is amplitude+phase), combine=’’ in gaincal, but spwmap=[0,0,0,0,0,5,5,5,5,5] in applycal. In other words, solutions were generated on a per-spw basis, but then the solution for spw 0 was applied to spw 0-4, and the solution for spw 5 was applied to spw 5-9. It was a leftover relic parameter set that way because I initially did try with combine=’spw’ in gaincal (8 flagged solutions), but then changed my mind (92 flagged solutions) in favour of the chance to account for per-spw amplitude offsets, if any. I realized this mistake only after continuum selfcal was all finished. This may have ramifications later on in the continuum self-cal of the combined (SB+LB) data. I won’t make the same applycal mistake when applying the continuum self-cal solutions to the lines, but it is the case that the SB+LB solutions were generated using SB data where the wrong spwmap was applied. There aren’t really systematic offsets in the solutions between spws though, if you look at the plots below. Also, to reduce the number of flagged solutions, the SB+LB amplitude+phase selfcal (see below) was done with combine=’spw’ anyway. These two things, combined with how long it would take me to redo it at this point, suggests to me it’s not worth correcting.</p>
+</div>
+<p><strong>tclean imsize</strong>: Set to go out to the primary beam FWHM (~20 arcsec).</p>
+<p><strong>tclean cellsize</strong>: Set to sample the beam with ~10 cells.</p>
+<p><strong>tclean specmode</strong>: ‘mfs’ makes a continuum image.</p>
+<p><strong>tclean deconvolver</strong>: Ryan suggested hogbom (basis of delta functions) rather than multiscale (basis of Gaussians) for disks with rings.</p>
+<p><strong>tclean weighting</strong>: Briggs, of course.</p>
+<p><strong>tclean spw</strong>: Using all spws to create a continuum image (we want to include the line spws in the model generation).</p>
+<p><strong>tclean robust</strong>: Taken to be 0.5 for the SB self-cal, as DSHARP did, but we increase to 1.0 for the SB+LB self-cal.</p>
+<p><strong>result rms (uJy/beam, mK)</strong>: Measured rms noise in the continuum image. This decreases with each round. At the end of this self-cal, we improve by a factor of 2. (Note however that these images were not cleaned very deeply, nor are they primary beam corrected).</p>
+<p><strong>result peak Inu (mJy/beam)</strong>: Maximum intensity value in the image. This increases with each round, except between p6 and ap, where it decreases (to be expected).</p>
+<p><strong>result disk flux (mJy)</strong>: Total flux from the disk (measured within the clean mask). This increases with each round, except between p6 and ap, where it decreases (to be expected).</p>
+<p><strong>result bmin/bmin (mas)</strong>: The beam size increases with round, as we lose the flagged data (as expected). In total the beam axes both increase by about 30 mas.</p>
+<p><strong>result SNR</strong>: This increases with each round, including between p6 and ap. At the end of this self-cal, we improve by a factor greater than 2.</p>
 </section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Permalink to this headline">¶</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
+</section>
+<section id="achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+<h2>Achieved phase solutions as a function of time and antenna (the calibration tables)<a class="headerlink" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables" title="Permalink to this headline">¶</a></h2>
+<p>Both SB EB1 and SB EB2 were self-calibrated together, but the following plots the solutions separately (to be able to resolve the time axis).</p>
+<section id="sb-eb1">
+<h3>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this headline">¶</a></h3>
+<video width="100%" controls>
+  <source src="../_static/videos/SB_concat_shifted_EB1_cal.mp4" type="video/mp4">
+</video>
+</section>
+<section id="sb-eb2">
+<h3>SB EB2<a class="headerlink" href="#sb-eb2" title="Permalink to this headline">¶</a></h3>
+<video width="100%" controls>
+  <source src="../_static/videos/SB_concat_shifted_EB2_cal.mp4" type="video/mp4">
+</video>
+</section>
+</section>
+<section id="images-made-after-each-round">
+<h2>Images made after each round<a class="headerlink" href="#images-made-after-each-round" title="Permalink to this headline">¶</a></h2>
+<p>Image achieved after each round, with a large colour bar stretch to exaggerate faint emission.</p>
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/SB_concat_shifted_cont.mp4" type="video/mp4">
+</video>
+</center>
+<div class="tip admonition">
+<p class="admonition-title">Thoughts…</p>
+<p>There is noise outside the disk in the NW-SE directions. It becomes slightly more uniform with each round of self-cal. It wasn’t present in any of the deeply-cleaned per-execution block images.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Something to do differently…</p>
+<p>Currently, we take a not-very-deeply-cleaned image as the initial or starting model for the self calibration (“SB concat shifted p0” in above movie). Perhaps a better starting model would be a more deeply cleaned image.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here is a note</p>
+<p>Jess might add here: Images of model and residuals</p>
 </div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <span class="xref std std-doc">markdown-notebooks</span>.</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<span class="target" id="id2"></span></section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<section id="the-results-before-and-after">
+<h2>The results, before and after<a class="headerlink" href="#the-results-before-and-after" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/SB-before-after.gif"><img alt="SB-before-after" class="mb-1 align-center" src="../_images/SB-before-after.gif" style="width: 85%;" /></a>
+<p>We achieve a decrease in rms noise by a factor of 2. The peak intensity increases by about 2 mJy/beam. The SNR improves by a factor of 2.2. The outer ring becomes more uniformly bright around its azimuth and more compact/well-defined. The inner cavity becomes more radially extended and appears emptier.</p>
+<p>Notice how the beam got bigger - that’s because we flagged some data.</p>
 </section>
 </section>
 

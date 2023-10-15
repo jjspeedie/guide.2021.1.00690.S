@@ -4,6 +4,26 @@ The following are (non-interactively) cleaned images of the continuum for each e
 
 The purpose of doing per-spectral-window images for each execution block: We will want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spw. The per-spw images help identify which spws and which execution blocks have low SNR.
 
+<!-- https://jupyterbook.org/en/stable/content/components.html
+
+These are organized like
+
+::::{grid}
+:gutter: 3
+
+:::{grid-item-card} One!
+Here's the first card.
+:::
+
+:::{grid-item-card} Two!
+Here's the second card.
+:::
+
+:::{grid-item-card} Three!
+Here's the third card.
+:::
+:::: -->
+
 ## SB EB1
 
 <img src="images/ABAur_SB_EB1_initcont.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">

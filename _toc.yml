@@ -46,6 +46,7 @@ parts:
     chapters:
     - file: step3/step3-selfcal-SBs
     - file: step3/step3-selfcal-SBs+LBs
+    - file: step3/step3-continuum-ms-achieved
 
   - caption: Step 4 - Prepare the lines
     chapters:

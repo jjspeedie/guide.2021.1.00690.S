@@ -55,7 +55,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Manual Flagging" href="../step4/step4-manual-flags.html" />
+    <link rel="next" title="Create final continuum measurement set" href="step3-continuum-ms-achieved.html" />
     <link rel="prev" title="Self-Calibration of Short-Baseline Execution Blocks" href="step3-selfcal-SBs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -231,6 +231,11 @@
    Self-Calibration of SB+LB data
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="step3-continuum-ms-achieved.html">
+   Create final continuum measurement set
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -390,23 +395,37 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">
+   Summary of path through self-calibration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-of-parameter-choices">
+     Explanation of parameter choices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+   Achieved phase solutions as a function of time and antenna (the calibration tables)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lb-eb1-through-eb-6">
+     LB EB1 through EB 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images-made-after-each-round">
+   Images made after each round
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#the-results-before-and-after">
+   The results, before and after
   </a>
  </li>
 </ul>
@@ -430,23 +449,37 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">
+   Summary of path through self-calibration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-of-parameter-choices">
+     Explanation of parameter choices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+   Achieved phase solutions as a function of time and antenna (the calibration tables)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lb-eb1-through-eb-6">
+     LB EB1 through EB 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images-made-after-each-round">
+   Images made after each round
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#the-results-before-and-after">
+   The results, before and after
   </a>
  </li>
 </ul>
@@ -460,49 +493,72 @@
                 
   <section class="tex2jax_ignore mathjax_ignore" id="self-calibration-of-sb-lb-data">
 <h1>Self-Calibration of SB+LB data<a class="headerlink" href="#self-calibration-of-sb-lb-data" title="Permalink to this headline">¶</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+<section id="summary-of-path-through-self-calibration">
+<h2>Summary of path through self-calibration<a class="headerlink" href="#summary-of-path-through-self-calibration" title="Permalink to this headline">¶</a></h2>
+<p>A table of selected parameters used in each of the tasks, and metrics of the results, broken down by round (columns).</p>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_concat_shifted_cont_summary.jpg"><img alt="ABAur_BB_concat_shifted_cont_summary" class="mb-1 align-center" src="../_images/ABAur_BB_concat_shifted_cont_summary.jpg" style="width: 100%;" /></a>
+<p>(Note: Empty cells are not meaningless; they mean ‘’, which in CASA either means ‘all’ or ‘nothing’.)</p>
+<section id="explanation-of-parameter-choices">
+<h3>Explanation of parameter choices<a class="headerlink" href="#explanation-of-parameter-choices" title="Permalink to this headline">¶</a></h3>
+<p>Things that are different from the SB-only self-cal:</p>
+<p><strong>gaincal solint</strong>: Previously in the SB-only self-cal, we used solints that were nice fractions of the scan lengths. This wasn’t so possible for the LB+SB self-cal, because the LB scan lengths weren’t as consistent. Instead, we reverted to the DSHARP/MAPS solint sequence.</p>
+<figure class="align-center" id="id1">
+<a class="mb-1 reference internal image-reference" href="../_images/number-seconds-in-each-scan.png"><img alt="number-seconds-in-each-scan" class="mb-1" src="../_images/number-seconds-in-each-scan.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">For the SB+LB self-cal, the solints (required combine=’scan’ to ignore scan boundaries and) were: 900s, 360s, 180s, 60s (DSHARP/MAPS sequence).</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>gaincal combine</strong>: This time it wasn’t possible to avoid combine=’spw’ without sacrificing a lot of data (subjective, but my sense was that there were too many printouts of flagged solutions).</p>
+<p><strong>gaincal refant</strong>: Again chosen by me, using the refant lists generated by the pipeline hif_refant task, shown in the weblog. This time the antenna rankings changed between the different executions, so I calculated an “overall ranking” by multiplying the rank of each antenna in each execution and taking the four with the smallest overall rank. Again it might have been a good idea to specify the pad, if the antennas were moved between executions.</p>
+<p><strong>gaincal minSNR</strong>: Same as SB-only self-cal. Perhaps worth noting that DSHARP decreased the minSNR to 1.5 for their SB+LB self-cal.</p>
+<p><strong>gaincal num flagged solns</strong>: There are a lot more here than there were in the SB-only self-cal, but (!) we also have a lot more data in the SB+LB self-cal. Should be ok?</p>
+<p><strong>applycal applymode</strong>: Here we are trusting the wisdom of DSHARP and copying them (they switch to applymode=’calonly’ for the SB+LB self-cal). This applies the calibrations, but does NOT flag the data where no calibration solutions are found. This means we do not lose data (so our beam size does not increase), but we also bring with data that has not been calibrated. CASA warns to use this with extreme caution.</p>
+<p><strong>applycal spwmap</strong>: Since gaincal combine includes spw in all rounds, we need a spwmap in all rounds.</p>
+<p><strong>tclean imsize</strong>: Set to go out to the primary beam FWHM (~20 arcsec).</p>
+<p><strong>tclean cellsize</strong>: Set to sample the beam with ~10 cells.</p>
+<p><strong>tclean robust</strong>: In my first SB+LB self-cal venture, I used robust=0.5 as before, but there were a lot of flagged solutions. Ryan suggested we play with the robust parameter. Getting high SNR is important. We can image with a lower robust later for our final images if we want. So for the self-cal, we increase robust to 1.0.</p>
+<p><strong>result rms (uJy/beam, mK)</strong>: Again this nicely decreases. (Note however that these images were not cleaned very deeply, nor are they primary beam corrected. And for reference, the weblog says our final theoretical sensitivity is 12 uJy/beam).</p>
+<p><strong>result peak Inu (mJy/beam)</strong>: Again this more or less increases with each round, except between p4 and ap, where it decreases (to be expected).</p>
+<p><strong>result disk flux (mJy)</strong>: Very strangely, this uniformly decreases with each round. I don’t know why. Unexpected.</p>
+<p><strong>result bmin/bmin (mas)</strong>: Since we use applycal applymode=’calonly’, our beam does not increase. It actually decreases (by ~10 mas), which must be because the PSF becomes cleaner.</p>
+<p><strong>result SNR</strong>: This increases with each round, including between p4 and ap. At the end of this self-cal, we improve by a factor of 1.6.</p>
 </section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Permalink to this headline">¶</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
+</section>
+<section id="achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+<h2>Achieved phase solutions as a function of time and antenna (the calibration tables)<a class="headerlink" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables" title="Permalink to this headline">¶</a></h2>
+<p>All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together, but the following plots the solutions separately (to be able to resolve the time axis). Also, only showing p1 and ap rounds, because there’s too much manual compilation involved in making these videos.</p>
+<section id="lb-eb1-through-eb-6">
+<h3>LB EB1 through EB 6<a class="headerlink" href="#lb-eb1-through-eb-6" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here is a note</p>
+<p>Jess needs to add here: Videos of calibration tables</p>
 </div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <span class="xref std std-doc">markdown-notebooks</span>.</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<span class="target" id="id2"></span></section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+</section>
+<section id="images-made-after-each-round">
+<h2>Images made after each round<a class="headerlink" href="#images-made-after-each-round" title="Permalink to this headline">¶</a></h2>
+<p>Image achieved after each round, with a large colour bar stretch to exaggerate faint emission.</p>
+<video width="100%" controls>
+  <source src="../_static/videos/BB_concat_shifted_cont.mp4" type="video/mp4">
+</video>
+<div class="tip admonition">
+<p class="admonition-title">Thoughts…</p>
+<p>The noise outside the disk in the NW-SE directions we saw in the SB-only images remains. It again becomes slightly more uniform with each round of self-cal. Is this due to the inclination of the source on the sky? Our beam position angle is in a similar direction. Perhaps deeper cleaning will help.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jess might add here: Images of model and residuals.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jess might add here: Figures showing inspection of flux recovery.</p>
+</div>
+</section>
+<section id="the-results-before-and-after">
+<h2>The results, before and after<a class="headerlink" href="#the-results-before-and-after" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/BB-before-after.gif"><img alt="BB-before-after" class="mb-1 align-center" src="../_images/BB-before-after.gif" style="width: 85%;" /></a>
+<p>We achieve a decrease in rms noise by a factor of 1.6. The peak intensity decreases by about 0.3 mJy/beam. The SNR improves by a factor of 1.5. The outer ring becomes more compact/well-defined. The inner cavity appears emptier; the inner disk appears unchanged.</p>
+<!-- There is extended emission around the outside of the outer ring - it is likely not real? -->
 </section>
 </section>
 
@@ -538,10 +594,10 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
             <p class="prev-next-title">Self-Calibration of Short-Baseline Execution Blocks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../step4/step4-manual-flags.html" title="next page">
+    <a class='right-next' id="next-link" href="step3-continuum-ms-achieved.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Manual Flagging</p>
+        <p class="prev-next-title">Create final continuum measurement set</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
