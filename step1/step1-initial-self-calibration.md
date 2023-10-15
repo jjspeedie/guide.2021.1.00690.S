@@ -1,55 +1,46 @@
 # Initial Self-Calibration
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+In preparation for the phase alignment, Ryan suggested we do a single roung of self-calibration on each execution block, just to get the phases looking as good as possible.
 
-## What is MyST?
+`````{admonition} Something to do differently...
+:class: tip
+What do we take as our initial model (the self-cal results depend greatly on this)? What deconvolver and beam do we use in the tclean step (the SNR of our solutions depend on this)?
+`````
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+Before we start self calibration, we need to decide on our initial model. There are many options, such as:
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+* A (not very deeply) cleaned image (I think it is conventional to go with this)
 
-## Sample Roles and Directives
+* A model made from analytic fit to the visibilities (this was a suggestion from Ryan)
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+* An axisymmetric model, ie. azimuthal average of a (not very deeply) cleaned image (another suggestion from Ryan)
 
-Here is a "note" directive:
+* The (not very deeply) cleaned image of the best EB, aligned? For example, for LB2-6, use LB1? (an idea of Jess's)
 
-```{note}
-Here is a note
-```
+For now, we will go with a (not very deeply, but interactively) cleaned image.
 
-It will be rendered in a special box when you build your book.
+There are also other considerations:
 
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
+* What deconvolver do you use? For now, we will use hogbom (Ryan suggests delta functions, i.e. hogbom, are a better basis set for continuum rings than Gaussians, i.e. multi-scale)
 
+* What beam (robust, uvtaper?) do you use? For now, we will use robust 0.5 and no uvtaper to keep it simple, and have something to improve upon later.
 
-## Citations
+**What we take as the initial model**: A not very deeply, and interactively, cleaned image. These do not look as good as the "initial continuum images" above, because they are not cleaned as deeply. What matters here is that we trust the model column phases; the amplitudes are not important at this stage.
 
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
+## The results of this initial round of per-EB self-cal
 
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
+The SNR increased in all cases (some more than others). Visually, note the colorbar scale sometimes jumps significantly (is not the same as the gif blinks back and forth).
 
-```{bibliography}
-```
+### SB EBs
 
-## Learn more
+<img src="images/SB_EB1_model_selfcal.gif" alt="SB_EB1_model_selfcal" class="mb-1" width="49%">
+<img src="images/SB_EB2_model_selfcal.gif" alt="SB_EB2_model_selfcal" class="mb-1" width="49%">
 
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+### LB EBs
+
+<img src="images/LB_EB1_model_selfcal.gif" alt="LB_EB1_model_selfcal" class="mb-1" width="49%">
+<img src="images/LB_EB2_model_selfcal.gif" alt="LB_EB2_model_selfcal" class="mb-1" width="49%">
+<img src="images/LB_EB3_model_selfcal.gif" alt="LB_EB3_model_selfcal" class="mb-1" width="49%">
+<img src="images/LB_EB4_model_selfcal.gif" alt="LB_EB4_model_selfcal" class="mb-1" width="49%">
+<img src="images/LB_EB5_model_selfcal.gif" alt="LB_EB5_model_selfcal" class="mb-1" width="49%">
+<img src="images/LB_EB6_model_selfcal.gif" alt="LB_EB6_model_selfcal" class="mb-1" width="49%">

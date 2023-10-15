@@ -1,55 +1,100 @@
 # Initial Continuum Images
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+The following are (non-interactively) cleaned images of the continuum for each execution block. Top left is an image combining all spectral windows; the other 5 images are for the 5 spectral windows individually.
 
-## What is MyST?
+The purpose of doing per-spectral-window images for each execution block: We will want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spw. The per-spw images help identify which spws and which execution blocks have low SNR.
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+## SB EB1
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+<img src="images/ABAur_SB_EB1_initcont.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB1_initcont_spw0.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB1_initcont_spw1.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB1_initcont_spw2.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB1_initcont_spw3.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB1_initcont_spw4.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
 
-## Sample Roles and Directives
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+## SB EB2
 
-Here is a "note" directive:
+<img src="images/ABAur_SB_EB2_initcont.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB2_initcont_spw0.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB2_initcont_spw1.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB2_initcont_spw2.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB2_initcont_spw3.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_SB_EB2_initcont_spw4.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
 
-```{note}
-Here is a note
+## LB EB1
+
+<img src="images/ABAur_LB_EB1_initcont.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB1_initcont_spw0.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB1_initcont_spw1.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB1_initcont_spw2.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB1_initcont_spw3.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB1_initcont_spw4.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
+
+## LB EB2
+
+<img src="images/ABAur_LB_EB2_initcont.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB2_initcont_spw0.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB2_initcont_spw1.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB2_initcont_spw2.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB2_initcont_spw3.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB2_initcont_spw4.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
+
+## LB EB3
+
+<img src="images/ABAur_LB_EB3_initcont.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB3_initcont_spw0.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB3_initcont_spw1.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB3_initcont_spw2.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB3_initcont_spw3.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB3_initcont_spw4.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
+
+## LB EB4
+
+<img src="images/ABAur_LB_EB4_initcont.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB4_initcont_spw0.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB4_initcont_spw1.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB4_initcont_spw2.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB4_initcont_spw3.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB4_initcont_spw4.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
+
+## LB EB5
+
+<img src="images/ABAur_LB_EB5_initcont.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB5_initcont_spw0.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB5_initcont_spw1.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB5_initcont_spw2.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB5_initcont_spw3.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB5_initcont_spw4.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
+
+## LB EB6
+
+<img src="images/ABAur_LB_EB6_initcont.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB6_initcont_spw0.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB6_initcont_spw1.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB6_initcont_spw2.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB6_initcont_spw3.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+<img src="images/ABAur_LB_EB6_initcont_spw4.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
+
+## Comparing S, N and S/N across EBs
+
+The following is a summary of the above continuum images -- more directly informative for per-spw self calibration.
+
+The horizontal lines indicate the SNR in the execution block if all spws are imaged. Cool to see how it is slightly higher than if we image the continuum spectral window only (spw 0). The four 58 MHz windows (or more like 40-50 MHz, after line flagging) do add something.
+
+A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without concatenating them together, or without concatenating them with the SB data.
+
+```{image} images/ABAur_initcont_SNR_perspw.png
+:alt: ABAur_initcont_SNR_perspw
+:class: mb-1
+:width: 85%
+:align: center
 ```
 
-It will be rendered in a special box when you build your book.
+Just for reference, here is the equivalent plot but for (max value in image) and (measure rms noise in image). I calculated SNR as (max value in image)/(measure rms noise in image).
 
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
+<img src="images/ABAur_initcont_max_perspw.png" alt="ABAur_initcont_max_perspw" class="mb-1" width="49%">
+<img src="images/ABAur_initcont_rms_perspw.png" alt="ABAur_initcont_rms_perspw" class="mb-1" width="49%">
 
-
-## Citations
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-```{bibliography}
-```
-
-## Learn more
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+The LB executions have lower rms noise per beam than the SB executions, but the SB executions have that much more signal per beam.

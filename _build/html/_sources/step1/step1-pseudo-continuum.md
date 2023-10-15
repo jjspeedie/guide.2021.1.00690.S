@@ -1,55 +1,54 @@
 # Pseudocontinuum Measurement Sets
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+We want to remove our spectral lines to create a continuum-only measurement set. To do that, we have to take into account Doppler shifting of the lines (in the TOPO frame) over the course of the year.
 
-## What is MyST?
+I used functions from the DSHARP reduction_utils.py script to identify which channels to flag in each spectral window, given the rest frequency of the spectral line, and a choice of velocity range.
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
-
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
-
-## Sample Roles and Directives
-
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
-
-Here is a "note" directive:
-
-```{note}
-Here is a note
-```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
+I chose the velocity ranges myself, based on plots of amplitude vs. frequency. The ranges I chose are smaller than what MAPS or DSHARP did (+/- 15 km/s and +/- 25 km/s, respectively), but I wanted to preserve as much bandwidth as possible, and my selections looked reasonable to me in plots of amplitude vs. frequency. Later, during imaging of the cubes, I confirmed my selected ranges did not include channels containing any line emission.
 
 
-## Citations
+## SB EB1
 
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
+<img src="images/SB1_setup.png" alt="SB1_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-SB_EB1.png" alt="SB1_spectral_averaging" class="mb-1" width="100%">
 
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
+`````{admonition} In hindsight...
+:class: tip
+In hindsight (from Step 4), I should've made these plots with avgtime='1e8', avgscan=True and avgbaseline=True. It would've been a lot clearer.
+`````
 
-```{bibliography}
-```
+## SB EB2
 
-## Learn more
+<img src="images/SB2_setup.png" alt="SB2_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-SB_EB2.png" alt="SB2_spectral_averaging" class="mb-1" width="100%">
 
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+## LB EB1
+
+<img src="images/LB1_setup.png" alt="LB1_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB1.png" alt="LB1_spectral_averaging" class="mb-1" width="100%">
+
+## LB EB2
+
+<img src="images/LB2_setup.png" alt="LB2_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB2.png" alt="LB2_spectral_averaging" class="mb-1" width="100%">
+
+
+## LB EB3
+
+<img src="images/LB3_setup.png" alt="LB3_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB3.png" alt="LB3_spectral_averaging" class="mb-1" width="100%">
+
+## LB EB4
+
+<img src="images/LB4_setup.png" alt="LB4_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB4.png" alt="LB4_spectral_averaging" class="mb-1" width="100%">
+
+## LB EB5
+
+<img src="images/LB5_setup.png" alt="LB5_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB5.png" alt="LB5_spectral_averaging" class="mb-1" width="100%">
+
+## LB EB6
+
+<img src="images/LB6_setup.png" alt="LB6_setup" class="mb-1" width="100%">
+<img src="images/spectral-averaging-LB_EB6.png" alt="LB6_spectral_averaging" class="mb-1" width="100%">

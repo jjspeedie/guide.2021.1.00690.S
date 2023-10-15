@@ -390,23 +390,43 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#sb-eb1">
+   SB EB1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
+  <a class="reference internal nav-link" href="#sb-eb2">
+   SB EB2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
+  <a class="reference internal nav-link" href="#lb-eb1">
+   LB EB1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#lb-eb2">
+   LB EB2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb3">
+   LB EB3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb4">
+   LB EB4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb5">
+   LB EB5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb6">
+   LB EB6
   </a>
  </li>
 </ul>
@@ -430,23 +450,43 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#sb-eb1">
+   SB EB1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directives">
-   Sample Roles and Directives
+  <a class="reference internal nav-link" href="#sb-eb2">
+   SB EB2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
+  <a class="reference internal nav-link" href="#lb-eb1">
+   LB EB1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#lb-eb2">
+   LB EB2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb3">
+   LB EB3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb4">
+   LB EB4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb5">
+   LB EB5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lb-eb6">
+   LB EB6
   </a>
  </li>
 </ul>
@@ -460,49 +500,52 @@
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pseudocontinuum-measurement-sets">
 <h1>Pseudocontinuum Measurement Sets<a class="headerlink" href="#pseudocontinuum-measurement-sets" title="Permalink to this headline">¶</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
-</section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Permalink to this headline">¶</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
+<p>We want to remove our spectral lines to create a continuum-only measurement set. To do that, we have to take into account Doppler shifting of the lines (in the TOPO frame) over the course of the year.</p>
+<p>I used functions from the DSHARP reduction_utils.py script to identify which channels to flag in each spectral window, given the rest frequency of the spectral line, and a choice of velocity range.</p>
+<p>I chose the velocity ranges myself, based on plots of amplitude vs. frequency. The ranges I chose are smaller than what MAPS or DSHARP did (+/- 15 km/s and +/- 25 km/s, respectively), but I wanted to preserve as much bandwidth as possible, and my selections looked reasonable to me in plots of amplitude vs. frequency. Later, during imaging of the cubes, I confirmed my selected ranges did not include channels containing any line emission.</p>
+<section id="sb-eb1">
+<h2>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/SB1_setup.png"><img alt="SB1_setup" class="mb-1" src="../_images/SB1_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-SB_EB1.png"><img alt="SB1_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-SB_EB1.png" style="width: 100%;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">In hindsight…</p>
+<p>In hindsight (from Step 4), I should’ve made these plots with avgtime=’1e8’, avgscan=True and avgbaseline=True. It would’ve been a lot clearer.</p>
 </div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <span class="xref std std-doc">markdown-notebooks</span>.</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<span class="target" id="id2"></span></section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<section id="sb-eb2">
+<h2>SB EB2<a class="headerlink" href="#sb-eb2" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/SB2_setup.png"><img alt="SB2_setup" class="mb-1" src="../_images/SB2_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-SB_EB2.png"><img alt="SB2_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-SB_EB2.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb1">
+<h2>LB EB1<a class="headerlink" href="#lb-eb1" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB1_setup.png"><img alt="LB1_setup" class="mb-1" src="../_images/LB1_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB1.png"><img alt="LB1_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB1.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb2">
+<h2>LB EB2<a class="headerlink" href="#lb-eb2" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB2_setup.png"><img alt="LB2_setup" class="mb-1" src="../_images/LB2_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB2.png"><img alt="LB2_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB2.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb3">
+<h2>LB EB3<a class="headerlink" href="#lb-eb3" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB3_setup.png"><img alt="LB3_setup" class="mb-1" src="../_images/LB3_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB3.png"><img alt="LB3_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB3.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb4">
+<h2>LB EB4<a class="headerlink" href="#lb-eb4" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB4_setup.png"><img alt="LB4_setup" class="mb-1" src="../_images/LB4_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB4.png"><img alt="LB4_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB4.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb5">
+<h2>LB EB5<a class="headerlink" href="#lb-eb5" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB5_setup.png"><img alt="LB5_setup" class="mb-1" src="../_images/LB5_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB5.png"><img alt="LB5_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB5.png" style="width: 100%;" /></a>
+</section>
+<section id="lb-eb6">
+<h2>LB EB6<a class="headerlink" href="#lb-eb6" title="Permalink to this headline">¶</a></h2>
+<a class="mb-1 reference internal image-reference" href="../_images/LB6_setup.png"><img alt="LB6_setup" class="mb-1" src="../_images/LB6_setup.png" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB6.png"><img alt="LB6_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB6.png" style="width: 100%;" /></a>
 </section>
 </section>
 
