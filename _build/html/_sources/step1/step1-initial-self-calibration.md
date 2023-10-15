@@ -29,7 +29,7 @@ There are also other considerations:
 
 ## The results of this initial round of per-EB self-cal
 
-The SNR increased in all cases (some more than others). Visually, note the colorbar scale sometimes jumps (is not the same as the gif blinks back and forth).
+The SNR increased in all cases (some more than others). Visually, note the colorbar scale sometimes jumps significantly (is not the same as the gif blinks back and forth).
 
 ### SB EBs
 
