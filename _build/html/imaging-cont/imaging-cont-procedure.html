@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Preliminary Images" href="imaging-cont-preliminary-images.html" />
-    <link rel="prev" title="Continuum Subtraction" href="../step4/step4-continuum-subtraction.html" />
+    <link rel="prev" title="Create final continuum measurement set" href="../step4/step4-line-mses-achieved.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create final continuum measurement set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="current nav bd-sidenav">
@@ -403,8 +404,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="procedure">
+  <div class="tip admonition">
+<p class="admonition-title">The tasks in this chapter use the following scripts:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+And data:</div>
+<p class="sd-card-text"><a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a></p>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="procedure">
 <h1>Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/continuum_imaging_procedure.jpg"><img alt="continuum_imaging_procedure" class="mb-1 align-center" src="../_images/continuum_imaging_procedure.jpg" style="width: 100%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -439,12 +464,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../step4/step4-continuum-subtraction.html"
+       href="../step4/step4-line-mses-achieved.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Continuum Subtraction</p>
+        <p class="prev-next-title">Create final continuum measurement set</p>
       </div>
     </a>
     <a class="right-next"

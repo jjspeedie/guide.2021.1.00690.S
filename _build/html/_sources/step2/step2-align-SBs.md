@@ -6,6 +6,8 @@
 `````
 <!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
 
+See also example_alignment_usage.py.
+
 # Align Short-Baseline Execution Blocks
 
 In order to increase the chances of overlap (i.e. increase the number of grid cells containing visibility points from both the reference and comparison ms), we concatenate all six LB EBs together, and use the concatenation as the reference measurement set to which to align the SB executions.
