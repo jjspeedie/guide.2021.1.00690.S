@@ -16,15 +16,16 @@ parts:
     - file: overview/overview-resources
     - file: overview/overview-breakdown
 
-  - caption: ALMA Program 2021.1.00690.S
-    chapters:
-    - file: orientation/orientation-correlator-setup
-    - file: orientation/orientation-observation-summary
-    - file: orientation/orientation-pipeline-products
+  # - caption: ALMA Program 2021.1.00690.S
+  #   chapters:
+  #   - file: orientation/orientation-correlator-setup
+  #   - file: orientation/orientation-observation-summary
+  #   - file: orientation/orientation-pipeline-products
 
   - caption: Step 0 - Getting set up
     chapters:
     - file: step0/step0-download-data
+    - file: step0/step0-program-overview
     - file: step0/step0-restoring-pipeline-calibration
     - file: step0/step0-weblog
     - file: step0/step0-dictionaries

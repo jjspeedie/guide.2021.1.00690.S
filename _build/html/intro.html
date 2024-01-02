@@ -61,9 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="shortcut icon" href="_static/abaur.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Learning Resources" href="overview/overview-resources.html" />
@@ -162,15 +161,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="overview/overview-resources.html">Learning Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview/overview-breakdown.html">Breakdown of Our Task</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">ALMA Program 2021.1.00690.S</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="orientation/orientation-correlator-setup.html">Correlator Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="orientation/orientation-observation-summary.html">Observation Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="orientation/orientation-pipeline-products.html">Pipeline Products</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step0/step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-program-overview.html">Program Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0/step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0/step0-weblog.html">Inspecting the Weblog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0/step0-dictionaries.html">Useful Dictionaries</a></li>
@@ -415,41 +409,73 @@ structured.
 It shows off a few of the major file types, as well as some sample content.
 It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
 <p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>My advice is to write your own implementation of the type of solver
-you’ll be using for your research once, even if you don’t use it
-for your actual work.</p>
-<p>The process of figuring out how to organize and write the code
-will demystify a lot of what takes place in a modern simulation code.</p>
-</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-a(x, t=0) = \left \{ \begin{array}{ll} 0 &amp; \mbox{if } x &lt; \frac{1}{3}\\
-                                       1 &amp; \mbox{if } \frac{1}{3} \le x &lt; \frac{2}{3} \\
-                                       0 &amp; \mbox{if } x \ge \frac{2}{3}
-                                       \end{array} \right .
-\end{split}\]</div>
-<p>any initial profile <span class="math notranslate nohighlight">\(a(\xi)\)</span> is simply advected to the right (for <span class="math notranslate nohighlight">\(u &gt; 0\)</span>) at a velocity <span class="math notranslate nohighlight">\(u\)</span>.</p>
-<!-- ```{tableofcontents}
-``` -->
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview-resources.html">Learning Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview-breakdown.html">Breakdown of Our Task</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-program-overview.html">Program Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0/step0-dictionaries.html">Useful Dictionaries</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="step1/step1-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1/step1-pseudo-continuum.html">Pseudocontinuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1/step1-initial-continuum-images.html">Initial Continuum Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1/step1-initial-self-calibration.html">Initial Self-Calibration</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-continuum-subtraction.html#velocity-re-gridding">Velocity re-gridding</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-dirty-images.html">Dirty Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-full-history.html">Full History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
 </div>
 </section>
 

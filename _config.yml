@@ -11,6 +11,9 @@ copyright: '2024'
 execute:
   execute_notebooks: force
 
+# Disable building files that aren’t in the Table of Contents
+only_build_toc_files: true
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
@@ -31,6 +34,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: "abaur.png"  # A path to a favicon image
 
 parse:
   myst_enable_extensions:
