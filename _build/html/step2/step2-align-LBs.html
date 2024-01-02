@@ -417,7 +417,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="align-long-baseline-execution-blocks">
+  <div class="tip admonition">
+<p class="admonition-title">The tasks in this chapter use the following scripts:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step2_phase_alignment.py" target="_blank">step2_phase_alignment.py</a> # main script (using modular CASA)</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a class="reference external" href="http://alignment.py">alignment.py</a> # exoALMA visibility alignment functions (not yet public)</p></li>
+</ul>
+</div>
+<!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
+<section class="tex2jax_ignore mathjax_ignore" id="align-long-baseline-execution-blocks">
 <h1>Align Long-Baseline Execution Blocks<a class="headerlink" href="#align-long-baseline-execution-blocks" title="Permalink to this heading">#</a></h1>
 <p>Out of the 6 long-baseline execution blocks, LB_EB1 has the highest SNR and the best weather. We chose LB_EB1 to be our reference LB execution and align all other EBs to it.</p>
 <p>The following plots show the number of visibility points per cell for the reference EB and each of the to-be-aligned EBs, after the visibilities have been gridded in uv-space. The grid cell size in uv-space was chosen to correspond to ‘imsize’ and ‘cellsize’ values that we’ve used so far to make images in xy-space.</p>

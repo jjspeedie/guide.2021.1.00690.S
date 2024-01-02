@@ -403,7 +403,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="manual-flagging">
+  <div class="tip admonition">
+<p class="admonition-title">The tasks in this chapter use the following scripts:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step1_prepare_continuum.py" target="_blank">step1_prepare_continuum.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a> # loads disk_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step1_utils.py" target="_blank">step1_utils.py</a> # loads multiple functions</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # necessary for an initial round of selfcal at the end</p></li>
+</ul>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="manual-flagging">
 <h1>Manual Flagging<a class="headerlink" href="#manual-flagging" title="Permalink to this heading">#</a></h1>
 <p>There are some flaggable issues we identified during inspection of the weblog, namely bad antennas during Tsys measurements in both the SB and LB data. For example:</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/tsys-eg1-uid___A002_Xfbb255_X2286.ms.h_tsyscal.s6_3.tsyscal.tbl-tsys_vs_freq-time.DV17.spw23.png"><img alt="tsys-eg1" class="bg-primary mb-1" src="../_images/tsys-eg1-uid___A002_Xfbb255_X2286.ms.h_tsyscal.s6_3.tsyscal.tbl-tsys_vs_freq-time.DV17.spw23.png" style="width: 49%;" /></a>

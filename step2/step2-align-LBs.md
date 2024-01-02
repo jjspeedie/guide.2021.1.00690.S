@@ -1,3 +1,11 @@
+`````{admonition} The tasks in this chapter use the following scripts:
+:class: tip
+- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step2_phase_alignment.py" target="_blank">step2_phase_alignment.py</a> # main script (using modular CASA)
+- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict
+- alignment.py # exoALMA visibility alignment functions (not yet public)
+`````
+<!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
+
 # Align Long-Baseline Execution Blocks
 
 Out of the 6 long-baseline execution blocks, LB_EB1 has the highest SNR and the best weather. We chose LB_EB1 to be our reference LB execution and align all other EBs to it.

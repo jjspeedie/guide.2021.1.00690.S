@@ -403,7 +403,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="create-final-continuum-measurement-set">
+  <div class="tip admonition">
+<p class="admonition-title">The tasks in this chapter use the following scripts:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step3_continuum_selfcal.py" target="_blank">step3_continuum_selfcal.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a> # loads disk_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # selfcal functions</p></li>
+</ul>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="create-final-continuum-measurement-set">
 <h1>Create final continuum measurement set<a class="headerlink" href="#create-final-continuum-measurement-set" title="Permalink to this heading">#</a></h1>
 <p>To save storage space, we now time average to 30 seconds. This apparently does nothing to hurt/affect the data, so long as it’s done after self-calibration (because we want to get as low solint as possible, and because time-binning changes the weights which can make plotms wonky).</p>
 <div class="tip admonition">
