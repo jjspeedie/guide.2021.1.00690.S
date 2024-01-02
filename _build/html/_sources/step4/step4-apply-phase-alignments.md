@@ -11,3 +11,5 @@
 # Apply Phase Shifts
 
 [casatasks](https://casadocs.readthedocs.io/en/latest/examples/community/casa6_demo.html#Getting-Started) # mainly for listobs
+
+04:55:45.854900 +30.33.03.73320 J2000

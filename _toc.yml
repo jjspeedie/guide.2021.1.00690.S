@@ -56,6 +56,7 @@ parts:
     - file: step4/step4-apply-phase-alignments
     - file: step4/step4-apply-self-cal-solutions
     - file: step4/step4-continuum-subtraction
+    - file: step4/step4-line-mses-achieved
 
   - caption: Imaging - Continuum
     chapters:
