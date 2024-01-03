@@ -1,4 +1,4 @@
-`````{admonition} The tasks in this chapter use the following scripts:
+`````{admonition} Scripts for **Step 4 - Prepare the lines**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step4_prepare_lines.py" target="_blank">step4_prepare_lines.py</a> # main script
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step4_detour.py" target="_blank">step4_detour.py</a> # for phase alignment

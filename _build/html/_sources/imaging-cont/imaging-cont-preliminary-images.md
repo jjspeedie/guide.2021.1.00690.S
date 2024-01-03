@@ -1,4 +1,4 @@
-`````{admonition} The tasks in this chapter use the following scripts:
+`````{admonition} Scripts for **Imaging - Continuum**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict
