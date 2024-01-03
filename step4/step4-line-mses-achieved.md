@@ -8,7 +8,7 @@
 - <a href="https://casaguides.nrao.edu/index.php/Analysis_Utilities" target="_blank">analysisUtils (analysis_scripts/)</a> # for channel strings
 `````
 
-# Create final continuum measurement set
+# Create final line measurement sets
 
 (I tried to follow the file naming conventions of the MAPS datasets.)
 

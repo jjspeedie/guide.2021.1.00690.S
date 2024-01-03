@@ -15,4 +15,17 @@
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
 `````
 
-# Adopted Approach
+# Procedure
+
+
+````{card}
+
+```{image} images/line_imaging_procedure.jpg
+:alt: line_imaging_procedure
+:class: mb-1
+:width: 100%
+:align: center
+```
++++
+caption
+````

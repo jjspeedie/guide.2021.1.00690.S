@@ -65,8 +65,9 @@ parts:
 
   - caption: Imaging - Lines
     chapters:
+    - file: imaging-lines/imaging-lines-procedure
     - file: imaging-lines/imaging-lines-dirty-images
-    - file: imaging-lines/imaging-lines-full-history
+    - file: imaging-lines/imaging-lines-initial-approaches
     - file: imaging-lines/imaging-lines-adopted-approach
 
 
