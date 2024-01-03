@@ -16,3 +16,43 @@
 `````
 
 # Dirty Images
+
+````{card}
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/ABAur_12CO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_12CO.dirty.image.channelpans" width="48%">
+</video>
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/ABAur_13CO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_13CO.dirty.image.channelpans">
+</video>
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/ABAur_C18O.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_C18O.dirty.image.channelpans">
+</video>
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/ABAur_SO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_SO.dirty.image.channelpans">
+</video>
+</center>
++++
+caption
+````
