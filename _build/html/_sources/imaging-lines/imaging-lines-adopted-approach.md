@@ -16,3 +16,6 @@
 `````
 
 # Adopted Approach
+
+Relevant script: [adopted approach](imaging-lines-adopted-approach.md).
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a>

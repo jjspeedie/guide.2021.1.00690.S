@@ -29,3 +29,7 @@
 +++
 caption
 ````
+
+## Velocity Regridding and Channel Selection
+
+Note [dirty images](imaging-lines-dirty-images) and [initial approaches](imaging-lines-initial-approaches.md) were done on cvel2 data. [adopted approach](imaging-lines-adopted-approach.md) was done without cvel2. 

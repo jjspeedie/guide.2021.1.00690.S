@@ -15,7 +15,9 @@
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
 `````
 
-# Dirty Images
+# Dirty Image Cubes
+
+Details: Started with 0.1 km/s velocity resolution, smaller portion of the spectral axis, etc.
 
 ````{card}
 <center>
