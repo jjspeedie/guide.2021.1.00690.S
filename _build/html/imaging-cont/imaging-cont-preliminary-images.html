@@ -197,11 +197,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create final continuum measurement set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Preliminary Images</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
@@ -378,7 +380,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -394,6 +398,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Preliminary Images</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-0-5">Image made with Briggs robust = 0.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-1-0">Image made with Briggs robust = 1.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-1-5">Image made with Briggs robust = 1.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -403,8 +422,296 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="preliminary-images">
+  <div class="tip admonition">
+<p class="admonition-title">The tasks in this chapter use the following scripts:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+And data (obtained after <a class="reference internal" href="../step3/step3-continuum-ms-achieved.html"><span class="doc std std-doc">step 3</span></a>):</div>
+<p class="sd-card-text"><a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a> **could also link to log file</p>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="preliminary-images">
 <h1>Preliminary Images<a class="headerlink" href="#preliminary-images" title="Permalink to this heading">#</a></h1>
+<p>WRONG: 2X RMS NOISE. The following images were cleaned non-interactively using a circular mask of radius 2 arcsec centered on 04:55:45.854900 +30.33.03.73320 (J2000), the hogbom deconvolver with a Briggs robust weighting and no uv-taper, a cell size of 0.04 arcsec and 2000 cells, and cleaned down to a threhold of 1x the rms noise measured in the dirty image within an annulus (inner radius 4 arcsec; outer radius 10 arcsec).
+Things to improve: The cell size should be dependent on the <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter (cell size should sample the beam ~5-10 times and the beam depends on the <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter); the beam minor axis is borderline-sampled in the robust=0 image. We could also try uv-tapering. It is strange to clean down to 1x the rms noise measured in the dirty image, but I felt the residuals after cleaning to 4x or 3x were still quite large (i.e. I felt the residuals were still well above the noise and more signal could be extracted).</p>
+<section id="image-made-with-briggs-robust-0-5">
+<h2>Image made with Briggs robust = 0.5<a class="headerlink" href="#image-made-with-briggs-robust-0-5" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Key values in imaging process</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Dirty Image RMS (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">CLEAN <code class="docutils literal notranslate"><span class="pre">threshold</span></code> (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">JvM Epsilon (unitless)</p></th>
+<th class="head"><p class="sd-card-text">Residual Image Peak (unitless)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">50.20</p></td>
+<td><p class="sd-card-text">0.1004</p></td>
+<td><p class="sd-card-text">0.4566</p></td>
+<td><p class="sd-card-text">0.0992</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Properties of the resulting images</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">CLEAN Image</p></th>
+<th class="head"><p class="sd-card-text">Peak Intensity (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">Disk Flux (mJy)</p></th>
+<th class="head"><p class="sd-card-text">RMS noise (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">SNR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image</span></code></p></td>
+<td><p class="sd-card-text">2.13</p></td>
+<td><p class="sd-card-text">102.9</p></td>
+<td><p class="sd-card-text">13.34</p></td>
+<td><p class="sd-card-text">159.5</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image</span></code></p></td>
+<td><p class="sd-card-text">2.09</p></td>
+<td><p class="sd-card-text">89.9</p></td>
+<td><p class="sd-card-text">6.11</p></td>
+<td><p class="sd-card-text">342.6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">2.14</p></td>
+<td><p class="sd-card-text">103.1</p></td>
+<td><p class="sd-card-text">17.37</p></td>
+<td><p class="sd-card-text">123.1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">2.09</p></td>
+<td><p class="sd-card-text">90.0</p></td>
+<td><p class="sd-card-text">7.92</p></td>
+<td><p class="sd-card-text">264.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Peak intensity, disk flux (total flux within cleaning mask), measured RMS noise (within an annulus with inner and outer radii 4’’ and 11’’, respectively) and signal to noise ratio (column 2 / column 4) for each of the 4 image types. <code class="docutils literal notranslate"><span class="pre">.image</span></code> is the “regular” CLEAN image. <code class="docutils literal notranslate"><span class="pre">.pbcor</span></code> indicates primary beam corrected, and <code class="docutils literal notranslate"><span class="pre">.JvMcorr</span></code> indicates JvM corrected.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust0.5.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg"><img alt="robust0.5.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust0.5.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg" style="width: 48%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust0.5.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg"><img alt="robust0.5.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust0.5.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg" style="width: 48%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">JvM-corrected and primary beam-corrected continuum image with <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter of 0.5. <i>Left:</i> Zoom-out with aggressive colorbar stretch to accentuate background noise. <i>Right:</i> Zoom-in with less aggressive colorbar stretch.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust0.5.ABAUR_continuum.image_zoomout.jpg"><img alt="robust0.5.ABAUR_continuum.image" class="mb-1" src="../_images/robust0.5.ABAUR_continuum.image_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust0.5.ABAUR_continuum.image.pbcor_zoomout.jpg"><img alt="robust0.5.ABAUR_continuum.image.pbcor" class="mb-1" src="../_images/robust0.5.ABAUR_continuum.image.pbcor_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust0.5.ABAUR_continuum.JvMcorr.image_zoomout.jpg"><img alt="robust0.5.ABAUR_continuum.JvMcorr.image" class="mb-1" src="../_images/robust0.5.ABAUR_continuum.JvMcorr.image_zoomout.jpg" style="width: 32%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><i>Left:</i> Regular CLEAN image. <i>Middle:</i> Regular CLEAN image, primary beam corrected. <i>Right:</i> JvM corrected image (not primary beam corrected).</p>
+</div>
+</div>
+</section>
+<section id="image-made-with-briggs-robust-1-0">
+<h2>Image made with Briggs robust = 1.0<a class="headerlink" href="#image-made-with-briggs-robust-1-0" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Key values in imaging process</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Dirty Image RMS (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">CLEAN <code class="docutils literal notranslate"><span class="pre">threshold</span></code> (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">JvM Epsilon (unitless)</p></th>
+<th class="head"><p class="sd-card-text">Residual Image Peak (unitless)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">150.3</p></td>
+<td><p class="sd-card-text">0.3006</p></td>
+<td><p class="sd-card-text">0.3531</p></td>
+<td><p class="sd-card-text">0.2998</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Properties of the resulting images</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">CLEAN Image</p></th>
+<th class="head"><p class="sd-card-text">Peak Intensity (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">Disk Flux (mJy)</p></th>
+<th class="head"><p class="sd-card-text">RMS noise (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">SNR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image</span></code></p></td>
+<td><p class="sd-card-text">4.47</p></td>
+<td><p class="sd-card-text">111.65</p></td>
+<td><p class="sd-card-text">24.24</p></td>
+<td><p class="sd-card-text">184.2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image</span></code></p></td>
+<td><p class="sd-card-text">4.30</p></td>
+<td><p class="sd-card-text">89.86</p></td>
+<td><p class="sd-card-text">8.45</p></td>
+<td><p class="sd-card-text">509.1</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">4.45</p></td>
+<td><p class="sd-card-text">111.84</p></td>
+<td><p class="sd-card-text">31.33</p></td>
+<td><p class="sd-card-text">142.0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">4.34</p></td>
+<td><p class="sd-card-text">89.96</p></td>
+<td><p class="sd-card-text">11.04</p></td>
+<td><p class="sd-card-text">393.5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Peak intensity, disk flux (total flux within cleaning mask), measured RMS noise (within an annulus with inner and outer radii 4’’ and 11’’, respectively) and signal to noise ratio (column 2 / column 4) for each of the 4 image types. <code class="docutils literal notranslate"><span class="pre">.image</span></code> is the “regular” CLEAN image. <code class="docutils literal notranslate"><span class="pre">.pbcor</span></code> indicates primary beam corrected, and <code class="docutils literal notranslate"><span class="pre">.JvMcorr</span></code> indicates JvM corrected.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.0.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg"><img alt="robust1.0.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust1.0.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg" style="width: 48%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.0.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg"><img alt="robust1.0.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust1.0.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg" style="width: 48%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">JvM-corrected and primary beam-corrected continuum image with <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter of 1.0. <i>Left:</i> Zoom-out with aggressive colorbar stretch to accentuate background noise. <i>Right:</i> Zoom-in with less aggressive colorbar stretch.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.0.ABAUR_continuum.image_zoomout.jpg"><img alt="robust1.0.ABAUR_continuum.image" class="mb-1" src="../_images/robust1.0.ABAUR_continuum.image_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.0.ABAUR_continuum.image.pbcor_zoomout.jpg"><img alt="robust1.0.ABAUR_continuum.image.pbcor" class="mb-1" src="../_images/robust1.0.ABAUR_continuum.image.pbcor_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.0.ABAUR_continuum.JvMcorr.image_zoomout.jpg"><img alt="robust1.0.ABAUR_continuum.JvMcorr.image" class="mb-1" src="../_images/robust1.0.ABAUR_continuum.JvMcorr.image_zoomout.jpg" style="width: 32%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><i>Left:</i> Regular CLEAN image. <i>Middle:</i> Regular CLEAN image, primary beam corrected. <i>Right:</i> JvM corrected image (not primary beam corrected).</p>
+</div>
+</div>
+</section>
+<section id="image-made-with-briggs-robust-1-5">
+<h2>Image made with Briggs robust = 1.5<a class="headerlink" href="#image-made-with-briggs-robust-1-5" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Key values in imaging process</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Dirty Image RMS (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">CLEAN <code class="docutils literal notranslate"><span class="pre">threshold</span></code> (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">JvM Epsilon (unitless)</p></th>
+<th class="head"><p class="sd-card-text">Residual Image Peak (unitless)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">253.2</p></td>
+<td><p class="sd-card-text">0.5064</p></td>
+<td><p class="sd-card-text">0.3383</p></td>
+<td><p class="sd-card-text">0.5064</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Properties of the resulting images</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">CLEAN Image</p></th>
+<th class="head"><p class="sd-card-text">Peak Intensity (mJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">Disk Flux (mJy)</p></th>
+<th class="head"><p class="sd-card-text">RMS noise (uJy/beam)</p></th>
+<th class="head"><p class="sd-card-text">SNR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image</span></code></p></td>
+<td><p class="sd-card-text">5.94</p></td>
+<td><p class="sd-card-text">117.38</p></td>
+<td><p class="sd-card-text">41.83</p></td>
+<td><p class="sd-card-text">142.1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image</span></code></p></td>
+<td><p class="sd-card-text">5.73</p></td>
+<td><p class="sd-card-text">90.13</p></td>
+<td><p class="sd-card-text">14.13</p></td>
+<td><p class="sd-card-text">405.6</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">5.95</p></td>
+<td><p class="sd-card-text">117.60</p></td>
+<td><p class="sd-card-text">54.10</p></td>
+<td><p class="sd-card-text">110.0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.JvMcorr.image.pbcor</span></code></p></td>
+<td><p class="sd-card-text">5.76</p></td>
+<td><p class="sd-card-text">90.25</p></td>
+<td><p class="sd-card-text">18.34</p></td>
+<td><p class="sd-card-text">314.2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Peak intensity, disk flux (total flux within cleaning mask), measured RMS noise (within an annulus with inner and outer radii 4’’ and 11’’, respectively) and signal to noise ratio (column 2 / column 4) for each of the 4 image types. <code class="docutils literal notranslate"><span class="pre">.image</span></code> is the “regular” CLEAN image. <code class="docutils literal notranslate"><span class="pre">.pbcor</span></code> indicates primary beam corrected, and <code class="docutils literal notranslate"><span class="pre">.JvMcorr</span></code> indicates JvM corrected.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.5.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg"><img alt="robust1.5.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust1.5.ABAUR_continuum.JvMcorr.image.pbcor_zoomout.jpg" style="width: 48%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.5.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg"><img alt="robust1.5.ABAUR_continuum.JvMcorr.image.pbcor" class="mb-1" src="../_images/robust1.5.ABAUR_continuum.JvMcorr.image.pbcor_zoom.jpg" style="width: 48%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">JvM-corrected and primary beam-corrected continuum image with <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter of 1.5. <i>Left:</i> Zoom-out with aggressive colorbar stretch to accentuate background noise. <i>Right:</i> Zoom-in with less aggressive colorbar stretch.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.5.ABAUR_continuum.image_zoomout.jpg"><img alt="robust1.5.ABAUR_continuum.image" class="mb-1" src="../_images/robust1.5.ABAUR_continuum.image_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.5.ABAUR_continuum.image.pbcor_zoomout.jpg"><img alt="robust1.5.ABAUR_continuum.image.pbcor" class="mb-1" src="../_images/robust1.5.ABAUR_continuum.image.pbcor_zoomout.jpg" style="width: 32%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/robust1.5.ABAUR_continuum.JvMcorr.image_zoomout.jpg"><img alt="robust1.5.ABAUR_continuum.JvMcorr.image" class="mb-1" src="../_images/robust1.5.ABAUR_continuum.JvMcorr.image_zoomout.jpg" style="width: 32%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><i>Left:</i> Regular CLEAN image. <i>Middle:</i> Regular CLEAN image, primary beam corrected. <i>Right:</i> JvM corrected image (not primary beam corrected).</p>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -465,6 +772,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Preliminary Images</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-0-5">Image made with Briggs robust = 0.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-1-0">Image made with Briggs robust = 1.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-made-with-briggs-robust-1-5">Image made with Briggs robust = 1.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

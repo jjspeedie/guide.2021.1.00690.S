@@ -5,7 +5,7 @@
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script
 
-````{card} And data:
+````{card} And data (obtained after [step 3](../step3/step3-continuum-ms-achieved.md)):
 <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a>
 `````
 
