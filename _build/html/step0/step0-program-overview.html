@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'step0/step0-program-overview';</script>
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -406,19 +408,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-summary">Observation Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-baseline-data-c-6-configuration">Long baseline data (C-6 configuration)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-baseline-data-c-3-configuration">Short baseline data (C-3 configuration)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-products">Pipeline Products</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm1">Channel maps (TM1)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm2">Channel maps (TM2)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-line-profiles">Spectral line profiles</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
             </nav>
         </div>
@@ -432,376 +433,476 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="program-overview">
 <h1>Program Overview<a class="headerlink" href="#program-overview" title="Permalink to this heading">#</a></h1>
-<section id="correlator-setup">
-<h2>Correlator Setup<a class="headerlink" href="#correlator-setup" title="Permalink to this heading">#</a></h2>
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/spectral-setup.png"><img alt="correlator-setup" class="bg-primary mb-1 align-center" src="../_images/spectral-setup.png" style="width: 100%;" /></a>
-</section>
+<p>We observed AB Aur with ALMA in April, May and September 2022 under ALMA program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the “short-baseline” and “long-baseline” configurations, respectively.
+In total, the 8 execution blocks (EBs) reached an on-source integration time of 5.75 hours.</p>
 <section id="observation-summary">
 <h2>Observation Summary<a class="headerlink" href="#observation-summary" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/observation-summary.png"><img alt="observation-summary" class="mb-1" src="../_images/observation-summary.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Details of the ALMA Band 6 observations. Footnote <span class="math notranslate nohighlight">\(^b\)</span> refers to <a class="reference internal" href="../step2/step2-align-SBs.html"><span class="doc std std-doc">step 2</span></a>.</p>
+</div>
+</div>
 <section id="long-baseline-data-c-6-configuration">
 <h3>Long baseline data (C-6 configuration)<a class="headerlink" href="#long-baseline-data-c-6-configuration" title="Permalink to this heading">#</a></h3>
-<p>AB_Aur_a_06_TM1: member.uid___A001_X15a2_Xb6b</p>
+<style>
+ .table_wrapper{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+</style>
+<p>Below are further details on the TM1 scheduling block, compiled from a combination of the weblog and the QA reports. Note that you can scroll through this table horizontally.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="table_wrapper">
+<table>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><div style="width:250px">Execution Block</div></p></th>
-<th class="head"><p><div style="width:120px">Session</div></p></th>
-<th class="head"><p><div style="width:250px">QA0 ExecBlock Status</div></p></th>
-<th class="head"><p><div style="width:150px">QA0 Status</div></p></th>
-<th class="head"><p><div style="width:250px">QA0 Comment</div></p></th>
-<th class="head"><p><div style="width:700px">QA0 Warnings</div></p></th>
-<th class="head"><p><div style="width:150px">Exec Fraction</div></p></th>
-<th class="head"><p><div style="width:80px">Band</div></p></th>
-<th class="head"><p><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
-<th class="head"><p><div style="width:200px">Baselines (m)</div></p></th>
-<th class="head"><p><div style="width:220px">Antennas (total)</div></p></th>
-<th class="head"><p><div style="width:220px">Shadowing</div></p></th>
-<th class="head"><p><div style="width:150px">PWV (mm)</div></p></th>
-<th class="head"><p><div style="width:150px">PWV Octile</div></p></th>
-<th class="head"><p><div style="width:150px">Tsys (OT, K)</div></p></th>
-<th class="head"><p><div style="width:150px">Tsys (EB, K)</div></p></th>
-<th class="head"><p><div style="width:250px">Start</div></p></th>
-<th class="head"><p><div style="width:250px">End</div></p></th>
-<th class="head"><p><div style="width:200px">Time on AB Aur (min)</div></p></th>
-<th class="head"><p><div style="width:250px">Calibrators: Atmosphere</div></p></th>
-<th class="head"><p><div style="width:250px">Calibrators: Bandpass</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Flux</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Phase</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Pointing</div></p></th>
-<th class="head"><p><div style="width:450px">Calibrators: WVR</div></p></th>
-<th class="head"><p><div style="width:250px">Observe Check Source</div></p></th>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><div style="width:250px">Execution Block</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:120px">Session</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 ExecBlock Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">QA0 Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 Comment</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:700px">QA0 Warnings</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Exec Fraction</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:80px">Band</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Baselines (m)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Antennas (total)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Shadowing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV (mm)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV Octile</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (OT, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (EB, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Start</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">End</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Time on AB Aur (min)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Atmosphere</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Bandpass</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Flux</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Phase</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Pointing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:450px">Calibrators: WVR</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Observe Check Source</div></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>uid___A002_Xfb8480_X6a5b</p></td>
-<td><p>1</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>Excellent conditions</p></td>
-<td><p>N/A</p></td>
-<td><p>1.5</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>41</p></td>
-<td><p>0.00%</p></td>
-<td><p>0.24</p></td>
-<td><p>&lt;1</p></td>
-<td><p>116.5</p></td>
-<td><p>65.4</p></td>
-<td><p>2022-07-17 14:07:17</p></td>
-<td><p>2022-07-17 15:25:26</p></td>
-<td><p>47.37</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfb8480_X6a5b</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Excellent conditions</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">0.24</p></td>
+<td><p class="sd-card-text">&lt;1</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">65.4</p></td>
+<td><p class="sd-card-text">2022-07-17 14:07:17</p></td>
+<td><p class="sd-card-text">2022-07-17 15:25:26</p></td>
+<td><p class="sd-card-text">47.37</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
-<tr class="row-odd"><td><p>uid___A002_Xfb8480_X178cb</p></td>
-<td><p>2</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>The atmosphere was unstable</p></td>
-<td><p>Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
-<td><p>1.16</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>42</p></td>
-<td><p>1.11%</p></td>
-<td><p>1.49</p></td>
-<td><p>4-5</p></td>
-<td><p>116.5</p></td>
-<td><p>99.8</p></td>
-<td><p>2022-07-19 12:02:10</p></td>
-<td><p>2022-07-19 13:21:27</p></td>
-<td><p>47.37</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfb8480_X178cb</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was unstable</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">1.16</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">42</p></td>
+<td><p class="sd-card-text">1.11%</p></td>
+<td><p class="sd-card-text">1.49</p></td>
+<td><p class="sd-card-text">4-5</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">99.8</p></td>
+<td><p class="sd-card-text">2022-07-19 12:02:10</p></td>
+<td><p class="sd-card-text">2022-07-19 13:21:27</p></td>
+<td><p class="sd-card-text">47.37</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
-<tr class="row-even"><td><p>uid___A002_Xfbb255_X2286</p></td>
-<td><p>3</p></td>
-<td><p>FAIL</p></td>
-<td><p>Pass</p></td>
-<td><p>The atmosphere was. very unstable</p></td>
-<td><p>Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
-<td><p>0.38</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>44</p></td>
-<td><p>0.00%</p></td>
-<td><p>2.85</p></td>
-<td><p>6-7</p></td>
-<td><p>116.5</p></td>
-<td><p>137</p></td>
-<td><p>2022-07-20 14:03:55</p></td>
-<td><p>2022-07-20 14:59:55</p></td>
-<td><p>34.8</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfbb255_X2286</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was. very unstable</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
+<td><p class="sd-card-text">0.38</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">44</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">2.85</p></td>
+<td><p class="sd-card-text">6-7</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">137</p></td>
+<td><p class="sd-card-text">2022-07-20 14:03:55</p></td>
+<td><p class="sd-card-text">2022-07-20 14:59:55</p></td>
+<td><p class="sd-card-text">34.8</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
-<tr class="row-odd"><td><p>uid___A002_Xfbb9c7_X6731</p></td>
-<td><p>4</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>Very high atmosphere unstability</p></td>
-<td><p>Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
-<td><p>0.65</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>42</p></td>
-<td><p>0.00%</p></td>
-<td><p>2.37</p></td>
-<td><p>5-6</p></td>
-<td><p>116.5</p></td>
-<td><p>123.62</p></td>
-<td><p>2022-07-21 14:01:35</p></td>
-<td><p>2022-07-21 15:20:52</p></td>
-<td><p>47.42</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfbb9c7_X6731</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Very high atmosphere unstability</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">0.65</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">42</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">2.37</p></td>
+<td><p class="sd-card-text">5-6</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">123.62</p></td>
+<td><p class="sd-card-text">2022-07-21 14:01:35</p></td>
+<td><p class="sd-card-text">2022-07-21 15:20:52</p></td>
+<td><p class="sd-card-text">47.42</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
-<tr class="row-even"><td><p>uid___A002_Xfbb9c7_Xd621</p></td>
-<td><p>5</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>The atmosphere was very unstable</p></td>
-<td><p>Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
-<td><p>1.5</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>44</p></td>
-<td><p>1.73%</p></td>
-<td><p>0.84</p></td>
-<td><p>2-3</p></td>
-<td><p>116.5</p></td>
-<td><p>81.444</p></td>
-<td><p>2022-07-22 11:30:28</p></td>
-<td><p>2022-07-22 12:49:58</p></td>
-<td><p>47.33</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfbb9c7_Xd621</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was very unstable</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">44</p></td>
+<td><p class="sd-card-text">1.73%</p></td>
+<td><p class="sd-card-text">0.84</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">81.444</p></td>
+<td><p class="sd-card-text">2022-07-22 11:30:28</p></td>
+<td><p class="sd-card-text">2022-07-22 12:49:58</p></td>
+<td><p class="sd-card-text">47.33</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
-<tr class="row-odd"><td><p>uid___A002_Xfbb9c7_Xe05e</p></td>
-<td><p>6</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>The atmosphere. was unstable</p></td>
-<td><p>Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
-<td><p>1.5</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-2617</p></td>
-<td><p>41</p></td>
-<td><p>0.00%</p></td>
-<td><p>0.63</p></td>
-<td><p>1-2</p></td>
-<td><p>116.5</p></td>
-<td><p>73.95</p></td>
-<td><p>2022-07-22 12:59:16</p></td>
-<td><p>2022-07-22 14:18:16</p></td>
-<td><p>47.42</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
-<td><p>J0435+2532</p></td>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfbb9c7_Xe05e</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere. was unstable</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">0.63</p></td>
+<td><p class="sd-card-text">1-2</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73.95</p></td>
+<td><p class="sd-card-text">2022-07-22 12:59:16</p></td>
+<td><p class="sd-card-text">2022-07-22 14:18:16</p></td>
+<td><p class="sd-card-text">47.42</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
 </tr>
 </tbody>
 </table>
+</table>
+</div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>AB_Aur_a_06_TM1: member.uid___A001_X15a2_Xb6b</strong>.</p>
+</div>
+</div>
 </section>
 <section id="short-baseline-data-c-3-configuration">
 <h3>Short baseline data (C-3 configuration)<a class="headerlink" href="#short-baseline-data-c-3-configuration" title="Permalink to this heading">#</a></h3>
-<p>AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d</p>
+<p>Below are further details on the TM2 scheduling block, compiled from a combination of the weblog and the QA reports. Note that you can scroll through this table horizontally.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="table_wrapper">
+<table>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><div style="width:250px">Execution Block</div></p></th>
-<th class="head"><p><div style="width:120px">Session</div></p></th>
-<th class="head"><p><div style="width:250px">QA0 ExecBlock Status</div></p></th>
-<th class="head"><p><div style="width:150px">QA0 Status</div></p></th>
-<th class="head"><p><div style="width:500px">QA0 Comment</div></p></th>
-<th class="head"><p><div style="width:700px">QA0 Warnings</div></p></th>
-<th class="head"><p><div style="width:150px">Exec Fraction</div></p></th>
-<th class="head"><p><div style="width:80px">Band</div></p></th>
-<th class="head"><p><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
-<th class="head"><p><div style="width:200px">Baselines (m)</div></p></th>
-<th class="head"><p><div style="width:220px">Antennas (total)</div></p></th>
-<th class="head"><p><div style="width:220px">Shadowing</div></p></th>
-<th class="head"><p><div style="width:150px">PWV (mm)</div></p></th>
-<th class="head"><p><div style="width:150px">PWV Octile</div></p></th>
-<th class="head"><p><div style="width:150px">Tsys (OT, K)</div></p></th>
-<th class="head"><p><div style="width:150px">Tsys (EB, K)</div></p></th>
-<th class="head"><p><div style="width:250px">Start</div></p></th>
-<th class="head"><p><div style="width:250px">End</div></p></th>
-<th class="head"><p><div style="width:200px">Time on AB Aur (min)</div></p></th>
-<th class="head"><p><div style="width:250px">Calibrators: Atmosphere</div></p></th>
-<th class="head"><p><div style="width:250px">Calibrators: Bandpass</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Flux</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Phase</div></p></th>
-<th class="head"><p><div style="width:200px">Calibrators: Pointing</div></p></th>
-<th class="head"><p><div style="width:450px">Calibrators: WVR</div></p></th>
-<th class="head"><p><div style="width:250px">Observe Check Source</div></p></th>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><div style="width:250px">Execution Block</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:120px">Session</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 ExecBlock Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">QA0 Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:500px">QA0 Comment</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:700px">QA0 Warnings</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Exec Fraction</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:80px">Band</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Baselines (m)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Antennas (total)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Shadowing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV (mm)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV Octile</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (OT, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (EB, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Start</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">End</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Time on AB Aur (min)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Atmosphere</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Bandpass</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Flux</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Phase</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Pointing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:450px">Calibrators: WVR</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Observe Check Source</div></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>uid___A002_Xf7ad58_Xd406</p></td>
-<td><p>1</p></td>
-<td><p>SUCCESS</p></td>
-<td><p>Pass</p></td>
-<td><p>Some antennas shadowed due to high   declination (11.6%)</p></td>
-<td><p>Percentage of calibration data flagged:   0.500 %</p></td>
-<td><p>1.5</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>14-500</p></td>
-<td><p>41</p></td>
-<td><p>11.63%</p></td>
-<td><p>0.74</p></td>
-<td><p>2-3</p></td>
-<td><p>116.5</p></td>
-<td><p>73</p></td>
-<td><p>2022-04-19  7:25:22</p></td>
-<td><p>2022-04-19  8:20:05</p></td>
-<td><p>41</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur</p></td>
-<td><p>N/A</p></td>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xf7ad58_Xd406</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Some antennas shadowed due to high   declination (11.6%)</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged:   0.500 %</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">14-500</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">11.63%</p></td>
+<td><p class="sd-card-text">0.74</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73</p></td>
+<td><p class="sd-card-text">2022-04-19  7:25:22</p></td>
+<td><p class="sd-card-text">2022-04-19  8:20:05</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>uid___A002_Xf8d822_Xa976 (not   used by pipeline calibration)</p></td>
-<td><p>2</p></td>
-<td><p>FAIL</p></td>
-<td><p>Semi-pass</p></td>
-<td><p>APE2: 12m obs crash with ‘Failed to handle an interface method   invocation’. no band set - problem in dataset</p></td>
-<td><p>N/A</p></td>
-<td><p>0</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-500</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>0.74</p></td>
-<td><p>2-3</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>8.1</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xf8d822_Xa976 (discarded by ALMA pipeline)</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Semi-pass</p></td>
+<td><p class="sd-card-text">APE2: 12m obs crash with ‘Failed to handle an interface method   invocation’. no band set - problem in dataset</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-500</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">0.74</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">8.1</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>uid___A002_Xf8f6a9_X15c79</p></td>
-<td><p>3</p></td>
-<td><p>FAIL</p></td>
-<td><p>Pass</p></td>
-<td><p>DV 23 and DA54 presented issues. No other major issue.</p></td>
-<td><p>Percentage of calibration data flagged: 0.020 %; Achieved angular   resolution is outside the expected range. Observed: 0.55, requested: 0.64 -   0.96</p></td>
-<td><p>1.5</p></td>
-<td><p>6</p></td>
-<td><p>220.392</p></td>
-<td><p>15-680</p></td>
-<td><p>45</p></td>
-<td><p>12.79%</p></td>
-<td><p>0.69</p></td>
-<td><p>2-3</p></td>
-<td><p>116.5</p></td>
-<td><p>73.2</p></td>
-<td><p>2022-05-15 18:05:13</p></td>
-<td><p>2022-05-15 18:49:47</p></td>
-<td><p>32.4</p></td>
-<td><p>J0510+1800, AB_Aur</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004</p></td>
-<td><p>J0510+1800</p></td>
-<td><p>J0438+3004, J0510+1800, AB_Aur</p></td>
-<td><p>N/A</p></td>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xf8f6a9_X15c79</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">DV 23 and DA54 presented issues. No other major issue.</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.020 %; Achieved angular   resolution is outside the expected range. Observed: 0.55, requested: 0.64 -   0.96</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-680</p></td>
+<td><p class="sd-card-text">45</p></td>
+<td><p class="sd-card-text">12.79%</p></td>
+<td><p class="sd-card-text">0.69</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73.2</p></td>
+<td><p class="sd-card-text">2022-05-15 18:05:13</p></td>
+<td><p class="sd-card-text">2022-05-15 18:49:47</p></td>
+<td><p class="sd-card-text">32.4</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
 </tr>
 </tbody>
 </table>
+ </table>
+ </div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d</strong>. The “second” execution block “uid___A002_Xf8d822_Xa976” was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The “third” execution block, “uid___A002_Xf8f6a9_X15c79”, is thus what we move forward with as “SB EB2”.</p>
+</div>
+</div>
 </section>
+</section>
+<section id="correlator-setup">
+<h2>Correlator Setup<a class="headerlink" href="#correlator-setup" title="Permalink to this heading">#</a></h2>
+<p>Our correlator setup was designed for kinematic science.
+We placed five spectral windows (SPWs) over the four available basebands to target four molecular emission lines and the continuum.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/correlator-setup.png"><img alt="correlator-setup" class="mb-1" src="../_images/correlator-setup.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">ALMA Band 6 correlator setup.</p>
+</div>
+</div>
+<p>We centered one SPW (“representative” window) at the <span class="math notranslate nohighlight">\(^{13}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> molecular emission line transition rest frequency (220.405 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with <span class="math notranslate nohighlight">\(N=2\)</span> by Hanning smoothing within the correlator data processor. (This was our “representative” window in the OT.)</p>
+<p>We placed a second SPW at the <span class="math notranslate nohighlight">\(^{12}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> rest frequency (230.545 GHz) covering the same bandwidth with the same number of channels, achieving a slighty higher spectral resolution of 39.684 m/s (due to the higher center frequency, of course).</p>
+<p>A third SPW was centered at the C<span class="math notranslate nohighlight">\(^{18}\)</span>O <span class="math notranslate nohighlight">\(J=2-1\)</span> rest frequency (219.567 GHz), and a fourth at the SO <span class="math notranslate nohighlight">\(6(5)-5(4)\)</span> rest frequency (219.956 GHz). Each of these SPWS covered the same bandwidth (58.594 MHz) but with <em>half</em> as many channels (960 channels) because they share a baseband. Thus they achieve a lower spectral resolution of 83.336 m/s and 83.189 m/s respectively.</p>
+<p>To enable self-calibration, our correlator setup sampled the continuum in a fifth SPW centered at <span class="math notranslate nohighlight">\(233.012\)</span> GHz with 128 channels each 15.625 MHz in width, obtaining the full available 2.0 GHz bandwidth.</p>
+<p>The weblog provides a detailed summary of the correlator setup.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-setup.png"><img alt="spectral-setup" class="mb-1" src="../_images/spectral-setup.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">ALMA Band 6 correlator setup (version provided by the weblog).</p>
+</div>
+</div>
 </section>
 <section id="pipeline-products">
 <h2>Pipeline Products<a class="headerlink" href="#pipeline-products" title="Permalink to this heading">#</a></h2>
+<p>Each scheduling block (TM1 and TM2) was calibrated by the Cycle 8 ALMA pipeline. The final tasks in the pipe additionally generate imaging products, which we can view to get an initial idea of what the observations show.</p>
 <section id="channel-maps-tm1">
 <h3>Channel maps (TM1)<a class="headerlink" href="#channel-maps-tm1" title="Permalink to this heading">#</a></h3>
-<video width="400" controls>
-  <source src="../_static/videos/TM1_12CO.mp4" type="video/mp4">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_12CO.mp4" type="video/mp4" alt="pipeline_TM1_12CO">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM1_13CO.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_13CO.mp4" type="video/mp4" alt="pipeline_TM1_13CO">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM1_C18O.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_C18O.mp4" type="video/mp4" alt="pipeline_TM1_C18O">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM1_SO.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_SO.mp4" type="video/mp4" alt="pipeline_TM1_SO">
 </video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Pipeline-generated TM1 line images (task <code class="docutils literal notranslate"><span class="pre">hif_makeimages</span></code>).</p>
+</div>
+</div>
 </section>
 <section id="channel-maps-tm2">
 <h3>Channel maps (TM2)<a class="headerlink" href="#channel-maps-tm2" title="Permalink to this heading">#</a></h3>
-<video width="400" controls>
-  <source src="../_static/videos/TM2_12CO.mp4" type="video/mp4">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_12CO.mp4" type="video/mp4" alt="pipeline_TM2_12CO">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM2_13CO.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_13CO.mp4" type="video/mp4" alt="pipeline_TM2_13CO">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM2_C18O.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_C18O.mp4" type="video/mp4" alt="pipeline_TM2_C18O">
 </video>
-<video width="400" controls>
-  <source src="../_static/videos/TM2_SO.mp4" type="video/mp4">
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_SO.mp4" type="video/mp4" alt="pipeline_TM2_SO">
 </video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Pipeline-generated TM2 line images (task <code class="docutils literal notranslate"><span class="pre">hif_makeimages</span></code>).</p>
+</div>
+</div>
 </section>
 <section id="spectral-line-profiles">
 <h3>Spectral line profiles<a class="headerlink" href="#spectral-line-profiles" title="Permalink to this heading">#</a></h3>
-<p>Integrated spectral line profiles for each of the TM1 and TM2 datasets, one molecule at a time. Note the different y-axis scale.</p>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw31.png"><img alt="12CO-pipeline-line-profile" class="mb-1 align-center" src="../_images/pipeline_Zprofile_spw31.png" style="width: 100%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw29.png"><img alt="13CO-pipeline-line-profile" class="mb-1 align-center" src="../_images/pipeline_Zprofile_spw29.png" style="width: 100%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw27.png"><img alt="C18O-pipeline-line-profile" class="mb-1 align-center" src="../_images/pipeline_Zprofile_spw27.png" style="width: 100%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw25.png"><img alt="SO-pipeline-line-profile" class="mb-1 align-center" src="../_images/pipeline_Zprofile_spw25.png" style="width: 100%;" /></a>
+<p>Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what’s happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles. These were not delivered by the pipeline. Note the different y-axis scale.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw31.png"><img alt="12CO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw31.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw29.png"><img alt="13CO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw29.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw27.png"><img alt="C18O-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw27.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw25.png"><img alt="SO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw25.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Spectral line profiles, integrated over the full FOV. TM1 and TM2 overlaid.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM1.png"><img alt="TM1-pipeline-line-profiles-comparison" class="mb-1" src="../_images/pipeline_Zprofile_allspws_TM1.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM2.png"><img alt="TM2-pipeline-line-profiles-comparison" class="mb-1" src="../_images/pipeline_Zprofile_allspws_TM2.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Spectral line profiles, integrated over the full FOV. All four molecules on the same scale.</p>
+</div>
+</div>
 </section>
-</section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Overlaying all 4 molecules onto the same scale; one configuration at a time.</p>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM1.png"><img alt="TM1-pipeline-line-profiles-comparison" class="mb-1 align-center" src="../_images/pipeline_Zprofile_allspws_TM1.png" style="width: 100%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM2.png"><img alt="TM2-pipeline-line-profiles-comparison" class="mb-1 align-center" src="../_images/pipeline_Zprofile_allspws_TM2.png" style="width: 100%;" /></a>
 </section>
 </section>
 
@@ -872,19 +973,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-summary">Observation Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-baseline-data-c-6-configuration">Long baseline data (C-6 configuration)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-baseline-data-c-3-configuration">Short baseline data (C-3 configuration)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-products">Pipeline Products</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm1">Channel maps (TM1)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm2">Channel maps (TM2)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-line-profiles">Spectral line profiles</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
   </nav></div>
 
