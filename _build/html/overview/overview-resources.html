@@ -406,13 +406,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naasc-data-reduction-visit">NAASC data reduction visit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-provided-resources-specific-to-the-program">ALMA-provided resources specific to the program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key papers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-guides-casa-guides">ALMA Guides / CASA Guides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-docs">ALMA Docs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cycle-9-alma-ambassador-workshops">Cycle 9 ALMA Ambassador Workshops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key Papers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#almaguides-casaguides">ALMAguides/CASAguides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-docs">ALMA docs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-workshops">ALMA workshops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naasc-data-reduction-visit-f2f">NAASC Data Reduction Visit (f2f)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-provided-resources-specific-to-our-program">ALMA-Provided Resources Specific to Our Program</a></li>
 </ul>
             </nav>
         </div>
@@ -427,65 +427,75 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="learning-resources">
 <h1>Learning Resources<a class="headerlink" href="#learning-resources" title="Permalink to this heading">#</a></h1>
 <p>I relied on the following sources of information to build my understanding of the reduction/calibration/imaging process.</p>
-<section id="naasc-data-reduction-visit">
-<h2>NAASC data reduction visit<a class="headerlink" href="#naasc-data-reduction-visit" title="Permalink to this heading">#</a></h2>
-<p><strong>f2f data reduction visit.</strong> Worked with Ryan Loomis and DA’s Sarah Wood and Tristan Ashton. I gained huge insight into topics like: self-calibration (phase alignment), pipeline calibration (galactic CO absorption in our phase calibrator), and line imaging. Learn about f2f visits <a class="reference external" href="https://science.nrao.edu/facilities/alma/visitors-shortterm">here</a>.</p>
-</section>
-<section id="alma-provided-resources-specific-to-the-program">
-<h2>ALMA-provided resources specific to the program<a class="headerlink" href="#alma-provided-resources-specific-to-the-program" title="Permalink to this heading">#</a></h2>
-<p><strong>The weblog.</strong> This is like the program’s bible. Its importance and helpfulness cannot be emphasized enough. We have two in total; one for each of TM1 and TM2.</p>
-<p><strong>Quality assurance (QA) reports</strong>. These are like an extremely abridged version of the weblog; some information is more easily accessed here, but only a few certain aspects can’t be found anywhere else. We have 10 in total; 8 QA0’s for each execution block, and 2 QA2’s for each of TM1 and TM2.</p>
-</section>
-<section id="key-papers">
-<h2>Key papers<a class="headerlink" href="#key-papers" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018ApJ...869L..41A/abstract"><strong>Andrews et al. (2018)</strong></a>, DSHARP Large Program (Section 3 and Section 4).</p>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....1O/abstract"><strong>Oberg et al. (2021)</strong></a>, MAPS Large Program (Section 3).</p>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract"><strong>Czekala et al. (2021)</strong></a>, MAPS Large Program (Clean strategies and the JvM effect).</p>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257...19H/abstract"><strong>Huang et al. (2021)</strong></a>, MAPS Large Program (spiral arms in the massive GM Aur disk).</p>
-</section>
-<section id="scripts">
-<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://almascience.eso.org/almadata/lp/DSHARP/"><strong>Reduction/imaging scripts from DSHARP Large Program</strong></a>: Continuum scripts and CO scripts for each disk, with some differences between disks. Useful for a grand overview, use of functions, choise of parameters, and how to handle multiple observation sets.</p>
-<p><a class="reference external" href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py"><strong>Python functions from DSHARP Large Program (reductions_utils.py)</strong></a>: Useful wrapper functions, etc.</p>
-<p><strong>Phase alignment script from exoALMA Large Program (alignment .py)</strong>: To deal with decoherence between execution blocks; one important step in the self-calibration process. Shared with us by Ryan Loomis; to be released as part of the exoALMA publications.</p>
-<p><strong>Line imaging scripts from MAPS Large Program (image_v3.py)</strong>: Example of line imaging approach. Also includes Rich Teague’s Keplerian mask script and (Ian Czekala’s?) JvM correction script. Shared with us by Ryan Loomis; will eventually go public on the MAPS website.</p>
-</section>
-<section id="almaguides-casaguides">
-<h2>ALMAguides/CASAguides<a class="headerlink" href="#almaguides-casaguides" title="Permalink to this heading">#</a></h2>
-<p>See <a class="reference external" href="https://casaguides.nrao.edu/index.php?title=ALMAguides"><strong>CASAguides</strong></a> main page.</p>
-<p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=ALMA_Cycle_8_Imaging_Pipeline_Reprocessing"><strong>Examples for ALMA Imaging Pipeline Reprocessing</strong></a> [Cycle 8 Examples]: Restoring pipeline calibration, renormalization corrections, reproducing pipeline products, re-imaging: continuum subtraction, aggregate continuum, revising continuum ranges, channel binning, uvtapering.</p>
-<p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Guide_to_the_NA_Imaging_Template"><strong>NA Imaging Template</strong></a> designed to guide the user through the decisions needed when imaging ALMA data.</p>
+<section id="alma-guides-casa-guides">
+<h2>ALMA Guides / CASA Guides<a class="headerlink" href="#alma-guides-casa-guides" title="Permalink to this heading">#</a></h2>
+<p>See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target="_blank"><strong>ALMAguides</strong></a> main page.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Imaging_Prep"><strong>Prepare the Data for Imaging</strong></a>: Workflow, splitting off pipeline calibrated data, list of ms files to image, reviewing the calibration, flagging bad data, flux equalization, combining ms’s from multiple executions, splitting off science target data, regridding spectral window, backing up data set. Note the incredible <a class="reference external" href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImagingPrep_template.py">scriptForImagingPrep_template.py</a> and <a class="reference external" href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImaging_template.py">scriptForImaging_template.py</a>.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Image_Continuum"><strong>Image the Continuum</strong></a>: Averaged continuum ms, imaging parameters, imaging the continuum, exporting the images.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Self-Calibration_Template"><strong>Self-Calibration</strong></a>: Self-cal on the continuum, phase and amplitude.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Image_Line"><strong>Spectral Line Imaging</strong></a>: Continuum subtraction, applying continuum self-cal to the line data, imaging line data, exporting the images.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=ALMA_Cycle_8_Imaging_Pipeline_Reprocessing" target="_blank"><strong>Examples for ALMA Imaging Pipeline Reprocessing.</strong></a> Cycle 8 Examples: Restoring pipeline calibration, renormalization corrections, reproducing pipeline products, re-imaging: continuum subtraction, aggregate continuum, revising continuum ranges, channel binning, uvtapering.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Guide_to_the_NA_Imaging_Template" target="_blank"><strong>NA Imaging Template.</strong></a> Designed to guide the user through the decisions needed when imaging ALMA data:</p>
+<ul>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Imaging_Prep" target="_blank">Prepare the Data for Imaging</a>: Workflow, splitting off pipeline calibrated data, list of ms files to image, reviewing the calibration, flagging bad data, flux equalization, combining ms’s from multiple executions, splitting off science target data, regridding spectral window, backing up data set. Note the incredible <a href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImagingPrep_template.py" target="_blank">scriptForImagingPrep_template.py</a> and <a href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImaging_template.py" target="_blank">scriptForImaging_template.py</a>.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Image_Continuum" target="_blank">Image the Continuum</a>: Averaged continuum ms, imaging parameters, imaging the continuum, exporting the images.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Self-Calibration_Template" target="_blank">Self-Calibration</a>: Self-cal on the continuum, phase and amplitude.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Image_Line" target="_blank">Spectral Line Imaging</a>: Continuum subtraction, applying continuum self-cal to the line data, imaging line data, exporting the images.</p></li>
 </ul>
-<p><a class="reference external" href="https://casaguides.nrao.edu/index.php/Automasking_Guide"><strong>Automasking Guide</strong></a> for using auto-multithresh to generate cleaning masks; Table of Standard Values, demonstration of varying different parameters, best practices.</p>
-<p><strong>Examples using TW Hya continuum and N2H+ line data, already calibrated:</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Imaging_CASA_6"><strong>A first look at imaging in CASA 6.2</strong></a>: Getting the data, starting CASA, CASA basics, getting oriented with the data, inspecting the data, first look at TCLEAN, experiment with TCLEAN, see the effects of calibration and flagging, image the science target (non-interactive/interactive), primary beam correction.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Self_Calibration_CASA_6"><strong>A first look at self-calibration in CASA 6.2</strong></a>: Self-calibration (phase and amplitude calibration; multiple rounds). (This webpage appeared to be under construction; it starts repeating itself…)</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Line_Imaging_CASA_6"><strong>A first look at spectral line imaging in CASA 6.2</strong></a>: Continuum subtraction, imaging the spectral line, primary beam correction.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Image_Analysis_CASA_6"><strong>A first look at image analysis in CASA 6.2</strong></a>: Statistics, moments, exporting fits images.</p></li>
+</li>
+<li><p><a href="https://casaguides.nrao.edu/index.php/Automasking_Guide" target="_blank"><strong>Automasking Guide.</strong></a> For using auto-multithresh to generate cleaning masks; Table of Standard Values, demonstration of varying different parameters, best practices.</p></li>
 </ul>
-<p><strong>Some auxiliary things:</strong></p>
+<p><strong>Examples using TW Hya continuum and N2H+ line data:</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=Analysis_Utilities"><strong>Analysis Utilities</strong></a>: A Python module containing utilities for analysis and plotting.</p></li>
-<li><p><a class="reference external" href="https://casaguides.nrao.edu/index.php?title=ADMIT_Products_and_Usage"><strong>A guide for utilizing ADMIT for your data</strong></a>: This guide discusses how to use ADMIT and customize it for your data.</p></li>
-<li><p><a class="reference external" href="https://science.nrao.edu/facilities/alma/naasc-workshops/nrao-cd-wm16/Selfcal_Madison.pdf"><strong>When, why, and how to do self-calibration</strong></a>: Slides by Sabrina Stierwalt</p></li>
-<li><p><a class="reference external" href="https://casa.nrao.edu/Release4.1.0/doc/UserMan/UserMansu82.html"><strong>Under the Hood: Structure of the Measurement Set</strong></a>: More information regarding the structure of measurement sets. Know your columns.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Imaging_CASA_6" target="_blank"><strong>A first look at imaging in CASA 6.2.</strong></a> Getting the data, starting CASA, CASA basics, getting oriented with the data, inspecting the data, first look at TCLEAN, experiment with TCLEAN, see the effects of calibration and flagging, image the science target (non-interactive/interactive), primary beam correction.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Self_Calibration_CASA_6" target="_blank"><strong>A first look at self-calibration in CASA 6.2.</strong></a> Self-calibration (phase and amplitude calibration; multiple rounds). (This webpage appeared to be under construction; it starts repeating itself…)</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Line_Imaging_CASA_6" target="_blank"><strong>A first look at spectral line imaging in CASA 6.2.</strong></a>Continuum subtraction, imaging the spectral line, primary beam correction.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Image_Analysis_CASA_6" target="_blank"><strong>A first look at image analysis in CASA 6.2.</strong></a> Statistics, moments, exporting fits images.</p></li>
+</ul>
+<p><strong>Miscelleneous:</strong></p>
+<ul class="simple">
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=Analysis_Utilities" target="_blank"><strong>Analysis Utilities.</strong></a> A Python module containing utilities for analysis and plotting.</p></li>
+<li><p><a href="https://casaguides.nrao.edu/index.php?title=ADMIT_Products_and_Usage" target="_blank"><strong>A guide for utilizing ADMIT for your data.</strong></a> This guide discusses how to use ADMIT and customize it for your data.</p></li>
+<li><p><a href="https://science.nrao.edu/facilities/alma/naasc-workshops/nrao-cd-wm16/Selfcal_Madison.pdf" target="_blank"><strong>When, why, and how to do self-calibration.</strong></a>Slides by Sabrina Stierwalt.</p></li>
+<li><p><a href="https://casa.nrao.edu/Release4.1.0/doc/UserMan/UserMansu82.html" target="_blank"><strong>Under the Hood: Structure of the Measurement Set.</strong></a> More information regarding the structure of measurement sets. Know your columns.</p></li>
 </ul>
 </section>
 <section id="alma-docs">
-<h2>ALMA docs<a class="headerlink" href="#alma-docs" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://arc.iram.fr/documents/cycle8/ALMA_Cycle8_Technical_Handbook.pdf"><strong>ALMA Cycle 8 2021 Technical Handbook</strong></a>: Section 10.*.</p>
-<p><a class="reference external" href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8"><strong>ALMA QA2 Data Products for Cycle 8</strong></a>: The whole thing.</p>
+<h2>ALMA Docs<a class="headerlink" href="#alma-docs" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="https://arc.iram.fr/documents/cycle8/ALMA_Cycle8_Technical_Handbook.pdf" target="_blank"><strong>ALMA Cycle 8 2021 Technical Handbook.</strong></a> Section 10.*.</p></li>
+<li><p><a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank"><strong>ALMA QA2 Data Products for Cycle 8.</strong></a> The whole thing.</p></li>
+</ul>
 </section>
-<section id="alma-workshops">
-<h2>ALMA workshops<a class="headerlink" href="#alma-workshops" title="Permalink to this heading">#</a></h2>
+<section id="cycle-9-alma-ambassador-workshops">
+<h2>Cycle 9 ALMA Ambassador Workshops<a class="headerlink" href="#cycle-9-alma-ambassador-workshops" title="Permalink to this heading">#</a></h2>
 <p><a class="reference download internal" download="" href="../_downloads/9d35a5dacc21c973c559ec4c62bd105d/Selfcal_continuum_tutorial-withflowchart.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Continuum</span> <span class="pre">Self</span> <span class="pre">Calibration</span> <span class="pre">(by</span> <span class="pre">A.</span> <span class="pre">Towner)</span></code></a>: Tutorial PDF using TWHya data.</p>
 <p><a class="reference download internal" download="" href="../_downloads/c5ea9267feec37b35fe90ef454590efd/Selfcal_line_tutorial.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Line</span> <span class="pre">Self</span> <span class="pre">Calibration</span> <span class="pre">(by</span> <span class="pre">A.</span> <span class="pre">Towner)</span></code></a>: Tutorial PDF using maser data.</p>
+</section>
+<section id="key-papers">
+<h2>Key Papers<a class="headerlink" href="#key-papers" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="https://ui.adsabs.harvard.edu/abs/2018ApJ...869L..41A/abstract" target="_blank"><strong>Andrews et al. (2018).</strong></a> DSHARP Large Program (Section 3 and Section 4).</p></li>
+<li><p><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....1O/abstract" target="_blank"><strong>Oberg et al. (2021).</strong></a> MAPS Large Program (Section 3).</p></li>
+<li><p><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract" target="_blank"><strong>Czekala et al. (2021).</strong></a> MAPS Large Program (Section 2, 3, 4, 5; clean strategies and the JvM effect).</p></li>
+<li><p><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257...19H/abstract" target="_blank"><strong>Huang et al. (2021).</strong></a> MAPS Large Program (Section 2.1; imaging strategies for GM Aur, a disk with wild spiral arms and non-Keplerian emission).</p></li>
+</ul>
+</section>
+<section id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank"><strong>Reduction/imaging scripts from DSHARP Large Program.</strong></a> Continuum scripts and CO scripts for each disk, with some differences between disks. Useful for a grand overview, use of functions, choise of parameters, and how to handle multiple observation sets.</p></li>
+<li><p><a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py" target="_blank"><strong>Python functions from DSHARP Large Program (reductions_utils.py).</strong></a> Very useful functions, wrappers, etc.</p></li>
+</ul>
+<p><strong>Line imaging scripts from MAPS Large Program (image_v3.py)</strong>: Example of line imaging approach. Also includes Rich Teague’s Keplerian mask script and (Ian Czekala’s?) JvM correction script. Shared with us by Ryan Loomis; will eventually go public on the MAPS website.</p>
+<p><strong>Phase alignment script from exoALMA Large Program (alignment .py)</strong>: To deal with decoherence between execution blocks; one important step in the self-calibration process. Shared with us by Ryan Loomis; to be released as part of the exoALMA publications.</p>
+<!-- <a href="https://" target="_blank">target</a> -->
+</section>
+<section id="naasc-data-reduction-visit-f2f">
+<h2>NAASC Data Reduction Visit (f2f)<a class="headerlink" href="#naasc-data-reduction-visit-f2f" title="Permalink to this heading">#</a></h2>
+<p>I visited the NAASC/NRAO in Charlottesville, VA for a week and worked with Staff Scientist Ryan Loomis and Data Analysts Sarah Wood and Tristan Ashton. I gained huge insight into topics like: self-calibration (phase alignment), pipeline calibration (galactic CO absorption in our phase calibrator), and line imaging. I cannot recommend this program highly enough. <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">Learn about f2f visits here!</a></p>
+</section>
+<section id="alma-provided-resources-specific-to-our-program">
+<h2>ALMA-Provided Resources Specific to Our Program<a class="headerlink" href="#alma-provided-resources-specific-to-our-program" title="Permalink to this heading">#</a></h2>
+<p><strong>The weblog.</strong> This is like the program’s bible. Its importance and helpfulness cannot be emphasized enough. We have two in total; one for each of TM1 and TM2.</p>
+<p><strong>Quality assurance (QA) reports</strong>. These are like an extremely abridged version of the weblog; some information is more easily accessed here, but only a few certain aspects can’t be found anywhere else. We have 10 QA reports in total: 8 QA0’s for each execution block, and 2 QA2’s for each of TM1 and TM2.</p>
 </section>
 </section>
 
@@ -556,13 +566,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naasc-data-reduction-visit">NAASC data reduction visit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-provided-resources-specific-to-the-program">ALMA-provided resources specific to the program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key papers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-guides-casa-guides">ALMA Guides / CASA Guides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-docs">ALMA Docs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cycle-9-alma-ambassador-workshops">Cycle 9 ALMA Ambassador Workshops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key Papers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#almaguides-casaguides">ALMAguides/CASAguides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-docs">ALMA docs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-workshops">ALMA workshops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naasc-data-reduction-visit-f2f">NAASC Data Reduction Visit (f2f)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alma-provided-resources-specific-to-our-program">ALMA-Provided Resources Specific to Our Program</a></li>
 </ul>
   </nav></div>
 

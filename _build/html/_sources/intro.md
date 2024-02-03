@@ -1,6 +1,6 @@
 #  Introduction
 
-Jupyterbook guide to reduction and imaging of ALMA program 2021.1.00690.S.
+Jupyterbook guide to reduction and imaging of Cycle 8 ALMA program 2021.1.00690.S (PI: R. Dong).
 
 Things to keep in mind:
 
