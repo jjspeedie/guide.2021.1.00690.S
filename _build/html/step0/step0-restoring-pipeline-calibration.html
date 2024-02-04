@@ -383,7 +383,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -399,6 +401,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoring-the-pipeline-calibration-using-scriptforpi-py">Restoring the pipeline calibration using <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-out-the-science-spectral-windows-and-target-source">Splitting out the science spectral windows and target source</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -410,6 +421,58 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="restoring-the-pipeline-calibration">
 <h1>Restoring the Pipeline Calibration<a class="headerlink" href="#restoring-the-pipeline-calibration" title="Permalink to this heading">#</a></h1>
+<p>This was actually done for me the second time by NRAO; but the first time, I did it like this.</p>
+<section id="restoring-the-pipeline-calibration-using-scriptforpi-py">
+<h2>Restoring the pipeline calibration using <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code><a class="headerlink" href="#restoring-the-pipeline-calibration-using-scriptforpi-py" title="Permalink to this heading">#</a></h2>
+<p>Note on where we begin:
+We downloaded the entire data set from the ALMA Archive and restored the
+pipeline calibration using <a class="reference external" href="http://scriptForPI.py">scriptForPI.py</a> to create .ms files for each execution.</p>
+</section>
+<section id="splitting-out-the-science-spectral-windows-and-target-source">
+<h2>Splitting out the science spectral windows and target source<a class="headerlink" href="#splitting-out-the-science-spectral-windows-and-target-source" title="Permalink to this heading">#</a></h2>
+<p>We then split out the science spectral windows, using the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">vislist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*[!_t].ms&#39;</span><span class="p">)</span>  <span class="c1"># should be [&#39;uid___A002_Xf7ad58_Xd406.ms&#39;, &#39;uid___A002_Xf8f6a9_X15c79.ms&#39;]</span>
+<span class="k">for</span> <span class="n">myvis</span> <span class="ow">in</span> <span class="n">vislist</span><span class="p">:</span>
+    <span class="n">msmd</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">myvis</span><span class="p">)</span>
+    <span class="n">targetspws</span> <span class="o">=</span> <span class="n">msmd</span><span class="o">.</span><span class="n">spwsforintent</span><span class="p">(</span><span class="s1">&#39;OBSERVE_TARGET*&#39;</span><span class="p">)</span>
+    <span class="n">sciencespws</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">myspw</span> <span class="ow">in</span> <span class="n">targetspws</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">msmd</span><span class="o">.</span><span class="n">nchan</span><span class="p">(</span><span class="n">myspw</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">:</span>
+            <span class="n">sciencespws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myspw</span><span class="p">)</span>
+    <span class="n">sciencespws</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">sciencespws</span><span class="p">))</span>
+    <span class="n">msmd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">split</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">myvis</span><span class="p">,</span><span class="n">outputvis</span><span class="o">=</span><span class="n">myvis</span><span class="o">+</span><span class="s1">&#39;.split.cal&#39;</span><span class="p">,</span><span class="n">spw</span><span class="o">=</span><span class="n">sciencespws</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, the <code class="docutils literal notranslate"><span class="pre">.ms.split.cal</span></code> measurement sets contain the science target AND the calibrators.</p>
+<p>We then saved the original flags, using the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">vislist</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.ms.split.cal&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">vis</span> <span class="ow">in</span> <span class="n">vislist</span><span class="p">:</span>
+    <span class="n">flagmanager</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">vis</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;save&#39;</span><span class="p">,</span>
+                <span class="n">versionname</span><span class="o">=</span><span class="s1">&#39;original_flags&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After that, we split off the science target, and saved those flags, using the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
+<span class="k">for</span> <span class="n">vis</span> <span class="ow">in</span> <span class="n">vislist</span><span class="p">:</span>
+    <span class="n">outputvis</span> <span class="o">=</span> <span class="n">vis</span><span class="o">+</span><span class="s1">&#39;.source&#39;</span>
+    <span class="n">split</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">vis</span><span class="p">,</span>
+      <span class="n">intent</span><span class="o">=</span><span class="s1">&#39;*TARGET*&#39;</span><span class="p">,</span> <span class="c1"># split off the target sources by intent</span>
+      <span class="n">outputvis</span><span class="o">=</span><span class="n">outputvis</span><span class="p">,</span>
+      <span class="n">datacolumn</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -rf &#39;</span> <span class="o">+</span> <span class="n">outputvis</span> <span class="o">+</span> <span class="s1">&#39;.flagversions&#39;</span><span class="p">)</span>
+    <span class="n">flagmanager</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">outputvis</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;save&#39;</span><span class="p">,</span>
+                <span class="n">versionname</span><span class="o">=</span><span class="s1">&#39;original_flags&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In summary, we start <a class="reference internal" href="../step1/step1-manual-flags.html"><span class="doc std std-doc">step 1</span></a> with 8 separate measurement sets (e.g. <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf7ad58_Xd406.ms.split.cal.source</span></code>) which contain only the science spectral windows for only the science target.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -470,6 +533,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoring-the-pipeline-calibration-using-scriptforpi-py">Restoring the pipeline calibration using <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-out-the-science-spectral-windows-and-target-source">Splitting out the science spectral windows and target source</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
