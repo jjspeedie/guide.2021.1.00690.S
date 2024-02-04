@@ -70,7 +70,7 @@ See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target=
 
 * <a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py" target="_blank">**Python functions from DSHARP Large Program (reductions_utils.py).**</a> Very useful functions, wrappers, etc.
 
-**Line imaging scripts from MAPS Large Program (image_v3.py)**: Example of line imaging approach. Also includes Rich Teague's Keplerian mask script and (Ian Czekala's?) JvM correction script. Shared with us by Ryan Loomis; will eventually go public on the MAPS website.
+**Line imaging scripts from MAPS Large Program (image_v3.py)**: Example of line imaging approach. Also includes Rich Teague's Keplerian mask script and (Ian Czekala's?) JvM correction script. Shared with us by Ryan Loomis; will eventually go public on the <a href="https://alma-maps.info/data.html" target="_blank">MAPS website</a>.
 
 **Phase alignment script from exoALMA Large Program (alignment .py)**: To deal with decoherence between execution blocks; one important step in the self-calibration process. Shared with us by Ryan Loomis; to be released as part of the exoALMA publications.
 <!-- <a href="https://" target="_blank">target</a> -->

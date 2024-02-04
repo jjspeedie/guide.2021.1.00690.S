@@ -407,8 +407,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dictionary">Data dictionary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-dictionary">Line dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-dictionary">Mask dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-dictionary">Line dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-dictionary">Disk dictionary</a></li>
 </ul>
             </nav>
@@ -423,22 +423,53 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="useful-dictionaries">
 <h1>Useful Dictionaries<a class="headerlink" href="#useful-dictionaries" title="Permalink to this heading">#</a></h1>
+<p>The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DSHARP Large Program scripts</a>  (e.g. <a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/Elias27_continuum.py" target="_blank">Elias27_continuum.py</a>) start with the creation of a dictionary, <code class="docutils literal notranslate"><span class="pre">data_params</span></code>, to store key information and keep things organized. The <a href="https://alma-maps.info/data.html" target="_blank">MAPS Large Program</a> imaging pipeline does a similar thing, but keeps the dictionaries in individual files (e.g. <code class="docutils literal notranslate"><span class="pre">linedictionary.py</span></code>, <code class="docutils literal notranslate"><span class="pre">diskdictionary.py</span></code>). I emulated these programs and employed the dictionaries below.</p>
 <section id="data-dictionary">
 <h2>Data dictionary<a class="headerlink" href="#data-dictionary" title="Permalink to this heading">#</a></h2>
-<p>Dictionary of data file names, paths, and properties used during reduction.</p>
-</section>
-<section id="line-dictionary">
-<h2>Line dictionary<a class="headerlink" href="#line-dictionary" title="Permalink to this heading">#</a></h2>
-<p>Dictionary of emission line properties and spectral parameters for imaging.</p>
+<p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a>: Dictionary of data file names, paths, and properties used during reduction. This is a dictionary that you build up as you go along. It is especially useful for keeping track of the many measurement sets generated during each step leading up to the final MSes for imaging.</p>
+<div class="tip admonition">
+<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../step1/step1-manual-flags.html"><span class="doc std std-doc">Step 1 - Prepare the continuum</span></a>.</p></li>
+<li><p><a class="reference internal" href="../step2/step2-align-SBs.html"><span class="doc std std-doc">Step 2 - Phase alignment</span></a>.</p></li>
+<li><p><a class="reference internal" href="../step3/step3-selfcal-SBs.html"><span class="doc std std-doc">Step 3 - Self-calibration of the continuum</span></a>.</p></li>
+<li><p><a class="reference internal" href="../step4/step4-manual-flags.html"><span class="doc std std-doc">Step 4 - Prepare the lines</span></a>.</p></li>
+<li><p><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html"><span class="doc std std-doc">Imaging - Continuum</span></a>.</p></li>
+<li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
+</ul>
+</div>
 </section>
 <section id="mask-dictionary">
 <h2>Mask dictionary<a class="headerlink" href="#mask-dictionary" title="Permalink to this heading">#</a></h2>
-<p>Dictionary of masking parameters for all lines and the continuum.</p>
+<p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a>: Dictionary of masking parameters for all lines and the continuum. In the case of the lines, it stores the parameters for <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a>
+(by <a href="https://github.com/richteague/keplerian_mask" target="_blank">Rich Teague</a>).</p>
+<div class="tip admonition">
+<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html"><span class="doc std std-doc">Imaging - Continuum</span></a>.</p></li>
+<li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="line-dictionary">
+<h2>Line dictionary<a class="headerlink" href="#line-dictionary" title="Permalink to this heading">#</a></h2>
+<p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a>: Dictionary of emission line properties and spectral parameters for line imaging. This dictionary also keeps track of the ~12 different sets of line images made while we were experimenting with our approach (<code class="docutils literal notranslate"><span class="pre">_v1</span></code>, <code class="docutils literal notranslate"><span class="pre">_v2</span></code>, <code class="docutils literal notranslate"><span class="pre">_v3</span></code> etc; see <a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html"><span class="doc std std-doc">Initial Approaches</span></a>).</p>
+<div class="tip admonition">
+<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
+</ul>
+</div>
 </section>
 <section id="disk-dictionary">
 <h2>Disk dictionary<a class="headerlink" href="#disk-dictionary" title="Permalink to this heading">#</a></h2>
-<p>Dictionary of physical properties of the AB Aur system for many different uses.
-When applicable/possible, I’ve tried to cite the <em>original</em> paper who found each value.</p>
+<p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a>: Dictionary of physical properties of the AB Aur system. This dictionary comes in handy for generation of Keplerian masks for the line imaging, and later during science it’s a nice place to store the physical disk parameters for many different uses.</p>
+<div class="tip admonition">
+<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -510,8 +541,8 @@ When applicable/possible, I’ve tried to cite the <em>original</em> paper who f
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-dictionary">Data dictionary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-dictionary">Line dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-dictionary">Mask dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-dictionary">Line dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-dictionary">Disk dictionary</a></li>
 </ul>
   </nav></div>
