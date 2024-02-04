@@ -410,6 +410,77 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="download-the-data">
 <h1>Download the Data<a class="headerlink" href="#download-the-data" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Navigate to the <a href="https://almascience.nrao.edu/aq/" target="_blank">ALMA Archive</a> and search <code class="docutils literal notranslate"><span class="pre">2021.1.00690.S</span></code> in the <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">code</span></code> column.</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-1.png"><img alt="download-1" class="mb-1" src="../_images/download-1.png" style="width: 100%;" /></a>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Select both scheduling blocks – TM1 (long-baseline configuration) and TM2 (short-baseline configuration). Then click “Explore and Download”.</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-2.png"><img alt="download-2" class="mb-1" src="../_images/download-2.png" style="width: 100%;" /></a>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Personally, I (currently) prefer the legacy Request Handler.</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-3.png"><img alt="download-3" class="mb-1" src="../_images/download-3.png" style="width: 100%;" /></a>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>The legacy Request Handler is a page that looks like this:</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-4.png"><img alt="download-4" class="mb-1" src="../_images/download-4.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p>Understanding the data categories:</p>
+<ul class="simple">
+<li><p>auxiliary (NEED THESE FOR RESTORING PIPELINE CALIBRATION) – calibration tables, scripts, logs and quality assurance reports</p></li>
+<li><p>product – FITS products for science targets and calibrators (potentially incomplete)</p></li>
+<li><p>raw (NEED THESE FOR RESTORING PIPELINE CALIBRATION) – uncalibrated raw data that were used to make the final products</p></li>
+<li><p>raw (semipass) (NEED THESE FOR RESTORING PIPELINE CALIBRATION - all our TM2 data is semipass) – uncalibrated raw data that are flawed or incomplete and were not used</p></li>
+<li><p>external – externally contributed data products (may be present in some cases)</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Make sure to check the boxes that will give you the raw ASDMs. These are absolutely necessary for restoring the pipeline calibration. You don’t need the raw (semi-pass); that’s the abandonned SB EB 2. Then click “Download Selected”:</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-5.png"><img alt="download-5" class="mb-1" src="../_images/download-5.png" style="width: 100%;" /></a>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>And then your desired download method. I go for “Download Script”:</p></li>
+</ol>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/download-6.png"><img alt="download-6" class="mb-1" src="../_images/download-6.png" style="width: 100%;" /></a>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Put the download script in the directory where you want ~300 GB of data to live. Make it executable:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">download</span><span class="o">*.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>And then execute it:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">download</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">files</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>When it finishes, make sure to say <code class="docutils literal notranslate"><span class="pre">yes</span></code> to untarring and <code class="docutils literal notranslate"><span class="pre">yes</span></code> to untarring in the directory structure.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
