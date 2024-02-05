@@ -1,5 +1,13 @@
 # Restoring the Pipeline Calibration
 
+This is also known as "Generating the calibrated visibilities".
+
+<a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8, Section 5 (page 13)</a>
+
+Section 5.2 is what we are going to do: Running the scriptForPI.py in the case of pipeline-calibrated data
+
+Section 5.4 is also relevant: 5.4 Saving disk space during and after the execution of the scriptForPI.py
+
 This was actually done for me the second time by NRAO; but the first time, I did it like this.
 
 
@@ -10,6 +18,8 @@ We downloaded the entire data set from the ALMA Archive and restored the
 pipeline calibration using scriptForPI.py to create .ms files for each execution.
 
 ## Splitting out the science spectral windows and target source
+
+Section 5.5: Splitting out the calibrated data at the end of running the scriptForPI.py
 
 We then split out the science spectral windows, using the code:
 

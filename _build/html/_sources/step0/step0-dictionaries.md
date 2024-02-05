@@ -22,7 +22,7 @@ The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DS
 (by <a href="https://github.com/richteague/keplerian_mask" target="_blank">Rich Teague</a>).
 
 
-`````{admonition} **data_dict** is used for the following steps:
+`````{admonition} **mask_dict** is used for the following steps:
 :class: tip
 * [Imaging - Continuum](../imaging-cont/imaging-cont-procedure.md).
 * [Imaging - Lines](../imaging-lines/imaging-lines-procedure.md).
@@ -32,7 +32,7 @@ The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DS
 
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a>: Dictionary of emission line properties and spectral parameters for line imaging. This dictionary also keeps track of the ~12 different sets of line images made while we were experimenting with our approach (``_v1``, ``_v2``, ``_v3`` etc; see [Initial Approaches](../imaging-lines/imaging-lines-initial-approaches.md)).
 
-`````{admonition} **data_dict** is used for the following steps:
+`````{admonition} **line_dict** is used for the following steps:
 :class: tip
 * [Imaging - Lines](../imaging-lines/imaging-lines-procedure.md).
 `````
@@ -41,7 +41,7 @@ The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DS
 
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a>: Dictionary of physical properties of the AB Aur system. This dictionary comes in handy for generation of Keplerian masks for the line imaging, and later during science it's a nice place to store the physical disk parameters for many different uses.
 
-`````{admonition} **data_dict** is used for the following steps:
+`````{admonition} **disk_dict** is used for the following steps:
 :class: tip
 * [Imaging - Lines](../imaging-lines/imaging-lines-procedure.md).
 `````

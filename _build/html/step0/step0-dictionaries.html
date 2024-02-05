@@ -444,7 +444,7 @@ document.write(`
 <p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a>: Dictionary of masking parameters for all lines and the continuum. In the case of the lines, it stores the parameters for <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a>
 (by <a href="https://github.com/richteague/keplerian_mask" target="_blank">Rich Teague</a>).</p>
 <div class="tip admonition">
-<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<p class="admonition-title"><strong>mask_dict</strong> is used for the following steps:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html"><span class="doc std std-doc">Imaging - Continuum</span></a>.</p></li>
 <li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
@@ -455,7 +455,7 @@ document.write(`
 <h2>Line dictionary<a class="headerlink" href="#line-dictionary" title="Permalink to this heading">#</a></h2>
 <p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a>: Dictionary of emission line properties and spectral parameters for line imaging. This dictionary also keeps track of the ~12 different sets of line images made while we were experimenting with our approach (<code class="docutils literal notranslate"><span class="pre">_v1</span></code>, <code class="docutils literal notranslate"><span class="pre">_v2</span></code>, <code class="docutils literal notranslate"><span class="pre">_v3</span></code> etc; see <a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html"><span class="doc std std-doc">Initial Approaches</span></a>).</p>
 <div class="tip admonition">
-<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<p class="admonition-title"><strong>line_dict</strong> is used for the following steps:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
 </ul>
@@ -465,7 +465,7 @@ document.write(`
 <h2>Disk dictionary<a class="headerlink" href="#disk-dictionary" title="Permalink to this heading">#</a></h2>
 <p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a>: Dictionary of physical properties of the AB Aur system. This dictionary comes in handy for generation of Keplerian masks for the line imaging, and later during science it’s a nice place to store the physical disk parameters for many different uses.</p>
 <div class="tip admonition">
-<p class="admonition-title"><strong>data_dict</strong> is used for the following steps:</p>
+<p class="admonition-title"><strong>disk_dict</strong> is used for the following steps:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html"><span class="doc std std-doc">Imaging - Lines</span></a>.</p></li>
 </ul>

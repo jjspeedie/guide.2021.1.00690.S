@@ -70,6 +70,10 @@ parts:
     - file: imaging-lines/imaging-lines-initial-approaches
     - file: imaging-lines/imaging-lines-adopted-approach
 
+  - caption: Wrap-up
+    chapters:
+    - file: science/science-wrap-up
+
 
 
 

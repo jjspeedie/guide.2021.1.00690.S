@@ -1,6 +1,6 @@
 # Program Overview
 
-We observed AB Aur with ALMA in April, May and September 2022 under ALMA program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the "short-baseline" and "long-baseline" configurations, respectively.
+ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the "short-baseline" and "long-baseline" configurations, respectively.
 In total, the 8 execution blocks (EBs) reached an on-source integration time of 5.75 hours.
 
 
@@ -66,7 +66,7 @@ Below are further details on the TM2 scheduling block, compiled from a combinati
  </table>
  </div>
 +++
-**AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d**. The "second" execution block "uid___A002_Xf8d822_Xa976" was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The "third" execution block, "uid___A002_Xf8f6a9_X15c79", is thus what we move forward with as "SB EB2".
+**AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d**. The "second" execution block "uid___A002_Xf8d822_Xa976" was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment (from the QA0 report) shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The "third" execution block, "uid___A002_Xf8f6a9_X15c79", is thus what we move forward with as "SB EB2".
 ````
 
 ## Correlator Setup
@@ -83,13 +83,13 @@ We placed five spectral windows (SPWs) over the four available basebands to targ
 ALMA Band 6 correlator setup.
 ````
 
-We centered one SPW ("representative" window) at the $^{13}$CO $J=2-1$ molecular emission line transition rest frequency (220.405 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with $N=2$ by Hanning smoothing within the correlator data processor. (This was our "representative" window in the OT.)
+We centered one SPW at the $^{13}$CO $J=2-1$ molecular emission line transition rest frequency (220.405 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with $N=2$ by Hanning smoothing within the correlator data processor. (This was our "representative" window in the OT.)
 
 We placed a second SPW at the $^{12}$CO $J=2-1$ rest frequency (230.545 GHz) covering the same bandwidth with the same number of channels, achieving a slighty higher spectral resolution of 39.684 m/s (due to the higher center frequency, of course).
 
 A third SPW was centered at the C$^{18}$O $J=2-1$ rest frequency (219.567 GHz), and a fourth at the SO $6(5)-5(4)$ rest frequency (219.956 GHz). Each of these SPWS covered the same bandwidth (58.594 MHz) but with *half* as many channels (960 channels) because they share a baseband. Thus they achieve a lower spectral resolution of 83.336 m/s and 83.189 m/s respectively.
 
-To enable self-calibration, our correlator setup sampled the continuum in a fifth SPW centered at $233.012$ GHz with 128 channels each 15.625 MHz in width, obtaining the full available 2.0 GHz bandwidth.
+To enable self-calibration, our correlator setup sampled the continuum in a fifth SPW centered at 233.012 GHz with 128 channels each 15.625 MHz in width, obtaining the full available 2.0 GHz bandwidth.
 
 The weblog provides a detailed summary of the correlator setup.
 ````{card}
@@ -106,7 +106,7 @@ ALMA Band 6 correlator setup (version provided by the weblog).
 
 ## Pipeline Products
 
-Each scheduling block (TM1 and TM2) was calibrated by the Cycle 8 ALMA pipeline. The final tasks in the pipe additionally generate imaging products, which we can view to get an initial idea of what the observations show.
+Each scheduling block (TM1 and TM2) was calibrated by the Cycle 8 ALMA pipeline. The final tasks in the pipeline additionally generate imaging products, which we can view to get an initial idea of what the observations show.
 
 ### Channel maps (TM1)
 
@@ -153,7 +153,7 @@ Pipeline-generated TM2 line images (task `hif_makeimages`).
 
 ### Spectral line profiles
 
-Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what's happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles. These were not delivered by the pipeline. Note the different y-axis scale.
+Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what's happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles. Note the different y-axis scale.
 
 ````{card}
 <center>
