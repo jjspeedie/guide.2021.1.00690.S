@@ -8,31 +8,22 @@
 
 # Initial Continuum Images
 
+Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually.
+
+**Out motivation for doing this initial imaging is to:**
+
+- Check that the channel- and time-averaging didn't do anything noticeably problematic to the data.
+
+- Get a sense of which execution blocks, and which spectral windows, are weak and which are strong (i.e. which have largest visible phase errors, which have largest SNR, etc). This will be useful for informing which EB to choose as a reference for phase alignment. We will (if possible) want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spectral window.
+
+- Get familiar with the current state of the data, so we can later gauge how much or little improvement we see after phase alignment ([Step 2](../step2/step2-align-SBs.md)) and self-calibration ([Step 3](../step3/step3-selfcal-SBs.md)).
+
 The following are (non-interactively) cleaned images of the continuum for each execution block. Top left is an image combining all spectral windows; the other 5 images are for the 5 spectral windows individually.
 
-The purpose of doing per-spectral-window images for each execution block: We will want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spw. The per-spw images help identify which spws and which execution blocks have low SNR.
-
-<!-- https://jupyterbook.org/en/stable/content/components.html
-
-These are organized like
-
-::::{grid}
-:gutter: 3
-
-:::{grid-item-card} One!
-Here's the first card.
-:::
-
-:::{grid-item-card} Two!
-Here's the second card.
-:::
-
-:::{grid-item-card} Three!
-Here's the third card.
-:::
-:::: -->
-
 ## SB EB1
+
+````{card}
+<center>
 
 <img src="images/ABAur_SB_EB1_initcont.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_SB_EB1_initcont_spw0.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
@@ -41,8 +32,23 @@ Here's the third card.
 <img src="images/ABAur_SB_EB1_initcont_spw3.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_SB_EB1_initcont_spw4.image.jpg" alt="SB_EB1_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
+
+
+
+
+
+
+
 
 ## SB EB2
+
+````{card}
+<center>
 
 <img src="images/ABAur_SB_EB2_initcont.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_SB_EB2_initcont_spw0.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
@@ -51,7 +57,15 @@ Here's the third card.
 <img src="images/ABAur_SB_EB2_initcont_spw3.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_SB_EB2_initcont_spw4.image.jpg" alt="SB_EB2_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB1
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB1_initcont.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB1_initcont_spw0.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
@@ -60,7 +74,15 @@ Here's the third card.
 <img src="images/ABAur_LB_EB1_initcont_spw3.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB1_initcont_spw4.image.jpg" alt="LB_EB1_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB2
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB2_initcont.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB2_initcont_spw0.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
@@ -69,7 +91,15 @@ Here's the third card.
 <img src="images/ABAur_LB_EB2_initcont_spw3.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB2_initcont_spw4.image.jpg" alt="LB_EB2_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB3
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB3_initcont.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB3_initcont_spw0.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
@@ -78,7 +108,15 @@ Here's the third card.
 <img src="images/ABAur_LB_EB3_initcont_spw3.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB3_initcont_spw4.image.jpg" alt="LB_EB3_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB4
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB4_initcont.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB4_initcont_spw0.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
@@ -87,7 +125,15 @@ Here's the third card.
 <img src="images/ABAur_LB_EB4_initcont_spw3.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB4_initcont_spw4.image.jpg" alt="LB_EB4_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB5
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB5_initcont.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB5_initcont_spw0.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
@@ -96,7 +142,15 @@ Here's the third card.
 <img src="images/ABAur_LB_EB5_initcont_spw3.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB5_initcont_spw4.image.jpg" alt="LB_EB5_initcont.image" class="mb-1" width="32%">
 
+</center>
++++
+caption
+````
+
 ## LB EB6
+
+````{card}
+<center>
 
 <img src="images/ABAur_LB_EB6_initcont.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB6_initcont_spw0.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
@@ -105,7 +159,12 @@ Here's the third card.
 <img src="images/ABAur_LB_EB6_initcont_spw3.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
 <img src="images/ABAur_LB_EB6_initcont_spw4.image.jpg" alt="LB_EB6_initcont.image" class="mb-1" width="32%">
 
-## Comparing S, N and S/N across EBs
+</center>
++++
+caption
+````
+
+## Comparing S, N and SNR across EBs
 
 The following is a summary of the above continuum images -- more directly informative for per-spw self calibration.
 
@@ -113,16 +172,28 @@ The horizontal lines indicate the SNR in the execution block if all spws are ima
 
 A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without concatenating them together, or without concatenating them with the SB data.
 
-```{image} images/ABAur_initcont_SNR_perspw.png
-:alt: ABAur_initcont_SNR_perspw
-:class: mb-1
-:width: 85%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_initcont_SNR_perspw.png" alt="ABAur_initcont_SNR_perspw" class="mb-1" width="70%">
+
+</center>
++++
+caption
+````
+
 
 Just for reference, here is the equivalent plot but for (max value in image) and (measure rms noise in image). I calculated SNR as (max value in image)/(measure rms noise in image).
 
+````{card}
+<center>
+
 <img src="images/ABAur_initcont_max_perspw.png" alt="ABAur_initcont_max_perspw" class="mb-1" width="49%">
 <img src="images/ABAur_initcont_rms_perspw.png" alt="ABAur_initcont_rms_perspw" class="mb-1" width="49%">
+
+</center>
++++
+caption
+````
 
 The LB executions have lower rms noise per beam than the SB executions, but the SB executions have that much more signal per beam.

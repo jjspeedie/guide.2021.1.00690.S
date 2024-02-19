@@ -99,7 +99,7 @@ The weblog provides a detailed summary of the correlator setup.
 
 </center>
 +++
-ALMA Band 6 correlator setup (version provided by the weblog).
+ALMA Band 6 correlator setup ("Science Windows" tab in the weblog).
 ````
 
 

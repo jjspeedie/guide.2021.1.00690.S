@@ -20,47 +20,62 @@ In cells that contain visibility points from both the reference (LB EB1) and com
 
 ## LB EB2
 
-```{image} images/ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 ## LB EB3
 
-```{image} images/ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 ## LB EB4
 
-```{image} images/ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 ## LB EB5
 
-```{image} images/ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 ## LB EB6
 
-```{image} images/ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_LB_E62_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 After aligning the EBs, we run the code again, this time on the aligned EBs, to check that their offsets are small (i.e. a fraction of a cell size).

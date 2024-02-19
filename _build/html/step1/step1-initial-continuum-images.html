@@ -214,6 +214,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -414,7 +418,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb4">LB EB4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb5">LB EB5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb6">LB EB6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-s-n-across-ebs">Comparing S, N and S/N across EBs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-snr-across-ebs">Comparing S, N and SNR across EBs</a></li>
 </ul>
             </nav>
         </div>
@@ -437,108 +441,185 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="initial-continuum-images">
 <h1>Initial Continuum Images<a class="headerlink" href="#initial-continuum-images" title="Permalink to this heading">#</a></h1>
+<p>Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually.</p>
+<p><strong>Out motivation for doing this initial imaging is to:</strong></p>
+<ul class="simple">
+<li><p>Check that the channel- and time-averaging didn’t do anything noticeably problematic to the data.</p></li>
+<li><p>Get a sense of which execution blocks, and which spectral windows, are weak and which are strong (i.e. which have largest visible phase errors, which have largest SNR, etc). This will be useful for informing which EB to choose as a reference for phase alignment. We will (if possible) want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spectral window.</p></li>
+<li><p>Get familiar with the current state of the data, so we can later gauge how much or little improvement we see after phase alignment (<a class="reference internal" href="../step2/step2-align-SBs.html"><span class="doc std std-doc">Step 2</span></a>) and self-calibration (<a class="reference internal" href="../step3/step3-selfcal-SBs.html"><span class="doc std std-doc">Step 3</span></a>).</p></li>
+</ul>
 <p>The following are (non-interactively) cleaned images of the continuum for each execution block. Top left is an image combining all spectral windows; the other 5 images are for the 5 spectral windows individually.</p>
-<p>The purpose of doing per-spectral-window images for each execution block: We will want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spw. The per-spw images help identify which spws and which execution blocks have low SNR.</p>
-<!-- https://jupyterbook.org/en/stable/content/components.html
-
-These are organized like
-
-::::{grid}
-:gutter: 3
-
-:::{grid-item-card} One!
-Here's the first card.
-:::
-
-:::{grid-item-card} Two!
-Here's the second card.
-:::
-
-:::{grid-item-card} Three!
-Here's the third card.
-:::
-:::: -->
 <section id="sb-eb1">
 <h2>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont_spw0.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont_spw1.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont_spw2.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont_spw3.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initcont_spw4.image.jpg"><img alt="SB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB1_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="sb-eb2">
 <h2>SB EB2<a class="headerlink" href="#sb-eb2" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont_spw0.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont_spw1.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont_spw2.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont_spw3.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB2_initcont_spw4.image.jpg"><img alt="SB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_SB_EB2_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb1">
 <h2>LB EB1<a class="headerlink" href="#lb-eb1" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont_spw0.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont_spw1.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont_spw2.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont_spw3.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB1_initcont_spw4.image.jpg"><img alt="LB_EB1_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB1_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb2">
 <h2>LB EB2<a class="headerlink" href="#lb-eb2" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_spw0.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_spw1.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_spw2.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_spw3.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_spw4.image.jpg"><img alt="LB_EB2_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb3">
 <h2>LB EB3<a class="headerlink" href="#lb-eb3" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_spw0.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_spw1.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_spw2.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_spw3.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_spw4.image.jpg"><img alt="LB_EB3_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb4">
 <h2>LB EB4<a class="headerlink" href="#lb-eb4" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_spw0.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_spw1.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_spw2.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_spw3.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_spw4.image.jpg"><img alt="LB_EB4_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb5">
 <h2>LB EB5<a class="headerlink" href="#lb-eb5" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_spw0.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_spw1.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_spw2.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_spw3.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_spw4.image.jpg"><img alt="LB_EB5_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
 <section id="lb-eb6">
 <h2>LB EB6<a class="headerlink" href="#lb-eb6" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_spw0.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_spw0.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_spw1.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_spw1.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_spw2.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_spw2.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_spw3.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_spw3.image.jpg" style="width: 32%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_spw4.image.jpg"><img alt="LB_EB6_initcont.image" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_spw4.image.jpg" style="width: 32%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 </section>
-<section id="comparing-s-n-and-s-n-across-ebs">
-<h2>Comparing S, N and S/N across EBs<a class="headerlink" href="#comparing-s-n-and-s-n-across-ebs" title="Permalink to this heading">#</a></h2>
+<section id="comparing-s-n-and-snr-across-ebs">
+<h2>Comparing S, N and SNR across EBs<a class="headerlink" href="#comparing-s-n-and-snr-across-ebs" title="Permalink to this heading">#</a></h2>
 <p>The following is a summary of the above continuum images – more directly informative for per-spw self calibration.</p>
 <p>The horizontal lines indicate the SNR in the execution block if all spws are imaged. Cool to see how it is slightly higher than if we image the continuum spectral window only (spw 0). The four 58 MHz windows (or more like 40-50 MHz, after line flagging) do add something.</p>
 <p>A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without concatenating them together, or without concatenating them with the SB data.</p>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_SNR_perspw.png"><img alt="ABAur_initcont_SNR_perspw" class="mb-1 align-center" src="../_images/ABAur_initcont_SNR_perspw.png" style="width: 85%;" /></a>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_SNR_perspw.png"><img alt="ABAur_initcont_SNR_perspw" class="mb-1" src="../_images/ABAur_initcont_SNR_perspw.png" style="width: 70%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 <p>Just for reference, here is the equivalent plot but for (max value in image) and (measure rms noise in image). I calculated SNR as (max value in image)/(measure rms noise in image).</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_max_perspw.png"><img alt="ABAur_initcont_max_perspw" class="mb-1" src="../_images/ABAur_initcont_max_perspw.png" style="width: 49%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_rms_perspw.png"><img alt="ABAur_initcont_rms_perspw" class="mb-1" src="../_images/ABAur_initcont_rms_perspw.png" style="width: 49%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
 <p>The LB executions have lower rms noise per beam than the SB executions, but the SB executions have that much more signal per beam.</p>
 </section>
 </section>
@@ -618,7 +699,7 @@ Here's the third card.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb4">LB EB4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb5">LB EB5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb6">LB EB6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-s-n-across-ebs">Comparing S, N and S/N across EBs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-snr-across-ebs">Comparing S, N and SNR across EBs</a></li>
 </ul>
   </nav></div>
 

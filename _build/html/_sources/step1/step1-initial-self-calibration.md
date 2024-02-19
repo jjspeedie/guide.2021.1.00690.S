@@ -8,7 +8,7 @@
 
 # Initial Self-Calibration
 
-In preparation for the phase alignment, Ryan suggested we do a single roung of self-calibration on each execution block, just to get the phases looking as good as possible.
+In preparation for the phase alignment, Ryan suggested we do a single round of self-calibration on each execution block, just to get the phases looking as good as possible.
 
 `````{admonition} Something to do differently...
 :class: tip
@@ -16,21 +16,14 @@ What do we take as our initial model (the self-cal results depend greatly on thi
 `````
 
 Before we start self calibration, we need to decide on our initial model. There are many options, such as:
-
 * A (not very deeply) cleaned image (I think it is conventional to go with this)
-
-* A model made from analytic fit to the visibilities (this was a suggestion from Ryan)
-
+* A model made from analytic fit to the visibilities (e.g. Loomis+20; this was a suggestion from Ryan)
 * An axisymmetric model, ie. azimuthal average of a (not very deeply) cleaned image (another suggestion from Ryan)
-
 * The (not very deeply) cleaned image of the best EB, aligned? For example, for LB2-6, use LB1? (an idea of Jess's)
-
 For now, we will go with a (not very deeply, but interactively) cleaned image.
 
 There are also other considerations:
-
 * What deconvolver do you use? For now, we will use hogbom (Ryan suggests delta functions, i.e. hogbom, are a better basis set for continuum rings than Gaussians, i.e. multi-scale)
-
 * What beam (robust, uvtaper?) do you use? For now, we will use robust 0.5 and no uvtaper to keep it simple, and have something to improve upon later.
 
 **What we take as the initial model**: A not very deeply, and interactively, cleaned image. These do not look as good as the "initial continuum images" above, because they are not cleaned as deeply. What matters here is that we trust the model column phases; the amplitudes are not important at this stage.
@@ -41,10 +34,21 @@ The SNR increased in all cases (some more than others). Visually, note the color
 
 ### SB EBs
 
+````{card}
+<center>
+
 <img src="images/SB_EB1_model_selfcal.gif" alt="SB_EB1_model_selfcal" class="mb-1" width="49%">
 <img src="images/SB_EB2_model_selfcal.gif" alt="SB_EB2_model_selfcal" class="mb-1" width="49%">
 
+</center>
++++
+**Left to right:** SB EB1, SB EB2.
+````
+
 ### LB EBs
+
+````{card}
+<center>
 
 <img src="images/LB_EB1_model_selfcal.gif" alt="LB_EB1_model_selfcal" class="mb-1" width="49%">
 <img src="images/LB_EB2_model_selfcal.gif" alt="LB_EB2_model_selfcal" class="mb-1" width="49%">
@@ -52,3 +56,8 @@ The SNR increased in all cases (some more than others). Visually, note the color
 <img src="images/LB_EB4_model_selfcal.gif" alt="LB_EB4_model_selfcal" class="mb-1" width="49%">
 <img src="images/LB_EB5_model_selfcal.gif" alt="LB_EB5_model_selfcal" class="mb-1" width="49%">
 <img src="images/LB_EB6_model_selfcal.gif" alt="LB_EB6_model_selfcal" class="mb-1" width="49%">
+
+</center>
++++
+**Left to right, top to bottom:** LB EB1, LB EB2, LB EB3, LB EB4, LB EB5, LB EB6.
+````

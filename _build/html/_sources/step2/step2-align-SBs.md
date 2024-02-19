@@ -14,20 +14,28 @@ In order to increase the chances of overlap (i.e. increase the number of grid ce
 
 ## SB EB1
 
-```{image} images/ABAur_SB_EB1_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_SB_EB1_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_SB_EB1_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_SB_EB1_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+
 
 ## SB EB2
 
-```{image} images/ABAur_SB_EB2_initcont_selfcal.ms_alignment_uv_grid.png
-:alt: ABAur_SB_EB2_initcont_selfcal.ms_alignment_uv_grid
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/ABAur_SB_EB2_initcont_selfcal.ms_alignment_uv_grid.png" alt="ABAur_SB_EB2_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
 
 Again, after aligning the EBs, we rerun the code on the aligned EBs to check that their offsets are small (i.e. a fraction of a cell size).

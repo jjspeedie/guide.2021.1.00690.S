@@ -90,7 +90,7 @@ Once downloaded and untarred, all data should fall into the standardized directo
 
 **(4)** The Member ObsUnitSet (a.k.a MOUS, a.k.a. Scheduling Block, a.k.a. SB). QA2 is carried out at this level. In our case, we have two (``uid___A001_X15a2_Xb6b`` and ``uid___A001_X15a2_Xb6d``) -- one for each array configuration. The long-baseline configuration MOUS is also referred to as TM1, and the short-baseline configuration as TM2. The pipeline is run on each MOUS separately (and thus also delivered to the PI separately).
 
-Each of our MOUSes contain multiple execution blocks (EBs). QA0 is carried out on the EB level. All of the following directories contain all the files for each EB in each MOUS, where the file name starts with the EB ID. For example, our TM2 (short-baseline MOUS) directories contains all the files for EB1 ``uid___A002_Xf7ad58_Xd406`` and for EB2 ``uid___A002_Xf8f6a9_X15c79``.
+Each of our MOUSes contain multiple execution blocks (EBs). QA0 is carried out on the EB level. All of the following directories **(6-11)** contain all the files for each EB in each MOUS, where the file name starts with the EB ID. For example, our TM2 (short-baseline MOUS) directories contain all the files for EB1 ``uid___A002_Xf7ad58_Xd406`` and for EB2 ``uid___A002_Xf8f6a9_X15c79``.
 
 **(5)** A very helpful file that explains the directory structure and file types.
 
