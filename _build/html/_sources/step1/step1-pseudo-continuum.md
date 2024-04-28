@@ -6,7 +6,7 @@
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # necessary for an initial round of selfcal at the end
 `````
 
-# Pseudocontinuum Measurement Sets
+# Pseudo-continuum Measurement Sets
 
 We want to remove our spectral lines to create a continuum-only measurement set. To do that, we have to take into account Doppler shifting of the lines (in the TOPO frame) over the course of the year.
 

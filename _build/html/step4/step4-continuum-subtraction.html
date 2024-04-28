@@ -196,7 +196,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Continuum Subtraction</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="step4-line-mses-achieved.html">Create final line measurement sets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
@@ -213,6 +212,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
 </ul>
 
     </div>
@@ -406,13 +409,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Continuum Subtraction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -482,9 +481,8 @@ Continuum subtraction: LB EB 5</div>
                               <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">504</span><span class="p">;</span><span class="mi">602</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="velocity-re-gridding">
-<h1>Velocity re-gridding<a class="headerlink" href="#velocity-re-gridding" title="Permalink to this heading">#</a></h1>
+<section id="velocity-re-gridding">
+<h2>Velocity re-gridding<a class="headerlink" href="#velocity-re-gridding" title="Permalink to this heading">#</a></h2>
 <p>What I didn’t realize beforehand is that cvel2 cannot regrid a measurement set that contains multiple spectral windows all at the same time. So I split each spectral window out of each execution block (both the continuum subtracted and non-continuum subtracted versions), and regridded them individually.</p>
 <p>A listobs nicely shows that they’ve been successfully regridded. Here for example is the LB EB1 spectral window for SO, before and after the cvel2 task. Notice “Frame” changes from TOPO to LSRK:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Spectral</span> <span class="n">Windows</span><span class="p">:</span>  <span class="p">(</span><span class="mi">1</span> <span class="n">unique</span> <span class="n">spectral</span> <span class="n">windows</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">unique</span> <span class="n">polarization</span> <span class="n">setups</span><span class="p">)</span>
@@ -506,6 +504,7 @@ Continuum subtraction: LB EB 5</div>
 <a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw3.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw3.gif" style="width: 99%;" /></a>
 </div>
 </div>
+</section>
 <section id="id1">
 <h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -609,13 +608,9 @@ Doing the same exercise for the ABAur_13CO.bin30s.ms.cvel2:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Continuum Subtraction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -56,7 +56,7 @@ Flagchannels input string for LB_EB6: '1:517~589,       2:505~601,       3:960~1
                               fitspw:  1:0~516;590~959, 2:0~504;602~959, 3:0~959;1250~1919, 4:0~552;1058~1919
 ```
 
-# Velocity re-gridding
+## Velocity re-gridding
 
 What I didn't realize beforehand is that cvel2 cannot regrid a measurement set that contains multiple spectral windows all at the same time. So I split each spectral window out of each execution block (both the continuum subtracted and non-continuum subtracted versions), and regridded them individually.
 
