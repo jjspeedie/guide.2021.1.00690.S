@@ -1,6 +1,8 @@
 # Breakdown of Our Task
 
-```{figure} workflow.jpg
+<!-- <img src="./breakdown-of-task.png" alt="breakdown-of-our-task" class="mb-1" width="100%"> -->
+
+```{figure} breakdown-of-task.png
 :alt: breakdown
 :class: bg-primary mb-1
 :width: 100%

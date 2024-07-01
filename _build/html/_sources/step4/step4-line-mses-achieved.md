@@ -7,7 +7,7 @@
 - <a href="https://casaguides.nrao.edu/index.php/Analysis_Utilities" target="_blank">analysisUtils (analysis_scripts/)</a> # for channel strings
 `````
 
-# Create final line measurement sets
+# Create Final Line Measurement Sets
 
 (I tried to follow the file naming conventions of the MAPS datasets.)
 

@@ -5,7 +5,7 @@
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # selfcal functions
 `````
 
-# Self-Calibration of SB+LB data
+# Self-Calibration of SB+LB Data
 
 ## Summary of path through self-calibration
 

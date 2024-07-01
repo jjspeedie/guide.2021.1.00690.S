@@ -53,3 +53,13 @@ parse:
     - tasklist
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
   myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
+
+sphinx:
+  extra_extensions:
+    - sphinx.ext.intersphinx
+  config:
+    intersphinx_mapping:
+      python: ('https://docs.python.org/3', None)
+    nitpicky: true
+    nitpick_ignore:
+      - 'py:class reference not found'

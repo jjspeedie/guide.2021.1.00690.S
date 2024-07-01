@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'step3/step3-summary';</script>
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -189,8 +191,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
@@ -200,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create final line measurement sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="nav bd-sidenav">
@@ -425,6 +427,13 @@ document.write(`
 <li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # selfcal functions</p></li>
 </ul>
 </div>
+<p><a class="reference internal" href="step3-selfcal-SBs.html"><span class="doc std std-doc">Self-Calibration of Short-Baseline Execution Blocks</span></a>: Self-calibration started with the (phase-aligned and concatenated) short-baseline continuum data. We performed a series of phase-only self-calibration iterations, decreasing the solution interval in succession: inf, 243s, 120s, 60s, 30s, 18s. We avoided combining by SPW in the first two rounds to remove any potential per-SPW phase offsets. Between iterations, we updated the model by imaging the data interactively and conservatively with Hogbom deconvolution\cite{hogbom1974} and a Briggs robust parameter of 0.5, setting the \texttt{gain} parameter to <span class="math notranslate nohighlight">\(0.05\)</span> to guard against cleaning too deeply in a given major cycle. We used a circular clean mask of <span class="math notranslate nohighlight">\(3''\)</span> radius, centered on the new common phase center. %  <span class="math notranslate nohighlight">\(3''\)</span> in radius.
+We estimated the noise in the \texttt{CLEAN} image within a centered annulus with inner and outer radius <span class="math notranslate nohighlight">\(6''\)</span> and <span class="math notranslate nohighlight">\(10''\)</span>, respectively. We concluded the phase-only self-calibration sequence when the peak SNR increased by a factor less than <span class="math notranslate nohighlight">\(10\%\)</span> and the image quality did not visually improve. We then carried out one round of amplitude and phase self-calibration with the solution interval equal to a scan length (486s), which improved the peak SNR by a factor of <span class="math notranslate nohighlight">\(5\%\)</span>. Overall, the entire self-calibration process resulted in an increase in the peak SNR of the short-baseline dataset by a factor of <span class="math notranslate nohighlight">\(2.2\)</span>; the resulting noise was <span class="math notranslate nohighlight">\(35\, \mu\)</span>Jy/beam (<span class="math notranslate nohighlight">\(1.35\)</span> mK) for a <span class="math notranslate nohighlight">\(630 \times 930\)</span> mas beam.</p>
+<p>We concatenated the (newly self-calibrated) short-baseline dataset with the (not self-calibrated, but phase aligned) long-baseline dataset and proceeded to self-calibrate the combined dataset.
+To avoid a bug\footnote{Error in Calibrater::solve: Mismatch between Solution frequencies and existing CalTable frequencies. Documented in \url{<a class="github reference external" href="https://github.com/e-merlin/eMERLIN_CASA_pipeline/issues/70">e-merlin/eMERLIN_CASA_pipeline#70</a>}} in the \texttt{gaincal} task %\js{I believe this is documented officially, somewhere}
+in {\sc CASA} 6.2.1, it was necessary to switch to {\sc CASA} 6.4.1.</p>
+<p><a class="reference internal" href="step3-selfcal-SBs%2BLBs.html"><span class="doc std std-doc">Self-Calibration of SB+LB Data</span></a>: An initial round of per-SPW phase self-calibration was attempted but yielded too many flagged solutions due to low SNR. We started with a solution interval of 900s and stepped down to 360s, 180s and 60s before performing one round of amplitude and phase self-calibration (again on a scan length). This second self-calibration process resulted in peak SNR increase by a factor of <span class="math notranslate nohighlight">\(1.6\)</span>. The estimated noise was <span class="math notranslate nohighlight">\(17.4 \, \mu\)</span>Jy/beam (4.2 mK) for a <span class="math notranslate nohighlight">\(260\times 360\)</span> mas beam.</p>
+<p><a class="reference internal" href="step3-continuum-ms-achieved.html"><span class="doc std std-doc">Create Final Continuum Measurement Set</span></a>:</p>
 </section>
 
     <script type="text/x-thebe-config">

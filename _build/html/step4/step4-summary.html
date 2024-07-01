@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Manual Flagging" href="step4-manual-flags.html" />
-    <link rel="prev" title="Create final continuum measurement set" href="../step3/step3-continuum-ms-achieved.html" />
+    <link rel="prev" title="Create Final Continuum Measurement Set" href="../step3/step3-continuum-ms-achieved.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,8 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
@@ -200,7 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-continuum-subtraction.html">Continuum Subtraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-line-mses-achieved.html">Create final line measurement sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="nav bd-sidenav">
@@ -427,6 +427,14 @@ document.write(`
 <li><p><a href="https://casaguides.nrao.edu/index.php/Analysis_Utilities" target="_blank">analysisUtils (analysis_scripts/)</a> # for channel strings</p></li>
 </ul>
 </div>
+<p><a class="reference internal" href="step4-manual-flags.html"><span class="doc std std-doc">Manual Flagging</span></a>:</p>
+<p><a class="reference internal" href="step4-split-spws.html"><span class="doc std std-doc">Splitting Out Line Spectral Windows</span></a>: Having gained what we need from the continuum self-calibration,
+we returned to the non-spectrally averaged pipeline calibrated visibilities to split out the line SPWs and spectrally average down the continuum.</p>
+<!-- %[Details: We spectrally averaged the continuum SPWs into a single channel; purely for the sake of minimizing the size; it will be left behind soon enough]. -->
+<p><a class="reference internal" href="step4-apply-phase-alignments.html"><span class="doc std std-doc">Apply Phase Shifts</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
+<p><a class="reference internal" href="step4-apply-self-cal-solutions.html"><span class="doc std std-doc">Apply Self-Calibration Solutions</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
+<p><a class="reference internal" href="step4-continuum-subtraction.html"><span class="doc std std-doc">Continuum Subtraction</span></a>: We performed continuum subtraction in the \textit{uv}-plane using the \texttt{uvcontsub} task.</p>
+<p><a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">Create Final Line Measurement Sets</span></a>: Finally, we combined the corresponding SPWs across execution blocks and obtained final measurement sets ready for imaging. We do not regrid the measurement sets onto a common velocity grid using the \texttt{cvel2} task; we let \texttt{tclean} do this during imaging so as not to bin already-binned data.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,7 +474,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Create final continuum measurement set</p>
+        <p class="prev-next-title">Create Final Continuum Measurement Set</p>
       </div>
     </a>
     <a class="right-next"
