@@ -1,4 +1,4 @@
-# Step 1 Summary & Scripts
+# Step 1 Overview & Scripts
 
 In this step, we begin our post-processing of the continuum.
 

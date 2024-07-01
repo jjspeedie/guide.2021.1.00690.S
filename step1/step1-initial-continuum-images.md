@@ -10,13 +10,13 @@
 
 Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually.
 
-**Out motivation for doing this initial imaging is to:**
+**Out motivation for doing this initial imaging is:**
 
-- Check that the channel- and time-averaging didn't do anything noticeably problematic to the data.
+- To check that the channel- and time-averaging didn't do anything noticeably problematic to the data.
 
-- Get a sense of which execution blocks, and which spectral windows, are weak and which are strong (i.e. which have largest visible phase errors, which have largest SNR, etc). This will be useful for informing which EB to choose as a reference for phase alignment. We will (if possible) want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spectral window.
+- To get a sense of which execution blocks, and which spectral windows, are weak and which are strong (i.e. which have largest visible phase errors, which have largest SNR, etc). This will be useful for informing which EB to choose as a reference for phase alignment. We will (if possible) want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spectral window.
 
-- Get familiar with the current state of the data, so we can later gauge how much or little improvement we see after phase alignment ([Step 2](../step2/step2-align-SBs.md)) and self-calibration ([Step 3](../step3/step3-selfcal-SBs.md)).
+- To get familiar with the current state of the data, so we can later gauge how much or little improvement we see after phase alignment ([Step 2](../step2/step2-align-SBs.md)) and self-calibration ([Step 3](../step3/step3-selfcal-SBs.md)).
 
 The following are (non-interactively) cleaned images of the continuum for each execution block. Top left is an image combining all spectral windows; the other 5 images are for the 5 spectral windows individually.
 
@@ -166,11 +166,11 @@ caption
 
 ## Comparing S, N and SNR across EBs
 
-The following is a summary of the above continuum images -- more directly informative for per-spw self calibration.
+The following is a summary of the above continuum images (more directly informative for per-spw self calibration).
 
-The horizontal lines indicate the SNR in the execution block if all spws are imaged. Cool to see how it is slightly higher than if we image the continuum spectral window only (spw 0). The four 58 MHz windows (or more like 40-50 MHz, after line flagging) do add something.
+The horizontal lines indicate the SNR in the execution block if all spws are imaged. It is slightly higher than if we image the continuum spectral window only (spw 0), suggesting that the four 58 MHz bandwidth spectral windows (or more like 40-50 MHz, after line flagging) do add something.
 
-A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without concatenating them together, or without concatenating them with the SB data.
+A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without either concatenating them together, or concatenating them with the SB data.
 
 ````{card}
 <center>
@@ -183,7 +183,7 @@ caption
 ````
 
 
-Just for reference, here is the equivalent plot but for (max value in image) and (measure rms noise in image). I calculated SNR as (max value in image)/(measure rms noise in image).
+Just for reference, here is the equivalent plot but for [peak intensity] and [measured rms noise]. I calculated SNR as SNR = [peak intensity]/[measured rms noise].
 
 ````{card}
 <center>

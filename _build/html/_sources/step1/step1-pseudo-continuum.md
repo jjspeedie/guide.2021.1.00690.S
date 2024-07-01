@@ -17,46 +17,182 @@ I chose the velocity ranges myself, based on plots of amplitude vs. frequency. T
 
 ## SB EB1
 
+````{card}
+<center>
+
 <img src="images/SB1_setup.png" alt="SB1_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-SB_EB1.png" alt="SB1_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4. The continuum spectral window (spw 0) is unchanged.
+````
 
 `````{admonition} In hindsight...
 :class: tip
-In hindsight (from Step 4), I should've made these plots with avgtime='1e8', avgscan=True and avgbaseline=True. It would've been a lot clearer.
+In hindsight, I should've made these plots with ``avgtime='1e8'``, ``avgscan=True`` and ``avgbaseline=True``. It would've been a lot clearer.
 `````
 
 ## SB EB2
 
+````{card}
+<center>
+
 <img src="images/SB2_setup.png" alt="SB2_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-SB_EB2.png" alt="SB2_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 ## LB EB1
 
+````{card}
+<center>
+
 <img src="images/LB1_setup.png" alt="LB1_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB1.png" alt="LB1_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 ## LB EB2
 
+````{card}
+<center>
+
 <img src="images/LB2_setup.png" alt="LB2_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB2.png" alt="LB2_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 
 ## LB EB3
 
+````{card}
+<center>
+
 <img src="images/LB3_setup.png" alt="LB3_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB3.png" alt="LB3_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 ## LB EB4
 
+````{card}
+<center>
+
 <img src="images/LB4_setup.png" alt="LB4_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB4.png" alt="LB4_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 ## LB EB5
 
+````{card}
+<center>
+
 <img src="images/LB5_setup.png" alt="LB5_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB5.png" alt="LB5_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````
 
 ## LB EB6
 
+````{card}
+<center>
+
 <img src="images/LB6_setup.png" alt="LB6_setup" class="mb-1" width="100%">
+
+</center>
++++
+caption
+````
+
+````{card}
+<center>
+
 <img src="images/spectral-averaging-LB_EB6.png" alt="LB6_spectral_averaging" class="mb-1" width="100%">
+
+</center>
++++
+Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.
+````

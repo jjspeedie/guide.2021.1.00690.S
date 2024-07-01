@@ -8,7 +8,7 @@
 
 # Initial Self-Calibration
 
-In preparation for the phase alignment, Ryan suggested we do a single round of self-calibration on each execution block, just to get the phases looking as good as possible.
+In preparation for the phase alignment, we do a single round of self-calibration on each execution block, just to get the phases looking as good as possible.
 
 `````{admonition} Something to do differently...
 :class: tip

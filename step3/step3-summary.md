@@ -1,4 +1,4 @@
-# Step 3 Summary & Scripts
+# Step 3 Overview & Scripts
 
 `````{admonition} Scripts for **Step 3 - Self-calibration of the continuum**:
 :class: tip

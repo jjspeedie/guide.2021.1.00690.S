@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="step1-summary.html">Step 1 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step1-manual-flags.html">Manual Flagging</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Pseudo-continuum Measurement Sets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step1-initial-continuum-images.html">Initial Continuum Images</a></li>
@@ -180,21 +180,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-manual-flags.html">Manual Flagging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
@@ -448,47 +448,191 @@ document.write(`
 <p>I chose the velocity ranges myself, based on plots of amplitude vs. frequency. The ranges I chose are smaller than what MAPS or DSHARP did (+/- 15 km/s and +/- 25 km/s, respectively), but I wanted to preserve as much bandwidth as possible, and my selections looked reasonable to me in plots of amplitude vs. frequency. Later, during imaging of the cubes, I confirmed my selected ranges did not include channels containing any line emission.</p>
 <section id="sb-eb1">
 <h2>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/SB1_setup.png"><img alt="SB1_setup" class="mb-1" src="../_images/SB1_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-SB_EB1.png"><img alt="SB1_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-SB_EB1.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4. The continuum spectral window (spw 0) is unchanged.</p>
+</div>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">In hindsight…</p>
-<p>In hindsight (from Step 4), I should’ve made these plots with avgtime=’1e8’, avgscan=True and avgbaseline=True. It would’ve been a lot clearer.</p>
+<p>In hindsight, I should’ve made these plots with <code class="docutils literal notranslate"><span class="pre">avgtime='1e8'</span></code>, <code class="docutils literal notranslate"><span class="pre">avgscan=True</span></code> and <code class="docutils literal notranslate"><span class="pre">avgbaseline=True</span></code>. It would’ve been a lot clearer.</p>
 </div>
 </section>
 <section id="sb-eb2">
 <h2>SB EB2<a class="headerlink" href="#sb-eb2" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/SB2_setup.png"><img alt="SB2_setup" class="mb-1" src="../_images/SB2_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-SB_EB2.png"><img alt="SB2_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-SB_EB2.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb1">
 <h2>LB EB1<a class="headerlink" href="#lb-eb1" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB1_setup.png"><img alt="LB1_setup" class="mb-1" src="../_images/LB1_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB1.png"><img alt="LB1_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB1.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb2">
 <h2>LB EB2<a class="headerlink" href="#lb-eb2" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB2_setup.png"><img alt="LB2_setup" class="mb-1" src="../_images/LB2_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB2.png"><img alt="LB2_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB2.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb3">
 <h2>LB EB3<a class="headerlink" href="#lb-eb3" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB3_setup.png"><img alt="LB3_setup" class="mb-1" src="../_images/LB3_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB3.png"><img alt="LB3_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB3.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb4">
 <h2>LB EB4<a class="headerlink" href="#lb-eb4" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB4_setup.png"><img alt="LB4_setup" class="mb-1" src="../_images/LB4_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB4.png"><img alt="LB4_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB4.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb5">
 <h2>LB EB5<a class="headerlink" href="#lb-eb5" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB5_setup.png"><img alt="LB5_setup" class="mb-1" src="../_images/LB5_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB5.png"><img alt="LB5_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB5.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 <section id="lb-eb6">
 <h2>LB EB6<a class="headerlink" href="#lb-eb6" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/LB6_setup.png"><img alt="LB6_setup" class="mb-1" src="../_images/LB6_setup.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">caption</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/spectral-averaging-LB_EB6.png"><img alt="LB6_spectral_averaging" class="mb-1" src="../_images/spectral-averaging-LB_EB6.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Amplitude as a function of frequency, before and after flagging the lines in spectral windows 1-4.</p>
+</div>
+</div>
 </section>
 </section>
 

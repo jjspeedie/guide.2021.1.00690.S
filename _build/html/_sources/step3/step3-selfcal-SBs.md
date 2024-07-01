@@ -20,6 +20,8 @@
 
 ### Explanation of parameter choices
 
+Threshold: should be the same in every round to compare apples to apples...
+
 **gaincal spw**: Selecting all spectral windows.
 
 **gaincal solint**: The time interval on which to generate solutions. 'inf' goes as wide as the boundaries specified by the combine parameter. In the first and second round (p1, p2), 1 solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find 1 solution per scan again. For reference, here's the number of seconds in each scan, in each execution block:

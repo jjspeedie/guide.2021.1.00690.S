@@ -1,6 +1,6 @@
 # Program Overview
 
-ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the "short-baseline" and "long-baseline" configurations, respectively.
+ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers (<a href="https://ui.adsabs.harvard.edu/abs/2004stt..conf..181E/abstract" target="_blank">Ediss et al. 2004</a>) in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the "short-baseline" and "long-baseline" configurations, respectively.
 In total, the 8 execution blocks (EBs) reached an on-source integration time of 5.75 hours.
 
 
@@ -45,6 +45,8 @@ Below are further details on the TM1 scheduling block, compiled from a combinati
 </div>
 
 +++
+&rarr;&rarr;&rarr; *This table scrolls horizontally* &rarr;&rarr;&rarr;
+
 **AB_Aur_a_06_TM1: member.uid___A001_X15a2_Xb6b**.
 ````
 
@@ -66,6 +68,8 @@ Below are further details on the TM2 scheduling block, compiled from a combinati
  </table>
  </div>
 +++
+&rarr;&rarr;&rarr; *This table scrolls horizontally* &rarr;&rarr;&rarr;
+
 **AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d**. The "second" execution block "uid___A002_Xf8d822_Xa976" was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment (from the QA0 report) shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The "third" execution block, "uid___A002_Xf8f6a9_X15c79", is thus what we move forward with as "SB EB2".
 ````
 

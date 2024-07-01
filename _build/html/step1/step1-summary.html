@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Step 1 Summary &amp; Scripts &#8212; Reduction Guide</title>
+    <title>Step 1 Overview &amp; Scripts &#8212; Reduction Guide</title>
   
   
   
@@ -174,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 1 Summary &amp; Scripts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 1 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step1-manual-flags.html">Manual Flagging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step1-initial-continuum-images.html">Initial Continuum Images</a></li>
@@ -182,21 +182,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Summary &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-manual-flags.html">Manual Flagging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
@@ -403,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Step 1 Summary & Scripts</h1>
+    <h1>Step 1 Overview & Scripts</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -417,8 +417,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="step-1-summary-scripts">
-<h1>Step 1 Summary &amp; Scripts<a class="headerlink" href="#step-1-summary-scripts" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="step-1-overview-scripts">
+<h1>Step 1 Overview &amp; Scripts<a class="headerlink" href="#step-1-overview-scripts" title="Permalink to this heading">#</a></h1>
 <p>In this step, we begin our post-processing of the continuum.</p>
 <div class="tip admonition">
 <p class="admonition-title">Scripts for <strong>Step 1 - Prepare the continuum</strong>:</p>
@@ -430,7 +430,7 @@ document.write(`
 </ul>
 </div>
 <p><a class="reference internal" href="step1-manual-flags.html"><span class="doc std std-doc">Manual Flagging</span></a>: Before we do anything, we should identify data we want to flag out, if any. During inspection of the weblog, we had seen some flaggable issues (bad antennas). But they were deemed not too serious, and we opted to rely on self calibration to fix them.</p>
-<p><a class="reference internal" href="step1-pseudo-continuum.html"><span class="doc std std-doc">Pseudo-continuum Measurement Sets</span></a>: First, we create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. “Pseudo-continuum”
+<p><a class="reference internal" href="step1-pseudo-continuum.html"><span class="doc std std-doc">Pseudo-continuum Measurement Sets</span></a>: We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. “Pseudo-continuum”
 We use the DSHARP function <code class="docutils literal notranslate"><span class="pre">get_flagchannels</span></code> to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels <span class="math notranslate nohighlight">\(\pm 6\)</span> km/s from the <span class="math notranslate nohighlight">\(^{13}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> line center, and <span class="math notranslate nohighlight">\(\pm 4\)</span> km/s from the C<span class="math notranslate nohighlight">\(^{18}\)</span>O <span class="math notranslate nohighlight">\(J=2-1\)</span> line center. While these velocity ranges are narrower than the <span class="math notranslate nohighlight">\(\pm 15\)</span> km/s and <span class="math notranslate nohighlight">\(\pm 25\)</span> km/s velocity ranges flagged by {\sc MAPS} and {\sc DSHARP}, respectively, we confirmed that they capture all tail emission with a buffer of <span class="math notranslate nohighlight">\(\geq1\)</span> km/s by imaging the cubes and visually inspecting the channels.<br />
 The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).</p>
 <p><a class="reference internal" href="step1-initial-continuum-images.html"><span class="doc std std-doc">Initial Continuum Images</span></a>:</p>

@@ -1,4 +1,4 @@
-# Step 1 Summary & Scripts
+# Step 1 Overview & Scripts
 
 In this step, we begin our post-processing of the continuum.
 
@@ -13,7 +13,7 @@ In this step, we begin our post-processing of the continuum.
 
 [Manual Flagging](step1-manual-flags.md): Before we do anything, we should identify data we want to flag out, if any. During inspection of the weblog, we had seen some flaggable issues (bad antennas). But they were deemed not too serious, and we opted to rely on self calibration to fix them.
 
-[Pseudo-continuum Measurement Sets](step1-pseudo-continuum.md): First, we create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. "Pseudo-continuum"
+[Pseudo-continuum Measurement Sets](step1-pseudo-continuum.md): We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. "Pseudo-continuum"
 We use the DSHARP function ``get_flagchannels`` to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels $\pm 6$ km/s from the $^{13}$CO $J=2-1$ line center, and $\pm 4$ km/s from the C$^{18}$O $J=2-1$ line center. While these velocity ranges are narrower than the $\pm 15$ km/s and $\pm 25$ km/s velocity ranges flagged by {\sc MAPS} and {\sc DSHARP}, respectively, we confirmed that they capture all tail emission with a buffer of $\geq1$ km/s by imaging the cubes and visually inspecting the channels.  
 The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).
 

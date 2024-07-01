@@ -174,31 +174,34 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step1/step1-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step1/step1-pseudo-continuum.html">Pseudocontinuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-continuum-images.html">Initial Continuum Images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-self-calibration.html">Initial Self-Calibration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-manual-flags.html">Manual Flagging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create final line measurement sets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
@@ -437,7 +440,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="program-overview">
 <h1>Program Overview<a class="headerlink" href="#program-overview" title="Permalink to this heading">#</a></h1>
-<p>ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the “short-baseline” and “long-baseline” configurations, respectively.
+<p>ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers (<a href="https://ui.adsabs.harvard.edu/abs/2004stt..conf..181E/abstract" target="_blank">Ediss et al. 2004</a>) in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the “short-baseline” and “long-baseline” configurations, respectively.
 In total, the 8 execution blocks (EBs) reached an on-source integration time of 5.75 hours.</p>
 <section id="observation-summary">
 <h2>Observation Summary<a class="headerlink" href="#observation-summary" title="Permalink to this heading">#</a></h2>
@@ -664,6 +667,7 @@ In total, the 8 execution blocks (EBs) reached an on-source integration time of 
 </div>
 </div>
 <div class="sd-card-footer docutils">
+<p class="sd-card-text">→→→ <em>This table scrolls horizontally</em> →→→</p>
 <p class="sd-card-text"><strong>AB_Aur_a_06_TM1: member.uid___A001_X15a2_Xb6b</strong>.</p>
 </div>
 </div>
@@ -793,6 +797,7 @@ In total, the 8 execution blocks (EBs) reached an on-source integration time of 
  </div>
 </div>
 <div class="sd-card-footer docutils">
+<p class="sd-card-text">→→→ <em>This table scrolls horizontally</em> →→→</p>
 <p class="sd-card-text"><strong>AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d</strong>. The “second” execution block “uid___A002_Xf8d822_Xa976” was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment (from the QA0 report) shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The “third” execution block, “uid___A002_Xf8f6a9_X15c79”, is thus what we move forward with as “SB EB2”.</p>
 </div>
 </div>
