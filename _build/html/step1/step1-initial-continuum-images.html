@@ -421,7 +421,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb4">LB EB4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb5">LB EB5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb6">LB EB6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-snr-across-ebs">Comparing S, N and SNR across EBs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-snr-across-ebs">Comparing SNR across EBs</a></li>
 </ul>
             </nav>
         </div>
@@ -444,14 +444,42 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="initial-continuum-images">
 <h1>Initial Continuum Images<a class="headerlink" href="#initial-continuum-images" title="Permalink to this heading">#</a></h1>
-<p>Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually. For 8 execution blocks, each with 1 continuum SPW and 4 psuedo-continuum SPWs, that’s</p>
+<p>Here we perform initial imaging of the continuum data. For each execution block, we image the aggregate continuum as well as each spectral window individually. With 8 execution blocks, each with 1 continuum SPW, 4 psuedo-continuum SPWs, and the combined-SPW aggregate, that’s 48 images in total.</p>
 <p><strong>Out motivation for doing this initial imaging is:</strong></p>
 <ul class="simple">
 <li><p>To check that the channel- and time-averaging didn’t do anything noticeably problematic to the data.</p></li>
 <li><p>To get a sense of which execution blocks, and which spectral windows, are weak and which are strong (i.e. which have largest visible phase errors, which have largest SNR, etc). This will be useful for informing which EB to choose as a reference for phase alignment. We will (if possible) want to do (at least) one per-spw round of self-calibration, which will only be successful if we have high SNR in every spectral window.</p></li>
 <li><p>To get familiar with the current state of the data, so we can later gauge how much or little improvement we see after phase alignment (<a class="reference internal" href="../step2/step2-align-SBs.html"><span class="doc std std-doc">Step 2</span></a>) and self-calibration (<a class="reference internal" href="../step3/step3-selfcal-SBs.html"><span class="doc std std-doc">Step 3</span></a>).</p></li>
 </ul>
-<p>The following are (non-interactively) cleaned images of the continuum for each execution block. Top left is an image combining all spectral windows; the other 5 images are for the 5 spectral windows individually.</p>
+<p>I used the DSHARP function <code class="docutils literal notranslate"><span class="pre">image_each_obs</span></code> (<a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py" target="_blank">reductions_utils.py</a>) which loops through all the observations in a measurement set and images them individually, as well as makes images for each spectral window alone. Not wanting to clean 48 images interactively, I used the clean threshold values found by the pipeline (the <code class="docutils literal notranslate"><span class="pre">hif_makeimages</span> <span class="pre">(mfs)</span></code> task in the weblog). The values are set in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a>; note that the threshold is the same or similar for the SPW 0 (continuum SPW) image as for the aggregate continuum image.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Relevant lines in step1_prepare_continuum.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">image_each_obs</span><span class="p">(</span><span class="n">ms_dict</span>      <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">],</span>
+               <span class="n">inputvis</span>     <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initcont.ms&#39;</span><span class="p">],</span>
+               <span class="n">mask</span>         <span class="o">=</span> <span class="n">SB_mask</span><span class="p">,</span>
+               <span class="n">scales</span>       <span class="o">=</span> <span class="n">SB_scales</span><span class="p">,</span>
+               <span class="n">imsize</span>       <span class="o">=</span> <span class="n">SB_imsize</span><span class="p">,</span>
+               <span class="n">cellsize</span>     <span class="o">=</span> <span class="n">SB_cellsize</span><span class="p">,</span>
+               <span class="n">contspws</span>     <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;cont_spws&#39;</span><span class="p">],</span>
+               <span class="c1"># threshold    = &#39;0.0mJy&#39;, # this is taken care of inside image_each_obs() through ms_dict</span>
+               <span class="n">interactive</span>  <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Relevant lines in dictionary_data.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SB_pipeline_cont_cleanthresh</span>           <span class="o">=</span> <span class="mf">0.18</span><span class="p">,</span> <span class="c1">#mJy; from weblog hif_makeimages (aggregate)</span>
+<span class="n">SB_pipeline_cont_cleanthresh_perspw</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.57</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="c1">#mJy; from weblog hif_makeimages (mfs)</span>
+<span class="n">LB_pipeline_cont_cleanthresh</span>           <span class="o">=</span> <span class="mf">0.060</span><span class="p">,</span> <span class="c1">#mJy; from weblog hif_makeimages (aggregate)</span>
+<span class="n">LB_pipeline_cont_cleanthresh_perspw</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.062</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">],</span> <span class="c1">#mJy; from weblog hif_makeimages (mfs)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following are the resulting images of the continuum for each execution block.</p>
 <section id="sb-eb1">
 <h2>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -466,7 +494,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -484,7 +512,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -502,7 +530,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -520,7 +548,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -538,7 +566,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -556,7 +584,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -574,7 +602,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
@@ -592,26 +620,25 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Top left:</strong> Aggregate continuum (combining all spectral windows). <strong>Top middle:</strong> The continuum SPW imaged individually. The other 4 panels are the 4 pseudo-continuum spectral windows imaged individually.</p>
 </div>
 </div>
 </section>
-<section id="comparing-s-n-and-snr-across-ebs">
-<h2>Comparing S, N and SNR across EBs<a class="headerlink" href="#comparing-s-n-and-snr-across-ebs" title="Permalink to this heading">#</a></h2>
-<p>The following is a summary of the above continuum images (more directly informative for per-spw self calibration).</p>
-<p>The horizontal lines indicate the SNR in the execution block if all spws are imaged. It is slightly higher than if we image the continuum spectral window only (spw 0), suggesting that the four 58 MHz bandwidth spectral windows (or more like 40-50 MHz, after line flagging) do add something.</p>
-<p>A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks. But this plot hints that we might not be able to self-cal the LB execution blocks without either concatenating them together, or concatenating them with the SB data.</p>
+<section id="comparing-snr-across-ebs">
+<h2>Comparing SNR across EBs<a class="headerlink" href="#comparing-snr-across-ebs" title="Permalink to this heading">#</a></h2>
+<p>The following is a summary of the above continuum images (more directly informative for per-spw self calibration). SNR is calculated as <code class="docutils literal notranslate"><span class="pre">SNR</span> <span class="pre">=</span> <span class="pre">[peak</span> <span class="pre">intensity]/[measured</span> <span class="pre">rms</span> <span class="pre">noise]</span></code>.</p>
+<p>A minimum of ~25 SNR is needed for self calibration. So we should be able to do per-spw self cal on the SB execution blocks, but this plot hints that we might not be able to self-cal the LB execution blocks without either concatenating them together, or concatenating them with the SB data.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_SNR_perspw.png"><img alt="ABAur_initcont_SNR_perspw" class="mb-1" src="../_images/ABAur_initcont_SNR_perspw.png" style="width: 70%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_initcont_SNR_perspw.png"><img alt="ABAur_initcont_SNR_perspw" class="mb-1" src="../_images/ABAur_initcont_SNR_perspw.png" style="width: 100%;" /></a>
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text">The horizontal lines indicate the SNR in the execution block if all spws are imaged. It is <em>ever so slightly</em> higher than if we image the continuum spectral window only (SPW 0), suggesting that the four 58 MHz bandwidth spectral windows (or more like 40-50 MHz, after line flagging) do contribute something.</p>
 </div>
 </div>
-<p>Just for reference, here is the equivalent plot but for [peak intensity] and [measured rms noise]. I calculated SNR as SNR = [peak intensity]/[measured rms noise].</p>
+<p>Just for reference, here is the equivalent plots but for each of <code class="docutils literal notranslate"><span class="pre">[peak</span> <span class="pre">intensity]</span></code> and <code class="docutils literal notranslate"><span class="pre">[measured</span> <span class="pre">rms</span> <span class="pre">noise]</span></code>.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
@@ -702,7 +729,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb4">LB EB4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb5">LB EB5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb6">LB EB6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-s-n-and-snr-across-ebs">Comparing S, N and SNR across EBs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-snr-across-ebs">Comparing SNR across EBs</a></li>
 </ul>
   </nav></div>
 

@@ -88,7 +88,7 @@ working
 `````{admonition} The uid*.ms measurement sets
 :class: tip
 
-These MS files contain **all original spectral windows** and **both the calibrated and uncalibrated data**. The calibrated data can be found in the MS table column ``CORRECTED_DATA``.
+These MS files contain **all original spectral windows** and **both the calibrated and uncalibrated data**. The calibrated data can be found in the MS table column ``'CORRECTED_DATA'``.
 `````
 
 
@@ -155,7 +155,7 @@ This creates the ``uid*.ms.split.cal.source`` measurement sets.
 `````{admonition} The uid*.ms.split.cal.source measurement sets
 :class: tip
 
-These MS files contain contain **only the science target**, and **only the science spectral windows**. The calibrated data should be in the MS table column ``DATA``.
+These MS files contain contain **only the science target**, and **only the science spectral windows**. The calibrated data should be in the MS table column ``'DATA'``.
 `````
 
 For the TM2, or short-baselines, scheduling block where we have 2 execution blocks, the contents of the ``calibrated`` folder should now look like this:

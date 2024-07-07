@@ -21,11 +21,11 @@ This is a guide to the reduction and imaging of <a href="https://almascience.nra
 
 Things to know and keep in mind about this guide:
 
-- **The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.** Content is split across both places. The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.
+- **The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.** The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.
 
 - **The chosen approaches are specific to our program and science goals.** What works for your program might be different!
 
-- **This guide is intended to be a snapshot, and will not be updated over time.** The choices and steps it presents are a function of the wisdom at the time (and the people whose wisdom I was able to receive). Of course, the communal wisdom is constantly changing. What is presented here may not necessarily hold forever.
+- **This guide is intended to be a snapshot, and will not be updated over time.** The choices and steps it presents are a function of the wisdom at the time (and the people whose wisdom I was able to receive). Of course, the communal wisdom is constantly changing. Software is continuously changing too. What is presented here may not necessarily hold forever.
 
 
 As an additional reference, the refereed journal articles where the data are or will be published are linked below. Their methods sections contain complete overlap with the content here.

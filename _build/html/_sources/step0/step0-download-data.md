@@ -71,7 +71,7 @@ chmod u+x download*.sh
 ./download*.sh
 ```
 
-10. Depending on the amount of data and your download speed, this could take ~a day. When it finishes, make sure to be ready to say ``yes`` to untarring *and* ``yes`` to untarring in the directory structure.
+10. Depending on the amount of data and your download speed, this could take ~a day. When it finishes, **make sure to be ready to say ``yes`` to untarring *and* ``yes`` to untarring in the directory structure.**
 
 ````{admonition} Understanding the directory substructure
 :class: tip, dropdown

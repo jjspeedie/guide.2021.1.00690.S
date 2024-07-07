@@ -496,7 +496,7 @@ document.write(`
 </ol>
 <div class="tip admonition">
 <p class="admonition-title">The uid*.ms measurement sets</p>
-<p>These MS files contain <strong>all original spectral windows</strong> and <strong>both the calibrated and uncalibrated data</strong>. The calibrated data can be found in the MS table column <code class="docutils literal notranslate"><span class="pre">CORRECTED_DATA</span></code>.</p>
+<p>These MS files contain <strong>all original spectral windows</strong> and <strong>both the calibrated and uncalibrated data</strong>. The calibrated data can be found in the MS table column <code class="docutils literal notranslate"><span class="pre">'CORRECTED_DATA'</span></code>.</p>
 </div>
 </section>
 <section id="splitting-out-the-science-spectral-windows-and-target-source">
@@ -556,7 +556,7 @@ document.write(`
 <p>This creates the <code class="docutils literal notranslate"><span class="pre">uid*.ms.split.cal.source</span></code> measurement sets.</p>
 <div class="tip admonition">
 <p class="admonition-title">The uid*.ms.split.cal.source measurement sets</p>
-<p>These MS files contain contain <strong>only the science target</strong>, and <strong>only the science spectral windows</strong>. The calibrated data should be in the MS table column <code class="docutils literal notranslate"><span class="pre">DATA</span></code>.</p>
+<p>These MS files contain contain <strong>only the science target</strong>, and <strong>only the science spectral windows</strong>. The calibrated data should be in the MS table column <code class="docutils literal notranslate"><span class="pre">'DATA'</span></code>.</p>
 </div>
 <p>For the TM2, or short-baselines, scheduling block where we have 2 execution blocks, the contents of the <code class="docutils literal notranslate"><span class="pre">calibrated</span></code> folder should now look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">-&gt;</span> <span class="o">../</span><span class="n">calibration</span>

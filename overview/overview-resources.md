@@ -56,7 +56,7 @@ See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target=
 
 ````{card} ALMA Primer View Series
 
-*"The <a href="https://www.youtube.com/@almaprimer920/videos" target="_blank">ALMA Primer Series</a> is an effort to help inform astronomers about topics in interferometry and specifically how to get the most out of their own ALMA data. The team has members from National Research Council of Canada (NRC Herzberg), the National Radio Astronomy Observatory (NRAO) and from universities across North America. The series is not yet complete; new videos are in production covering a broad range of topics covering radio interferometry, calibration, imaging, and more."* 
+*"The <a href="https://www.youtube.com/@almaprimer920/videos" target="_blank">ALMA Primer Series</a> is an effort to help inform astronomers about topics in interferometry and specifically how to get the most out of their own ALMA data. The team has members from National Research Council of Canada (NRC Herzberg), the National Radio Astronomy Observatory (NRAO) and from universities across North America. The series is not yet complete; new videos are in production covering a broad range of topics covering radio interferometry, calibration, imaging, and more."*
 
 ````
 
@@ -94,8 +94,8 @@ See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target=
 
 <!-- <a href="https://" target="_blank">target</a> -->
 
-````{card} NAASC Data Reduction Visit (f2f)
+````{card} Data Reduction Visit to the NAASC (f2f)
 
-I visited the NAASC/NRAO in Charlottesville, VA for a week and worked with Staff Scientist Ryan Loomis and Data Analysts Sarah Wood and Tristan Ashton. I cannot recommend this program highly enough. <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">Learn about f2f visits here!</a>
+I visited the North American ALMA Science Center (NAASC) in Charlottesville, VA for a week in Nov. 2022 and worked with Staff Scientist Ryan Loomis and Data Analysts Sarah Wood and Tristan Ashton. Their science support and guidance with the reduction and imaging of the ALMA data was invaluable. It was during this week that the big picture (the workflow [Breakdown of Our Task](overview-breakdown.md)) came together for me. The visit was fully funded by the NAASC and computational resources were provided on NAASC/NRAO clusters. I cannot recommend this program highly enough. <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">Learn about f2f visits here!</a>
 
 ````

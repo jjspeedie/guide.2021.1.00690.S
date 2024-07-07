@@ -2,6 +2,8 @@
 
 In this step, we self-calibrate the continuum and obtain the final continuum measurement set.
 
+<img src="images/selfcal-meme.png" alt="selfcal-meme" class="mb-1" width="35%">
+
 `````{admonition} Scripts for **Step 3 - Self-calibration of the continuum**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step3_continuum_selfcal.py" target="_blank">step3_continuum_selfcal.py</a> # main script

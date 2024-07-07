@@ -8,7 +8,7 @@
 
 # Manual Flagging
 
-We identified some flaggable issues during inspection of the weblog, namely bad antennas during the Tsys calibration in both the long-baseline and shore baseline data (see below). Flagging these data may require redoing the calibration (and the pipeline took 4 days to run on the TM1 scheduling block). However, the guidance I received is they are not too serious, that self calibration would take care of them for us. As such, we opted not to do any manual flagging.
+During the <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">Data Reduction Visit to the NAASC</a>, we identified some flaggable issues during inspection of the weblog, namely bad antennas during the Tsys calibration in both the long-baseline and shore baseline data (see below). Flagging these data may have required redoing the pipeline calibration (and the pipeline took 4 days to run on the TM1 scheduling block). However, the guidance I received is they are not too serious, that self calibration would take care of them for us. As such, we opted not to do any manual flagging.
 
 
 ````{card}
