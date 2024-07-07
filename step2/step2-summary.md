@@ -1,6 +1,6 @@
 # Step 2 Overview & Scripts
 
-
+In this step, we align the phase centers of all execution blocks to a common phase center, assuming the source is not variable in time.
 
 
 `````{admonition} Scripts for **Step 2 - Phase alignment**:
@@ -10,6 +10,12 @@
 - alignment.py # exoALMA visibility alignment functions (not yet public)
 `````
 <!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
+
+````{card}
+
+<img src="images/breakdown-of-task.png" alt="breakdown-of-step2" class="mb-1" width="100%">
+
+````
 
 
 [Align Long-Baseline Execution Blocks](step2-align-LBs.md): We selected one of the long-baseline execution blocks to serve as the reference EB, to whose phase center all other EBs are aligned. The 2022-07-17 execution block (phase center: J2000 04:55:45.854900 +30.33.03.73320) was chosen as the reference EB as it was observed in the most favorable weather conditions and had the highest SNR in the initial images.

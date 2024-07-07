@@ -417,6 +417,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="step-2-overview-scripts">
 <h1>Step 2 Overview &amp; Scripts<a class="headerlink" href="#step-2-overview-scripts" title="Permalink to this heading">#</a></h1>
+<p>In this step, we align the phase centers of all execution blocks to a common phase center, assuming the source is not variable in time.</p>
 <div class="tip admonition">
 <p class="admonition-title">Scripts for <strong>Step 2 - Phase alignment</strong>:</p>
 <ul class="simple">
@@ -426,6 +427,11 @@ document.write(`
 </ul>
 </div>
 <!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/breakdown-of-task2.png"><img alt="breakdown-of-step2" class="mb-1" src="../_images/breakdown-of-task2.png" style="width: 100%;" /></a>
+</div>
+</div>
 <p><a class="reference internal" href="step2-align-LBs.html"><span class="doc std std-doc">Align Long-Baseline Execution Blocks</span></a>: We selected one of the long-baseline execution blocks to serve as the reference EB, to whose phase center all other EBs are aligned. The 2022-07-17 execution block (phase center: J2000 04:55:45.854900 +30.33.03.73320) was chosen as the reference EB as it was observed in the most favorable weather conditions and had the highest SNR in the initial images.
 First, we aligned each of the other 5 long-baseline EBs to the reference EB. The visibilities in each EB were gridded onto a common, regular \textit{uv}-grid.
 Using the \textit{uv} cells containing at least 1 \textit{uv} point from both the reference EB and the comparison EB, and taking into account the noise weights, we calculated the phase center offset between the two sets of gridded visibilities by minimizing the aggregate phase angle and amplitude difference (similar to Eqn. 1 of ref.\cite{casassus2022-pds70}).

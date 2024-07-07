@@ -417,6 +417,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="step-4-overview-scripts">
 <h1>Step 4 Overview &amp; Scripts<a class="headerlink" href="#step-4-overview-scripts" title="Permalink to this heading">#</a></h1>
+<p>In this step, we finally work with the line data to prepare them for imaging. We apply all phase alignment and self-calibration solutions generated from the continuum, and perform continuum subtraction.</p>
 <div class="tip admonition">
 <p class="admonition-title">Scripts for <strong>Step 4 - Prepare the lines</strong>:</p>
 <ul class="simple">
@@ -427,14 +428,19 @@ document.write(`
 <li><p><a href="https://casaguides.nrao.edu/index.php/Analysis_Utilities" target="_blank">analysisUtils (analysis_scripts/)</a> # for channel strings</p></li>
 </ul>
 </div>
-<p><a class="reference internal" href="step4-manual-flags.html"><span class="doc std std-doc">Manual Flagging</span></a>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/breakdown-of-task4.png"><img alt="breakdown-of-step4" class="mb-1" src="../_images/breakdown-of-task4.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p><a class="reference internal" href="step4-manual-flags.html"><span class="doc std std-doc">Manual Flagging</span></a>: Like for the continuum, we do no manual flagging.</p>
 <p><a class="reference internal" href="step4-split-spws.html"><span class="doc std std-doc">Splitting Out Line Spectral Windows</span></a>: Having gained what we need from the continuum self-calibration,
 we returned to the non-spectrally averaged pipeline calibrated visibilities to split out the line SPWs and spectrally average down the continuum.</p>
 <!-- %[Details: We spectrally averaged the continuum SPWs into a single channel; purely for the sake of minimizing the size; it will be left behind soon enough]. -->
 <p><a class="reference internal" href="step4-apply-phase-alignments.html"><span class="doc std std-doc">Apply Phase Shifts</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
 <p><a class="reference internal" href="step4-apply-self-cal-solutions.html"><span class="doc std std-doc">Apply Self-Calibration Solutions</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
-<p><a class="reference internal" href="step4-continuum-subtraction.html"><span class="doc std std-doc">Continuum Subtraction</span></a>: We performed continuum subtraction in the \textit{uv}-plane using the \texttt{uvcontsub} task.</p>
-<p><a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">Create Final Line Measurement Sets</span></a>: Finally, we combined the corresponding SPWs across execution blocks and obtained final measurement sets ready for imaging. We do not regrid the measurement sets onto a common velocity grid using the \texttt{cvel2} task; we let \texttt{tclean} do this during imaging so as not to bin already-binned data.</p>
+<p><a class="reference internal" href="step4-continuum-subtraction.html"><span class="doc std std-doc">Continuum Subtraction</span></a>: We performed continuum subtraction in the <em>uv</em>-plane using the <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code> task.</p>
+<p><a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">Create Final Line Measurement Sets</span></a>: Finally, we combined the corresponding SPWs across execution blocks and obtained final measurement sets ready for imaging. (Note: We do not regrid the measurement sets onto a common velocity grid using the <code class="docutils literal notranslate"><span class="pre">cvel2</span></code> task; we let <code class="docutils literal notranslate"><span class="pre">tclean</span></code> do this during imaging so as not to bin already-binned data.</p>
 </section>
 
     <script type="text/x-thebe-config">

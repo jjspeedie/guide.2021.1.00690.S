@@ -10,6 +10,11 @@ In this step, we begin our post-processing of the continuum.
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # necessary for an initial round of selfcal at the end
 `````
 
+````{card}
+
+<img src="images/breakdown-of-task.png" alt="breakdown-of-step1" class="mb-1" width="100%">
+
+````
 
 [Manual Flagging](step1-manual-flags.md): Before we do anything, we should identify data we want to flag out, if any. During inspection of the weblog, we had seen some flaggable issues (bad antennas). But they were deemed not too serious, and we opted to rely on self calibration to fix them.
 
