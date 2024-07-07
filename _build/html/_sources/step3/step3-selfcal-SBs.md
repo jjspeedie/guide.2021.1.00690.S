@@ -9,14 +9,17 @@
 
 ## Summary of path through self-calibration
 
-```{image} images/ABAur_SB_concat_shifted_cont_summary.jpg
-:alt: ABAur_SB_concat_shifted_cont_summary
-:class: mb-1
-:width: 100%
-:align: center
-```
+````{card}
+<center>
 
+<img src="images/ABAur_SB_concat_shifted_cont_summary.jpg" alt="ABAur_SB_concat_shifted_cont_summary" class="mb-1" width="100%">
+
+</center>
++++
 (Note: Empty cells are not meaningless; they mean '', which in CASA either means 'all' or 'nothing'.)
+````
+
+
 
 ### Explanation of parameter choices
 
@@ -25,13 +28,16 @@ Threshold: should be the same in every round to compare apples to apples...
 **gaincal spw**: Selecting all spectral windows.
 
 **gaincal solint**: The time interval on which to generate solutions. 'inf' goes as wide as the boundaries specified by the combine parameter. In the first and second round (p1, p2), 1 solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find 1 solution per scan again. For reference, here's the number of seconds in each scan, in each execution block:
-```{figure} images/number-seconds-in-each-scan.png
-:alt: number-seconds-in-each-scan
-:class: mb-1
-:width: 100%
-:align: center
+
+````{card}
+<center>
+
+<img src="images/number-seconds-in-each-scan.png" alt="number-seconds-in-each-scan" class="mb-1" width="100%">
+
+</center>
++++
 For the SB-only self-cal, the solints 243s, 120s, 60s, 30s, 18s roughly correspond to: half a scan, a quarter of a scan, an eighth of a scan, a sixteenth of a scan, and then 3x the record length (6s).
-```
+````
 
 **gaincal combine**: Dimensions of the data to combine when generating solutions. In the first two rounds, we avoid combining spectral windows (i.e., we generate per-spw solutions) to account for any per-spw phase offsets. Later, we have to combine spectral windows because the SNR of the solutions (in the line spws) is too low.
 
@@ -93,25 +99,47 @@ Both SB EB1 and SB EB2 were self-calibrated together, but the following plots th
 
 ### SB EB1
 
+````{card}
+<center>
+
 <video width="100%" controls>
   <source src="../_static/videos/SB_concat_shifted_EB1_cal.mp4" type="video/mp4">
 </video>
 
+</center>
++++
+caption
+````
+
 ### SB EB2
+
+````{card}
+<center>
 
 <video width="100%" controls>
   <source src="../_static/videos/SB_concat_shifted_EB2_cal.mp4" type="video/mp4">
 </video>
 
+</center>
++++
+caption
+````
+
 ## Images made after each round
 
 Image achieved after each round, with a large colour bar stretch to exaggerate faint emission.
 
+````{card}
 <center>
+
 <video width="85%" controls>
   <source src="../_static/videos/SB_concat_shifted_cont.mp4" type="video/mp4">
 </video>
+
 </center>
++++
+caption
+````
 
 `````{admonition} Thoughts...
 :class: tip
@@ -129,12 +157,16 @@ Jess might add here: Images of model and residuals
 
 ## The results, before and after
 
-```{image} images/SB-before-after.gif
-:alt: SB-before-after
-:class: mb-1
-:width: 85%
-:align: center
-```
+````{card}
+<center>
+
+<img src="images/SB-before-after.gif" alt="SB-before-after" class="mb-1" width="850%">
+
+</center>
++++
+caption
+````
+
 
 We achieve a decrease in rms noise by a factor of 2. The peak intensity increases by about 2 mJy/beam. The SNR improves by a factor of 2.2. The outer ring becomes more uniformly bright around its azimuth and more compact/well-defined. The inner cavity becomes more radially extended and appears emptier.
 

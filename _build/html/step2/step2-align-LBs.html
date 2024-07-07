@@ -434,17 +434,51 @@ document.write(`
 <ul class="simple">
 <li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step2_phase_alignment.py" target="_blank">step2_phase_alignment.py</a> # main script (using modular CASA)</p></li>
 <li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
-<li><p><a class="reference external" href="http://alignment.py">alignment.py</a> # exoALMA visibility alignment functions (not yet public)</p></li>
+<li><p><a href="https://www.exoalma.com/home" target="_blank">alignment.py</a> # exoALMA visibility alignment functions</p></li>
 </ul>
 </div>
 <!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
 <section class="tex2jax_ignore mathjax_ignore" id="align-long-baseline-execution-blocks">
 <h1>Align Long-Baseline Execution Blocks<a class="headerlink" href="#align-long-baseline-execution-blocks" title="Permalink to this heading">#</a></h1>
-<p>Out of the 6 long-baseline execution blocks, LB_EB1 has the highest SNR and the best weather. We chose LB_EB1 to be our reference LB execution and align all other EBs to it.</p>
-<p>The following plots show the number of visibility points per cell for the reference EB and each of the to-be-aligned EBs, after the visibilities have been gridded in uv-space. The grid cell size in uv-space was chosen to correspond to ‘imsize’ and ‘cellsize’ values that we’ve used so far to make images in xy-space.</p>
-<p>For LB EBs: npix=2000, cellsize=0.01 (compare to exoALMA: npix=1024, cellsize=0.01)</p>
-<p>For SB EBs: npix=500, cellsize=0.04 (compare to exoALMA: npix=102, cellsize=0.1)</p>
-<p>In cells that contain visibility points from both the reference (LB EB1) and comparison EB, the alignment code calculates the difference between their phases. This is done iteratively while sequentially shifting the comparison EB north/south east/west to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.</p>
+<p>Here, we align five long-baseline EBs to the reference EB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The main script of this step, <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step2_phase_alignment.py" target="_blank">step2_phase_alignment.py</a>, is a modified version of the exoALMA script <a href="https://www.exoalma.com/home" target="_blank">example_alignment_usage.py</a>.</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Select the reference execution block.</strong> Out of the 6 long-baseline execution blocks, LB EB1 has the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">highest SNR</span></a> and the <a class="reference internal" href="../step0/step0-program-overview.html"><span class="doc std std-doc">best weather</span></a>. We select LB EB1 to be our reference LB execution and align all other EBs to it.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reference_for_LB_alignment</span>  <span class="o">=</span> <span class="n">ddata</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;LB_EB1&#39;</span><span class="p">][</span><span class="s1">&#39;_initcont_selfcal.ms&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Set the continuum SPW ID.</strong> Not all spectral windows are used to compute the phase offsets.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">continuum_spw_id</span>    <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Set the grid.</strong> The visibilities in each EB are gridded onto a common, regular <em>uv</em>-grid. The grid cell size in <em>uv</em>-space was chosen to correspond to <code class="docutils literal notranslate"><span class="pre">'imsize'</span></code> and <code class="docutils literal notranslate"><span class="pre">'cellsize'</span></code> values that we’ve used so far to make images in <em>xy</em>-space. Plots of the gridded visibilities (specifically, the number of visibility points in each cell) are generated in the next step.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_npix</span>      <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LB&#39;</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="s1">&#39;SB&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">}</span>
+<span class="n">alignment_cell_size</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LB&#39;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="s1">&#39;SB&#39;</span><span class="p">:</span><span class="mf">0.04</span><span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Compute the RA and Dec offset between the <code class="docutils literal notranslate"><span class="pre">reference_ms</span></code> and <code class="docutils literal notranslate"><span class="pre">align_ms</span></code>, compute the phase center shift needed to align them, and apply the shift to <code class="docutils literal notranslate"><span class="pre">align_ms</span></code> (all in one go).</strong></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_plot_file_template</span> <span class="o">=</span> <span class="s1">&#39;alignment_uv_grid.png&#39;</span> <span class="c1"># this will become a suffix (for the plots)</span>
+<span class="n">alignment</span><span class="o">.</span><span class="n">align_measurement_sets</span><span class="p">(</span><span class="n">reference_ms</span>       <span class="o">=</span> <span class="n">reference_for_LB_alignment</span><span class="p">,</span>
+                                 <span class="n">align_ms</span>           <span class="o">=</span> <span class="n">offset_LB_EBs</span><span class="p">,</span>
+                                 <span class="n">npix</span>               <span class="o">=</span> <span class="n">alignment_npix</span><span class="p">[</span><span class="s1">&#39;LB&#39;</span><span class="p">],</span>
+                                 <span class="n">cell_size</span>          <span class="o">=</span> <span class="n">alignment_cell_size</span><span class="p">[</span><span class="s1">&#39;LB&#39;</span><span class="p">],</span>
+                                 <span class="n">spwid</span>              <span class="o">=</span> <span class="n">continuum_spw_id</span><span class="p">,</span>
+                                 <span class="n">plot_uv_grid</span>       <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">plot_file_template</span> <span class="o">=</span> <span class="n">alignment_plot_file_template</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the <em>uv</em> cells that contain at least 1 <em>uv</em> visibility point from <u>both</u> the reference (LB EB1) and comparison EB, the alignment code calculates the offset between their phases, taking into account the noise weights. This is done by minimizing the aggregate phase angle and amplitude difference (similar to Equation 1 of <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5790C/abstract" target="_blank">Casassus &amp; Cárcamo 2022</a>). The entire process proceeds iteratively while sequentially shifting the comparison EB north/south and east/west, to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.</p>
+<p>The following plots show the number of visibility points per cell for the reference EB and each of the comparison EBs, after the visibilities have been gridded in <em>uv</em>-space.</p>
 <section id="lb-eb2">
 <h2>LB EB2<a class="headerlink" href="#lb-eb2" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -452,9 +486,6 @@ document.write(`
 <center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid.png"><img alt="ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" src="../_images/ABAur_LB_EB2_initcont_selfcal.ms_alignment_uv_grid.png" style="width: 100%;" /></a>
 </center>
-</div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
 </div>
 </div>
 </section>
@@ -466,9 +497,6 @@ document.write(`
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid.png"><img alt="ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" src="../_images/ABAur_LB_EB3_initcont_selfcal.ms_alignment_uv_grid.png" style="width: 100%;" /></a>
 </center>
 </div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
-</div>
 </div>
 </section>
 <section id="lb-eb4">
@@ -478,9 +506,6 @@ document.write(`
 <center>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid.png"><img alt="ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" src="../_images/ABAur_LB_EB4_initcont_selfcal.ms_alignment_uv_grid.png" style="width: 100%;" /></a>
 </center>
-</div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
 </div>
 </div>
 </section>
@@ -492,9 +517,6 @@ document.write(`
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid.png"><img alt="ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" src="../_images/ABAur_LB_EB5_initcont_selfcal.ms_alignment_uv_grid.png" style="width: 100%;" /></a>
 </center>
 </div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
-</div>
 </div>
 </section>
 <section id="lb-eb6">
@@ -505,12 +527,115 @@ document.write(`
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid.png"><img alt="ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid" class="mb-1" src="../_images/ABAur_LB_EB6_initcont_selfcal.ms_alignment_uv_grid.png" style="width: 100%;" /></a>
 </center>
 </div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Paste the results into a dictionary in preparation for checking that it worked.</strong></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_offsets</span>   <span class="o">=</span> <span class="p">{}</span>
+<span class="c1">#insert offsets from the alignment output</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.019783</span><span class="p">,</span><span class="mf">0.0046808</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.012707</span><span class="p">,</span><span class="mf">0.001336</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.023685</span><span class="p">,</span><span class="o">-</span><span class="mf">0.021869</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.020729</span><span class="p">,</span><span class="o">-</span><span class="mf">0.01054</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.0045512</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0276</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p><strong>Check that it worked.</strong> After aligning the EBs, we run the code again, but this time on the aligned EBs, in order to check that their offsets are small (in all cases, a fraction of a milliarcsecond).</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">shifted_ms</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shifted_LB_EBs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1">#</span>
+        <span class="c1">#for some reason the fitter fails when computing the offset of an EB to itself,</span>
+        <span class="c1">#so we skip the ref EB</span>
+        <span class="k">continue</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">alignment</span><span class="o">.</span><span class="n">find_offset</span><span class="p">(</span><span class="n">reference_ms</span>     <span class="o">=</span> <span class="n">reference_for_LB_alignment</span><span class="p">,</span>
+                                   <span class="n">offset_ms</span>        <span class="o">=</span> <span class="n">shifted_ms</span><span class="p">,</span>
+                                   <span class="n">npix</span>             <span class="o">=</span> <span class="n">alignment_npix</span><span class="p">[</span><span class="s1">&#39;LB&#39;</span><span class="p">],</span>
+                                   <span class="n">cell_size</span>        <span class="o">=</span> <span class="n">alignment_cell_size</span><span class="p">[</span><span class="s1">&#39;LB&#39;</span><span class="p">],</span>
+                                   <span class="n">spwid</span>            <span class="o">=</span> <span class="n">continuum_spw_id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;#offset for </span><span class="si">{</span><span class="n">shifted_ms</span><span class="si">}</span><span class="s1">: &#39;</span><span class="p">,</span><span class="n">offset</span><span class="p">)</span>
+
+<span class="c1"># Results:</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p><strong>Concatenate the shifted LB EBs.</strong> Finally we concatenate the shifted EBs into a single aligned long-baseline dataset in preparation for the next step.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">casatasks</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">vis</span>            <span class="o">=</span> <span class="n">shifted_LB_EBs</span><span class="p">,</span>
+                 <span class="n">concatvis</span>      <span class="o">=</span> <span class="n">LB_concat_shifted</span><span class="p">,</span>
+                 <span class="n">dirtol</span>         <span class="o">=</span> <span class="s1">&#39;0.1arcsec&#39;</span><span class="p">,</span>
+                 <span class="n">copypointing</span>   <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+What if we hadn’t done the initial round of self-cal first?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">I had this question, so I also tried performing the phase alignment <em>before</em> the <a class="reference internal" href="../step1/step1-initial-self-calibration.html"><span class="doc std std-doc">initial round of self-cal</span></a>. Here’s how they compare.</p>
+<p class="sd-card-text">Computed phase offsets prior to alignment:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+With per-EB self-cal first</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.019783</span><span class="p">,</span><span class="mf">0.0046808</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.012707</span><span class="p">,</span><span class="mf">0.001336</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.023685</span><span class="p">,</span><span class="o">-</span><span class="mf">0.021869</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.020729</span><span class="p">,</span><span class="o">-</span><span class="mf">0.01054</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.0045512</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0276</span><span class="p">]</span>
+</pre></div>
 </div>
 </div>
-<p>After aligning the EBs, we run the code again, this time on the aligned EBs, to check that their offsets are small (i.e. a fraction of a cell size).</p>
-</section>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Without per-EB self-cal first</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.0013834</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0032833</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.0073534</span><span class="p">,</span><span class="mf">8.5593e-05</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.024526</span><span class="p">,</span><span class="o">-</span><span class="mf">0.023529</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.01779</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0037046</span><span class="p">]</span>
+<span class="n">alignment_offsets</span><span class="p">[</span><span class="s1">&#39;LB_EB6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0024483</span><span class="p">,</span><span class="o">-</span><span class="mf">0.03545</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">Computed phase offsets after alignment:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+With per-EB self-cal first</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
+<span class="c1">#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+Without per-EB self-cal first</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB1_initcont_shift.ms:  [-4.51798589e-10 -3.36817461e-09]</span>
+<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB2_initcont_shift.ms:  [-1.42397170e-06 -3.31838587e-05]</span>
+<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB3_initcont_shift.ms:  [-3.37030700e-05 -2.14097102e-05]</span>
+<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB4_initcont_shift.ms:  [ 0.00011575 -0.0001446 ]</span>
+<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB5_initcont_shift.ms:  [-4.58253229e-05  1.04505131e-04]</span>
+<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB6_initcont_shift.ms:  [-0.00015515 -0.00030391]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">

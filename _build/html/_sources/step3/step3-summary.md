@@ -2,7 +2,13 @@
 
 In this step, we self-calibrate the continuum and obtain the final continuum measurement set.
 
+````{dropdown} Self calibration is like shimmying up a chimney.
+<center>
+
 <img src="images/selfcal-meme.png" alt="selfcal-meme" class="mb-1" width="35%">
+
+</center>
+````
 
 `````{admonition} Scripts for **Step 3 - Self-calibration of the continuum**:
 :class: tip

@@ -423,7 +423,8 @@ document.write(`
 <ul class="simple">
 <li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step2_phase_alignment.py" target="_blank">step2_phase_alignment.py</a> # main script (using modular CASA)</p></li>
 <li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
-<li><p><a class="reference external" href="http://alignment.py">alignment.py</a> # exoALMA visibility alignment functions (not yet public)</p></li>
+<li><p><a href="https://www.exoalma.com/home" target="_blank">alignment.py</a> # exoALMA visibility alignment functions</p></li>
+<li><p><a href="https://www.exoalma.com/home" target="_blank">example_alignment_usage.py</a> # exoALMA alignment example</p></li>
 </ul>
 </div>
 <!-- https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/alignment.py -->
@@ -432,14 +433,9 @@ document.write(`
 <a class="mb-1 reference internal image-reference" href="../_images/breakdown-of-task2.png"><img alt="breakdown-of-step2" class="mb-1" src="../_images/breakdown-of-task2.png" style="width: 100%;" /></a>
 </div>
 </div>
-<p><a class="reference internal" href="step2-align-LBs.html"><span class="doc std std-doc">Align Long-Baseline Execution Blocks</span></a>: We selected one of the long-baseline execution blocks to serve as the reference EB, to whose phase center all other EBs are aligned. The 2022-07-17 execution block (phase center: J2000 04:55:45.854900 +30.33.03.73320) was chosen as the reference EB as it was observed in the most favorable weather conditions and had the highest SNR in the initial images.
-First, we aligned each of the other 5 long-baseline EBs to the reference EB. The visibilities in each EB were gridded onto a common, regular \textit{uv}-grid.
-Using the \textit{uv} cells containing at least 1 \textit{uv} point from both the reference EB and the comparison EB, and taking into account the noise weights, we calculated the phase center offset between the two sets of gridded visibilities by minimizing the aggregate phase angle and amplitude difference (similar to Eqn. 1 of ref.\cite{casassus2022-pds70}).
-We then used the offset to update the phase center (and coordinates) of the comparison EB to match that of the reference EB.
-To check that the alignment was successful, we calculated the offset between the shifted comparison EB and the reference, and verified that the offset is small (in all cases, a fraction of a milliarcsecond). Finally we concatenated the shifted EBs into a single aligned long-baseline dataset.</p>
-<p><a class="reference internal" href="step2-align-SBs.html"><span class="doc std std-doc">Align Short-Baseline Execution Blocks</span></a>: This procedure was repeated to align the two short-baseline EBs to the common phase center, this time taking the aligned concatenated long-baseline dataset as the reference in order to maximize the potential for overlap of \textit{uv} points in the common grid.
-We then concatenated the shifted short-baseline EBs into a single phase-aligned short-baseline dataset.</p>
-<p><a class="reference internal" href="step2-summary-of-shifts.html"><span class="doc std std-doc">Summary of Phase Shifts</span></a>: A summary .</p>
+<p><a class="reference internal" href="step2-align-LBs.html"><span class="doc std std-doc">Align Long-Baseline Execution Blocks</span></a>: We selected one of the long-baseline execution blocks to serve as the reference EB, to whose phase center all other EBs are aligned. The LB1 execution block (phase center: <code class="docutils literal notranslate"><span class="pre">J2000</span> <span class="pre">04:55:45.854900</span> <span class="pre">+30.33.03.73320</span></code>; observed 2022-07-17) was chosen as the reference EB as it was observed in the most favorable weather conditions and had the highest SNR in the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">initial images</span></a>.</p>
+<p><a class="reference internal" href="step2-align-SBs.html"><span class="doc std std-doc">Align Short-Baseline Execution Blocks</span></a>: This procedure was repeated to align the two short-baseline EBs to the common phase center, this time taking the aligned concatenated long-baseline dataset as the reference in order to maximize the potential for overlap of <em>uv</em> points in the common grid. We then concatenated the shifted short-baseline EBs into a single phase-aligned short-baseline dataset.</p>
+<p><a class="reference internal" href="step2-summary-of-shifts.html"><span class="doc std std-doc">Summary of Phase Shifts</span></a>: A summary of the applied phase shifts.</p>
 </section>
 
     <script type="text/x-thebe-config">

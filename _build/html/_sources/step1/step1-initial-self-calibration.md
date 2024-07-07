@@ -26,7 +26,7 @@ It's hard/impossible to tell *a priori* what is the right choice (except in the 
 
 ```
 
-**Deconvolution**: This sounds like a detail but it is not. The model will be comprised of clean components, which will be a collection of functions of your choice. We choose $\delta$-function clean components, i.e. <a href="https://ui.adsabs.harvard.edu/abs/1974A%26AS...15..417H/abstract" target="_blank">Hogbom 1974</a> deconvolution. An alternative choice may be ``'multi-scale'`` clean, in which case the model basis functions would be Gaussians. The current wisdom is that Gaussians don't make a great basis for concentric ring structures like we expect in continuum images of disks (including AB Aur).
+**Deconvolution**: This sounds like a detail but it is not. The model will be comprised of clean components, which will be a collection of functions of your choice. We choose $\delta$-function clean components, i.e. <a href="https://ui.adsabs.harvard.edu/abs/1974A%26AS...15..417H/abstract" target="_blank">Hogbom</a> deconvolution. An alternative choice may be ``'multi-scale'`` clean, in which case the model basis functions would be Gaussians. The current wisdom is that Gaussians don't make a great basis for concentric ring structures like we expect in continuum images of disks (including AB Aur).
 
 ## The results of this initial round of per-EB self-cal
 
