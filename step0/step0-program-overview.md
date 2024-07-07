@@ -26,7 +26,7 @@ Details of the ALMA Band 6 observations. Footnote $^b$ refers to [step 2](../ste
 }
 </style>
 
-Below are further details on the TM1 scheduling block, compiled from a combination of the weblog and the QA reports. Note that you can scroll through this table horizontally.
+Below are further details on the TM1 scheduling block, compiled from a combination of [the weblog and the QA reports](step0-weblog). Note that you can scroll through this table horizontally.
 
 ````{card}
 <div class="table_wrapper">
@@ -53,7 +53,7 @@ Below are further details on the TM1 scheduling block, compiled from a combinati
 
 ### Short baseline data (C-3 configuration)
 
-Below are further details on the TM2 scheduling block, compiled from a combination of the weblog and the QA reports. Note that you can scroll through this table horizontally.
+Below are further details on the TM2 scheduling block, compiled from a combination of [the weblog and the QA reports](step0-weblog). Note that you can scroll through this table horizontally.
 
 ````{card}
 <div class="table_wrapper">

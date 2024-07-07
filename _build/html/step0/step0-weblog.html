@@ -390,7 +390,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -406,6 +408,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-assurance-qa-reports">Quality assurance (QA) reports</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -417,11 +427,50 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="inspecting-the-weblog">
 <h1>Inspecting the Weblog<a class="headerlink" href="#inspecting-the-weblog" title="Permalink to this heading">#</a></h1>
-<!-- ## ALMA-Provided Resources Specific to Our Program -->
-<p><strong>The weblog.</strong> This is like the program’s bible. Its importance and helpfulness cannot be emphasized enough. We have two in total; one for each of TM1 and TM2.</p>
-<p><strong>Quality assurance (QA) reports</strong>. These are like an extremely abridged version of the weblog; some information is more easily accessed here, but only a few certain aspects can’t be found anywhere else. We have 10 QA reports in total: 8 QA0’s for each execution block, and 2 QA2’s for each of TM1 and TM2.</p>
-<p>In the weblog or QA report, identify which version of casa was run by the pipeline.</p>
-<p>Compare and contrast the “Science Windows” vs. all SPWs.</p>
+<p>The importance and helpfulness of the weblog cannot be emphasized enough.</p>
+<p>One weblog is generated for each run of the ALMA pipeline. For the present program, that means there are two weblogs – one for each of the TM1 and TM2 scheduling blocks.</p>
+<p>For an all-encompassing and very comprehensive overview of what to look at, see <a href="https://almascience.eso.org/euarcdata/itrain04/weblog.pdf" target="_blank">Reviewing the WebLog by George Bendo</a> (slide 13 is where it gets started).</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Find the weblog in the “qa” directory.</p>
+<p>Once downloaded and untarred, all data should fall into the standardized directory structure:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/directory-structure.png"><img alt="directory-structure" class="mb-1" src="../_images/directory-structure.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p><strong>(1)</strong> The ALMA project code, or program ID. Ours is <code class="docutils literal notranslate"><span class="pre">2021.1.00690.S</span></code>.</p>
+<p><strong>(2)</strong> The Science Goal ID. These are originally set up by the PI in the OT during proposal preparation. We have just one: <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb69</span></code>.</p>
+<p><strong>(3)</strong> The Group ObsUnitSet (a.k.a. GOUS). In our case there is just one: <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6a</span></code>.</p>
+<p><strong>(4)</strong> The Member ObsUnitSet (a.k.a MOUS, a.k.a. Scheduling Block, a.k.a. SB). QA2 is carried out at this level. In our case, we have two (<code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6b</span></code> and <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6d</span></code>) – one for each array configuration. The long-baseline configuration MOUS is also referred to as TM1, and the short-baseline configuration as TM2. The pipeline is run on each MOUS separately (and thus also delivered to the PI separately) – at least as of Cycle 8!</p>
+<p>Each of our MOUSes contain multiple execution blocks (EBs). QA0 is carried out on the EB level. All of the following directories <strong>(6-11)</strong> contain all the files for each EB in each MOUS, where the file name starts with the EB ID. For example, our TM2 (short-baseline MOUS) directories contain all the files for EB1 <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf7ad58_Xd406</span></code> and for EB2 <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf8f6a9_X15c79</span></code>.</p>
+<p><strong>(5)</strong> A very helpful file that explains the directory structure and file types.</p>
+<p><strong>(6)</strong> Contains the pipeline-generated image products (fits files).</p>
+<p><strong>(7)</strong> Contains the all-important calibration tables, and other things for restoring the pipeline calibration.</p>
+<p><strong>(8)</strong> Contains the blessing that is the Weblog. It also contains the Quality Assurance (QA) reports on the MOUS level (QA1) and the EB level (QA0).</p>
+<p><strong>(9)</strong> Contains the absolutely crucial <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code> – what you need to restore the pipeline calibration.</p>
+<p><strong>(10)</strong> Contains the CASA commands log from the QA2 processing.</p>
+<p><strong>(11)</strong> Contains the data! The raw visibilities in the native ALMA format (the ASDM). In our case:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/directory-structure-EBs.png"><img alt="directory-structure-EBs" class="mb-1" src="../_images/directory-structure-EBs.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p>More details can be found in <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8</a>, Section 3 and 4.</p>
+</div>
+<p>There is so much to refer to the weblog for, that it can’t and won’t be summarized here. For the purposes of the following step (<a class="reference internal" href="step0-restoring-pipeline-calibration.html"><span class="doc std std-doc">restoring the pipeline calibration</span></a>), note where the appropriate CASA pipeline version can be found:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/weblog-CASA-version.png"><img alt="weblog-CASA-version" class="mb-1" src="../_images/weblog-CASA-version.png" style="width: 100%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">The version of CASA run by the pipeline is given on the front page of the weblog, under “Pipeline Summary”.</p>
+</div>
+</div>
+<section id="quality-assurance-qa-reports">
+<h2>Quality assurance (QA) reports<a class="headerlink" href="#quality-assurance-qa-reports" title="Permalink to this heading">#</a></h2>
+<p>These are almost like an extremely abridged version of the weblog. Some information is more easily accessed here, but there is little information that can’t also be found somewhere in the weblog. (That said, it’s nice to read the comments from the astronomer on duty!). For the present program, there are 10 QA reports in total: 8 QA0’s for each execution block, and 2 QA2’s for each of TM1 and TM2.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,6 +531,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-assurance-qa-reports">Quality assurance (QA) reports</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
