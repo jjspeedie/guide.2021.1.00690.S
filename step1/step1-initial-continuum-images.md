@@ -8,7 +8,7 @@
 
 # Initial Continuum Images
 
-Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually.
+Here we perform initial imaging of the continuum data. We image each execution block, and spectral window, individually. For 8 execution blocks, each with 1 continuum SPW and 4 psuedo-continuum SPWs, that's
 
 **Out motivation for doing this initial imaging is:**
 

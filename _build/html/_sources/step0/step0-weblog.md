@@ -2,11 +2,16 @@
 
 The importance and helpfulness of the weblog cannot be emphasized enough.
 
+```{card}
+👀  **One of the most important uses of the weblog is to recognize errors that may have occurred (e.g. misbehaving antennas, misbehaving correlator, RFI, non-ideal calibrators, troublesome atmosphere, or human error). As a starting point, see Amanda Kepley's <a href="https://www.aoc.nrao.edu/events/synthesis/2022/slides/Kepley_Error_Recognition_2022_final.pdf" target="_blank">Error Recognition slides</a> and Natalie Butterfield's <a href="https://www.aoc.nrao.edu/events/synthesis/2024/Butterfield-errorrecognition-recording.mp4" target="_blank">Error Recognition lecture</a>.**
+```
+
+
+
+
 One weblog is generated for each run of the ALMA pipeline. For the present program, that means there are two weblogs -- one for each of the TM1 and TM2 scheduling blocks.
 
-For an all-encompassing and very comprehensive overview of what to look at, see <a href="https://almascience.eso.org/euarcdata/itrain04/weblog.pdf" target="_blank">Reviewing the WebLog by George Bendo</a> (slide 13 is where it gets started).
-
-
+For an all-encompassing and very comprehensive overview of what the weblog contains, see <a href="https://almascience.eso.org/euarcdata/itrain04/weblog.pdf" target="_blank">Reviewing the WebLog by George Bendo</a> (slide 13 is where it gets started).
 
 
 ````{admonition} Find the weblog in the "qa" directory.

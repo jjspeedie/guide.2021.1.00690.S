@@ -16,19 +16,11 @@ In this step, we begin our post-processing of the continuum.
 
 ````
 
-[Manual Flagging](step1-manual-flags.md): Before we do anything, we should identify data we want to flag out, if any. During inspection of the weblog, we had seen some flaggable issues (bad antennas). But they were deemed not too serious, and we opted to rely on self calibration to fix them.
+[Manual Flagging](step1-manual-flags.md): Before starting to work with the data, we should identify data we want to flag out, if any errors were identified during inspection of the weblog.
 
-[Pseudo-continuum Measurement Sets](step1-pseudo-continuum.md): We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. "Pseudo-continuum"
-We use the DSHARP function ``get_flagchannels`` to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels $\pm 6$ km/s from the $^{13}$CO $J=2-1$ line center, and $\pm 4$ km/s from the C$^{18}$O $J=2-1$ line center. While these velocity ranges are narrower than the $\pm 15$ km/s and $\pm 25$ km/s velocity ranges flagged by {\sc MAPS} and {\sc DSHARP}, respectively, we confirmed that they capture all tail emission with a buffer of $\geq1$ km/s by imaging the cubes and visually inspecting the channels.  
-The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).
+[Pseudo-continuum Measurement Sets](step1-pseudo-continuum.md): We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. We use the DSHARP function ``get_flagchannels`` to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels $\pm 6$ km/s from the $^{13}$CO $J=2-1$ line center, and $\pm 4$ km/s from the C$^{18}$O $J=2-1$ line center. While these velocity ranges are narrower than the $\pm 15$ km/s and $\pm 25$ km/s velocity ranges flagged by MAPS and DSHARP, respectively, we confirmed that they capture all tail emission with a buffer of $\geq1$ km/s by imaging the cubes and visually inspecting the channels. The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).
 
-[Initial Continuum Images](step1-initial-continuum-images.md):
+[Initial Continuum Images](step1-initial-continuum-images.md): We create some initial images of the continuum data. We image each execution block, and spectral window, individually.
 
 [Initial Self-Calibration](step1-initial-self-calibration.md):
-To prepare each dataset for phase alignment, we
-<!-- %we followed the philosophy of \texttt{exoALMA} and combined the SPWs in each EB and -->
-performed an initial single round of phase self-calibration on each EB separately.
-<!-- % This was made possible by the high SNR of the data -->
-We obtained the initial model by imaging each EB shallowly and interactively with
-<!-- %the result of shallowly and interactively \texttt{CLEAN}ing each EB with  -->
-Hogdom deconvolution\cite{hogbom1974} ($\delta$-function clean components). This initial round of self calibration increased the SNR in all EBs and visually improved the images.
+To prepare each dataset for phase alignment, we performed an initial single round of phase self-calibration on each EB separately. We obtained the initial model by imaging each EB shallowly and interactively with Hogdom deconvolution ($\delta$-function clean components; <a href="https://ui.adsabs.harvard.edu/abs/1974A%26AS...15..417H/abstract" target="_blank">Hogbom 1974</a>). This initial round of self calibration increased the SNR in all EBs and visually improved the images.

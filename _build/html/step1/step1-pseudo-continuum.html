@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'step1/step1-pseudo-continuum';</script>
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -446,6 +448,7 @@ document.write(`
 <p>We want to remove our spectral lines to create a continuum-only measurement set. To do that, we have to take into account Doppler shifting of the lines (in the TOPO frame) over the course of the year.</p>
 <p>I used functions from the DSHARP reduction_utils.py script to identify which channels to flag in each spectral window, given the rest frequency of the spectral line, and a choice of velocity range.</p>
 <p>I chose the velocity ranges myself, based on plots of amplitude vs. frequency. The ranges I chose are smaller than what MAPS or DSHARP did (+/- 15 km/s and +/- 25 km/s, respectively), but I wanted to preserve as much bandwidth as possible, and my selections looked reasonable to me in plots of amplitude vs. frequency. Later, during imaging of the cubes, I confirmed my selected ranges did not include channels containing any line emission.</p>
+<p>–&gt; We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. We use the DSHARP function <code class="docutils literal notranslate"><span class="pre">get_flagchannels</span></code> to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels <span class="math notranslate nohighlight">\(\pm 6\)</span> km/s from the <span class="math notranslate nohighlight">\(^{13}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> line center, and <span class="math notranslate nohighlight">\(\pm 4\)</span> km/s from the C<span class="math notranslate nohighlight">\(^{18}\)</span>O <span class="math notranslate nohighlight">\(J=2-1\)</span> line center. While these velocity ranges are narrower than the <span class="math notranslate nohighlight">\(\pm 15\)</span> km/s and <span class="math notranslate nohighlight">\(\pm 25\)</span> km/s velocity ranges flagged by MAPS and DSHARP, respectively, we confirmed that they capture all tail emission with a buffer of <span class="math notranslate nohighlight">\(\geq1\)</span> km/s by imaging the cubes and visually inspecting the channels. The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).</p>
 <section id="sb-eb1">
 <h2>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">

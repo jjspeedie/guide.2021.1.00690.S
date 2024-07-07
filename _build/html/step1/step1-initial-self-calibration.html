@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'step1/step1-initial-self-calibration';</script>
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -440,6 +442,13 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="initial-self-calibration">
 <h1>Initial Self-Calibration<a class="headerlink" href="#initial-self-calibration" title="Permalink to this heading">#</a></h1>
+<p>To prepare each dataset for phase alignment, we</p>
+<!-- %we followed the philosophy of \texttt{exoALMA} and combined the SPWs in each EB and -->
+<p>performed an initial single round of phase self-calibration on each EB separately.</p>
+<!-- % This was made possible by the high SNR of the data -->
+<p>We obtained the initial model by imaging each EB shallowly and interactively with</p>
+<!-- %the result of shallowly and interactively \texttt{CLEAN}ing each EB with  -->
+<p>Hogdom deconvolution\cite{hogbom1974} (<span class="math notranslate nohighlight">\(\delta\)</span>-function clean components). This initial round of self calibration increased the SNR in all EBs and visually improved the images.</p>
 <p>In preparation for the phase alignment, we do a single round of self-calibration on each execution block, just to get the phases looking as good as possible.</p>
 <div class="tip admonition">
 <p class="admonition-title">Something to do differently…</p>

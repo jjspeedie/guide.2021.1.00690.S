@@ -8,6 +8,14 @@
 
 # Initial Self-Calibration
 
+To prepare each dataset for phase alignment, we
+<!-- %we followed the philosophy of \texttt{exoALMA} and combined the SPWs in each EB and -->
+performed an initial single round of phase self-calibration on each EB separately.
+<!-- % This was made possible by the high SNR of the data -->
+We obtained the initial model by imaging each EB shallowly and interactively with
+<!-- %the result of shallowly and interactively \texttt{CLEAN}ing each EB with  -->
+Hogdom deconvolution\cite{hogbom1974} ($\delta$-function clean components). This initial round of self calibration increased the SNR in all EBs and visually improved the images.
+
 In preparation for the phase alignment, we do a single round of self-calibration on each execution block, just to get the phases looking as good as possible.
 
 `````{admonition} Something to do differently...

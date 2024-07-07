@@ -14,6 +14,8 @@ I used functions from the DSHARP reduction_utils.py script to identify which cha
 
 I chose the velocity ranges myself, based on plots of amplitude vs. frequency. The ranges I chose are smaller than what MAPS or DSHARP did (+/- 15 km/s and +/- 25 km/s, respectively), but I wanted to preserve as much bandwidth as possible, and my selections looked reasonable to me in plots of amplitude vs. frequency. Later, during imaging of the cubes, I confirmed my selected ranges did not include channels containing any line emission.
 
+--> We create pseudo-continuum datasets by flagging the line emission in each line SPW and spectrally averaging. We use the DSHARP function ``get_flagchannels`` to find the channels containing line emission in each SPW. In order to maximize the retained bandwidth (and achieve high SNR for per-SPW self calibration at a later step), we flagged channels $\pm 6$ km/s from the $^{13}$CO $J=2-1$ line center, and $\pm 4$ km/s from the C$^{18}$O $J=2-1$ line center. While these velocity ranges are narrower than the $\pm 15$ km/s and $\pm 25$ km/s velocity ranges flagged by MAPS and DSHARP, respectively, we confirmed that they capture all tail emission with a buffer of $\geq1$ km/s by imaging the cubes and visually inspecting the channels. The continuum SPWs were spectrally averaged into 250 MHz channels (8 bins), whereas the line SPWs were averaged into a single 58.594 MHz channel (equal to the SPW bandwidth).
+
 
 ## SB EB1
 
