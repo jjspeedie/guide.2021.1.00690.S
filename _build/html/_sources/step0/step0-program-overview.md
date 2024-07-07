@@ -157,7 +157,7 @@ Pipeline-generated TM2 line images (task `hif_makeimages`).
 
 ### Spectral line profiles
 
-Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what's happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles. Note the different y-axis scale.
+Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what's happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles integrated over the full field of view. Note the different y-axis scale.
 
 ````{card}
 <center>

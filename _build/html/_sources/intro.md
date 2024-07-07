@@ -1,15 +1,70 @@
 #  Introduction
 
-Jupyterbook guide to reduction and imaging of Cycle 8 ALMA program 2021.1.00690.S (PI: R. Dong).
+This is a guide to the reduction and imaging of <a href="https://almascience.nrao.edu/aq/?observationsProjectCode=2021.1.00690.S" target="_blank">ALMA program 2021.1.00690.S</a> (PI: R. Dong), which is a deep and fine-kinematics gas program towards the AB Aurigae protoplanetary disk. The scripts associated with this guide can be found at the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">companion github repository</a>. All of the final data products (measurement sets, image cubes, VADPs) are or soon will be publicly available.
 
-Things to keep in mind:
+::::{grid}
+:gutter: 3
 
-- This guide is as much about the scripts as it is about the HTML content.
+:::{grid-item-card}
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">**Reduction & imaging scripts on github**</a>
+:::
 
-- What we did was for our program; what works for your program might be different.
+:::{grid-item-card}
+<a href="https://doi.org/10.11570/24.0087" target="_blank">**Download <sup>13</sup>CO and C<sup>18</sup>O data products**</a>
+:::
 
-- What we did is a function of the wisdom at the time (and the people who I got wisdom from); the wisdom is constantly changing. This is like a still image, not necessarily good forever.
 
+:::{grid-item-card}
+**<sup>12</sup>CO, SO & continuum data products** (Available soon)
+:::
+::::
+
+Things to know and keep in mind about this guide:
+
+- **The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.** Content is split across both places. The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.
+
+- **The chosen approaches are specific to our program and science goals.** What works for your program might be different!
+
+- **This guide is intended to be a snapshot, and will not be updated over time.** The choices and steps it presents are a function of the wisdom at the time (and the people whose wisdom I was able to receive). Of course, the communal wisdom is constantly changing. What is presented here may not necessarily hold forever.
+
+
+As an additional reference, the refereed journal articles where the data are or will be published are linked below. Their methods sections contain complete overlap with the content here.
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card}
+
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
+  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper1.png">
+</a>
+
+<p></p>
+
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (2024)</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations.
+
+:::
+
+:::{grid-item-card}
+
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
+  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper2.png">
+</a>
+
+<p></p>
+
+The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (in prep)</a>.
+
+:::
+::::
+
+## How the guide is structured
+
+The guide can be split in half into "reduction" and "imaging" categories. The former is broken into four "steps", three involving purely the continuum data and the fourth involving purely the lines. The "0th" step describes some ways to get prepared to start working with the data. But first, take a look at the [Learning Resources](overview/overview-resources.md) and the big-picture [Breakdown of Our Task](overview/overview-breakdown.md).
 
 ```{tableofcontents}
 ```
+
+---
+
+Comments and corrections are much appreciated (especially if you are a student!). Get in touch: jspeedie@uvic.ca.

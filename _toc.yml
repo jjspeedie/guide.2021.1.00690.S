@@ -26,8 +26,8 @@ parts:
     chapters:
     - file: step0/step0-download-data
     - file: step0/step0-program-overview
-    - file: step0/step0-restoring-pipeline-calibration
     - file: step0/step0-weblog
+    - file: step0/step0-restoring-pipeline-calibration
     - file: step0/step0-dictionaries
 
   - caption: Step 1 - Prepare the continuum

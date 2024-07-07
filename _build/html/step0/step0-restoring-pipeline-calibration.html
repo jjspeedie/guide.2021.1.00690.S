@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Inspecting the Weblog" href="step0-weblog.html" />
-    <link rel="prev" title="Program Overview" href="step0-program-overview.html" />
+    <link rel="next" title="Useful Dictionaries" href="step0-dictionaries.html" />
+    <link rel="prev" title="Inspecting the Weblog" href="step0-weblog.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,8 +166,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step0-download-data.html">Download the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0-program-overview.html">Program Overview</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Restoring the Pipeline Calibration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Restoring the Pipeline Calibration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step0-dictionaries.html">Useful Dictionaries</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
@@ -189,8 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create final continuum measurement set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
@@ -200,7 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create final line measurement sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="nav bd-sidenav">
@@ -428,22 +428,84 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="restoring-the-pipeline-calibration">
 <h1>Restoring the Pipeline Calibration<a class="headerlink" href="#restoring-the-pipeline-calibration" title="Permalink to this heading">#</a></h1>
-<p>This is also known as “Generating the calibrated visibilities”.</p>
-<p><a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8, Section 5 (page 13)</a></p>
-<p>Section 5.2 is what we are going to do: Running the <a class="reference external" href="http://scriptForPI.py">scriptForPI.py</a> in the case of pipeline-calibrated data</p>
-<p>Section 5.4 is also relevant: 5.4 Saving disk space during and after the execution of the <a class="reference external" href="http://scriptForPI.py">scriptForPI.py</a></p>
-<p>This was actually done for me the second time by NRAO; but the first time, I did it like this.</p>
+<p>This is also known as “Generating the calibrated visibilities”. (If you do a <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">f2f visit to the NAASC</a>, your data will be staged on NAASC computers and all of the following will be done for you before you even arrive!).</p>
+<p>There are a couple different paths, depending on whether your program was calibrated by the pipeline or manually. See <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8, Section 5 (page 13)</a>. Our program was calibrated by the pipeline, so we follow <strong>“Section 5.2: Running the <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code> in the case of pipeline-calibrated data”</strong>. Section 5.4 is also helpful: “Section 5.4: Saving disk space during and after the execution of the <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code>.”</p>
 <section id="restoring-the-pipeline-calibration-using-scriptforpi-py">
 <h2>Restoring the pipeline calibration using <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code><a class="headerlink" href="#restoring-the-pipeline-calibration-using-scriptforpi-py" title="Permalink to this heading">#</a></h2>
-<p>Note on where we begin:
-We downloaded the entire data set from the ALMA Archive and restored the
-pipeline calibration using <a class="reference external" href="http://scriptForPI.py">scriptForPI.py</a> to create .ms files for each execution.</p>
+<ol class="arabic simple">
+<li><p>First, find the <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code> in the directory called <code class="docutils literal notranslate"><span class="pre">script</span></code>. Confirm that the file <code class="docutils literal notranslate"><span class="pre">*pprequest.xml</span></code> is also present (it should be, it’s an indicator that the program was pipeline calibrated).</p></li>
+</ol>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Understanding the directory substructure</p>
+<p>Once downloaded and untarred, all data should fall into the standardized directory structure:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/directory-structure.png"><img alt="directory-structure" class="mb-1" src="../_images/directory-structure.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p><strong>(1)</strong> The ALMA project code, or program ID. Ours is <code class="docutils literal notranslate"><span class="pre">2021.1.00690.S</span></code>.</p>
+<p><strong>(2)</strong> The Science Goal ID. These are originally set up by the PI in the OT during proposal preparation. We have just one: <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb69</span></code>.</p>
+<p><strong>(3)</strong> The Group ObsUnitSet (a.k.a. GOUS). In our case there is just one: <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6a</span></code>.</p>
+<p><strong>(4)</strong> The Member ObsUnitSet (a.k.a MOUS, a.k.a. Scheduling Block, a.k.a. SB). QA2 is carried out at this level. In our case, we have two (<code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6b</span></code> and <code class="docutils literal notranslate"><span class="pre">uid___A001_X15a2_Xb6d</span></code>) – one for each array configuration. The long-baseline configuration MOUS is also referred to as TM1, and the short-baseline configuration as TM2. The pipeline is run on each MOUS separately (and thus also delivered to the PI separately) – at least as of Cycle 8!</p>
+<p>Each of our MOUSes contain multiple execution blocks (EBs). QA0 is carried out on the EB level. All of the following directories <strong>(6-11)</strong> contain all the files for each EB in each MOUS, where the file name starts with the EB ID. For example, our TM2 (short-baseline MOUS) directories contain all the files for EB1 <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf7ad58_Xd406</span></code> and for EB2 <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf8f6a9_X15c79</span></code>.</p>
+<p><strong>(5)</strong> A very helpful file that explains the directory structure and file types.</p>
+<p><strong>(6)</strong> Contains the pipeline-generated image products (fits files).</p>
+<p><strong>(7)</strong> Contains the all-important calibration tables, and other things for restoring the pipeline calibration.</p>
+<p><strong>(8)</strong> Contains the blessing that is the Weblog. It also contains the Quality Assurance (QA) reports on the MOUS level (QA1) and the EB level (QA0).</p>
+<p><strong>(9)</strong> Contains the absolutely crucial <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code> – what you need to restore the pipeline calibration.</p>
+<p><strong>(10)</strong> Contains the CASA commands log from the QA2 processing.</p>
+<p><strong>(11)</strong> Contains the data! The raw visibilities in the native ALMA format (the ASDM). In our case:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/directory-structure-EBs.png"><img alt="directory-structure-EBs" class="mb-1" src="../_images/directory-structure-EBs.png" style="width: 100%;" /></a>
+</div>
+</div>
+<p>More details can be found in <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8</a>, Section 3 and 4.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>It is important to restore the pipeline calibration using the same version of <code class="docutils literal notranslate"><span class="pre">CASA</span></code> as the pipeline originally did. Check your weblog or QA reports to find out. Here we use version 6.2.1.7 (appropriate for Cycle 8).</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">CASA</span></code> in the <code class="docutils literal notranslate"><span class="pre">script</span></code> directory, with the pipeline functions loaded:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">~$ cd 2021.1.00690.S/science_goal.uid___A001_X15a2_Xb69/group.uid___A001_X15a2_Xb6a/member.uid___A001_X15a2_Xb6d/script</span>
+<span class="go">script$ casa --pipeline</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Then, if you’re ready (this could take ~a day), execute <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code>:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">script$ execfile(&#39;member.uid___A001_X15a2_Xb6d.scriptForPI.py&#39;)</span>
+</pre></div>
+</div>
+<p>Or, if you’ve consulted <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">Section 5.4: Saving disk space during and after the execution of the scriptForPI.py</a>, set the selected flags and then execute <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">script$ SPACESAVING=3</span>
+<span class="go">script$ execfile(&#39;member.uid___A001_X15a2_Xb6d.scriptForPI.py&#39;)</span>
+</pre></div>
+</div>
+<p>Upon completion, a new directory should have been created (in the <code class="docutils literal notranslate"><span class="pre">member.&lt;scheduling_block&gt;/</span></code> level) called <code class="docutils literal notranslate"><span class="pre">calibrated</span></code>, which contains a measurement set, or MS file, for each execution block. For the TM2, or short-baselines, scheduling block where we have 2 execution blocks, the contents of the <code class="docutils literal notranslate"><span class="pre">calibrated</span></code> folder should look like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">products -&gt; ../calibration</span>
+<span class="go">rawdata</span>
+<span class="go">uid___A002_Xf7ad58_Xd406.ms -&gt; working/uid___A002_Xf7ad58_Xd406.ms</span>
+<span class="go">uid___A002_Xf7ad58_Xd406.ms.flagversions -&gt; working/uid___A002_Xf7ad58_Xd406.ms.flagversions</span>
+<span class="go">uid___A002_Xf8f6a9_X15c79.ms -&gt; working/uid___A002_Xf8f6a9_X15c79.ms</span>
+<span class="go">uid___A002_Xf8f6a9_X15c79.ms.flagversions -&gt; working/uid___A002_Xf8f6a9_X15c79.ms.flagversions</span>
+<span class="go">working</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Repeat steps 3 and 4 for the other scheduling block, <code class="docutils literal notranslate"><span class="pre">member.uid___A001_X15a2_Xb6b</span></code>. Upon completion, the new <code class="docutils literal notranslate"><span class="pre">member.uid___A001_X15a2_Xb6b/calibrated</span></code> directory should contain 6 MSes, one for each execution block.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">The uid*.ms measurement sets</p>
+<p>These MS files contain <strong>all original spectral windows</strong> and <strong>both the calibrated and uncalibrated data</strong>. The calibrated data can be found in the MS table column <code class="docutils literal notranslate"><span class="pre">CORRECTED_DATA</span></code>.</p>
+</div>
 </section>
 <section id="splitting-out-the-science-spectral-windows-and-target-source">
 <h2>Splitting out the science spectral windows and target source<a class="headerlink" href="#splitting-out-the-science-spectral-windows-and-target-source" title="Permalink to this heading">#</a></h2>
-<p>Section 5.5: Splitting out the calibrated data at the end of running the <a class="reference external" href="http://scriptForPI.py">scriptForPI.py</a></p>
-<p>We then split out the science spectral windows, using the code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
+<p>The following may or may not have been done already by <code class="docutils literal notranslate"><span class="pre">scriptForPI.py</span></code> (you may need to set the <code class="docutils literal notranslate"><span class="pre">DOSPLIT</span></code> variable to <code class="docutils literal notranslate"><span class="pre">DOSPLIT=True</span></code>). Refer to <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">Section 5.5: Splitting out the calibrated data at the end of running the scriptForPI.py</a>.</p>
+<ol class="arabic simple">
+<li><p>Split out the science spectral windows. Here again we start with the short-baseline SB.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal and in the right directory: member.uid___A001_X15a2_Xb6d/calibrated/</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="n">vislist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*[!_t].ms&#39;</span><span class="p">)</span>  <span class="c1"># should be [&#39;uid___A002_Xf7ad58_Xd406.ms&#39;, &#39;uid___A002_Xf8f6a9_X15c79.ms&#39;]</span>
 <span class="k">for</span> <span class="n">myvis</span> <span class="ow">in</span> <span class="n">vislist</span><span class="p">:</span>
@@ -458,8 +520,14 @@ pipeline calibration using <a class="reference external" href="http://scriptForP
     <span class="n">split</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">myvis</span><span class="p">,</span><span class="n">outputvis</span><span class="o">=</span><span class="n">myvis</span><span class="o">+</span><span class="s1">&#39;.split.cal&#39;</span><span class="p">,</span><span class="n">spw</span><span class="o">=</span><span class="n">sciencespws</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>So, the <code class="docutils literal notranslate"><span class="pre">.ms.split.cal</span></code> measurement sets contain the science target AND the calibrators.</p>
-<p>We then saved the original flags, using the code:</p>
+<p>This creates the <code class="docutils literal notranslate"><span class="pre">uid*.ms.split.cal</span></code> measurement sets.</p>
+<div class="tip admonition">
+<p class="admonition-title">The uid*.ms.split.cal measurement sets</p>
+<p>These MS files contain contain the <strong>science target AND the calibrators</strong>, but <strong>only the science spectral windows</strong>.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Save the original flags.</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="n">vislist</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.ms.split.cal&#39;</span><span class="p">)</span>
@@ -469,7 +537,9 @@ pipeline calibration using <a class="reference external" href="http://scriptForP
                 <span class="n">versionname</span><span class="o">=</span><span class="s1">&#39;original_flags&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>After that, we split off the science target, and saved those flags, using the code:</p>
+<ol class="arabic simple" start="3">
+<li><p>Split off the science target, and save those flags too.</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a CASA terminal, in e.g., member.uid___A001_X15a2_Xb6d/calibrated/</span>
 <span class="k">for</span> <span class="n">vis</span> <span class="ow">in</span> <span class="n">vislist</span><span class="p">:</span>
     <span class="n">outputvis</span> <span class="o">=</span> <span class="n">vis</span><span class="o">+</span><span class="s1">&#39;.source&#39;</span>
@@ -483,7 +553,31 @@ pipeline calibration using <a class="reference external" href="http://scriptForP
                 <span class="n">versionname</span><span class="o">=</span><span class="s1">&#39;original_flags&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In summary, we start <a class="reference internal" href="../step1/step1-manual-flags.html"><span class="doc std std-doc">step 1</span></a> with 8 separate measurement sets (e.g. <code class="docutils literal notranslate"><span class="pre">uid___A002_Xf7ad58_Xd406.ms.split.cal.source</span></code>) which contain only the science spectral windows for only the science target.</p>
+<p>This creates the <code class="docutils literal notranslate"><span class="pre">uid*.ms.split.cal.source</span></code> measurement sets.</p>
+<div class="tip admonition">
+<p class="admonition-title">The uid*.ms.split.cal.source measurement sets</p>
+<p>These MS files contain contain <strong>only the science target</strong>, and <strong>only the science spectral windows</strong>. The calibrated data should be in the MS table column <code class="docutils literal notranslate"><span class="pre">DATA</span></code>.</p>
+</div>
+<p>For the TM2, or short-baselines, scheduling block where we have 2 execution blocks, the contents of the <code class="docutils literal notranslate"><span class="pre">calibrated</span></code> folder should now look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">-&gt;</span> <span class="o">../</span><span class="n">calibration</span>
+<span class="n">rawdata</span>
+<span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span> <span class="o">-&gt;</span> <span class="n">working</span><span class="o">/</span><span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span>
+<span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">flagversions</span> <span class="o">-&gt;</span> <span class="n">working</span><span class="o">/</span><span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">source</span>
+<span class="n">uid___A002_Xf7ad58_Xd406</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span> <span class="o">-&gt;</span> <span class="n">working</span><span class="o">/</span><span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span>
+<span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">flagversions</span> <span class="o">-&gt;</span> <span class="n">working</span><span class="o">/</span><span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">source</span>
+<span class="n">uid___A002_Xf8f6a9_X15c79</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">cal</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">flagversions</span>
+<span class="n">working</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Repeat steps 1-3 for the long-baselines scheduling block, <code class="docutils literal notranslate"><span class="pre">member.uid___A001_X15a2_Xb6b</span></code>.</p></li>
+</ol>
+<p>In summary, we start <a class="reference internal" href="../step1/step1-manual-flags.html"><span class="doc std std-doc">step 1</span></a> with 8 separate measurement sets (i.e., 8 of <code class="docutils literal notranslate"><span class="pre">uid*.ms.split.cal.source</span></code>) which contain only the science spectral windows for only the science target.</p>
 </section>
 </section>
 
@@ -519,20 +613,20 @@ pipeline calibration using <a class="reference external" href="http://scriptForP
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="step0-program-overview.html"
+       href="step0-weblog.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Program Overview</p>
+        <p class="prev-next-title">Inspecting the Weblog</p>
       </div>
     </a>
     <a class="right-next"
-       href="step0-weblog.html"
+       href="step0-dictionaries.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Inspecting the Weblog</p>
+        <p class="prev-next-title">Useful Dictionaries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

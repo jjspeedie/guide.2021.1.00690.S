@@ -6,7 +6,7 @@
 <img src="./images/download-1.png" alt="download-1" class="mb-1" width="100%">
 ````
 
-2. Select both scheduling blocks ("SB"s) -- TM1 (long-baseline configuration) and TM2 (short-baseline configuration). Then click ``Explore and download``.
+2. Select both scheduling blocks ("SB"s): TM1 (long-baseline configuration) and TM2 (short-baseline configuration). Then click ``Explore and download``.
 
 ````{card}
 <img src="./images/download-2.png" alt="download-2" class="mb-1" width="100%">
@@ -33,7 +33,7 @@
 
 * \**``raw``: Uncalibrated raw visibilities that the pipeline was run on.
 
-* ``raw (semipass)``: Uncalibrated raw data that are flawed or incomplete and were not used. In our case we have one such EB in TM2.
+* ``raw (semipass)``: Uncalibrated raw data that are flawed or incomplete and were not used. In our case we have one such execution block in TM2.
 
 * ``external``: Externally contributed data products (may be present in some cases).
 
@@ -42,7 +42,7 @@
 ```
 
 
-5. The ``auxiliary`` data products will be selected by default; this contains the *calibration tables*, scripts, logs and quality assurance reports. The calibration tables are the most important output of the ALMA pipeline (they are the whole point of it, really). [Restoring the pipeline calibration](./step0-restoring-pipeline-calibration) refers to the process of applying those calibration tables back onto the raw data, so downloading the calibration tables is essential. **Make sure to also check the boxes that will give you the ``raw`` ASDMs.** The raw visibilities are delivered in the native ALMA format (the ASDM) in order to minimize the download time. Downloading these is absolutely necessary for restoring the pipeline calibration -- without them you would have no data to apply the calibration tables to. In our case, we also download the one "raw (semi-pass)" TM2 execution block, though it was not included in the pipeline calibration and we ended up not using it.
+5. The ``auxiliary`` data products will be selected by default; this contains the *calibration tables* (!), scripts, logs and quality assurance reports. The calibration tables are the most important output of the ALMA pipeline (they are the whole point of it, really). [Restoring the pipeline calibration](./step0-restoring-pipeline-calibration) refers to the process of applying those calibration tables back onto the raw data, so downloading the calibration tables is essential. **Make sure to also check the boxes that will give you the ``raw`` ASDMs.** The raw visibilities are delivered in the native ALMA format (the "ALMA Science Data Model" or ASDM) in order to minimize the download time. Downloading these is absolutely necessary for restoring the pipeline calibration -- without them you would have no data to apply the calibration tables to. In our case, we also download the one "raw (semi-pass)" TM2 execution block, though it was not included in the pipeline calibration and we ended up not using it.
 
 ````{card}
 <img src="./images/download-5.png" alt="download-5" class="mb-1" width="100%">
@@ -88,7 +88,7 @@ Once downloaded and untarred, all data should fall into the standardized directo
 
 **(3)** The Group ObsUnitSet (a.k.a. GOUS). In our case there is just one: ``uid___A001_X15a2_Xb6a``.
 
-**(4)** The Member ObsUnitSet (a.k.a MOUS, a.k.a. Scheduling Block, a.k.a. SB). QA2 is carried out at this level. In our case, we have two (``uid___A001_X15a2_Xb6b`` and ``uid___A001_X15a2_Xb6d``) -- one for each array configuration. The long-baseline configuration MOUS is also referred to as TM1, and the short-baseline configuration as TM2. The pipeline is run on each MOUS separately (and thus also delivered to the PI separately).
+**(4)** The Member ObsUnitSet (a.k.a MOUS, a.k.a. Scheduling Block, a.k.a. SB). QA2 is carried out at this level. In our case, we have two (``uid___A001_X15a2_Xb6b`` and ``uid___A001_X15a2_Xb6d``) -- one for each array configuration. The long-baseline configuration MOUS is also referred to as TM1, and the short-baseline configuration as TM2. The pipeline is run on each MOUS separately (and thus also delivered to the PI separately) -- at least as of Cycle 8!
 
 Each of our MOUSes contain multiple execution blocks (EBs). QA0 is carried out on the EB level. All of the following directories **(6-11)** contain all the files for each EB in each MOUS, where the file name starts with the EB ID. For example, our TM2 (short-baseline MOUS) directories contain all the files for EB1 ``uid___A002_Xf7ad58_Xd406`` and for EB2 ``uid___A002_Xf8f6a9_X15c79``.
 
