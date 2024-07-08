@@ -432,7 +432,7 @@ document.write(`
 <figure class="align-center" id="id1">
 <a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty.jpg"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty.jpg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Schematic representing the issue: We need a way to reference only a certain execution block’s portion of each calibration table.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic representing the issue: We need a way to reference only a certain execution block’s portion of each calibration table.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>I think the answer lies with the applycal spwmap parameter. We can point to a subset of the spws contained in the calibration table, and apply only those to the ms. The trick is knowing how the mapping will work. It will require accounting for what the combine parameter was set to in gaincal. For example, compare these two SB caltables:</p>
@@ -443,13 +443,13 @@ So with that in mind, and with the help of the gaintable parameter, this is the 
 <figure class="align-center" id="id2">
 <a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_SB.png"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty_workflow_SB.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB line measurement sets.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB line measurement sets.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id3">
 <a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_BB.png"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty_workflow_BB.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB and LB line measurement sets.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB and LB line measurement sets.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>(These two applycal bunches have to be done separately so that applymode can be different in each case)</p>

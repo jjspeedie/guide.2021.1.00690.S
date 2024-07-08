@@ -413,14 +413,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-parameter-choices">Explanation of parameter choices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb1-through-eb-6">LB EB1 through EB 6</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-made-after-each-round">Images made after each round</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-before-and-after">The results, before and after</a></li>
 </ul>
@@ -444,72 +438,127 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="self-calibration-of-sb-lb-data">
 <h1>Self-Calibration of SB+LB Data<a class="headerlink" href="#self-calibration-of-sb-lb-data" title="Permalink to this heading">#</a></h1>
+<p>Here, we self-calibrate the long-baseline and short-baseline continuum data together (phase-aligned and concatenated).</p>
 <section id="summary-of-path-through-self-calibration">
 <h2>Summary of path through self-calibration<a class="headerlink" href="#summary-of-path-through-self-calibration" title="Permalink to this heading">#</a></h2>
-<p>A table of selected parameters used in each of the tasks, and metrics of the results, broken down by round (columns).</p>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_concat_shifted_cont_summary.jpg"><img alt="ABAur_BB_concat_shifted_cont_summary" class="mb-1 align-center" src="../_images/ABAur_BB_concat_shifted_cont_summary.jpg" style="width: 100%;" /></a>
-<p>(Note: Empty cells are not meaningless; they mean ‘’, which in CASA either means ‘all’ or ‘nothing’.)</p>
-<section id="explanation-of-parameter-choices">
-<h3>Explanation of parameter choices<a class="headerlink" href="#explanation-of-parameter-choices" title="Permalink to this heading">#</a></h3>
-<p>Things that are different from the SB-only self-cal:</p>
-<p><strong>gaincal solint</strong>: Previously in the SB-only self-cal, we used solints that were nice fractions of the scan lengths. This wasn’t so possible for the LB+SB self-cal, because the LB scan lengths weren’t as consistent. Instead, we reverted to the DSHARP/MAPS solint sequence.</p>
-<figure class="align-center" id="id1">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_path_selfcal.png"><img alt="ABAur_BB_path_selfcal" class="mb-1" src="../_images/ABAur_BB_path_selfcal.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Path through LB+SB self-cal.</strong> This table portrays the path taken through self-calibration through the choice of parameters in every round. Self-cal “starts” in the third column (“Round p0”) with the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task, and then proceeds to the fourth column (“Round p1”) with the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task, and so on. We performed six rounds of phase-only self-cal (“p1”, “p2”, “p3” etc.), and one round of amplitude+phase self-cal (“ap”). In each round, the parameters in the <code class="docutils literal notranslate"><span class="pre">tclean</span></code>, <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> and <code class="docutils literal notranslate"><span class="pre">applycal</span></code> tasks were set as listed in that round’s column. In CASA, setting a parameter to <code class="docutils literal notranslate"><span class="pre">''</span></code> means “all” or “nothing”. Rows to look at include <code class="docutils literal notranslate"><span class="pre">solint</span></code> (the solution interval), <code class="docutils literal notranslate"><span class="pre">calmode</span></code> (phase or amplitude+phase), <code class="docutils literal notranslate"><span class="pre">combine</span></code> (note <code class="docutils literal notranslate"><span class="pre">'spw'</span></code> is now always combined), and the number of failed solutions (that did not satisfy our SNR requirements). The <code class="docutils literal notranslate"><span class="pre">threshold</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task is not set because we clean interactively.</p>
+<p class="sd-card-text"><strong>(selfcal_dict.txt)</strong> The bottom few rows keep track of relevant quantities or image metrics as they change over the course of each round. Rows to look at include <strong>SNR</strong> (improved from 154 to 239), <strong>disk flux</strong> (slightly decreasing monotonically), and the beam major &amp; minor axes <strong>bmaj</strong> &amp; <strong>bmin</strong> (constant as data associated with failed solutions is <em>not</em> flagged out).</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
 <a class="mb-1 reference internal image-reference" href="../_images/number-seconds-in-each-scan.png"><img alt="number-seconds-in-each-scan" class="mb-1" src="../_images/number-seconds-in-each-scan.png" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">For the SB+LB self-cal, the solints (required combine=’scan’ to ignore scan boundaries and) were: 900s, 360s, 180s, 60s (DSHARP/MAPS sequence).</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>gaincal combine</strong>: This time it wasn’t possible to avoid combine=’spw’ without sacrificing a lot of data (subjective, but my sense was that there were too many printouts of flagged solutions).</p>
-<p><strong>gaincal refant</strong>: Again chosen by me, using the refant lists generated by the pipeline hif_refant task, shown in the weblog. This time the antenna rankings changed between the different executions, so I calculated an “overall ranking” by multiplying the rank of each antenna in each execution and taking the four with the smallest overall rank. Again it might have been a good idea to specify the pad, if the antennas were moved between executions.</p>
-<p><strong>gaincal minSNR</strong>: Same as SB-only self-cal. Perhaps worth noting that DSHARP decreased the minSNR to 1.5 for their SB+LB self-cal.</p>
-<p><strong>gaincal num flagged solns</strong>: There are a lot more here than there were in the SB-only self-cal, but (!) we also have a lot more data in the SB+LB self-cal. Should be ok?</p>
-<p><strong>applycal applymode</strong>: Here we are trusting the wisdom of DSHARP and copying them (they switch to applymode=’calonly’ for the SB+LB self-cal). This applies the calibrations, but does NOT flag the data where no calibration solutions are found. This means we do not lose data (so our beam size does not increase), but we also bring with data that has not been calibrated. CASA warns to use this with extreme caution.</p>
-<p><strong>applycal spwmap</strong>: Since gaincal combine includes spw in all rounds, we need a spwmap in all rounds.</p>
-<p><strong>tclean imsize</strong>: Set to go out to the primary beam FWHM (~20 arcsec).</p>
-<p><strong>tclean cellsize</strong>: Set to sample the beam with ~10 cells.</p>
-<p><strong>tclean robust</strong>: In my first SB+LB self-cal venture, I used robust=0.5 as before, but there were a lot of flagged solutions. Ryan suggested we play with the robust parameter. Getting high SNR is important. We can image with a lower robust later for our final images if we want. So for the self-cal, we increase robust to 1.0.</p>
-<p><strong>result rms (uJy/beam, mK)</strong>: Again this nicely decreases. (Note however that these images were not cleaned very deeply, nor are they primary beam corrected. And for reference, the weblog says our final theoretical sensitivity is 12 uJy/beam).</p>
-<p><strong>result peak Inu (mJy/beam)</strong>: Again this more or less increases with each round, except between p4 and ap, where it decreases (to be expected).</p>
-<p><strong>result disk flux (mJy)</strong>: Very strangely, this uniformly decreases with each round. I don’t know why. Unexpected.</p>
-<p><strong>result bmin/bmin (mas)</strong>: Since we use applycal applymode=’calonly’, our beam does not increase. It actually decreases (by ~10 mas), which must be because the PSF becomes cleaner.</p>
-<p><strong>result SNR</strong>: This increases with each round, including between p4 and ap. At the end of this self-cal, we improve by a factor of 1.6.</p>
-</section>
-</section>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Context for choice of <code class="docutils literal notranslate"><span class="pre">solint</span></code>: Scan lengths within each execution block.</strong> For example, the LB EB3 execution block contained 13 scans mostly 181 seconds long, though some were 121 seconds long. Thus, the <code class="docutils literal notranslate"><span class="pre">solint</span></code> choices of <code class="docutils literal notranslate"><span class="pre">900s,</span> <span class="pre">360s,</span> <span class="pre">180s,</span> <span class="pre">60s</span></code> for the LB+SB self-cal roughly correspond to five scans, two scans, one scan, and a third of a scan in the case of the LB data. Integer multiples of 60s were chosen to be harmonious with the LB scan lengths.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Additional explanation of parameter choices that are different from the SB-only self-cal<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">solint</span></code>: Previously in the SB-only self-cal, we used <code class="docutils literal notranslate"><span class="pre">solint</span></code>s that were nice fractions of the scan lengths. This wasn’t so possible for the LB+SB self-cal, because the LB scan lengths weren’t as consistent. Instead, we reverted to the DSHARP/MAPS <code class="docutils literal notranslate"><span class="pre">solint</span></code> sequence.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">combine</span></code>: This time it wasn’t possible to avoid <code class="docutils literal notranslate"><span class="pre">combine='spw'</span></code> without sacrificing a lot of data. What constitutes “a lot” is subjective, but my sense was that there were too many printouts of flagged solutions (see the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step3_continuum_selfcal.py" target="_blank">the script</a>).</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">refant</span></code>: Again selected using the refant lists generated by the pipeline <code class="docutils literal notranslate"><span class="pre">hif_refant</span></code> task, shown in the weblog. This time the antenna rankings changed between the different executions, so I calculated an “overall ranking” by multiplying the rank of each antenna in each execution and taking the four with the smallest overall rank.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">minSNR</span></code>: Same as the SB-only self-cal. Perhaps it’s worth noting though that DSHARP decreased the <code class="docutils literal notranslate"><span class="pre">minSNR</span></code> to <code class="docutils literal notranslate"><span class="pre">1.5</span></code> for their SB+LB self-cal.</p></li>
+<li><p class="sd-card-text"><strong>num flagged solns</strong>: There are a lot more flagged solutions in the LB+SB self-cal than there were in the SB-only self-cal, but (!) we also have a lot more data in the SB+LB self-cal.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">applymode</span></code>: Here we are trusting the wisdom of DSHARP and copying them (they switch to <code class="docutils literal notranslate"><span class="pre">applymode='calonly'</span></code> for the SB+LB self-cal). This applies the calibrations, but <strong>does NOT flag the data</strong> where no calibration solutions are found. This means we do not lose data (so our beam size does not increase), but we also bring with data that has not been calibrated. CASA warns to use this with extreme caution.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spwmap</span></code>: Since the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> <code class="docutils literal notranslate"><span class="pre">combine</span></code> includes SPW in all rounds, we need a <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> in all rounds.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">robust</span></code>: In my first SB+LB self-cal venture, I used <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> as before, but there were <em>a lot</em> of flagged solutions. Ryan suggested we can play with the <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter. Getting high SNR is important. We can image with a lower <code class="docutils literal notranslate"><span class="pre">robust</span></code> later for our final images if we want. So for the self-cal, we increase <code class="docutils literal notranslate"><span class="pre">robust</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+🐛 Error in Calibrater::solve: Mismatch between Solution frequencies and existing CalTable frequencies<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">I encountered this (<a href="https://github.com/e-merlin/eMERLIN_CASA_pipeline/issues/70" target="_blank">documented</a>) error in the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task using CASA 6.2.1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Current</span> <span class="n">CalTable</span> <span class="n">nchan</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">Current</span> <span class="n">CalTable</span> <span class="n">freq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">224698702714</span><span class="p">]</span>
+<span class="n">Current</span> <span class="n">Solution</span> <span class="n">nchan</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">Current</span> <span class="n">Solution</span> <span class="n">freq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">224698702714</span><span class="p">]</span>
+<span class="n">Diff</span> <span class="o">=</span> <span class="p">[</span><span class="mf">6.103515625e-05</span><span class="p">]</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">52</span>	<span class="n">SEVERE</span>	<span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span>	<span class="n">Caught</span> <span class="n">exception</span><span class="p">:</span> <span class="n">Mismatch</span> <span class="n">between</span> <span class="n">Solution</span> <span class="n">frequencies</span> <span class="ow">and</span> <span class="n">existing</span> <span class="n">CalTable</span> <span class="n">frequencies</span> <span class="k">for</span> <span class="n">spw</span><span class="o">=</span><span class="mi">35</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">52</span>	<span class="n">SEVERE</span>		<span class="ne">Exception</span> <span class="n">Reported</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span>	<span class="n">SEVERE</span>	<span class="n">gaincal</span><span class="p">::::</span><span class="n">casa</span>	<span class="n">Task</span> <span class="n">gaincal</span> <span class="n">raised</span> <span class="n">an</span> <span class="n">exception</span> <span class="n">of</span> <span class="k">class</span> <span class="nc">RuntimeError</span> <span class="k">with</span> <span class="n">the</span> <span class="n">following</span> <span class="n">message</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span>	<span class="n">SEVERE</span>	<span class="n">gaincal</span><span class="p">::::</span><span class="n">casa</span>	<span class="ne">Exception</span> <span class="n">Reported</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">gaincal</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To avoid this bug, it was necessary to switch to CASA 6.4.1 at this point in the reduction process.</p>
+</div>
+</details></section>
 <section id="achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
 <h2>Achieved phase solutions as a function of time and antenna (the calibration tables)<a class="headerlink" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables" title="Permalink to this heading">#</a></h2>
-<p>All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together, but the following plots the solutions separately (to be able to resolve the time axis). Also, only showing p1 and ap rounds, because there’s too much manual compilation involved in making these videos.</p>
-<section id="lb-eb1-through-eb-6">
-<h3>LB EB1 through EB 6<a class="headerlink" href="#lb-eb1-through-eb-6" title="Permalink to this heading">#</a></h3>
+<p>All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together. The following plot shows the gain phase solutions for a single EB and a single self-cal round.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws.png"><img alt="ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws" class="mb-1" src="../_images/ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws.png" style="width: 60%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Self-calibration solutions for LB EB1 (round “p4”).</strong>  Gain phase as a function of time. Blue shaded regions denote the target scans. The legend says “EB3” because in the combined SB+LB measurement set, the SB EBs take the index of 1 and 2 (so LB EB1 becomes SB+LB EB3). Since all SPWs are combined, points are coloured the same colour (happens to be purple).</p>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Jess needs to add here: Videos of calibration tables</p>
+<p>Message from Jess: More plots of the self-calibration solutions for the LB+SB self-cal (like shown in the movies on the previous page for the SB-only self-cal) are available upon request (<a class="reference external" href="mailto:jspeedie&#37;&#52;&#48;uvic&#46;ca">jspeedie<span>&#64;</span>uvic<span>&#46;</span>ca</a>). It’s just quite time consuming to compile the many panels into videos (eight videos, if one for each EB).</p>
 </div>
-</section>
 </section>
 <section id="images-made-after-each-round">
 <h2>Images made after each round<a class="headerlink" href="#images-made-after-each-round" title="Permalink to this heading">#</a></h2>
-<p>Image achieved after each round, with a large colour bar stretch to exaggerate faint emission.</p>
-<video width="100%" controls>
+<p>The following movie shows the continuum image achieved after each round of self-cal (with a large colour bar stretch to exaggerate faint emission).</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="85%" controls>
   <source src="../_static/videos/BB_concat_shifted_cont.mp4" type="video/mp4">
 </video>
-<div class="tip admonition">
-<p class="admonition-title">Thoughts…</p>
-<p>The noise outside the disk in the NW-SE directions we saw in the SB-only images remains. It again becomes slightly more uniform with each round of self-cal. Is this due to the inclination of the source on the sky? Our beam position angle is in a similar direction. Perhaps deeper cleaning will help.</p>
+</center>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Jess might add here: Images of model and residuals.</p>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Continuum image achieved after each round of LB+SB self-cal.</strong> Things to notice: (1) the SNR increases; (2) the images visually improve; (3) the beam does not get bigger.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Jess might add here: Figures showing inspection of flux recovery.</p>
 </div>
+<!--
+```{note}
+Jess might add here: Figures showing inspection of flux recovery.
+``` -->
 </section>
 <section id="the-results-before-and-after">
 <h2>The results, before and after<a class="headerlink" href="#the-results-before-and-after" title="Permalink to this heading">#</a></h2>
-<a class="mb-1 reference internal image-reference" href="../_images/BB-before-after.gif"><img alt="BB-before-after" class="mb-1 align-center" src="../_images/BB-before-after.gif" style="width: 85%;" /></a>
-<p>We achieve a decrease in rms noise by a factor of 1.6. The peak intensity decreases by about 0.3 mJy/beam. The SNR improves by a factor of 1.5. The outer ring becomes more compact/well-defined. The inner cavity appears emptier; the inner disk appears unchanged.</p>
-<!-- There is extended emission around the outside of the outer ring - it is likely not real? -->
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/BB-before-after.gif"><img alt="BB-before-after" class="mb-1" src="../_images/BB-before-after.gif" style="width: 80%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>A gif blinking between our initial image (round “p0”) and our final image (round “ap”).</strong> We achieve a decrease in rms noise by a factor of 1.6. The peak intensity decreases by about 0.3 mJy/beam. The SNR improves by a factor of 1.5. The outer ring becomes more well-defined. The inner cavity appears emptier; the inner disk appears unchanged.</p>
+</div>
+</div>
 </section>
 </section>
 
@@ -580,14 +629,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-parameter-choices">Explanation of parameter choices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-eb1-through-eb-6">LB EB1 through EB 6</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-made-after-each-round">Images made after each round</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-before-and-after">The results, before and after</a></li>
 </ul>

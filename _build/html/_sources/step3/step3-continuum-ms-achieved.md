@@ -7,35 +7,24 @@
 
 # Create Final Continuum Measurement Set
 
-To save storage space, we now time average to 30 seconds. This apparently does nothing to hurt/affect the data, so long as it's done after self-calibration (because we want to get as low solint as possible, and because time-binning changes the weights which can make plotms wonky).
+To save storage space, we now time average to 30 seconds. This does nothing to hurt/affect the data, so long as it's done after self-calibration (because we want to get as low ``solint`` as possible, and because time-binning changes the weights which can make ``plotms`` wonky).
 
-`````{admonition} Achieved!
-:class: tip
-#######################################################################
-#################### Continuum measurement set ########################
-#######################################################################
-
-  524 MB	      ABAur_continuum.bin30s.ms
-`````
-
-<!-- >#######################################################################
->#################### Continuum measurement set ########################
->#######################################################################
->
->  524 MB	      ABAur_continuum.bin30s.ms -->
-
-<!-- ````{card}
-Content of the top card.
-
-{bdg-primary}`example-badge`
-
+````python
+""" Save the final MS """
+chosenvis          = data_dict['NRAO_path']+data_dict['BB_concat']['contp0'].replace('p0.ms', 'ap.ms')
+final_cont_ms      = 'ABAur_continuum.bin30s.ms'
+split(vis=chosenvis, outputvis=final_cont_ms, spw='', timebin='30s', datacolumn='data')
+listobs(vis=final_cont_ms, listfile=final_cont_ms+'.listobs.txt')
+os.system('tar cvzf backups/' + final_cont_ms+'.tgz ' + final_cont_ms)
 ````
 
-```{card}
-Jess might add here: Figures showing inspection of flux recovery.
-```
+<div style="background-color:#FAE5D3;">
 
+````{card} Final continuum measurement set achieved! 🥳
 
-```{glue} sorted_means_fig
-:doc: executable/output-insert.md
-``` -->
+* **ABAur_continuum.bin30s.ms (524 MB)**
+
+(Available to download soon)
+
+````
+</div>

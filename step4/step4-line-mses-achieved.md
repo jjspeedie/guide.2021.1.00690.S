@@ -9,23 +9,33 @@
 
 # Create Final Line Measurement Sets
 
-(I tried to follow the file naming conventions of the MAPS datasets.)
+<!-- (I tried to follow the file naming conventions of the MAPS datasets.) -->
 
-`````{admonition} Achieved!
-:class: tip
-#######################################################################
-####### Continuum-subtracted spectral line measurement sets ###########
-#######################################################################
-  28 GB	      ABAur_12CO.bin30s.ms.contsub.cvel2
-  28 GB	      ABAur_13CO.bin30s.ms.contsub.cvel2
-  15 GB	      ABAur_C18O.bin30s.ms.contsub.cvel2
-  15 GB	      ABAur_SO.bin30s.ms.contsub.cvel2
+<div style="background-color:#FAE5D3;">
 
-#######################################################################
-####### Non-continuum-subtracted spectral line measurement sets #######
-#######################################################################
-  28 GB	      ABAur_12CO.bin30s.ms.cvel2
-  28 GB	      ABAur_13CO.bin30s.ms.cvel2
-  15 GB	      ABAur_C18O.bin30s.ms.cvel2
-  15 GB	      ABAur_SO.bin30s.ms.cvel2
-`````
+````{card} Final line measurement sets achieved! 🥳
+Continuum-subtracted spectral line measurement sets:
+
+* **ABAur_12CO.bin30s.ms.contsub (28 GB)**
+
+* **<a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub (28 GB)</a>**
+
+* **<a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub (15 GB)</a>**
+
+* **ABAur_SO.bin30s.ms.contsub (15 GB)**
+
+Non-continuum-subtracted spectral line measurement sets:
+
+* **ABAur_12CO.bin30s.ms (28 GB)**
+
+* **<a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms (28 GB)</a>**
+
+* **<a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms (15 GB)</a>**
+
+* **ABAur_SO.bin30s.ms (15 GB)**
+
+The <sup>13</sup>CO and C<sup>18</sup>O data are available to download; the <sup>12</sup>CO and SO will be available soon.
+
+Velocity re-gridded MSes (e.g. ABAur_12CO.bin30s.ms.cvel2) are available upon request.
+````
+</div>

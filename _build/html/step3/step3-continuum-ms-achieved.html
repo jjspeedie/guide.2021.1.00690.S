@@ -425,34 +425,27 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="create-final-continuum-measurement-set">
 <h1>Create Final Continuum Measurement Set<a class="headerlink" href="#create-final-continuum-measurement-set" title="Permalink to this heading">#</a></h1>
-<p>To save storage space, we now time average to 30 seconds. This apparently does nothing to hurt/affect the data, so long as it’s done after self-calibration (because we want to get as low solint as possible, and because time-binning changes the weights which can make plotms wonky).</p>
-<div class="tip admonition">
-<p class="admonition-title">Achieved!</p>
-<p>#######################################################################
-#################### Continuum measurement set ########################
-#######################################################################</p>
-<p>524 MB	      ABAur_continuum.bin30s.ms</p>
+<p>To save storage space, we now time average to 30 seconds. This does nothing to hurt/affect the data, so long as it’s done after self-calibration (because we want to get as low <code class="docutils literal notranslate"><span class="pre">solint</span></code> as possible, and because time-binning changes the weights which can make <code class="docutils literal notranslate"><span class="pre">plotms</span></code> wonky).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Save the final MS &quot;&quot;&quot;</span>
+<span class="n">chosenvis</span>          <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;BB_concat&#39;</span><span class="p">][</span><span class="s1">&#39;contp0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;p0.ms&#39;</span><span class="p">,</span> <span class="s1">&#39;ap.ms&#39;</span><span class="p">)</span>
+<span class="n">final_cont_ms</span>      <span class="o">=</span> <span class="s1">&#39;ABAur_continuum.bin30s.ms&#39;</span>
+<span class="n">split</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">chosenvis</span><span class="p">,</span> <span class="n">outputvis</span><span class="o">=</span><span class="n">final_cont_ms</span><span class="p">,</span> <span class="n">spw</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">timebin</span><span class="o">=</span><span class="s1">&#39;30s&#39;</span><span class="p">,</span> <span class="n">datacolumn</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">listobs</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">final_cont_ms</span><span class="p">,</span> <span class="n">listfile</span><span class="o">=</span><span class="n">final_cont_ms</span><span class="o">+</span><span class="s1">&#39;.listobs.txt&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;tar cvzf backups/&#39;</span> <span class="o">+</span> <span class="n">final_cont_ms</span><span class="o">+</span><span class="s1">&#39;.tgz &#39;</span> <span class="o">+</span> <span class="n">final_cont_ms</span><span class="p">)</span>
+</pre></div>
 </div>
-<!-- >#######################################################################
->#################### Continuum measurement set ########################
->#######################################################################
->
->  524 MB	      ABAur_continuum.bin30s.ms -->
-<!-- ````{card}
-Content of the top card.
-
-{bdg-primary}`example-badge`
-
-````
-
-```{card}
-Jess might add here: Figures showing inspection of flux recovery.
-```
-
-
-```{glue} sorted_means_fig
-:doc: executable/output-insert.md
-``` -->
+<div style="background-color:#FAE5D3;">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Final continuum measurement set achieved! 🥳</div>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>ABAur_continuum.bin30s.ms (524 MB)</strong></p></li>
+</ul>
+<p class="sd-card-text">(Available to download soon)</p>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

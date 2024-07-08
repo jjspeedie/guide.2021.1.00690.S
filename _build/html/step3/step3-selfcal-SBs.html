@@ -413,10 +413,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-parameter-choices">Explanation of parameter choices</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-eb1">SB EB1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-eb2">SB EB2</a></li>
@@ -445,23 +442,20 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="self-calibration-of-short-baseline-execution-blocks">
 <h1>Self-Calibration of Short-Baseline Execution Blocks<a class="headerlink" href="#self-calibration-of-short-baseline-execution-blocks" title="Permalink to this heading">#</a></h1>
+<p>Here, we self-calibrate the short-baseline continuum data (phase-aligned and concatenated).</p>
 <section id="summary-of-path-through-self-calibration">
 <h2>Summary of path through self-calibration<a class="headerlink" href="#summary-of-path-through-self-calibration" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_concat_shifted_cont_summary.jpg"><img alt="ABAur_SB_concat_shifted_cont_summary" class="mb-1" src="../_images/ABAur_SB_concat_shifted_cont_summary.jpg" style="width: 100%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_path_selfcal.png"><img alt="ABAur_SB_path_selfcal" class="mb-1" src="../_images/ABAur_SB_path_selfcal.png" style="width: 100%;" /></a>
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">(Note: Empty cells are not meaningless; they mean ‘’, which in CASA either means ‘all’ or ‘nothing’.)</p>
+<p class="sd-card-text"><strong>Path through SB self-cal.</strong> This table portrays the path taken through self-calibration through the choice of parameters in every round. Self-cal “starts” in the third column (“Round p0”) with the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task, and then proceeds to the fourth column (“Round p1”) with the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task, and so on. We performed six rounds of phase-only self-cal (“p1”, “p2”, “p3” etc.), and one round of amplitude+phase self-cal (“ap”). In each round, the parameters in the <code class="docutils literal notranslate"><span class="pre">tclean</span></code>, <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> and <code class="docutils literal notranslate"><span class="pre">applycal</span></code> tasks were set as listed in that round’s column. In CASA, setting a parameter to <code class="docutils literal notranslate"><span class="pre">''</span></code> means “all” or “nothing”. Rows to look at include <code class="docutils literal notranslate"><span class="pre">solint</span></code> (the solution interval), <code class="docutils literal notranslate"><span class="pre">calmode</span></code> (phase or amplitude+phase), <code class="docutils literal notranslate"><span class="pre">combine</span></code> (note <code class="docutils literal notranslate"><span class="pre">'spw'</span></code> is not combined in Round “p1” or “p2”), and the number of failed solutions (that did not satisfy our SNR requirements). The <code class="docutils literal notranslate"><span class="pre">threshold</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task is not set because we clean interactively.</p>
+<p class="sd-card-text"><strong>(selfcal_dict.txt)</strong> The bottom few rows keep track of relevant quantities or image metrics as they change over the course of each round. Rows to look at include <strong>SNR</strong> (improved from 195 to 434), <strong>disk flux</strong> (slightly increasing until the “ap” round), and the beam major &amp; minor axes <strong>bmaj</strong> &amp; <strong>bmin</strong> (increasing as data associated with failed solutions is flagged out).</p>
 </div>
 </div>
-<section id="explanation-of-parameter-choices">
-<h3>Explanation of parameter choices<a class="headerlink" href="#explanation-of-parameter-choices" title="Permalink to this heading">#</a></h3>
-<p>Threshold: should be the same in every round to compare apples to apples…</p>
-<p><strong>gaincal spw</strong>: Selecting all spectral windows.</p>
-<p><strong>gaincal solint</strong>: The time interval on which to generate solutions. ‘inf’ goes as wide as the boundaries specified by the combine parameter. In the first and second round (p1, p2), 1 solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find 1 solution per scan again. For reference, here’s the number of seconds in each scan, in each execution block:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
@@ -469,42 +463,57 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">For the SB-only self-cal, the solints 243s, 120s, 60s, 30s, 18s roughly correspond to: half a scan, a quarter of a scan, an eighth of a scan, a sixteenth of a scan, and then 3x the record length (6s).</p>
+<p class="sd-card-text"><strong>Context for choice of <code class="docutils literal notranslate"><span class="pre">solint</span></code>: Scan lengths within each execution block.</strong> For example, the SB EB1 execution block contained five scans each 486 seconds long, and then a sixth scan which was 30 seconds. Thus, the <code class="docutils literal notranslate"><span class="pre">solint</span></code> choices of <code class="docutils literal notranslate"><span class="pre">243s,</span> <span class="pre">120s,</span> <span class="pre">60s,</span> <span class="pre">30s,</span> <span class="pre">18s</span></code> for the SB-only self-cal roughly correspond to half a scan, a quarter of a scan, an eighth of a scan, a sixteenth of a scan, and then 3x the record length (6s).</p>
 </div>
 </div>
-<p><strong>gaincal combine</strong>: Dimensions of the data to combine when generating solutions. In the first two rounds, we avoid combining spectral windows (i.e., we generate per-spw solutions) to account for any per-spw phase offsets. Later, we have to combine spectral windows because the SNR of the solutions (in the line spws) is too low.</p>
-<p><strong>gaincal refant</strong>: Chosen by me, using the refant lists generated by the pipeline hif_refant task, shown in the weblog. Happy coincidence (?) that the 3 highest ranked antennas in SB EB1 were the same as in SB EB2. If I was more comprehensive, I would’ve also specified the antenna’s pad, in case any were moved between executions, but the weblog did not specify the pad.</p>
-<p><strong>gaincal minSNR</strong>: Minimum SNR of the solutions. If a solution has SNR below this threshold, then it (and the corresponding data) is flagged, and a statement is printed. For example: “3 of 41 solutions flagged due to SNR &lt; 3 in spw=10 at 2022/07/17/14:31:53.5”, and then later “7 of 36 solutions flagged due to SNR &lt; 3 in spw=15 at 2022/07/19/12:12:23.5”. Unfortunately there’s no way to access/save those printouts, so I just copy and paste them from the terminal into a script and count them up later. These printouts are one of the factors you use to decide whether to use the generated solutions. If applycal applymode=’calflag’, then you lose that flagged data. To get a sense of what relative amount of data did not meet the minSNR, you would have to multiply [the total number of solution intervals found (depends on solint and number of scans)] x [the number of antennas] x [the number of spectral windows (depends on combine)].</p>
-<p><strong>gaincal gaintype</strong>: Could’ve used ‘G’, we only have 1 polarization mode, but DSHARP uses ‘T’.</p>
-<p><strong>gaincal calmode</strong>: Sets ‘phase’ or ‘amplitude + phase’ self-cal. We attempt 1 round of amplitude+phase self-cal.</p>
-<p><strong>gaincal scan</strong>: Selecting all scans.</p>
-<p><strong>gaincal spwmap</strong>: I actually don’t know what this does.</p>
-<p><strong>gaincal num flagged solns</strong>: See “gaincal minSNR”.</p>
-<p><strong>applycal spw</strong>: Selecting all spectral windows.</p>
-<p><strong>applycal applymode</strong>: Leaving is as the default (‘’), which indicates ‘calflag’, meaning we apply the calibration and apply the flags.</p>
-<p><strong>applycal interp</strong>: The kind of interpolation to use between solutions. ‘Linear’ is the default. Linear ‘PD’ adds an additional term into the solve that accounts for the frequency-dependence if you have a large bandwidth. Ryan says in our case it’s overkill (“like using GR equations when in Newtonian regime”), but DSHARP uses it and I figured it doesn’t hurt.</p>
-<p><strong>applycal spwmap</strong>: Leave this as ‘’ if combine does not include spw. If combine does include spw, then you need to tell applycal which spws of the calibration table to apply to which spws of the data.</p>
-<div class="tip admonition">
-<p class="admonition-title">Mistake later realized…</p>
-<p>In the last round of self calibration on the SB concatenated data (which is amplitude+phase), combine=’’ in gaincal, but spwmap=[0,0,0,0,0,5,5,5,5,5] in applycal. In other words, solutions were generated on a per-spw basis, but then the solution for spw 0 was applied to spw 0-4, and the solution for spw 5 was applied to spw 5-9. It was a leftover relic parameter set that way because I initially did try with combine=’spw’ in gaincal (8 flagged solutions), but then changed my mind (92 flagged solutions) in favour of the chance to account for per-spw amplitude offsets, if any. I realized this mistake only after continuum selfcal was all finished. This may have ramifications later on in the continuum self-cal of the combined (SB+LB) data. I won’t make the same applycal mistake when applying the continuum self-cal solutions to the lines, but it is the case that the SB+LB solutions were generated using SB data where the wrong spwmap was applied. There aren’t really systematic offsets in the solutions between spws though, if you look at the plots below. Also, to reduce the number of flagged solutions, the SB+LB amplitude+phase selfcal (see below) was done with combine=’spw’ anyway. These two things, combined with how long it would take me to redo it at this point, suggests to me it’s not worth correcting.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Additional explanation of parameter choices<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spw</span></code>: Setting to <code class="docutils literal notranslate"><span class="pre">''</span></code> selects all spectral windows. In <a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html"><span class="doc std std-doc">Step 4</span></a> we intend to apply the self-calibration solutions we generate with the (pseudo-)continuum <em>onto the line data</em>. So even though we are only self-calibrating continuum data, it would defeat the whole purpose to not include SPWs 1-4.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">solint</span></code>: The time interval on which to generate solutions. <code class="docutils literal notranslate"><span class="pre">'inf'</span></code> goes as wide as the boundaries specified by the <code class="docutils literal notranslate"><span class="pre">combine</span></code> parameter. In the first and second round (p1, p2), one solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find one solution per scan again.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">combine</span></code>: Dimensions of the data to combine when generating solutions. In the first two rounds, we avoid combining spectral windows (i.e., we generate per-SPW solutions) to account for any per-SPW phase offsets. Later, we have to combine spectral windows because the SNR of the solutions (in the line SPWs) is too low.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">refant</span></code>: Which antenna to use as the reference antenna (in the priority listed). I selected <code class="docutils literal notranslate"><span class="pre">DV08,</span> <span class="pre">DA57,</span> <span class="pre">DA52</span></code> using the refant lists generated by the pipeline <code class="docutils literal notranslate"><span class="pre">hif_refant</span></code> task, shown in the weblog. It was a happy coincidence that the 3 highest ranked antennas in SB EB1 were the same as in SB EB2 (or was it not coincidence?). If I was more comprehensive, I would have also specified the antenna’s pad, in case any were moved between executions, but the weblog did not specify the pad.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">minSNR</span></code>: Minimum SNR of the solutions. If a solution has SNR below this threshold, then it (and the corresponding data) is flagged, and a statement is printed. For example:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="n">of</span> <span class="mi">41</span> <span class="n">solutions</span> <span class="n">flagged</span> <span class="n">due</span> <span class="n">to</span> <span class="n">SNR</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">spw</span><span class="o">=</span><span class="mi">10</span> <span class="n">at</span> <span class="mi">2022</span><span class="o">/</span><span class="mi">07</span><span class="o">/</span><span class="mi">17</span><span class="o">/</span><span class="mi">14</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mf">53.5</span>
+<span class="mi">7</span> <span class="n">of</span> <span class="mi">36</span> <span class="n">solutions</span> <span class="n">flagged</span> <span class="n">due</span> <span class="n">to</span> <span class="n">SNR</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">spw</span><span class="o">=</span><span class="mi">15</span> <span class="n">at</span> <span class="mi">2022</span><span class="o">/</span><span class="mi">07</span><span class="o">/</span><span class="mi">19</span><span class="o">/</span><span class="mi">12</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mf">23.5</span>
+</pre></div>
 </div>
-<p><strong>tclean imsize</strong>: Set to go out to the primary beam FWHM (~20 arcsec).</p>
-<p><strong>tclean cellsize</strong>: Set to sample the beam with ~10 cells.</p>
-<p><strong>tclean specmode</strong>: ‘mfs’ makes a continuum image.</p>
-<p><strong>tclean deconvolver</strong>: Ryan suggested hogbom (basis of delta functions) rather than multiscale (basis of Gaussians) for disks with rings.</p>
-<p><strong>tclean weighting</strong>: Briggs, of course.</p>
-<p><strong>tclean spw</strong>: Using all spws to create a continuum image (we want to include the line spws in the model generation).</p>
-<p><strong>tclean robust</strong>: Taken to be 0.5 for the SB self-cal, as DSHARP did, but we increase to 1.0 for the SB+LB self-cal.</p>
-<p><strong>result rms (uJy/beam, mK)</strong>: Measured rms noise in the continuum image. This decreases with each round. At the end of this self-cal, we improve by a factor of 2. (Note however that these images were not cleaned very deeply, nor are they primary beam corrected).</p>
-<p><strong>result peak Inu (mJy/beam)</strong>: Maximum intensity value in the image. This increases with each round, except between p6 and ap, where it decreases (to be expected).</p>
-<p><strong>result disk flux (mJy)</strong>: Total flux from the disk (measured within the clean mask). This increases with each round, except between p6 and ap, where it decreases (to be expected).</p>
-<p><strong>result bmin/bmin (mas)</strong>: The beam size increases with round, as we lose the flagged data (as expected). In total the beam axes both increase by about 30 mas.</p>
-<p><strong>result SNR</strong>: This increases with each round, including between p6 and ap. At the end of this self-cal, we improve by a factor greater than 2.</p>
-</section>
-</section>
+<p class="sd-card-text">Unfortunately there’s no way to access/save those printouts, so I just copy and paste them from the terminal into a script and count them up later. These printouts are one of the factors you use to decide whether to use the generated solutions. If using <code class="docutils literal notranslate"><span class="pre">applymode='calflag'</span></code> in <code class="docutils literal notranslate"><span class="pre">applycal</span></code>, then you lose that flagged data. To get a sense of what <em>relative</em> amount of data did not meet the <code class="docutils literal notranslate"><span class="pre">minSNR</span></code>, you could multiply [the total number of solution intervals found (depends on <code class="docutils literal notranslate"><span class="pre">solint</span></code> and number of scans)] x [the number of antennas] x [the number of spectral windows (depends on <code class="docutils literal notranslate"><span class="pre">combine</span></code>)].</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">gaintype</span></code>: Could have used <code class="docutils literal notranslate"><span class="pre">'G'</span></code>, as we only have 1 polarization mode, but DSHARP uses <code class="docutils literal notranslate"><span class="pre">'T'</span></code>.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">calmode</span></code>: Sets “phase” or “amplitude + phase” self-cal. We attempt 1 round of amplitude+phase self-cal.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">scan</span></code>: Selecting all scans.</p></li>
+<li><p class="sd-card-text"><strong>num flagged solns</strong>: See <code class="docutils literal notranslate"><span class="pre">minSNR</span></code> above.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spw</span></code>: Selecting all spectral windows.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">applymode</span></code>: Leaving as the default (<code class="docutils literal notranslate"><span class="pre">''</span></code>), which is <code class="docutils literal notranslate"><span class="pre">'calflag'</span></code>, meaning we apply the calibration <em>and</em> apply the flags. This is how we lose data (see <code class="docutils literal notranslate"><span class="pre">minSNR</span></code> above).</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">interp</span></code>: The kind of interpolation to use between solutions. <code class="docutils literal notranslate"><span class="pre">'Linear'</span></code> is the default. <code class="docutils literal notranslate"><span class="pre">'LinearPD'</span></code> adds an additional term into the solve that accounts for the frequency-dependence if you have a large bandwidth. Ryan says in our case it’s overkill (“like using GR equations when in Newtonian regime”), but DSHARP uses it and I figured it doesn’t hurt.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spwmap</span></code>: Leave this as <code class="docutils literal notranslate"><span class="pre">''</span></code> if combine does not include <code class="docutils literal notranslate"><span class="pre">'spw'</span></code>. If combine does include <code class="docutils literal notranslate"><span class="pre">'spw'</span></code>, then we need to tell <code class="docutils literal notranslate"><span class="pre">applycal</span></code> which SPWs of the calibration table to apply to which SPWs of the data.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">imsize</span></code>: Set to go out to the primary beam HWHM (~20 arcsec). In hindsight this should be the full FOV.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">cellsize</span></code>: Set to sample the beam with ~10 cells.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">specmode</span></code>: Set to <code class="docutils literal notranslate"><span class="pre">'mfs'</span></code> to make a continuum image.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">deconvolver</span></code>: Hogbom (basis of delta functions) rather than multiscale (basis of Gaussians) for disks with rings.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">weighting</span></code>: Briggs, of course.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spw</span></code>: Using all SPWs to create a continuum image (we want to include the line SPWs in the model generation).</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">robust</span></code>: Taken to be <code class="docutils literal notranslate"><span class="pre">0.5</span></code> for the SB self-cal, as DSHARP did, but we increase to <code class="docutils literal notranslate"><span class="pre">1.0</span></code> for the SB+LB self-cal.</p></li>
+</ul>
+</div>
+</details></section>
 <section id="achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
 <h2>Achieved phase solutions as a function of time and antenna (the calibration tables)<a class="headerlink" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables" title="Permalink to this heading">#</a></h2>
-<p>Both SB EB1 and SB EB2 were self-calibrated together, but the following plots the solutions separately (to be able to resolve the time axis).</p>
+<p>Both SB EB1 and SB EB2 were self-calibrated together, but the following movies show plots of the solutions separately (to be able to resolve the time axis).</p>
 <section id="sb-eb1">
 <h3>SB EB1<a class="headerlink" href="#sb-eb1" title="Permalink to this heading">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -516,7 +525,7 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Self-calibration solutions for SB EB1.</strong> <strong>Top row:</strong> Gain phase, amplitude, and SNR as a function of time. Blue shaded regions denote the target scans (five scans 486 seconds long, plus a sixth 30 seconds long). <strong>Bottom row:</strong> Gain phase, amplitude and SNR as a function of antenna. Each frame of the movie shows a different self-cal round (“p1”, “p2”, “p3” etc. to “ap”). For the first two rounds, the points are coloured by spectral window (as “p1” and “p2” did not combine SPWs); in the following rounds, all SPWs are combined and points are coloured the same colour (happens to be purple). The middle column (amplitude as a function of time or antenna) does not change until the “ap” round.</p>
 </div>
 </div>
 </section>
@@ -531,14 +540,14 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Self-calibration solutions for SB EB2.</strong></p>
 </div>
 </div>
 </section>
 </section>
 <section id="images-made-after-each-round">
 <h2>Images made after each round<a class="headerlink" href="#images-made-after-each-round" title="Permalink to this heading">#</a></h2>
-<p>Image achieved after each round, with a large colour bar stretch to exaggerate faint emission.</p>
+<p>The following movie shows the continuum image achieved after each round of self-cal (with a large colour bar stretch to exaggerate faint emission).</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
@@ -548,20 +557,8 @@ document.write(`
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>Continuum image (SB1+SB2) achieved after each round of self-cal.</strong> Things to notice: (1) the SNR increases; (2) the images visually improve; (3) the beam gets bigger.</p>
 </div>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Thoughts…</p>
-<p>There is noise outside the disk in the NW-SE directions. It becomes slightly more uniform with each round of self-cal. It wasn’t present in any of the deeply-cleaned per-execution block images.</p>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Something to do differently…</p>
-<p>Currently, we take a not-very-deeply-cleaned image as the initial or starting model for the self calibration (“SB concat shifted p0” in above movie). Perhaps a better starting model would be a more deeply cleaned image.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Jess might add here: Images of model and residuals</p>
 </div>
 </section>
 <section id="the-results-before-and-after">
@@ -569,15 +566,13 @@ document.write(`
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
-<a class="mb-1 reference internal image-reference" href="../_images/SB-before-after.gif"><img alt="SB-before-after" class="mb-1" src="../_images/SB-before-after.gif" style="width: 850%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/SB-before-after.gif"><img alt="SB-before-after" class="mb-1" src="../_images/SB-before-after.gif" style="width: 85%;" /></a>
 </center>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">caption</p>
+<p class="sd-card-text"><strong>A gif blinking between our initial image (round “p0”) and our final image (round “ap”).</strong> We achieve a decrease in rms noise by a factor of 2. The peak intensity increases by about 2 mJy/beam. The SNR improves by a factor of 2.2. The outer ring becomes more uniformly bright around its azimuth and more well-defined. The inner cavity becomes more radially extended and appears emptier.</p>
 </div>
 </div>
-<p>We achieve a decrease in rms noise by a factor of 2. The peak intensity increases by about 2 mJy/beam. The SNR improves by a factor of 2.2. The outer ring becomes more uniformly bright around its azimuth and more compact/well-defined. The inner cavity becomes more radially extended and appears emptier.</p>
-<p>Notice how the beam got bigger - that’s because we flagged some data.</p>
 </section>
 </section>
 
@@ -648,10 +643,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-parameter-choices">Explanation of parameter choices</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-eb1">SB EB1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-eb2">SB EB2</a></li>
