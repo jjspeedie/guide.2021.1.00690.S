@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Apply Self-Calibration Solutions" href="step4-apply-self-cal-solutions.html" />
-    <link rel="prev" title="Splitting Out Line Spectral Windows" href="step4-split-spws.html" />
+    <link rel="prev" title="Averaging Down the Continuum" href="step4-average-down-continuum.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -390,7 +389,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -406,6 +407,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-long-baseline-execution-blocks">Align Long-Baseline Execution Blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-short-baseline-execution-blocks">Align Short-Baseline Execution Blocks</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -427,8 +437,133 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="apply-phase-shifts">
 <h1>Apply Phase Shifts<a class="headerlink" href="#apply-phase-shifts" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://casadocs.readthedocs.io/en/latest/examples/community/casa6_demo.html#Getting-Started">casatasks</a> # mainly for listobs</p>
-<p>04:55:45.854900 +30.33.03.73320 J2000</p>
+<p>In <a class="reference internal" href="../step2/step2-summary-of-shifts.html"><span class="doc std std-doc">Step 2</span></a>, we used the continuum to compute the phase shifts necesssary to align our execution blocks. Here we simply take those pre-computed offsets and apply those same shifts to the line MSes. We take a “detour” from the main <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step4_prepare_lines.py" target="_blank">step4_prepare_lines.py</a> script to the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step4_detour.py" target="_blank">step4_detour.py</a> in order to work in modular CASA. We again do the alignments in two steps (long baseline data, then short baseline data), though we could have fed in all MSes in one call.</p>
+<section id="align-long-baseline-execution-blocks">
+<h2>Align Long-Baseline Execution Blocks<a class="headerlink" href="#align-long-baseline-execution-blocks" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">EB</p></th>
+<th class="head"><p class="sd-card-text">R.A. offset (arcsec)</p></th>
+<th class="head"><p class="sd-card-text">Dec. offset (arcsec)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">LB EB 1</p></td>
+<td><p class="sd-card-text">0 (ref)</p></td>
+<td><p class="sd-card-text">0 (ref)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LB EB 2</p></td>
+<td><p class="sd-card-text">-0.0198</p></td>
+<td><p class="sd-card-text">+0.0047</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LB EB 3</p></td>
+<td><p class="sd-card-text">-0.0127</p></td>
+<td><p class="sd-card-text">+0.0013</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LB EB 4</p></td>
+<td><p class="sd-card-text">+0.0237</p></td>
+<td><p class="sd-card-text">-0.0219</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">LB EB 5</p></td>
+<td><p class="sd-card-text">-0.0207</p></td>
+<td><p class="sd-card-text">-0.0105</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">LB EB 6</p></td>
+<td><p class="sd-card-text">-0.0046</p></td>
+<td><p class="sd-card-text">-0.0276</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Long baseline execution blocks:</strong> Phase offsets between the phase center of each EB and the reference (LB EB1) found in <a class="reference internal" href="../step2/step2-align-LBs.html"><span class="doc std std-doc">Step 2</span></a>.</p>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Select the reference execution block.</strong> We are not <em>computing</em> any phase offsets here, but the code requires feeding in a reference.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reference_for_LB_alignment</span>  <span class="o">=</span> <span class="n">ddata</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;LB_EB1&#39;</span><span class="p">][</span><span class="s1">&#39;_initlines.ms&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>It’s not necessary to specify the continuum spectral window ID or set the grid this time.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Set the offsets to be applied (from <a class="reference internal" href="../step2/step2-summary-of-shifts.html"><span class="doc std std-doc">Step 2</span></a>).</strong></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_offsets</span>   <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#insert offsets from the alignment output</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mf">0.019783</span><span class="p">,</span><span class="mf">0.0046808</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mf">0.012707</span><span class="p">,</span><span class="mf">0.001336</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">0.023685</span><span class="p">,</span><span class="o">-</span><span class="mf">0.021869</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mf">0.020729</span><span class="p">,</span><span class="o">-</span><span class="mf">0.01054</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0045512</span><span class="p">,</span><span class="o">-</span><span class="mf">0.0276</span><span class="p">])</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Apply the shifts.</strong></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment</span><span class="o">.</span><span class="n">align_measurement_sets</span><span class="p">(</span><span class="n">reference_ms</span>       <span class="o">=</span> <span class="n">reference_for_LB_alignment</span><span class="p">,</span>
+                                 <span class="n">align_ms</span>           <span class="o">=</span> <span class="n">offset_LB_EBs</span><span class="p">,</span>
+                                 <span class="n">align_offsets</span>      <span class="o">=</span> <span class="n">alignment_offsets</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Check that it worked.</strong> The “RA”, “Decl” and “Epoch” columns in each EB’s listobs should be “04:55:45.854900 +30.33.03.73320 J2000”.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Check that the phase center of each EB is: 04:55:45.854900 +30.33.03.73320 J2000&quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">EB</span> <span class="ow">in</span> <span class="n">ddata</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;LB_EBs&#39;</span><span class="p">]:</span>
+    <span class="n">vis</span>          <span class="o">=</span> <span class="n">ddata</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ddata</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initlines_shift.ms&#39;</span><span class="p">]</span>
+    <span class="n">casatasks</span><span class="o">.</span><span class="n">listobs</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">vis</span><span class="p">,</span> <span class="n">listfile</span><span class="o">=</span><span class="n">vis</span><span class="o">+</span><span class="s1">&#39;.listobs.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="align-short-baseline-execution-blocks">
+<h2>Align Short-Baseline Execution Blocks<a class="headerlink" href="#align-short-baseline-execution-blocks" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">EB</p></th>
+<th class="head"><p class="sd-card-text">R.A. offset (arcsec)</p></th>
+<th class="head"><p class="sd-card-text">Dec. offset (arcsec)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">LB EB 1</p></td>
+<td><p class="sd-card-text">(ref)</p></td>
+<td><p class="sd-card-text">(ref)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SB EB 1</p></td>
+<td><p class="sd-card-text">-0.0131</p></td>
+<td><p class="sd-card-text">+0.0395</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SB EB 2</p></td>
+<td><p class="sd-card-text">+0.1192</p></td>
+<td><p class="sd-card-text">-0.1922</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Short baseline execution blocks:</strong> Phase offsets between the phase center of each EB and the reference (LB EB1) found in <a class="reference internal" href="../step2/step2-align-LBs.html"><span class="doc std std-doc">Step2</span></a>.</p>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Repeat the above steps 1-4 but with the SB phase offsets and SB MSes.</strong></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alignment_offsets</span>   <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#insert offsets from the alignment output</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mf">0.013133</span><span class="p">,</span><span class="mf">0.03949</span><span class="p">])</span>
+<span class="n">alignment_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">0.11922</span><span class="p">,</span><span class="o">-</span><span class="mf">0.19222</span><span class="p">])</span>
+
+<span class="n">alignment</span><span class="o">.</span><span class="n">align_measurement_sets</span><span class="p">(</span><span class="n">reference_ms</span>       <span class="o">=</span> <span class="n">reference_for_SB_alignment</span><span class="p">,</span>
+                                 <span class="n">align_ms</span>           <span class="o">=</span> <span class="n">offset_SB_EBs</span><span class="p">,</span>
+                                 <span class="n">align_offsets</span>      <span class="o">=</span> <span class="n">alignment_offsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,12 +598,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="step4-split-spws.html"
+       href="step4-average-down-continuum.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Splitting Out Line Spectral Windows</p>
+        <p class="prev-next-title">Averaging Down the Continuum</p>
       </div>
     </a>
     <a class="right-next"
@@ -489,6 +624,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-long-baseline-execution-blocks">Align Long-Baseline Execution Blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-short-baseline-execution-blocks">Align Short-Baseline Execution Blocks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

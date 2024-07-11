@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Manual Flagging" href="step4-manual-flags.html" />
+    <link rel="next" title="Averaging Down the Continuum" href="step4-average-down-continuum.html" />
     <link rel="prev" title="Create Final Continuum Measurement Set" href="../step3/step3-continuum-ms-achieved.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -433,14 +432,14 @@ document.write(`
 <a class="mb-1 reference internal image-reference" href="../_images/breakdown-of-task4.png"><img alt="breakdown-of-step4" class="mb-1" src="../_images/breakdown-of-task4.png" style="width: 100%;" /></a>
 </div>
 </div>
-<p><a class="reference internal" href="step4-manual-flags.html"><span class="doc std std-doc">Manual Flagging</span></a>: Like for the continuum, we do no manual flagging.</p>
-<p><a class="reference internal" href="step4-split-spws.html"><span class="doc std std-doc">Splitting Out Line Spectral Windows</span></a>: Having gained what we need from the continuum self-calibration,
-we returned to the non-spectrally averaged pipeline calibrated visibilities to split out the line SPWs and spectrally average down the continuum.</p>
+<p>(Manual Flagging: Like for the continuum, we do no manual flagging.)</p>
+<p><a class="reference internal" href="step4-average-down-continuum.html"><span class="doc std std-doc">Averaging Down the Continuum</span></a>: Having gained what we need from the continuum self-calibration,
+we return to the pipeline calibrated visibilities (<code class="docutils literal notranslate"><span class="pre">uid*.ms.split.cal.source</span></code> measurement sets) and spectrally average down the continuum.</p>
 <!-- %[Details: We spectrally averaged the continuum SPWs into a single channel; purely for the sake of minimizing the size; it will be left behind soon enough]. -->
-<p><a class="reference internal" href="step4-apply-phase-alignments.html"><span class="doc std std-doc">Apply Phase Shifts</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
-<p><a class="reference internal" href="step4-apply-self-cal-solutions.html"><span class="doc std std-doc">Apply Self-Calibration Solutions</span></a>: On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.</p>
-<p><a class="reference internal" href="step4-continuum-subtraction.html"><span class="doc std std-doc">Continuum Subtraction</span></a>: We performed continuum subtraction in the <em>uv</em>-plane using the <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code> task.</p>
-<p><a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">Create Final Line Measurement Sets</span></a>: Finally, we combined the corresponding SPWs across execution blocks and obtained final measurement sets ready for imaging. (Note: We do not regrid the measurement sets onto a common velocity grid using the <code class="docutils literal notranslate"><span class="pre">cvel2</span></code> task; we let <code class="docutils literal notranslate"><span class="pre">tclean</span></code> do this during imaging so as not to bin already-binned data.</p>
+<p><a class="reference internal" href="step4-apply-phase-alignments.html"><span class="doc std std-doc">Apply Phase Shifts</span></a>: On a per-EB basis, we apply the same phase center realignments that we generated with the continuum data.</p>
+<p><a class="reference internal" href="step4-apply-self-cal-solutions.html"><span class="doc std std-doc">Apply Self-Calibration Solutions</span></a>: On a per-EB basis, we apply the same calibration gain tables that we generated with the continuum data.</p>
+<p><a class="reference internal" href="step4-continuum-subtraction.html"><span class="doc std std-doc">Continuum Subtraction</span></a>: We perform continuum subtraction in the <em>uv</em>-plane using the <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code> task.</p>
+<p><a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">Create Final Line Measurement Sets</span></a>: Finally, we combine the corresponding SPWs across execution blocks and obtain final measurement sets ready for imaging.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,11 +483,11 @@ we returned to the non-spectrally averaged pipeline calibrated visibilities to s
       </div>
     </a>
     <a class="right-next"
-       href="step4-manual-flags.html"
+       href="step4-average-down-continuum.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Manual Flagging</p>
+        <p class="prev-next-title">Averaging Down the Continuum</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

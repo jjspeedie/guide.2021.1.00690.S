@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Continuum Subtraction</a></li>
@@ -390,9 +389,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -408,15 +405,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -438,111 +426,182 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="continuum-subtraction">
 <h1>Continuum Subtraction<a class="headerlink" href="#continuum-subtraction" title="Permalink to this heading">#</a></h1>
-<p>Performed in uv-space with CASA task uvcontsub. Here is the before-and-after, for SB EB 1, for spectral windows SO, C18O, 13CO, 12CO (left to right):</p>
+<p>We perform continuum subtraction in <em>uv</em>-space with CASA task <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code>.</p>
+<p>Channels used to fit the continuum are the inverse of those used to flag the spectral lines in <a class="reference internal" href="../step1/step1-pseudo-continuum.html"><span class="doc std std-doc">Pseudo-continuum Measurement Sets</span></a>. We again use the DSHARP function <code class="docutils literal notranslate"><span class="pre">get_flagchannels</span></code> (<a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py" target="_blank">reductions_utils.py</a>) using the same velocity ranges selected in <a class="reference internal" href="../step1/step1-pseudo-continuum.html"><span class="doc std std-doc">Step 1</span></a>, and then “flip” them using the <a href="https://casaguides.nrao.edu/index.php/Analysis_Utilities" target="_blank">analysisUtils</a> function <code class="docutils literal notranslate"><span class="pre">invertChannelRanges</span></code>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Relevant lines in step4_prepare_lines.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">flagchannels_string</span> <span class="o">=</span> <span class="n">get_flagchannels</span><span class="p">(</span><span class="n">ms_file</span>          <span class="o">=</span> <span class="n">inputvis</span><span class="p">,</span>
+                                       <span class="n">ms_dict</span>          <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">],</span>
+                                       <span class="n">velocity_range</span>   <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;velocity_ranges&#39;</span><span class="p">])</span>
+<span class="n">fitspw</span> <span class="o">=</span> <span class="n">au</span><span class="o">.</span><span class="n">invertChannelRanges</span><span class="p">(</span><span class="n">flagchannels_string</span><span class="p">,</span> <span class="n">vis</span><span class="o">=</span><span class="n">inputvis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Relevant lines in dictionary_data.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">velocity_ranges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">3.</span><span class="p">]),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">4.</span><span class="p">,</span> <span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">4.</span><span class="p">]),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">6.</span><span class="p">,</span> <span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">6.</span><span class="p">]),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="n">ddisk</span><span class="o">.</span><span class="n">disk_dict</span><span class="p">[</span><span class="s1">&#39;v_sys&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">10.</span><span class="p">])])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the resulting channels in each spectral window to be used by <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code> to fit the continuum, formatted as the necessary strings:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Flagchannels input string for SB_EB1: &#39;1:517~589,       2:504~600,       3:961~1251,        4:556~1059&#39;</span>
+<span class="go">                              fitspw:  1:0~516;590~959, 2:0~503;601~959, 3:0~960;1252~1919, 4:0~555;1060~1919</span>
+<span class="go">Flagchannels input string for SB_EB2: &#39;1:517~589,       2:504~600,       3:962~1251,        4:554~1058&#39;</span>
+<span class="go">                              fitspw:  1:0~516;590~959, 2:0~503;601~959, 3:0~961;1252~1919, 4:0~553;1059~1919</span>
+<span class="go">Flagchannels input string for LB_EB1: &#39;1:516~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~515;590~959, 2:0~503;601~959, 3:0~959;1250~1919, 4:0~552;1058~1919</span>
+<span class="go">Flagchannels input string for LB_EB2: &#39;1:517~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~516;590~959, 2:0~503;601~959, 3:0~959;1250~1919, 4:0~552;1058~1919</span>
+<span class="go">Flagchannels input string for LB_EB3: &#39;1:517~589,       2:505~601,       3:960~1249,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~516;590~959, 2:0~504;602~959, 3:0~959;1250~1919, 4:0~552;1058~1919</span>
+<span class="go">Flagchannels input string for LB_EB4: &#39;1:516~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~515;590~959, 2:0~503;601~959, 3:0~959;1250~1919, 4:0~552;1058~1919</span>
+<span class="go">Flagchannels input string for LB_EB5: &#39;1:516~588,       2:504~600,       3:960~1250,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~515;589~959, 2:0~503;601~959, 3:0~959;1251~1919, 4:0~552;1058~1919</span>
+<span class="go">Flagchannels input string for LB_EB6: &#39;1:517~589,       2:505~601,       3:960~1249,        4:553~1057&#39;</span>
+<span class="go">                              fitspw:  1:0~516;590~959, 2:0~504;602~959, 3:0~959;1250~1919, 4:0~552;1058~1919</span>
+</pre></div>
+</div>
+<p>The call to <code class="docutils literal notranslate"><span class="pre">uvcontsub</span></code> will re-index our line spectral windows.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+Relevant lines in step4_prepare_lines.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">EB</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;EBs&#39;</span><span class="p">]:</span>            <span class="c1"># this takes 1hr10min per LB EB</span>
+    <span class="n">inputvis</span>            <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initlines_selfcal.ms&#39;</span><span class="p">]</span>
+    <span class="n">outputvis</span>           <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initlines_selfcal.ms.contsub&#39;</span><span class="p">]</span>
+    <span class="n">spw</span>                 <span class="o">=</span> <span class="s1">&#39;1, 2, 3, 4&#39;</span> <span class="c1"># only line spws; they will be renumbered 0,1,2,3</span>
+    <span class="n">combine</span>             <span class="o">=</span> <span class="s1">&#39;&#39;</span>           <span class="c1"># break at scan, field, and spw</span>
+    <span class="n">fitorder</span>            <span class="o">=</span> <span class="mi">1</span>            <span class="c1"># order of polynomial fit; default is 0; DSHARP uses 1 so we copy them</span>
+    <span class="n">solint</span>              <span class="o">=</span> <span class="s1">&#39;int&#39;</span>        <span class="c1"># Timescale for per-baseline fit. default (recommended): ‘int’, i.e. no time averaging, do a fit for each integration and let the noisy fits average out in the image.continuum</span>
+    <span class="n">excludechans</span>        <span class="o">=</span> <span class="kc">False</span>        <span class="c1"># the channels in fitspw will be used to fit the continuum</span>
+    <span class="n">want_cont</span>           <span class="o">=</span> <span class="kc">False</span>        <span class="c1"># we don&#39;t need another ms to hold the continuum estimate</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -rf &#39;</span> <span class="o">+</span> <span class="n">outputvis</span><span class="p">)</span>
+    <span class="n">uvcontsub</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">inputvis</span><span class="p">,</span> <span class="n">spw</span><span class="o">=</span><span class="n">spw</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="n">combine</span><span class="p">,</span> <span class="n">fitorder</span><span class="o">=</span><span class="n">fitorder</span><span class="p">,</span>
+                       <span class="n">solint</span><span class="o">=</span><span class="n">solint</span><span class="p">,</span> <span class="n">excludechans</span><span class="o">=</span><span class="n">excludechans</span><span class="p">,</span> <span class="n">want_cont</span><span class="o">=</span><span class="n">want_cont</span><span class="p">,</span>
+                       <span class="n">fitspw</span><span class="o">=</span><span class="n">fitspw</span><span class="p">)</span>
+    <span class="n">listobs</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">outputvis</span><span class="p">,</span> <span class="n">listfile</span><span class="o">=</span><span class="n">outputvis</span><span class="o">+</span><span class="s1">&#39;.listobs.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the before-and-after, for SB EB 1, for spectral windows SO, C<sup>18</sup>O, <sup>13</sup>CO, and <sup>12</sup>CO (left to right):</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Continuum subtraction: SB EB 1</div>
+Example before/after continuum subtraction (SB EB 1)</div>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw1.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw1.gif" style="width: 24%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw2.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw2.gif" style="width: 24%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw3.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw3.gif" style="width: 24%;" /></a>
 <a class="mb-1 reference internal image-reference" href="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw4.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_SB_EB1_initlines_selfcal_contsub_spw4.gif" style="width: 24%;" /></a>
 </div>
 <div class="sd-card-footer docutils">
-<p class="sd-card-text">Amplitude vs. channel, before and after continuum subtraction. Channels used to fit the continuum are the inverse of those used to flag the spectral lines in Step 1. Showing SB EB1. Notice in the case of the SO spectral window (left), the y-axis values change (0.06 to 0.04).</p>
+<p class="sd-card-text"><strong>Amplitude vs. channel, before and after continuum subtraction.</strong> These plots were made with <code class="docutils literal notranslate"><span class="pre">avgtime='1e8'</span></code>, <code class="docutils literal notranslate"><span class="pre">avgscan=True</span></code> and <code class="docutils literal notranslate"><span class="pre">avgbaseline=True</span></code>.</p>
 </div>
 </div>
-<p>The results for the other EBs are similar, although none that look as clear as SB EB1. Here for example is LB EB5:</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Continuum subtraction: LB EB 5</div>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw1.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw1.gif" style="width: 24%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw2.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw2.gif" style="width: 24%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw3.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw3.gif" style="width: 24%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw4.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/ABAur_LB_EB5_initlines_selfcal_contsub_spw4.gif" style="width: 24%;" /></a>
-</div>
-<div class="sd-card-footer docutils">
-<p class="sd-card-text">I’m a bit concerned about the 13CO spectral window here (2nd from right). Notice the y-axis changes from 0.6 to 0.07. The amplitude of the line significantly decreases. This could just be an averaging trick (these plots were made with avgtime=’1e8’, avgscan=True and avgbaseline=True), but I’m not sure. Before uvcontsub, the line doesn’t look “empty”. What can I do about this?</p>
-</div>
-</div>
-<p>For the record, here are the spectral windows used to fit the continuum (“fitspw”):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">SB_EB1</span><span class="p">:</span> <span class="s1">&#39;1:517~589,       2:504~600,       3:961~1251,        4:556~1059&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">960</span><span class="p">;</span><span class="mi">1252</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">555</span><span class="p">;</span><span class="mi">1060</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">SB_EB2</span><span class="p">:</span> <span class="s1">&#39;1:517~589,       2:504~600,       3:962~1251,        4:554~1058&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">961</span><span class="p">;</span><span class="mi">1252</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">553</span><span class="p">;</span><span class="mi">1059</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB1</span><span class="p">:</span> <span class="s1">&#39;1:516~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">515</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB2</span><span class="p">:</span> <span class="s1">&#39;1:517~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB3</span><span class="p">:</span> <span class="s1">&#39;1:517~589,       2:505~601,       3:960~1249,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">504</span><span class="p">;</span><span class="mi">602</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB4</span><span class="p">:</span> <span class="s1">&#39;1:516~589,       2:504~600,       3:960~1249,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">515</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB5</span><span class="p">:</span> <span class="s1">&#39;1:516~588,       2:504~600,       3:960~1250,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">515</span><span class="p">;</span><span class="mi">589</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">503</span><span class="p">;</span><span class="mi">601</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1251</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-<span class="n">Flagchannels</span> <span class="nb">input</span> <span class="n">string</span> <span class="k">for</span> <span class="n">LB_EB6</span><span class="p">:</span> <span class="s1">&#39;1:517~589,       2:505~601,       3:960~1249,        4:553~1057&#39;</span>
-                              <span class="n">fitspw</span><span class="p">:</span>  <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">516</span><span class="p">;</span><span class="mi">590</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">504</span><span class="p">;</span><span class="mi">602</span><span class="o">~</span><span class="mi">959</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">959</span><span class="p">;</span><span class="mi">1250</span><span class="o">~</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="o">~</span><span class="mi">552</span><span class="p">;</span><span class="mi">1058</span><span class="o">~</span><span class="mi">1919</span>
-</pre></div>
-</div>
-<section id="velocity-re-gridding">
-<h2>Velocity re-gridding<a class="headerlink" href="#velocity-re-gridding" title="Permalink to this heading">#</a></h2>
-<p>What I didn’t realize beforehand is that cvel2 cannot regrid a measurement set that contains multiple spectral windows all at the same time. So I split each spectral window out of each execution block (both the continuum subtracted and non-continuum subtracted versions), and regridded them individually.</p>
-<p>A listobs nicely shows that they’ve been successfully regridded. Here for example is the LB EB1 spectral window for SO, before and after the cvel2 task. Notice “Frame” changes from TOPO to LSRK:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Spectral</span> <span class="n">Windows</span><span class="p">:</span>  <span class="p">(</span><span class="mi">1</span> <span class="n">unique</span> <span class="n">spectral</span> <span class="n">windows</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">unique</span> <span class="n">polarization</span> <span class="n">setups</span><span class="p">)</span>
-  <span class="n">SpwID</span>  <span class="n">Name</span>                                       <span class="c1">#Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs</span>
-  <span class="mi">0</span>      <span class="n">X2090867609</span><span class="c1">#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   TOPO  219985.475       -61.035     58593.8 219956.2084        1  XX  YY</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Spectral</span> <span class="n">Windows</span><span class="p">:</span>  <span class="p">(</span><span class="mi">1</span> <span class="n">unique</span> <span class="n">spectral</span> <span class="n">windows</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">unique</span> <span class="n">polarization</span> <span class="n">setups</span><span class="p">)</span>
-  <span class="n">SpwID</span>  <span class="n">Name</span>                                       <span class="c1">#Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs</span>
-  <span class="mi">0</span>      <span class="n">X2090867609</span><span class="c1">#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.920       -61.033     58592.0 219949.6544        1  XX  YY</span>
-</pre></div>
-</div>
-<p>Looking at the channel frequencies in each execution block and each spectral window, before and after regridding:</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw0.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw0.gif" style="width: 99%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw1.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw1.gif" style="width: 99%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw2.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw2.gif" style="width: 99%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw3.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw3.gif" style="width: 99%;" /></a>
-</div>
-</div>
-</section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<!-- The results for the other EBs are similar, although none that look as clear as SB EB1. Here for example is LB EB5:
+
+````{card} Example before/after continuum subtraction (LB EB 5)
+<img src="../_static/gifs/ABAur_LB_EB5_initlines_selfcal_contsub_spw1.gif" alt="SB_contsub_spw1" class="mb-1" width="24%">
+<img src="../_static/gifs/ABAur_LB_EB5_initlines_selfcal_contsub_spw2.gif" alt="SB_contsub_spw1" class="mb-1" width="24%">
+<img src="../_static/gifs/ABAur_LB_EB5_initlines_selfcal_contsub_spw3.gif" alt="SB_contsub_spw1" class="mb-1" width="24%">
+<img src="../_static/gifs/ABAur_LB_EB5_initlines_selfcal_contsub_spw4.gif" alt="SB_contsub_spw1" class="mb-1" width="24%">
+
++++
+These plots were made with ``avgtime='1e8'``, ``avgscan=True`` and ``avgbaseline=True``.
+```` -->
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Re-investigating the effect of cvel2 velocity regridding<div class="sd-summary-down docutils">
+Velocity re-gridding with cvel2?<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">I was interested to know whether cvel2 had aligned the channel frequencies perfectly (or at least, to within a channel width). For example, here’s the Spectral Window section of the listobs output for ABAur_SO.bin30s.ms.cvel2:</p>
-<p class="sd-card-text">Spectral Windows:  (8 unique spectral windows and 1 unique polarization setups)
-SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs
-0      X392063246#ALMA_RB_06#BB_1#SW-01#FULL_RES     960   LSRK  219978.952       -61.041     58599.8 219949.6829        1  XX  YY
-1      X392063246#ALMA_RB_06#BB_1#SW-01#FULL_RES     960   LSRK  219978.944       -61.039     58597.7 219949.6754        1  XX  YY
-2      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.920       -61.033     58592.0 219949.6544        1  XX  YY
-3      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.925       -61.033     58591.8 219949.6595        1  XX  YY
-4      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.934       -61.033     58591.8 219949.6688        1  XX  YY
-5      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.918       -61.033     58591.7 219949.6531        1  XX  YY
-6      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.909       -61.033     58591.6 219949.6434        1  XX  YY
-7      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.936       -61.033     58591.6 219949.6707        1  XX  YY</p>
-<p class="sd-card-text">Looking at the frequency of the first channel (column Ch0), I see that the difference between Ch0 of SB EB1 (first row) and Ch0 of the other EBs is: -8 kHz, -32 kHz, -27 kHz, -18 kHz, -34 kHz, -43 kHz, and -16 kHz. So I guess you could say they are all aligned to within a channel width (61 kHz).
-Doing the same exercise for the ABAur_13CO.bin30s.ms.cvel2:</p>
-<p class="sd-card-text">SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs
-0      X392063246#ALMA_RB_06#BB_2#SW-01#FULL_RES    1920   LSRK  220428.185       -30.521     58599.8 220398.9008        2  XX  YY
-1      X392063246#ALMA_RB_06#BB_2#SW-01#FULL_RES    1920   LSRK  220428.186       -30.520     58597.7 220398.9022        2  XX  YY
-2      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.133       -30.517     58592.0 220398.8520        2  XX  YY
-3      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.136       -30.517     58591.8 220398.8557        2  XX  YY
-4      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.145       -30.517     58591.8 220398.8647        2  XX  YY
-5      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.129       -30.517     58591.7 220398.8485        2  XX  YY
-6      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.149       -30.516     58591.6 220398.8684        2  XX  YY
-7      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.146       -30.516     58591.6 220398.8654        2  XX  YY</p>
-<p class="sd-card-text">The difference in Ch0 between EBs is: 1 kHz, -52 kHz, -49 kHz, -40 kHz, -56 kHz, -36 kHz, and -39 kHz. All but one of these differences are larger than the channel width (30 kHz). Is this concerning?</p>
+<p class="sd-card-text">We do not regrid the measurement sets onto a common velocity grid using the <code class="docutils literal notranslate"><span class="pre">cvel2</span></code> task; we let <code class="docutils literal notranslate"><span class="pre">tclean</span></code> do this during imaging so as not to bin already-binned data.</p>
+<p class="sd-card-text">However, we did regrid the measurement sets in an early version. Here is some information on what happens if you do that.</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">A listobs can nicely show that a measurement set has been successfully regridded. Below for example is the relevant section of a listobs for LB EB1 spectral window for SO, before and after regridding with the the <code class="docutils literal notranslate"><span class="pre">cvel2</span></code> task:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Spectral Windows:  (1 unique spectral windows and 1 unique polarization setups)</span>
+<span class="go">  SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs</span>
+<span class="go">  0      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   TOPO  219985.475       -61.035     58593.8 219956.2084        1  XX  YY</span>
+</pre></div>
 </div>
-</details></section>
+<p class="sd-card-text">Notice “Frame” changes from TOPO to LSRK:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Spectral Windows:  (1 unique spectral windows and 1 unique polarization setups)</span>
+<span class="go">  SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs</span>
+<span class="go">  0      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.920       -61.033     58592.0 219949.6544        1  XX  YY</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">We can also check by looking at the channel frequencies in each execution block and each spectral window. Below is a gif showing how they become aligned after regridding.</p></li>
+</ol>
+<p class="sd-card-text">SO:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw0.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw0.gif" style="width: 99%;" /></a>
+</div>
+</div>
+<p class="sd-card-text">C<sup>18</sup>O:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw1.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw1.gif" style="width: 99%;" /></a>
+</div>
+</div>
+<p class="sd-card-text"><sup>13</sup>CO:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw2.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw2.gif" style="width: 99%;" /></a>
+</div>
+</div>
+<p class="sd-card-text"><sup>12</sup>CO:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/cvel2-before-after-spw3.gif"><img alt="SB_contsub_spw1" class="mb-1" src="../_images/cvel2-before-after-spw3.gif" style="width: 99%;" /></a>
+</div>
+</div>
+</div>
+</details><!-- Velocity re-gridded MSes (e.g. ABAur_12CO.bin30s.ms.cvel2) are available. -->
+<!--
+```{dropdown} Re-investigating the effect of cvel2 velocity regridding
+I was interested to know whether cvel2 had aligned the channel frequencies perfectly (or at least, to within a channel width). For example, here's the Spectral Window section of the listobs output for ABAur_SO.bin30s.ms.cvel2:
+
+
+Spectral Windows:  (8 unique spectral windows and 1 unique polarization setups)
+  SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs
+  0      X392063246#ALMA_RB_06#BB_1#SW-01#FULL_RES     960   LSRK  219978.952       -61.041     58599.8 219949.6829        1  XX  YY
+  1      X392063246#ALMA_RB_06#BB_1#SW-01#FULL_RES     960   LSRK  219978.944       -61.039     58597.7 219949.6754        1  XX  YY
+  2      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.920       -61.033     58592.0 219949.6544        1  XX  YY
+  3      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.925       -61.033     58591.8 219949.6595        1  XX  YY
+  4      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.934       -61.033     58591.8 219949.6688        1  XX  YY
+  5      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.918       -61.033     58591.7 219949.6531        1  XX  YY
+  6      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.909       -61.033     58591.6 219949.6434        1  XX  YY
+  7      X2090867609#ALMA_RB_06#BB_1#SW-01#FULL_RES    960   LSRK  219978.936       -61.033     58591.6 219949.6707        1  XX  YY
+
+
+Looking at the frequency of the first channel (column Ch0), I see that the difference between Ch0 of SB EB1 (first row) and Ch0 of the other EBs is: -8 kHz, -32 kHz, -27 kHz, -18 kHz, -34 kHz, -43 kHz, and -16 kHz. So I guess you could say they are all aligned to within a channel width (61 kHz).
+Doing the same exercise for the ABAur_13CO.bin30s.ms.cvel2:
+
+SpwID  Name                                       #Chans   Frame   Ch0(MHz)  ChanWid(kHz)  TotBW(kHz) CtrFreq(MHz) BBC Num  Corrs
+  0      X392063246#ALMA_RB_06#BB_2#SW-01#FULL_RES    1920   LSRK  220428.185       -30.521     58599.8 220398.9008        2  XX  YY
+  1      X392063246#ALMA_RB_06#BB_2#SW-01#FULL_RES    1920   LSRK  220428.186       -30.520     58597.7 220398.9022        2  XX  YY
+  2      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.133       -30.517     58592.0 220398.8520        2  XX  YY
+  3      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.136       -30.517     58591.8 220398.8557        2  XX  YY
+  4      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.145       -30.517     58591.8 220398.8647        2  XX  YY
+  5      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.129       -30.517     58591.7 220398.8485        2  XX  YY
+  6      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.149       -30.516     58591.6 220398.8684        2  XX  YY
+  7      X2090867609#ALMA_RB_06#BB_2#SW-01#FULL_RES   1920   LSRK  220428.146       -30.516     58591.6 220398.8654        2  XX  YY
+
+The difference in Ch0 between EBs is: 1 kHz, -52 kHz, -49 kHz, -40 kHz, -56 kHz, -36 kHz, and -39 kHz. All but one of these differences are larger than the channel width (30 kHz). Is this concerning?
+``` -->
 </section>
 
     <script type="text/x-thebe-config">
@@ -603,21 +662,6 @@ Doing the same exercise for the ABAur_13CO.bin30s.ms.cvel2:</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-re-gridding">Velocity re-gridding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

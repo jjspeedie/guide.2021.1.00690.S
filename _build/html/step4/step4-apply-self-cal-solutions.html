@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -427,32 +426,114 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="apply-self-calibration-solutions">
 <h1>Apply Self-Calibration Solutions<a class="headerlink" href="#apply-self-calibration-solutions" title="Permalink to this heading">#</a></h1>
-<p>It would be most intuitive to concatenate the SB line data, and then concatenate that SB data with the LB data, and apply the self calibration tables to those two giant measurement sets. However, at this point, we have just 1.2 TB left of disk space on cvpost, and each line ms is ~50 GB. Not only would concatenating use up a lot of diskspace, it would also take a lot of time to apply the phase solutions to the giant concatenation. As such, Ryan recommended we keep the data in their separate execution blocks, and then at the very end, split out each spectral window and combine the corresponding spectral windows across executions.</p>
-<p>The difficulty we thus face is: We generated our self calibration tables using (SB EB1 + SB EB2), and (SB EB1 + SB EB2 + LB EB1 + LB EB2 +LB EB3 + LB EB4 +LB EB5 + LB EB6). This means that each calibration table is big, and contains solutions for all those EBs. But we now want to apply each calibration table to only a subset of the data it was generated with. In other words, although the SB calibration tables have solutions for SB EB1 and SB EB2, we want to only apply the solutions for SB EB1 to the SB EB1 line ms, and then separately apply the solutions for SB EB2 to the SB EB2 line ms. How do we do that?</p>
-<figure class="align-center" id="id1">
-<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty.jpg"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty.jpg" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic representing the issue: We need a way to reference only a certain execution block’s portion of each calibration table.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>I think the answer lies with the applycal spwmap parameter. We can point to a subset of the spws contained in the calibration table, and apply only those to the ms. The trick is knowing how the mapping will work. It will require accounting for what the combine parameter was set to in gaincal. For example, compare these two SB caltables:</p>
-<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_SB_p1.png"><img alt="step4_difficulty_SB_p1" class="mb-1" src="../_images/step4_difficulty_SB_p1.png" style="width: 48%;" /></a>
-<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_SB_p4.png"><img alt="step4_difficulty_SB_p4" class="mb-1" src="../_images/step4_difficulty_SB_p4.png" style="width: 48%;" /></a>
-<p>The same idea applies for the SB+LB calibration tables.
-So with that in mind, and with the help of the gaintable parameter, this is the workflow:</p>
-<figure class="align-center" id="id2">
-<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_SB.png"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty_workflow_SB.png" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB line measurement sets.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id3">
-<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_BB.png"><img alt="applying-calibration-tables" class="mb-1" src="../_images/step4_difficulty_workflow_BB.png" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB and LB line measurement sets.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>(These two applycal bunches have to be done separately so that applymode can be different in each case)</p>
+<p>At this point, we have eight phase-aligned EBs (6 LBs and 2 SBs) with suffix <code class="docutils literal notranslate"><span class="pre">_initlines_shift.ms</span></code>, containing our line data. Each EB has the four line spectral windows (SPW 1-4). The averaged-down continuum spectral window (SPW 0) is also still tagging along for the ride.</p>
+<p>We now wish to <em>apply</em> the calibration solutions that we generated from the continuum self-calibration in <a class="reference internal" href="../step3/step3-summary.html"><span class="doc std std-doc">Step 3</span></a>. The calibration solutions are in calibration tables. Each one contains information that the others do not, so we need to apply them all, and in the same succession as they were generated.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Calibration tables generated using <a class="reference internal" href="../step3/step3-selfcal-SBs.html"><span class="doc std std-doc">short-baseline data only</span></a></p></th>
+<th class="head"><p class="sd-card-text">Calibration tables generated using <a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html"><span class="doc std std-doc">concatenated short-baseline + long-baseline data</span></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">SB_contp1.cal</p></td>
+<td><p class="sd-card-text">BB_contp1.cal</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SB_contp2.cal</p></td>
+<td><p class="sd-card-text">BB_contp2.cal</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SB_contp3.cal</p></td>
+<td><p class="sd-card-text">BB_contp3.cal</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SB_contp4.cal</p></td>
+<td><p class="sd-card-text">BB_contp4.cal</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SB_contp5.cal</p></td>
+<td><p class="sd-card-text">BB_contap.cal</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SB_contp6.cal</p></td>
+<td><p class="sd-card-text"></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SB_contap.cal</p></td>
+<td><p class="sd-card-text"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Left column:</strong> The calibration tables we generated from the <a class="reference internal" href="../step3/step3-selfcal-SBs.html"><span class="doc std std-doc">short-baseline data only</span></a>. <strong>Right column:</strong> The calibration tables we generated from the <a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html"><span class="doc std std-doc">concatenated short-baseline + long-baseline data</span></a> (“BB” stands for “both baselines”).</p>
+</div>
+</div>
+<p>It would be most intuitive to concatenate the SB line data (i.e., concatenate the two short baseline <code class="docutils literal notranslate"><span class="pre">_initlines_shift.ms</span></code> measurement sets), and then apply each of the calibration tables in the left column above (<code class="docutils literal notranslate"><span class="pre">SB_contp1.cal</span></code>, then <code class="docutils literal notranslate"><span class="pre">SB_contp2.cal</span></code>, and so on) – <em>and then</em> concatenate that resulting SB data with the LB data (i.e., the six long baseline <code class="docutils literal notranslate"><span class="pre">_initlines_shift.ms</span></code> measurement sets), and apply the self calibration tables in the right column above (<code class="docutils literal notranslate"><span class="pre">BB_contp1.cal</span></code>, then <code class="docutils literal notranslate"><span class="pre">BB_contp2.cal</span></code>, and so on) to that single giant measurement set. However, concatenating would use <em>a lot</em> of disk space (each MS is ~50 GB), and it would take <code class="docutils literal notranslate"><span class="pre">applycal</span></code> a lot of time to apply the solutions. As such, we keep the data in their separate execution blocks, and then at <a class="reference internal" href="step4-line-mses-achieved.html"><span class="doc std std-doc">the very end</span></a>, split out each spectral window and combine the corresponding spectral windows across executions.</p>
+<p>Doing it this way, we face one complication: We generated our self calibration tables using concatenated data. This means that each calibration table is big, and contains solutions for multiple EBs. We need to apply each calibration table to only a subset of the data it was generated with. Below is a visual representation of the situation.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty.jpg"><img alt="step4_difficulty" class="mb-1" src="../_images/step4_difficulty.jpg" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">We want a way to reference only a certain portion of each calibration table in order to apply that portion to each corresponding EB separately.</p>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> parameter lets us take only a subset of the <em>spectral windows</em> contained within a calibration table, and apply those to the input MS. The trick is knowing how the mapping will work, because it requires accounting for the rounds where <code class="docutils literal notranslate"><span class="pre">combine='spw'</span></code> parameter was or wasn’t set during <code class="docutils literal notranslate"><span class="pre">gaincal</span></code>. For example, compare these two SB calibration tables:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_SB_p1.png"><img alt="step4_difficulty_SB_p1" class="mb-1" src="../_images/step4_difficulty_SB_p1.png" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_SB_p4.png"><img alt="step4_difficulty_SB_p4" class="mb-1" src="../_images/step4_difficulty_SB_p4.png" style="width: 49%;" /></a>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Left:</strong> Spectral windows were <u>not</u> combined (<code class="docutils literal notranslate"><span class="pre">combine=''</span></code>). <strong>Right:</strong> Spectral windows <u>were</u> combined (<code class="docutils literal notranslate"><span class="pre">combine='spw'</span></code>). In both cases, notice the spectral window indexing in the calibration tables (grey boxes), and where it comes from.</p>
+</div>
+</div>
+<p>The same idea applies for the BB (SB+LB) calibration tables. Here is the same information but presented a different way:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SB_contp1.cal was gained on SB1 and SB2 with combine=&#39;&#39;, so it contains spws [0,1,2,3,4,5,6,7,8,9]</span>
+<span class="go">If we want to apply it to SB 1 (lines) only, we need spwmap=[0,1,2,3,4]</span>
+<span class="go">                   and to SB 2 (lines) only, we need spwmap=[5,6,7,8,9]</span>
+
+<span class="go">SB_contp3.cal was gained on SB1 and SB2 with combine=spw, so it contains spws [0,0,0,0,0,5,5,5,5,5]</span>
+<span class="go">If we want to apply it to SB 1 (lines) only, we need spwmap=[0,0,0,0,0]</span>
+<span class="go">                   and to SB 2 (lines) only, we need spwmap=[5,5,5,5,5]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task has another very useful parameter, <code class="docutils literal notranslate"><span class="pre">gaintable</span></code>, which we use to apply multiple calibration solutions in one call, but still in succession.</p>
+<p>So with all that in mind, these are the required lists and combinations:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_SB.png"><img alt="step4_difficulty_workflow_SB" class="mb-1" src="../_images/step4_difficulty_workflow_SB.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Combination of <code class="docutils literal notranslate"><span class="pre">gaintable</span></code> and <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> parameters to be used in the <code class="docutils literal notranslate"><span class="pre">applycal</span> <span class="pre">task</span></code> for self calibration of each of the SB line measurement sets.</p>
+</div>
+</div>
+<!-- ```{figure} images/step4_difficulty_workflow_SB.png
+:alt: applying-calibration-tables
+:class: mb-1
+:width: 100%
+:align: center
+Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB line measurement sets.
+``` -->
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/step4_difficulty_workflow_BB.png"><img alt="step4_difficulty_workflow_BB" class="mb-1" src="../_images/step4_difficulty_workflow_BB.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Combination of <code class="docutils literal notranslate"><span class="pre">gaintable</span></code> and <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> parameters to be used in the <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task for self calibration of each of the SB+LB line measurement sets.</p>
+</div>
+</div>
+<!-- ```{figure} images/step4_difficulty_workflow_BB.png
+:alt: applying-calibration-tables
+:class: mb-1
+:width: 100%
+:align: center
+Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB and LB line measurement sets.
+``` -->
+<p>We do two “runs” of <code class="docutils literal notranslate"><span class="pre">applycal</span></code>; the first to apply the SB calibration tables, and the second to apply the SB+LB calibration tables. These are done separately (we do not feed in an uber <code class="docutils literal notranslate"><span class="pre">gaintable</span></code> and <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> list) so that the <code class="docutils literal notranslate"><span class="pre">applymode</span></code> parameter can be set differently in the two cases. In the former, <code class="docutils literal notranslate"><span class="pre">applymode='calflag'</span></code> (calibrate and flag), and in the latter, <code class="docutils literal notranslate"><span class="pre">applymode</span> <span class="pre">=</span> <span class="pre">'calonly'</span></code> (calibrate only).</p>
 </section>
 
     <script type="text/x-thebe-config">

@@ -83,7 +83,7 @@ To avoid this bug, it was necessary to switch to CASA 6.4.1 at this point in the
 
 ## Achieved phase solutions as a function of time and antenna (the calibration tables)
 
-All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together. The following plot shows the gain phase solutions for a single EB and a single self-cal round.
+All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together. The following plot shows the gain phase solutions as a function of time for a single EB and a single self-cal round.
 
 ````{card}
 <center>
@@ -95,9 +95,9 @@ All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were se
 **Self-calibration solutions for LB EB1 (round "p4").**  Gain phase as a function of time. Blue shaded regions denote the target scans. The legend says "EB3" because in the combined SB+LB measurement set, the SB EBs take the index of 1 and 2 (so LB EB1 becomes SB+LB EB3). Since all SPWs are combined, points are coloured the same colour (happens to be purple).
 ````
 
-```{note}
+<!-- ```{note}
 Message from Jess: More plots of the self-calibration solutions for the LB+SB self-cal (like shown in the movies on the previous page for the SB-only self-cal) are available upon request (jspeedie@uvic.ca). It's just quite time consuming to compile the many panels into videos (eight videos, if one for each EB).
-```
+``` -->
 
 ## Images made after each round
 

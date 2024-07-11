@@ -17,16 +17,16 @@ In this step, we finally work with the line data to prepare them for imaging. We
 
 ````
 
-[Manual Flagging](step4-manual-flags.md): Like for the continuum, we do no manual flagging.
+(Manual Flagging: Like for the continuum, we do no manual flagging.)
 
-[Splitting Out Line Spectral Windows](step4-split-spws.md): Having gained what we need from the continuum self-calibration,
-we returned to the non-spectrally averaged pipeline calibrated visibilities to split out the line SPWs and spectrally average down the continuum.
+[Averaging Down the Continuum](step4-average-down-continuum.md): Having gained what we need from the continuum self-calibration,
+we return to the pipeline calibrated visibilities (``uid*.ms.split.cal.source`` measurement sets) and spectrally average down the continuum.
 <!-- %[Details: We spectrally averaged the continuum SPWs into a single channel; purely for the sake of minimizing the size; it will be left behind soon enough]. -->
 
-[Apply Phase Shifts](step4-apply-phase-alignments.md): On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.
+[Apply Phase Shifts](step4-apply-phase-alignments.md): On a per-EB basis, we apply the same phase center realignments that we generated with the continuum data.
 
-[Apply Self-Calibration Solutions](step4-apply-self-cal-solutions.md): On a per-EB basis, we applied the same phase center realignments and calibration gain tables that we generated with the continuum data.
+[Apply Self-Calibration Solutions](step4-apply-self-cal-solutions.md): On a per-EB basis, we apply the same calibration gain tables that we generated with the continuum data.
 
-[Continuum Subtraction](step4-continuum-subtraction.md): We performed continuum subtraction in the *uv*-plane using the ``uvcontsub`` task.
+[Continuum Subtraction](step4-continuum-subtraction.md): We perform continuum subtraction in the *uv*-plane using the ``uvcontsub`` task.
 
-[Create Final Line Measurement Sets](step4-line-mses-achieved.md): Finally, we combined the corresponding SPWs across execution blocks and obtained final measurement sets ready for imaging. (Note: We do not regrid the measurement sets onto a common velocity grid using the ``cvel2`` task; we let ``tclean`` do this during imaging so as not to bin already-binned data.
+[Create Final Line Measurement Sets](step4-line-mses-achieved.md): Finally, we combine the corresponding SPWs across execution blocks and obtain final measurement sets ready for imaging.

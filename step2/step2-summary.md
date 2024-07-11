@@ -1,6 +1,6 @@
 # Step 2 Overview & Scripts
 
-In this step, we align the phase centers of all execution blocks to a common phase center, assuming the source is not variable in time.
+In this step, we align the phase centers of all execution blocks to a common phase center, using the source's continuum morphology and assuming it is not variable in time.
 
 
 `````{admonition} Scripts for **Step 2 - Phase alignment**:

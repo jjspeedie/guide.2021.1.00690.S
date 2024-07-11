@@ -51,7 +51,7 @@ In the ``gaincal`` task:
   3 of 41 solutions flagged due to SNR < 3 in spw=10 at 2022/07/17/14:31:53.5
   7 of 36 solutions flagged due to SNR < 3 in spw=15 at 2022/07/19/12:12:23.5
   ````
-  Unfortunately there's no way to access/save those printouts, so I just copy and paste them from the terminal into a script and count them up later. These printouts are one of the factors you use to decide whether to use the generated solutions. If using ``applymode='calflag'`` in ``applycal``, then you lose that flagged data. To get a sense of what *relative* amount of data did not meet the ``minSNR``, you could multiply [the total number of solution intervals found (depends on ``solint`` and number of scans)] x [the number of antennas] x [the number of spectral windows (depends on ``combine``)].
+  Unfortunately there's no way (that I know of) to access/save those printouts, so I just copy and paste them from the terminal into a script and count them up later. These printouts are one of the factors you use to decide whether to use the generated solutions. If using ``applymode='calflag'`` in ``applycal``, then you lose that flagged data. To get a sense of what *relative* amount of data did not meet the ``minSNR``, you could multiply [the total number of solution intervals found (depends on ``solint`` and number of scans)] x [the number of antennas] x [the number of spectral windows (depends on ``combine``)].
 
   * ``gaintype``: Could have used ``'G'``, as we only have 1 polarization mode, but DSHARP uses ``'T'``.
 
@@ -93,6 +93,19 @@ In the ``tclean`` task:
 ## Achieved phase solutions as a function of time and antenna (the calibration tables)
 
 Both SB EB1 and SB EB2 were self-calibrated together, but the following movies show plots of the solutions separately (to be able to resolve the time axis).
+
+``````{dropdown} How to retrieve the solutions from a CASA calibration table for plotting/manipulation in python?
+
+The ``plotms`` task can save the contents of a plot as a text file! Just set the ``plotfile`` argument (str) to a file name that ends in ``.txt`` instead of ``.png`` or equivalent. The <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> has functions that were used to extract relevant quantities from the calibration tables and make the figures below:
+
+* ``retrieve_from_caltable()``
+
+* ``get_scan_start_and_end_times()``
+
+* ``plot_gaincal_solutions()``
+
+* ``plot_gaincal_solutions_per_antenna()``
+``````
 
 ### SB EB1
 

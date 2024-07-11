@@ -1,4 +1,4 @@
-`````{admonition} Scripts for **Imaging - Continuum**:
+<!-- `````{admonition} Scripts for **Imaging - Continuum**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict
@@ -7,10 +7,13 @@
 
 ````{card} And data (obtained after [step 3](../step3/step3-continuum-ms-achieved.md)):
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a> **could also link to log file
-`````
+````` -->
 
 # Preliminary Images
 
+[Coming soon.]
+
+<!--
 WRONG: 2X RMS NOISE. The following images were cleaned non-interactively using a circular mask of radius 2 arcsec centered on 04:55:45.854900 +30.33.03.73320 (J2000), the hogbom deconvolver with a Briggs robust weighting and no uv-taper, a cell size of 0.04 arcsec and 2000 cells, and cleaned down to a threhold of 1x the rms noise measured in the dirty image within an annulus (inner radius 4 arcsec; outer radius 10 arcsec).
 Things to improve: The cell size should be dependent on the `robust` parameter (cell size should sample the beam ~5-10 times and the beam depends on the `robust` parameter); the beam minor axis is borderline-sampled in the robust=0 image. We could also try uv-tapering. It is strange to clean down to 1x the rms noise measured in the dirty image, but I felt the residuals after cleaning to 4x or 3x were still quite large (i.e. I felt the residuals were still well above the noise and more signal could be extracted).
 
@@ -131,4 +134,4 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 
 
 
-#
+# -->

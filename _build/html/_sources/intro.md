@@ -19,7 +19,7 @@ This is a guide to the reduction and imaging of <a href="https://almascience.nra
 :::
 ::::
 
-Things to know and keep in mind about this guide:
+Things to keep in mind:
 
 - **The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.** The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.
 
@@ -41,7 +41,8 @@ As an additional reference, the refereed journal articles where the data are or 
 
 <p></p>
 
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (2024)</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations.
+<!-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. 2024</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations. -->
+<sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1).
 
 :::
 
@@ -53,12 +54,13 @@ As an additional reference, the refereed journal articles where the data are or 
 
 <p></p>
 
-The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (in prep)</a>.
+<!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
+<sup>12</sup>CO and SO line observations (paper 2).
 
 :::
 ::::
 
-## How the guide is structured
+## The workflow
 
 The guide can be split in half into "reduction" and "imaging" categories. The former is broken into four "steps", three involving purely the continuum data and the fourth involving purely the lines. The "0th" step describes some ways to get prepared to start working with the data. But first, take a look at the [Learning Resources](overview/overview-resources.md) and the big-picture [Breakdown of Our Task](overview/overview-breakdown.md).
 
@@ -66,5 +68,7 @@ The guide can be split in half into "reduction" and "imaging" categories. The fo
 ```
 
 ---
+
+Sincere thanks go to Ryan Loomis, Sarah Wood and Tristan Ashton at the North American ALMA Science Center (NAASC) for providing science support and technical guidance on this ALMA data as part of a Data Reduction Visit to the NAASC, which was funded by the NAASC. The reduction and imaging of the ALMA data was performed on NAASC computing facilities.
 
 Comments and corrections are much appreciated (especially if you are a student!). Get in touch: jspeedie@uvic.ca.

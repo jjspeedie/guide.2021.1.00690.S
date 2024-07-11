@@ -32,3 +32,5 @@ Execution block ``uid___A002_Xfbb255_X2286.ms`` in TM1: Vampire teeth in the XX 
 Execution block ``uid___A002_Xf8f6a9_X15c79.ms`` in TM2: Nearly sinusoidal Tsys in the XX correlation of SPW 21 in the Tsys calibration. **Left:** All antennas overlaid. **Right:** Antenna DV03 isolated. Some wiggles are expected (that's clouds), but perfectly sinusoidal is a bit strange.
 
 ````
+
+Some examples of manual flagging can be found in the <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DSHARP scripts</a> (e.g. <a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/IMLup_continuum.py" target="_blank">IMLup_continuum.py</a>).

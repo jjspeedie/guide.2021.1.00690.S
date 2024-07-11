@@ -194,8 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4/step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -205,15 +204,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
@@ -412,7 +408,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-guide-is-structured">How the guide is structured</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The workflow</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 </ul>
@@ -454,7 +450,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Things to know and keep in mind about this guide:</p>
+<p>Things to keep in mind:</p>
 <ul class="simple">
 <li><p><strong>The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.</strong> The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.</p></li>
 <li><p><strong>The chosen approaches are specific to our program and science goals.</strong> What works for your program might be different!</p></li>
@@ -470,7 +466,8 @@ document.write(`
   <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper1.png">
 </a>
 <p></p>
-<p class="sd-card-text"><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (2024)</a> presents the program’s <sup>13</sup>CO and C<sup>13</sup>O line observations.</p>
+<!-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. 2024</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations. -->
+<p class="sd-card-text"><sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1).</p>
 </div>
 </div>
 </div>
@@ -481,14 +478,15 @@ document.write(`
   <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper2.png">
 </a>
 <p></p>
-<p class="sd-card-text">The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. (in prep)</a>.</p>
+<!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
+<p class="sd-card-text"><sup>12</sup>CO and SO line observations (paper 2).</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section id="how-the-guide-is-structured">
-<h2>How the guide is structured<a class="headerlink" href="#how-the-guide-is-structured" title="Permalink to this heading">#</a></h2>
+<section id="the-workflow">
+<h2>The workflow<a class="headerlink" href="#the-workflow" title="Permalink to this heading">#</a></h2>
 <p>The guide can be split in half into “reduction” and “imaging” categories. The former is broken into four “steps”, three involving purely the continuum data and the fourth involving purely the lines. The “0th” step describes some ways to get prepared to start working with the data. But first, take a look at the <a class="reference internal" href="overview/overview-resources.html"><span class="doc std std-doc">Learning Resources</span></a> and the big-picture <a class="reference internal" href="overview/overview-breakdown.html"><span class="doc std std-doc">Breakdown of Our Task</span></a>.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
@@ -539,8 +537,7 @@ document.write(`
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4/step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -552,7 +549,6 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html#id1"></a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -561,8 +557,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html#solutions-after-naasc-virtual-chat-with-ryan-loomis">Solutions (after NAASC Virtual Chat with Ryan Loomis)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html#id4"></a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
 </div>
@@ -573,6 +567,7 @@ document.write(`
 </ul>
 </div>
 <hr class="docutils" />
+<p>Sincere thanks go to Ryan Loomis, Sarah Wood and Tristan Ashton at the North American ALMA Science Center (NAASC) for providing science support and technical guidance on this ALMA data as part of a Data Reduction Visit to the NAASC, which was funded by the NAASC. The reduction and imaging of the ALMA data was performed on NAASC computing facilities.</p>
 <p>Comments and corrections are much appreciated (especially if you are a student!). Get in touch: <a class="reference external" href="mailto:jspeedie&#37;&#52;&#48;uvic&#46;ca">jspeedie<span>&#64;</span>uvic<span>&#46;</span>ca</a>.</p>
 </section>
 </section>
@@ -635,7 +630,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-guide-is-structured">How the guide is structured</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The workflow</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 </ul>

@@ -1,4 +1,4 @@
-`````{admonition} Scripts for **Imaging - Continuum**:
+<!-- `````{admonition} Scripts for **Imaging - Continuum**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict
@@ -7,12 +7,13 @@
 
 ````{card} And data (obtained after [step 3](../step3/step3-continuum-ms-achieved.md)):
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a>
-`````
+````` -->
 
 # Procedure
 
+[Coming soon.]
 
-````{card}
+<!-- ````{card}
 
 ```{image} images/continuum_imaging_procedure.jpg
 :alt: continuum_imaging_procedure
@@ -22,4 +23,4 @@
 ```
 +++
 caption
-````
+```` -->

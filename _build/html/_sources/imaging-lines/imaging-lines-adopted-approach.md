@@ -1,4 +1,4 @@
-`````{admonition} Scripts for **Imaging - Lines**:
+<!-- `````{admonition} Scripts for **Imaging - Lines**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a> # main script ([adopted approach](imaging-lines-adopted-approach.md))
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_lines.py" target="_blank">image_lines.py</a> # earlier main script ([initial approaches](imaging-lines-initial-approaches.md))
@@ -14,10 +14,13 @@
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
 - <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
-`````
+````` -->
 
 # Adopted Approach
 
+[Coming soon.]
+
+<!--
 Relevant script: [adopted approach](imaging-lines-adopted-approach.md).
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a>
 
@@ -50,4 +53,4 @@ We imaged \rev{with a FOV} out to the primary beam FWHM ($38''$) with $0.02''$ p
 We imaged in LSRK velocity channels at $42$ m/s for $^{13}$CO and $84$ m/s for C$^{18}$O respectively (nearly native channel spacing).
 The \texttt{CLEAN} threshold was set to $5\times$ the rms noise measured in $20$ line-free channels %(first and last 10 channels)
 of the dirty image cube.
-We applied JvM correction\cite{JvM1995-correction, czekala2021-maps2} and primary beam correction. The rms \rev{noise in} the resulting $^{13}$CO \rev{cubes imaged with robust $0.5$ and robust $1.5$} is $2.0$ mJy/beam and $1.2$ mJy/beam respectively, \rev{and $0.6$ mJy/beam in the C$^{18}$O cube imaged with robust $1.5$.}
+We applied JvM correction\cite{JvM1995-correction, czekala2021-maps2} and primary beam correction. The rms \rev{noise in} the resulting $^{13}$CO \rev{cubes imaged with robust $0.5$ and robust $1.5$} is $2.0$ mJy/beam and $1.2$ mJy/beam respectively, \rev{and $0.6$ mJy/beam in the C$^{18}$O cube imaged with robust $1.5$.} -->

@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../step4/step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -417,7 +416,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="step-2-overview-scripts">
 <h1>Step 2 Overview &amp; Scripts<a class="headerlink" href="#step-2-overview-scripts" title="Permalink to this heading">#</a></h1>
-<p>In this step, we align the phase centers of all execution blocks to a common phase center, assuming the source is not variable in time.</p>
+<p>In this step, we align the phase centers of all execution blocks to a common phase center, using the source’s continuum morphology and assuming it is not variable in time.</p>
 <div class="tip admonition">
 <p class="admonition-title">Scripts for <strong>Step 2 - Phase alignment</strong>:</p>
 <ul class="simple">

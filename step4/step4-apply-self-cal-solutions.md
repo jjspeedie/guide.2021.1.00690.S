@@ -9,42 +9,100 @@
 
 # Apply Self-Calibration Solutions
 
-It would be most intuitive to concatenate the SB line data, and then concatenate that SB data with the LB data, and apply the self calibration tables to those two giant measurement sets. However, at this point, we have just 1.2 TB left of disk space on cvpost, and each line ms is ~50 GB. Not only would concatenating use up a lot of diskspace, it would also take a lot of time to apply the phase solutions to the giant concatenation. As such, Ryan recommended we keep the data in their separate execution blocks, and then at the very end, split out each spectral window and combine the corresponding spectral windows across executions.
+At this point, we have eight phase-aligned EBs (6 LBs and 2 SBs) with suffix ``_initlines_shift.ms``, containing our line data. Each EB has the four line spectral windows (SPW 1-4). The averaged-down continuum spectral window (SPW 0) is also still tagging along for the ride.
 
+We now wish to *apply* the calibration solutions that we generated from the continuum self-calibration in [Step 3](../step3/step3-summary.md). The calibration solutions are in calibration tables. Each one contains information that the others do not, so we need to apply them all, and in the same succession as they were generated.
 
-The difficulty we thus face is: We generated our self calibration tables using (SB EB1 + SB EB2), and (SB EB1 + SB EB2 + LB EB1 + LB EB2 +LB EB3 + LB EB4 +LB EB5 + LB EB6). This means that each calibration table is big, and contains solutions for all those EBs. But we now want to apply each calibration table to only a subset of the data it was generated with. In other words, although the SB calibration tables have solutions for SB EB1 and SB EB2, we want to only apply the solutions for SB EB1 to the SB EB1 line ms, and then separately apply the solutions for SB EB2 to the SB EB2 line ms. How do we do that?
+````{card}
+|   Calibration tables generated using [short-baseline data only](../step3/step3-selfcal-SBs.md)     | Calibration tables generated using [concatenated short-baseline + long-baseline data](../step3/step3-selfcal-SBs+LBs.md)   |
+|--------------------|-----------------|
+|     SB_contp1.cal  |  BB_contp1.cal  |
+|     SB_contp2.cal  |  BB_contp2.cal  |
+|     SB_contp3.cal  |  BB_contp3.cal  |
+|  SB_contp4.cal     |  BB_contp4.cal  |
+|     SB_contp5.cal  |  BB_contap.cal  |
+|   SB_contp6.cal    |                 |
+|   SB_contap.cal    |                 |
++++
+**Left column:** The calibration tables we generated from the [short-baseline data only](../step3/step3-selfcal-SBs.md). **Right column:** The calibration tables we generated from the [concatenated short-baseline + long-baseline data](../step3/step3-selfcal-SBs+LBs.md) ("BB" stands for "both baselines").
+````
 
+It would be most intuitive to concatenate the SB line data (i.e., concatenate the two short baseline ``_initlines_shift.ms`` measurement sets), and then apply each of the calibration tables in the left column above (``SB_contp1.cal``, then ``SB_contp2.cal``, and so on) -- *and then* concatenate that resulting SB data with the LB data (i.e., the six long baseline ``_initlines_shift.ms`` measurement sets), and apply the self calibration tables in the right column above (``BB_contp1.cal``, then ``BB_contp2.cal``, and so on) to that single giant measurement set. However, concatenating would use *a lot* of disk space (each MS is ~50 GB), and it would take ``applycal`` a lot of time to apply the solutions. As such, we keep the data in their separate execution blocks, and then at [the very end](../step4/step4-line-mses-achieved.md), split out each spectral window and combine the corresponding spectral windows across executions.
 
-```{figure} images/step4_difficulty.jpg
-:alt: applying-calibration-tables
-:class: mb-1
-:width: 100%
-:align: center
-Schematic representing the issue: We need a way to reference only a certain execution block's portion of each calibration table.
+Doing it this way, we face one complication: We generated our self calibration tables using concatenated data. This means that each calibration table is big, and contains solutions for multiple EBs. We need to apply each calibration table to only a subset of the data it was generated with. Below is a visual representation of the situation.
+
+````{card}
+<center>
+
+<img src="images/step4_difficulty.jpg" alt="step4_difficulty" class="mb-1" width="100%">
+
+</center>
++++
+We want a way to reference only a certain portion of each calibration table in order to apply that portion to each corresponding EB separately.
+````
+
+The ``applycal`` task ``spwmap`` parameter lets us take only a subset of the *spectral windows* contained within a calibration table, and apply those to the input MS. The trick is knowing how the mapping will work, because it requires accounting for the rounds where ``combine='spw'`` parameter was or wasn't set during ``gaincal``. For example, compare these two SB calibration tables:
+
+````{card}
+
+<img src="images/step4_difficulty_SB_p1.png" alt="step4_difficulty_SB_p1" class="mb-1" width="49%">
+
+<img src="images/step4_difficulty_SB_p4.png" alt="step4_difficulty_SB_p4" class="mb-1" width="49%">
+
++++
+**Left:** Spectral windows were <u>not</u> combined (``combine=''``). **Right:** Spectral windows <u>were</u> combined (``combine='spw'``). In both cases, notice the spectral window indexing in the calibration tables (grey boxes), and where it comes from.
+````
+
+The same idea applies for the BB (SB+LB) calibration tables. Here is the same information but presented a different way:
+
+```console
+SB_contp1.cal was gained on SB1 and SB2 with combine='', so it contains spws [0,1,2,3,4,5,6,7,8,9]
+If we want to apply it to SB 1 (lines) only, we need spwmap=[0,1,2,3,4]
+                   and to SB 2 (lines) only, we need spwmap=[5,6,7,8,9]
+
+SB_contp3.cal was gained on SB1 and SB2 with combine=spw, so it contains spws [0,0,0,0,0,5,5,5,5,5]
+If we want to apply it to SB 1 (lines) only, we need spwmap=[0,0,0,0,0]
+                   and to SB 2 (lines) only, we need spwmap=[5,5,5,5,5]
 ```
 
-I think the answer lies with the applycal spwmap parameter. We can point to a subset of the spws contained in the calibration table, and apply only those to the ms. The trick is knowing how the mapping will work. It will require accounting for what the combine parameter was set to in gaincal. For example, compare these two SB caltables:
+The ``applycal`` task has another very useful parameter, ``gaintable``, which we use to apply multiple calibration solutions in one call, but still in succession.
 
-<img src="images/step4_difficulty_SB_p1.png" alt="step4_difficulty_SB_p1" class="mb-1" width="48%">
-<img src="images/step4_difficulty_SB_p4.png" alt="step4_difficulty_SB_p4" class="mb-1" width="48%">
+So with all that in mind, these are the required lists and combinations:
 
-The same idea applies for the SB+LB calibration tables.
-So with that in mind, and with the help of the gaintable parameter, this is the workflow:
+````{card}
+<center>
 
-```{figure} images/step4_difficulty_workflow_SB.png
+<img src="images/step4_difficulty_workflow_SB.png" alt="step4_difficulty_workflow_SB" class="mb-1" width="100%">
+
+</center>
++++
+Combination of ``gaintable`` and ``spwmap`` parameters to be used in the ``applycal task`` for self calibration of each of the SB line measurement sets.
+````
+
+<!-- ```{figure} images/step4_difficulty_workflow_SB.png
 :alt: applying-calibration-tables
 :class: mb-1
 :width: 100%
 :align: center
 Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB line measurement sets.
-```
+``` -->
 
-```{figure} images/step4_difficulty_workflow_BB.png
+````{card}
+<center>
+
+<img src="images/step4_difficulty_workflow_BB.png" alt="step4_difficulty_workflow_BB" class="mb-1" width="100%">
+
+</center>
++++
+Combination of ``gaintable`` and ``spwmap`` parameters to be used in the ``applycal`` task for self calibration of each of the SB+LB line measurement sets.
+````
+
+<!-- ```{figure} images/step4_difficulty_workflow_BB.png
 :alt: applying-calibration-tables
 :class: mb-1
 :width: 100%
 :align: center
 Combination of gaintable and spwmap parameters to be used in the applycal task for self calibration of each of the SB and LB line measurement sets.
-```
+``` -->
 
-(These two applycal bunches have to be done separately so that applymode can be different in each case)
+We do two "runs" of ``applycal``; the first to apply the SB calibration tables, and the second to apply the SB+LB calibration tables. These are done separately (we do not feed in an uber ``gaintable`` and ``spwmap`` list) so that the ``applymode`` parameter can be set differently in the two cases. In the former, ``applymode='calflag'`` (calibrate and flag), and in the latter, ``applymode = 'calonly'`` (calibrate only).

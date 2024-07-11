@@ -1,4 +1,4 @@
-`````{admonition} Scripts for **Imaging - Lines**:
+<!-- `````{admonition} Scripts for **Imaging - Lines**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a> # main script ([adopted approach](imaging-lines-adopted-approach.md))
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_lines.py" target="_blank">image_lines.py</a> # earlier main script ([initial approaches](imaging-lines-initial-approaches.md))
@@ -18,11 +18,13 @@
 
 ```{warning}
 This page is more of a blog than a guide; more of a journal of experiments. Kept in case some niche aspects can be helpful. Recommend skip to next page: ([adopted approach](imaging-lines-adopted-approach.md).
-```
+``` -->
 
 # Initial Approaches
 
-Relevant script: [initial approaches](imaging-lines-initial-approaches.md).
+[Coming soon.]
+
+<!-- Relevant script: [initial approaches](imaging-lines-initial-approaches.md).
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_lines.py" target="_blank">image_lines.py</a>.
 
 ## Cleaning and Masking
@@ -640,4 +642,4 @@ If you change the clean parameters above, you might be able to get away with a b
 
 
 
-#
+# -->

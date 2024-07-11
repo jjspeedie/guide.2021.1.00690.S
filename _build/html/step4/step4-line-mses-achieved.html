@@ -195,8 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-manual-flags.html">Manual Flagging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step4-split-spws.html">Splitting Out Line Spectral Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4-continuum-subtraction.html">Continuum Subtraction</a></li>
@@ -427,6 +426,46 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="create-final-line-measurement-sets">
 <h1>Create Final Line Measurement Sets<a class="headerlink" href="#create-final-line-measurement-sets" title="Permalink to this heading">#</a></h1>
+<p>Finally, we split out the individual spectral windows from each EB, and then combine them across EBs. We do this for both the continuum-subtracted and non-continuum-subtracted data, accounting for the new SPW-indexing in the former:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; First do non-continuum-subtracted ms&#39;s &quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">spwi</span><span class="p">,</span><span class="n">molecule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">molecules</span><span class="p">):</span>
+    <span class="n">ms_list_to_concatenate</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">EB</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;EBs&#39;</span><span class="p">]:</span>
+        <span class="n">ms_list_to_concatenate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initlines_selfcal.ms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.ms&#39;</span><span class="p">,</span> <span class="s1">&#39;_spw&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">spwi</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.ms&#39;</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For molecule: &#39;</span><span class="p">,</span> <span class="n">molecule</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Combining spectral window &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">spwi</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; across these measurement sets:&#39;</span><span class="p">,</span> <span class="n">ms_list_to_concatenate</span><span class="p">)</span>
+
+    <span class="n">final_line_ms</span> <span class="o">=</span> <span class="s1">&#39;ABAur_&#39;</span><span class="o">+</span><span class="n">molecule</span><span class="o">+</span><span class="s1">&#39;.bin30s.ms&#39;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -rf </span><span class="si">%s</span><span class="s1">*&#39;</span> <span class="o">%</span> <span class="n">final_line_ms</span><span class="p">)</span>
+    <span class="n">concat</span><span class="p">(</span><span class="n">vis</span>          <span class="o">=</span> <span class="n">ms_list_to_concatenate</span><span class="p">,</span>
+           <span class="n">concatvis</span>    <span class="o">=</span> <span class="n">final_line_ms</span><span class="p">,</span>
+           <span class="n">dirtol</span>       <span class="o">=</span> <span class="s1">&#39;0.1arcsec&#39;</span><span class="p">,</span>
+           <span class="n">copypointing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">listobs</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">final_line_ms</span><span class="p">,</span> <span class="n">listfile</span><span class="o">=</span><span class="n">final_line_ms</span><span class="o">+</span><span class="s1">&#39;.listobs.txt&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;tar cvzf backups/&#39;</span> <span class="o">+</span> <span class="n">final_line_ms</span><span class="o">+</span><span class="s1">&#39;.tgz &#39;</span> <span class="o">+</span> <span class="n">final_line_ms</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot; Second do continuum-subtracted ms&#39;s (contains spws 0,1,2,3) &quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">spwi</span><span class="p">,</span><span class="n">molecule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">molecules</span><span class="p">):</span>
+    <span class="n">ms_list_to_concatenate</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">EB</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;EBs&#39;</span><span class="p">]:</span>
+        <span class="n">ms_list_to_concatenate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="n">EB</span><span class="p">][</span><span class="s1">&#39;_initlines_selfcal.ms&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.ms&#39;</span><span class="p">,</span> <span class="s1">&#39;_spw&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">spwi</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.ms&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.contsub&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For molecule: &#39;</span><span class="p">,</span> <span class="n">molecule</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Combining spectral window &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">spwi</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; across these measurement sets:&#39;</span><span class="p">,</span> <span class="n">ms_list_to_concatenate</span><span class="p">)</span>
+
+    <span class="n">final_line_ms</span> <span class="o">=</span> <span class="s1">&#39;ABAur_&#39;</span><span class="o">+</span><span class="n">molecule</span><span class="o">+</span><span class="s1">&#39;.bin30s.ms.contsub&#39;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -rf </span><span class="si">%s</span><span class="s1">*&#39;</span> <span class="o">%</span> <span class="n">final_line_ms</span><span class="p">)</span>
+    <span class="n">concat</span><span class="p">(</span><span class="n">vis</span>          <span class="o">=</span> <span class="n">ms_list_to_concatenate</span><span class="p">,</span>
+           <span class="n">concatvis</span>    <span class="o">=</span> <span class="n">final_line_ms</span><span class="p">,</span>
+           <span class="n">dirtol</span>       <span class="o">=</span> <span class="s1">&#39;0.1arcsec&#39;</span><span class="p">,</span>
+           <span class="n">copypointing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">listobs</span><span class="p">(</span><span class="n">vis</span><span class="o">=</span><span class="n">final_line_ms</span><span class="p">,</span> <span class="n">listfile</span><span class="o">=</span><span class="n">final_line_ms</span><span class="o">+</span><span class="s1">&#39;.listobs.txt&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;tar cvzf backups/&#39;</span> <span class="o">+</span> <span class="n">final_line_ms</span><span class="o">+</span><span class="s1">&#39;.tgz &#39;</span> <span class="o">+</span> <span class="n">final_line_ms</span><span class="p">)</span>
+</pre></div>
+</div>
 <!-- (I tried to follow the file naming conventions of the MAPS datasets.) -->
 <div style="background-color:#FAE5D3;">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -448,7 +487,6 @@ Final line measurement sets achieved! 🥳</div>
 <li><p class="sd-card-text"><strong>ABAur_SO.bin30s.ms (15 GB)</strong></p></li>
 </ul>
 <p class="sd-card-text">The <sup>13</sup>CO and C<sup>18</sup>O data are available to download; the <sup>12</sup>CO and SO will be available soon.</p>
-<p class="sd-card-text">Velocity re-gridded MSes (e.g. ABAur_12CO.bin30s.ms.cvel2) are available upon request.</p>
 </div>
 </div>
 </div>
