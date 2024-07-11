@@ -18,7 +18,7 @@ Here, we self-calibrate the short-baseline continuum data (phase-aligned and con
 
 </center>
 +++
-**Path through SB self-cal.** This table portrays the path taken through self-calibration through the choice of parameters in every round. Self-cal "starts" in the third column ("Round p0") with the ``tclean`` task, and then proceeds to the fourth column ("Round p1") with the ``gaincal`` task, and so on. We performed six rounds of phase-only self-cal ("p1", "p2", "p3" etc.), and one round of amplitude+phase self-cal ("ap"). In each round, the parameters in the ``tclean``, ``gaincal`` and ``applycal`` tasks were set as listed in that round's column. In CASA, setting a parameter to ``''`` means "all" or "nothing". Rows to look at include ``solint`` (the solution interval), ``calmode`` (phase or amplitude+phase), ``combine`` (note ``'spw'`` is not combined in Round "p1" or "p2"), and the number of failed solutions (that did not satisfy our SNR requirements). The ``threshold`` parameter for the ``tclean`` task is not set because we clean interactively.
+**Path through SB self-cal.** This table portrays the path taken through self-calibration by the choice of parameters in every round. Self-cal "starts" in the third column ("Round p0") with the ``tclean`` task, and then proceeds to the fourth column ("Round p1") with the ``gaincal`` task, and so on. We performed six rounds of phase-only self-cal ("p1", "p2", "p3" etc.), and one round of amplitude+phase self-cal ("ap"). In each round, the parameters in the ``tclean``, ``gaincal`` and ``applycal`` tasks were set as listed in that round's column. In CASA, setting a parameter to ``''`` means "all" or "nothing". Rows to look at include ``solint`` (the solution interval), ``calmode`` (phase or amplitude+phase), ``combine`` (note ``'spw'`` is not combined in Round "p1" or "p2"), and the number of failed solutions (that did not satisfy our SNR requirements). The ``threshold`` parameter for the ``tclean`` task is not set because we clean interactively.
 
 **(selfcal_dict.txt)** The bottom few rows keep track of relevant quantities or image metrics as they change over the course of each round. Rows to look at include **SNR** (improved from 195 to 434), **disk flux** (slightly increasing until the "ap" round), and the beam major & minor axes **bmaj** & **bmin** (increasing as data associated with failed solutions is flagged out).
 ````
@@ -38,7 +38,7 @@ Here, we self-calibrate the short-baseline continuum data (phase-aligned and con
 
 In the ``gaincal`` task:
 
-  * ``spw``: Setting to ``''`` selects all spectral windows. In [Step 4](../step4/step4-apply-self-cal-solutions.md) we intend to apply the self-calibration solutions we generate with the (pseudo-)continuum *onto the line data*. So even though we are only self-calibrating continuum data, it would defeat the whole purpose to not include SPWs 1-4.
+  * ``spw``: Setting to ``''`` selects all spectral windows. In [Step 4](../step4/step4-apply-self-cal-solutions.md) we intend to apply the self-calibration solutions we generate with the (pseudo-)continuum *onto the line data*. So even though we are only self-calibrating (pseudo-) continuum data, it would defeat the whole purpose to not include SPWs 1-4.
 
   * ``solint``: The time interval on which to generate solutions. ``'inf'`` goes as wide as the boundaries specified by the ``combine`` parameter. In the first and second round (p1, p2), one solution is found per scan. Later we get down to 18 seconds (3x the record interval). In the last round we find one solution per scan again.
 
@@ -96,7 +96,7 @@ Both SB EB1 and SB EB2 were self-calibrated together, but the following movies s
 
 ``````{dropdown} How to retrieve the solutions from a CASA calibration table for plotting/manipulation in python?
 
-The ``plotms`` task can save the contents of a plot as a text file! Just set the ``plotfile`` argument (str) to a file name that ends in ``.txt`` instead of ``.png`` or equivalent. The <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> has functions that were used to extract relevant quantities from the calibration tables and make the figures below:
+The ``plotms`` task can save the contents of a plot as a text file! Just set the ``plotfile`` argument (str) to a file name that ends in ``.txt`` instead of ``.png`` or equivalent. The <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> script has functions that were used to extract relevant quantities from the calibration tables and make the figures below:
 
 * ``retrieve_from_caltable()``
 

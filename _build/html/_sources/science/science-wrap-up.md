@@ -71,3 +71,9 @@ Non-continuum-subtracted spectral line measurement sets:
 The <sup>13</sup>CO and C<sup>18</sup>O data are available to download; the <sup>12</sup>CO and SO will be available soon.
 ````
 </div>
+
+---
+
+Sincere and special thanks go to Ryan Loomis, Sarah Wood and Tristan Ashton at the North American ALMA Science Center (NAASC) for providing science support and technical guidance on this ALMA data as part of a Data Reduction Visit to the NAASC, which was funded by the NAASC. The reduction and imaging of the ALMA data was performed on NAASC computing facilities.
+
+Comments and corrections are much appreciated (especially if you are a student!). Get in touch: jspeedie@uvic.ca.

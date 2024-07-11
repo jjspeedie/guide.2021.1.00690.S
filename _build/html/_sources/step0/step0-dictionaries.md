@@ -8,10 +8,10 @@ The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DS
 
 `````{admonition} **data_dict** is used for the following steps:
 :class: tip
-* [Step 1 - Prepare the continuum](../step1/step1-manual-flags.md).
-* [Step 2 - Phase alignment](../step2/step2-align-SBs.md).
-* [Step 3 - Self-calibration of the continuum](../step3/step3-selfcal-SBs.md).
-* [Step 4 - Prepare the lines](../step4/step4-manual-flags.md).
+* [Step 1 - Prepare the continuum](../step1/step1-summary.md).
+* [Step 2 - Phase alignment](../step2/step2-summary.md).
+* [Step 3 - Self-calibration of the continuum](../step3/step3-summary.md).
+* [Step 4 - Prepare the lines](../step4/step4-summary.md).
 * [Imaging - Continuum](../imaging-cont/imaging-cont-procedure.md).
 * [Imaging - Lines](../imaging-lines/imaging-lines-procedure.md).
 `````

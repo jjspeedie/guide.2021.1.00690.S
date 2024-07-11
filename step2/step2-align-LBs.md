@@ -47,7 +47,7 @@ alignment.align_measurement_sets(reference_ms       = reference_for_LB_alignment
                                  plot_file_template = alignment_plot_file_template)
 ```
 
-In the *uv* cells that contain at least 1 *uv* visibility point from <u>both</u> the reference (LB EB1) and comparison EB, the alignment code calculates the offset between their phases, taking into account the noise weights. This is done by minimizing the aggregate phase angle and amplitude difference (similar to Equation 1 of <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5790C/abstract" target="_blank">Casassus & Cárcamo 2022</a>). The entire process proceeds iteratively while sequentially shifting the comparison EB north/south and east/west, to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.
+In the *uv* cells that contain at least one *uv* visibility point from <u>both</u> the reference (LB EB1) and comparison EB, the code calculates the offset between their phases, taking into account the noise weights. This is done by minimizing the aggregate phase angle and amplitude difference (similar to Equation 1 of <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5790C/abstract" target="_blank">Casassus & Cárcamo 2022</a>). The entire process proceeds iteratively while sequentially shifting the comparison EB north/south and east/west, to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.
 
 The following plots show the number of visibility points per cell for the reference EB and each of the comparison EBs, after the visibilities have been gridded in *uv*-space.
 
@@ -130,11 +130,11 @@ for i,shifted_ms in enumerate(shifted_LB_EBs):
     print(f'#offset for {shifted_ms}: ',offset)
 
 # Results:
-#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]
-#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]
-#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]
-#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]
-#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]
+#offset for step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]
+#offset for step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]
+#offset for step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]
+#offset for step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]
+#offset for step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]
 ```
 
 7. **Concatenate the shifted LB EBs.** Finally we concatenate the shifted EBs into a single aligned long-baseline dataset in preparation for the next step.
@@ -188,11 +188,11 @@ Computed phase offsets after alignment:
 ````{tab-item} With per-EB self-cal first
 
 ```python
-#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]
-#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]
-#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]
-#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]
-#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]
+#offset for step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]
+#offset for step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]
+#offset for step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]
+#offset for step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]
+#offset for step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]
 ```
 
 ````
@@ -200,12 +200,12 @@ Computed phase offsets after alignment:
 ````{tab-item} Without per-EB self-cal first
 
 ```python
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB1_initcont_shift.ms:  [-4.51798589e-10 -3.36817461e-09]
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB2_initcont_shift.ms:  [-1.42397170e-06 -3.31838587e-05]
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB3_initcont_shift.ms:  [-3.37030700e-05 -2.14097102e-05]
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB4_initcont_shift.ms:  [ 0.00011575 -0.0001446 ]
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB5_initcont_shift.ms:  [-4.58253229e-05  1.04505131e-04]
-#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB6_initcont_shift.ms:  [-0.00015515 -0.00030391]
+#offset for step2_noselfcal/ABAur_LB_EB1_initcont_shift.ms:  [-4.51798589e-10 -3.36817461e-09]
+#offset for step2_noselfcal/ABAur_LB_EB2_initcont_shift.ms:  [-1.42397170e-06 -3.31838587e-05]
+#offset for step2_noselfcal/ABAur_LB_EB3_initcont_shift.ms:  [-3.37030700e-05 -2.14097102e-05]
+#offset for step2_noselfcal/ABAur_LB_EB4_initcont_shift.ms:  [ 0.00011575 -0.0001446 ]
+#offset for step2_noselfcal/ABAur_LB_EB5_initcont_shift.ms:  [-4.58253229e-05  1.04505131e-04]
+#offset for step2_noselfcal/ABAur_LB_EB6_initcont_shift.ms:  [-0.00015515 -0.00030391]
 ```
 
 ````

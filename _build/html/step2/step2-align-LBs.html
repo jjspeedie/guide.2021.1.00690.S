@@ -205,15 +205,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
@@ -476,7 +473,7 @@ document.write(`
                                  <span class="n">plot_file_template</span> <span class="o">=</span> <span class="n">alignment_plot_file_template</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In the <em>uv</em> cells that contain at least 1 <em>uv</em> visibility point from <u>both</u> the reference (LB EB1) and comparison EB, the alignment code calculates the offset between their phases, taking into account the noise weights. This is done by minimizing the aggregate phase angle and amplitude difference (similar to Equation 1 of <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5790C/abstract" target="_blank">Casassus &amp; Cárcamo 2022</a>). The entire process proceeds iteratively while sequentially shifting the comparison EB north/south and east/west, to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.</p>
+<p>In the <em>uv</em> cells that contain at least one <em>uv</em> visibility point from <u>both</u> the reference (LB EB1) and comparison EB, the code calculates the offset between their phases, taking into account the noise weights. This is done by minimizing the aggregate phase angle and amplitude difference (similar to Equation 1 of <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5790C/abstract" target="_blank">Casassus &amp; Cárcamo 2022</a>). The entire process proceeds iteratively while sequentially shifting the comparison EB north/south and east/west, to map out a potential well. The code then returns the location of the minimum, i.e., the offset in arcseconds by which the comparison EB must be shifted in order for it to be aligned with the reference.</p>
 <p>The following plots show the number of visibility points per cell for the reference EB and each of the comparison EBs, after the visibilities have been gridded in <em>uv</em>-space.</p>
 <section id="lb-eb2">
 <h2>LB EB2<a class="headerlink" href="#lb-eb2" title="Permalink to this heading">#</a></h2>
@@ -556,11 +553,11 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;#offset for </span><span class="si">{</span><span class="n">shifted_ms</span><span class="si">}</span><span class="s1">: &#39;</span><span class="p">,</span><span class="n">offset</span><span class="p">)</span>
 
 <span class="c1"># Results:</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -612,23 +609,23 @@ Without per-EB self-cal first</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-2">
 With per-EB self-cal first</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for workflow/step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
-<span class="c1">#offset for workflow/step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for step2/ABAur_LB_EB2_initcont_selfcal_shift.ms:  [-0.00053475 -0.00016906]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB3_initcont_selfcal_shift.ms:  [1.71563046e-04 2.47059087e-05]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB4_initcont_selfcal_shift.ms:  [ 5.09346597e-04 -1.23296973e-05]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB5_initcont_selfcal_shift.ms:  [-7.52639036e-05 -3.63954304e-04]</span>
+<span class="c1">#offset for step2/ABAur_LB_EB6_initcont_selfcal_shift.ms:  [ 0.00052468 -0.00087966]</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
 Without per-EB self-cal first</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB1_initcont_shift.ms:  [-4.51798589e-10 -3.36817461e-09]</span>
-<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB2_initcont_shift.ms:  [-1.42397170e-06 -3.31838587e-05]</span>
-<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB3_initcont_shift.ms:  [-3.37030700e-05 -2.14097102e-05]</span>
-<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB4_initcont_shift.ms:  [ 0.00011575 -0.0001446 ]</span>
-<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB5_initcont_shift.ms:  [-4.58253229e-05  1.04505131e-04]</span>
-<span class="c1">#offset for /arc/projects/abaur/workflow/step2_noselfcal/ABAur_LB_EB6_initcont_shift.ms:  [-0.00015515 -0.00030391]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#offset for step2_noselfcal/ABAur_LB_EB1_initcont_shift.ms:  [-4.51798589e-10 -3.36817461e-09]</span>
+<span class="c1">#offset for step2_noselfcal/ABAur_LB_EB2_initcont_shift.ms:  [-1.42397170e-06 -3.31838587e-05]</span>
+<span class="c1">#offset for step2_noselfcal/ABAur_LB_EB3_initcont_shift.ms:  [-3.37030700e-05 -2.14097102e-05]</span>
+<span class="c1">#offset for step2_noselfcal/ABAur_LB_EB4_initcont_shift.ms:  [ 0.00011575 -0.0001446 ]</span>
+<span class="c1">#offset for step2_noselfcal/ABAur_LB_EB5_initcont_shift.ms:  [-4.58253229e-05  1.04505131e-04]</span>
+<span class="c1">#offset for step2_noselfcal/ABAur_LB_EB6_initcont_shift.ms:  [-0.00015515 -0.00030391]</span>
 </pre></div>
 </div>
 </div>

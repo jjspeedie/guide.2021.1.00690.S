@@ -205,15 +205,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
@@ -424,7 +421,7 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="create-final-continuum-measurement-set">
 <h1>Create Final Continuum Measurement Set<a class="headerlink" href="#create-final-continuum-measurement-set" title="Permalink to this heading">#</a></h1>
-<p>To save storage space, we now time average to 30 seconds. This does nothing to hurt/affect the data, so long as it’s done after self-calibration (because we want to get as low <code class="docutils literal notranslate"><span class="pre">solint</span></code> as possible, and because time-binning changes the weights which can make <code class="docutils literal notranslate"><span class="pre">plotms</span></code> wonky).</p>
+<p>To save storage space, we now time average to 30 seconds. This does nothing to affect the data, so long as it’s done after self-calibration (because we want to get as low <code class="docutils literal notranslate"><span class="pre">solint</span></code> as possible, and because time-binning changes the weights which can make <code class="docutils literal notranslate"><span class="pre">plotms</span></code> wonky).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Save the final MS &quot;&quot;&quot;</span>
 <span class="n">chosenvis</span>          <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;NRAO_path&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;BB_concat&#39;</span><span class="p">][</span><span class="s1">&#39;contp0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;p0.ms&#39;</span><span class="p">,</span> <span class="s1">&#39;ap.ms&#39;</span><span class="p">)</span>
 <span class="n">final_cont_ms</span>      <span class="o">=</span> <span class="s1">&#39;ABAur_continuum.bin30s.ms&#39;</span>

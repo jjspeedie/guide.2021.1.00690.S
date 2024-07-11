@@ -7,7 +7,7 @@
 
 # Create Final Continuum Measurement Set
 
-To save storage space, we now time average to 30 seconds. This does nothing to hurt/affect the data, so long as it's done after self-calibration (because we want to get as low ``solint`` as possible, and because time-binning changes the weights which can make ``plotms`` wonky).
+To save storage space, we now time average to 30 seconds. This does nothing to affect the data, so long as it's done after self-calibration (because we want to get as low ``solint`` as possible, and because time-binning changes the weights which can make ``plotms`` wonky).
 
 ````python
 """ Save the final MS """

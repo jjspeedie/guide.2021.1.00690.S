@@ -41,7 +41,7 @@ Doing it this way, we face one complication: We generated our self calibration t
 We want a way to reference only a certain portion of each calibration table in order to apply that portion to each corresponding EB separately.
 ````
 
-The ``applycal`` task ``spwmap`` parameter lets us take only a subset of the *spectral windows* contained within a calibration table, and apply those to the input MS. The trick is knowing how the mapping will work, because it requires accounting for the rounds where ``combine='spw'`` parameter was or wasn't set during ``gaincal``. For example, compare these two SB calibration tables:
+The ``applycal`` task ``spwmap`` parameter lets us take only a subset of the *spectral windows* contained within a calibration table, and apply those to the input MS. The trick is knowing how the mapping will work, because it requires accounting for the rounds where the  ``combine='spw'`` parameter was or wasn't set during ``gaincal``. For example, compare these two SB calibration tables:
 
 ````{card}
 
@@ -60,7 +60,7 @@ SB_contp1.cal was gained on SB1 and SB2 with combine='', so it contains spws [0,
 If we want to apply it to SB 1 (lines) only, we need spwmap=[0,1,2,3,4]
                    and to SB 2 (lines) only, we need spwmap=[5,6,7,8,9]
 
-SB_contp3.cal was gained on SB1 and SB2 with combine=spw, so it contains spws [0,0,0,0,0,5,5,5,5,5]
+SB_contp3.cal was gained on SB1 and SB2 with combine='spw', so it contains spws [0,0,0,0,0,5,5,5,5,5]
 If we want to apply it to SB 1 (lines) only, we need spwmap=[0,0,0,0,0]
                    and to SB 2 (lines) only, we need spwmap=[5,5,5,5,5]
 ```

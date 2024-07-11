@@ -33,7 +33,7 @@ alignment.align_measurement_sets(reference_ms       = reference_for_SB_alignment
                                  plot_file_template = alignment_plot_file_template)
 ```
 
-Here again are plots of the number of visibility points per cell for the reference EB and each of the comparison EBs (which now short-baseline EBs).
+Here again are plots of the number of visibility points per cell for the reference EB and each of the comparison EBs (which are now short-baseline EBs).
 
 ## SB EB1
 

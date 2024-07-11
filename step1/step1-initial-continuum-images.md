@@ -8,7 +8,7 @@
 
 # Initial Continuum Images
 
-Here we perform initial imaging of the continuum data. For each execution block, we image the aggregate continuum as well as each spectral window individually. With 8 execution blocks, each with 1 continuum SPW, 4 psuedo-continuum SPWs, and the combined-SPW aggregate, that's 48 images in total.
+Here we perform initial imaging of the continuum data. For each execution block, we image the aggregate continuum as well as each spectral window individually. With 8 execution blocks, each with 1 continuum SPW, 4 pseudo-continuum SPWs, and the combined-SPW aggregate, that's 48 images in total.
 
 **Out motivation for doing this initial imaging is:**
 
@@ -212,7 +212,7 @@ A minimum of ~25 SNR is needed for self calibration. So we should be able to do 
 The horizontal lines indicate the SNR in the execution block if all spws are imaged. It is *ever so slightly* higher than if we image the continuum spectral window only (SPW 0), suggesting that the four 58 MHz bandwidth spectral windows (or more like 40-50 MHz, after line flagging) do contribute something.
 ````
 
-Just for reference, here is the equivalent plots but for each of ``[peak intensity]`` and ``[measured rms noise]``. 
+Just for reference, here is the equivalent plots but for each of ``[peak intensity]`` and ``[measured rms noise]``.
 
 ````{card}
 <center>
