@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Initial Self-Calibration &#8212; Reduction Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'step1/step1-initial-self-calibration';</script>
+    <link rel="shortcut icon" href="../_static/abaur.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Step 2 Overview &amp; Scripts" href="../step2/step2-summary.html" />
+    <link rel="prev" title="Initial Continuum Images" href="step1-initial-continuum-images.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/abaur.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/abaur.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-resources.html">Learning Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-breakdown.html">Breakdown of Our Task</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-program-overview.html">Program Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-dictionaries.html">Useful Dictionaries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step1-initial-continuum-images.html">Initial Continuum Images</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Initial Self-Calibration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fstep1/step1-initial-self-calibration.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/step1/step1-initial-self-calibration.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Initial Self-Calibration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-of-this-initial-round-of-per-eb-self-cal">The results of this initial round of per-EB self-cal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-ebs">SB EBs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-ebs">LB EBs</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tip admonition">
+<p class="admonition-title">Scripts for <strong>Step 1 - Prepare the continuum</strong>:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step1_prepare_continuum.py" target="_blank">step1_prepare_continuum.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step1_utils.py" target="_blank">step1_utils.py</a> # loads multiple functions</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # necessary for an initial round of selfcal at the end</p></li>
+</ul>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-self-calibration">
+<h1>Initial Self-Calibration<a class="headerlink" href="#initial-self-calibration" title="Permalink to this heading">#</a></h1>
+<p>In preparation for the phase alignment, we do a single round of self-calibration on each execution block. (With all SPWs combined; we’re not at the per-SPW stage yet). Since the outcome of the phase alignment step all depends on the visibility phases, the idea is that this initial round of self-cal will help get the phases in good shape.</p>
+<p><strong>Initial model</strong>: The first step of self-cal is to generate an initial model. For each EB we make a new clean image, cleaned very shallowly and interactively. These are different from the <a class="reference internal" href="step1-initial-continuum-images.html"><span class="doc std std-doc">initial continuum images</span></a> from the previous page, and they don’t look as good because they are not cleaned as deeply. What matters here is that we trust the MS table column <code class="docutils literal notranslate"><span class="pre">'MODEL'</span></code> <em><strong>phases</strong></em>; the amplitudes are not important at this stage.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Initial model alternatives</p>
+<p><em>What should you take as the initial model?</em></p>
+<p>There are many options, and which one is most appropriate depends entirely on your source. Here’s some options I’ve heard of:</p>
+<ul class="simple">
+<li><p>A shallowly cleaned image (as we do here)</p></li>
+<li><p>A model made from analytic fit to the visibilities (if possible)</p></li>
+<li><p>An axisymmetric model (if there’s good reason), e.g. an azimuthal average of a shallowly cleaned image</p></li>
+</ul>
+<p>It’s hard/impossible to tell <em>a priori</em> what is the right choice (except in the case of a point source!). This is a significant consideration and a deep topic. What you put in greatly influences what you get out.</p>
+</div>
+<p><strong>Deconvolution</strong>: This sounds like a detail but it is not. The model will be comprised of clean components, which will be a collection of functions of your choice. We choose <span class="math notranslate nohighlight">\(\delta\)</span>-function clean components, i.e. <a href="https://ui.adsabs.harvard.edu/abs/1974A%26AS...15..417H/abstract" target="_blank">Hogbom</a> deconvolution. An alternative choice may be <code class="docutils literal notranslate"><span class="pre">'multi-scale'</span></code> clean, in which case the model basis functions would be Gaussians. The current wisdom is that Gaussians don’t make a great basis for concentric ring structures like we expect in continuum images of disks (including AB Aur).</p>
+<section id="the-results-of-this-initial-round-of-per-eb-self-cal">
+<h2>The results of this initial round of per-EB self-cal<a class="headerlink" href="#the-results-of-this-initial-round-of-per-eb-self-cal" title="Permalink to this heading">#</a></h2>
+<p>The SNR increased in all cases (some more than others).</p>
+<section id="sb-ebs">
+<h3>SB EBs<a class="headerlink" href="#sb-ebs" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/SB_EB1_model_selfcal.gif"><img alt="SB_EB1_model_selfcal" class="mb-1" src="../_images/SB_EB1_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/SB_EB2_model_selfcal.gif"><img alt="SB_EB2_model_selfcal" class="mb-1" src="../_images/SB_EB2_model_selfcal.gif" style="width: 49%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Left to right:</strong> SB EB1, SB EB2.</p>
+</div>
+</div>
+</section>
+<section id="lb-ebs">
+<h3>LB EBs<a class="headerlink" href="#lb-ebs" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB1_model_selfcal.gif"><img alt="LB_EB1_model_selfcal" class="mb-1" src="../_images/LB_EB1_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB2_model_selfcal.gif"><img alt="LB_EB2_model_selfcal" class="mb-1" src="../_images/LB_EB2_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB3_model_selfcal.gif"><img alt="LB_EB3_model_selfcal" class="mb-1" src="../_images/LB_EB3_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB4_model_selfcal.gif"><img alt="LB_EB4_model_selfcal" class="mb-1" src="../_images/LB_EB4_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB5_model_selfcal.gif"><img alt="LB_EB5_model_selfcal" class="mb-1" src="../_images/LB_EB5_model_selfcal.gif" style="width: 49%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/LB_EB6_model_selfcal.gif"><img alt="LB_EB6_model_selfcal" class="mb-1" src="../_images/LB_EB6_model_selfcal.gif" style="width: 49%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Left to right, top to bottom:</strong> LB EB1, LB EB2, LB EB3, LB EB4, LB EB5, LB EB6.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Keeping track of results with selfcal_dict.txt<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The function <code class="docutils literal notranslate"><span class="pre">update_selfcal_dict</span></code> in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> helps to keep track of certain quantities that change as a result of self-calibration, such as the synthesized beam (which gets bigger if low SNR data is flagged by <code class="docutils literal notranslate"><span class="pre">gaincal</span></code>/<code class="docutils literal notranslate"><span class="pre">applycal</span></code>) and image properties (disk flux, SNR, etc). It’s used in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step1_prepare_continuum.py" target="_blank">step1_prepare_continuum.py</a> on the initial model to establish the starting point before any self-cal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">update_selfcal_dict</span><span class="p">(</span><span class="n">selfcal_dict</span>  <span class="o">=</span> <span class="n">selfcal_dict</span><span class="p">,</span>
+                    <span class="nb">round</span>         <span class="o">=</span> <span class="s1">&#39;starting_model&#39;</span><span class="p">,</span>
+                    <span class="n">EB</span>            <span class="o">=</span> <span class="n">EB</span><span class="p">,</span>
+                    <span class="n">image_metrics</span> <span class="o">=</span> <span class="n">image_metrics</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">And then again after this initial round of self-cal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">update_selfcal_dict</span><span class="p">(</span><span class="n">selfcal_dict</span>  <span class="o">=</span> <span class="n">selfcal_dict</span><span class="p">,</span>
+                    <span class="nb">round</span>         <span class="o">=</span> <span class="s1">&#39;initial_round&#39;</span><span class="p">,</span>
+                    <span class="n">EB</span>            <span class="o">=</span> <span class="n">EB</span><span class="p">,</span>
+                    <span class="n">image_metrics</span> <span class="o">=</span> <span class="n">image_metrics</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Here is the content of the resulting <code class="docutils literal notranslate"><span class="pre">selfcal_dict.txt</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;starting_model&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;SB_EB1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.98555845022208</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.6502565145492001</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.267037153244</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">96.37119767635464</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">15.64478687942028</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">110.25500110126073</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">141.89639221037916</span><span class="p">},</span>
+    <span class="s2">&quot;SB_EB2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.84730178117736</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.55687248706824</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">11.97756671906</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">92.91614621722621</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">10.486830025911331</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">111.60027276620909</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">93.96778131429969</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.25133076310158</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.158669948577888</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">22.46494483948</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">102.21922520103227</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">2.22735945135355</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">59.83876249396578</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">37.22268573950138</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.2146227657795</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.143906086683288</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="mf">22.16491508484</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">64.31607986480157</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">0.9940143208950758</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">74.2708706723907</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">13.383636301770037</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.222091585397712</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.15012736618518</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">20.48298072815</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">98.33766323017612</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.7070583999156952</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">85.4101918477119</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">19.986588988810784</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.222729876637452</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.152399435639364</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">28.83377456665</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">94.4923150756974</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.6992578748613596</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">66.02184294954915</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">25.73781341062918</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB5&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.230228304862968</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.14739404618739602</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="mf">29.80331993103</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">103.8761273112917</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.949697034433484</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">58.18971866991047</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">33.505868029598496</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB6&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.204741835594164</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.154411122202884</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.572570800781</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">95.24123482288928</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.741013489663601</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">59.81558891546768</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">29.106350388425138</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="s2">&quot;initial_round&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;SB_EB1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.98555845022208</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.6502565145492001</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.267035722733</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">97.37744327442131</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">15.772012993693352</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">81.13996805896602</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">194.38032046341846</span><span class="p">},</span>
+    <span class="s2">&quot;SB_EB2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.8503259420393999</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.55800050497056</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">12.06888866425</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">93.93793275833693</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">10.558287613093853</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">89.668852844978</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">117.747548653793</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.25463050603866</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.160491451621068</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">22.56776428223</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">101.04137510466822</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">2.245823619887233</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">52.304309448011786</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">42.9376401980698</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.47473317384732</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.206704244017584</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="mf">25.47427558899</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">56.16015007566346</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">2.806705655530095</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">139.53317041782125</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">20.114970849767356</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.26145595312117204</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.158696442842472</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.980427742</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">96.63220026886405</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.9986922852694988</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">86.05921215271813</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">23.22461750780008</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.22487176954746002</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.15411971509455602</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">29.1448764801</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">96.10158140277751</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.7663217149674892</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">66.62911868938559</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">26.509756540557014</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB5&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.23194327950478802</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.14885918796063602</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="mf">29.62239074707</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">104.86656000266917</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.9505757372826338</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">50.55783934790038</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">38.581073923279504</span><span class="p">},</span>
+    <span class="s2">&quot;LB_EB6&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;beammajor&quot;</span><span class="p">:</span> <span class="mf">0.207019567489608</span><span class="p">,</span> <span class="s2">&quot;beamminor&quot;</span><span class="p">:</span> <span class="mf">0.15601308643818</span><span class="p">,</span> <span class="s2">&quot;beampa&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.546737670898</span><span class="p">,</span> <span class="s2">&quot;disk_flux&quot;</span><span class="p">:</span> <span class="mf">95.5095751180149</span><span class="p">,</span> <span class="s2">&quot;peak_intensity&quot;</span><span class="p">:</span> <span class="mf">1.7425380647182465</span><span class="p">,</span> <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="mf">54.00177322236003</span><span class="p">,</span> <span class="s2">&quot;SNR&quot;</span><span class="p">:</span> <span class="mf">32.268163816456486</span><span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./step1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="step1-initial-continuum-images.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Initial Continuum Images</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../step2/step2-summary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Step 2 Overview &amp; Scripts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-of-this-initial-round-of-per-eb-self-cal">The results of this initial round of per-EB self-cal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sb-ebs">SB EBs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lb-ebs">LB EBs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jess Speedie
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

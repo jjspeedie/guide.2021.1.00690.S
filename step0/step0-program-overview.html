@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Program Overview &#8212; Reduction Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'step0/step0-program-overview';</script>
+    <link rel="shortcut icon" href="../_static/abaur.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inspecting the Weblog" href="step0-weblog.html" />
+    <link rel="prev" title="Download the Data" href="step0-download-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/abaur.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/abaur.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-resources.html">Learning Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-breakdown.html">Breakdown of Our Task</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Program Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step0-dictionaries.html">Useful Dictionaries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-continuum-images.html">Initial Continuum Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-self-calibration.html">Initial Self-Calibration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fstep0/step0-program-overview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/step0/step0-program-overview.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Program Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-summary">Observation Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-baseline-data-c-6-configuration">Long baseline data (C-6 configuration)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-baseline-data-c-3-configuration">Short baseline data (C-3 configuration)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-products">Pipeline Products</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm1">Channel maps (TM1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm2">Channel maps (TM2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-line-profiles">Spectral line profiles</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="program-overview">
+<h1>Program Overview<a class="headerlink" href="#program-overview" title="Permalink to this heading">#</a></h1>
+<p>ALMA observed AB Aur in April, May and September 2022 under program ID 2021.1.00690.S (PI: R. Dong). Measurements were taken with the Band 6 receivers (<a href="https://ui.adsabs.harvard.edu/abs/2004stt..conf..181E/abstract" target="_blank">Ediss et al. 2004</a>) in array configurations C-3 (2 execution blocks) and C-6 (6 execution blocks), hereafter the “short-baseline” and “long-baseline” configurations, respectively.
+In total, the 8 execution blocks (EBs) reached an on-source integration time of 5.75 hours.</p>
+<section id="observation-summary">
+<h2>Observation Summary<a class="headerlink" href="#observation-summary" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/observation-summary.png"><img alt="observation-summary" class="mb-1" src="../_images/observation-summary.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Details of the ALMA Band 6 observations. Footnote <span class="math notranslate nohighlight">\(^b\)</span> refers to <a class="reference internal" href="../step2/step2-align-SBs.html"><span class="doc std std-doc">step 2</span></a>.</p>
+</div>
+</div>
+<section id="long-baseline-data-c-6-configuration">
+<h3>Long baseline data (C-6 configuration)<a class="headerlink" href="#long-baseline-data-c-6-configuration" title="Permalink to this heading">#</a></h3>
+<style>
+ .table_wrapper{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+</style>
+<p>Below are further details on the TM1 scheduling block, compiled from a combination of <a class="reference internal" href="step0-weblog.html"><span class="doc std std-doc">the weblog and the QA reports</span></a>. Note that you can scroll through this table horizontally.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="table_wrapper">
+<table>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><div style="width:250px">Execution Block</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:120px">Session</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 ExecBlock Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">QA0 Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 Comment</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:700px">QA0 Warnings</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Exec Fraction</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:80px">Band</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Baselines (m)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Antennas (total)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Shadowing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV (mm)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV Octile</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (OT, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (EB, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Start</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">End</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Time on AB Aur (min)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Atmosphere</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Bandpass</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Flux</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Phase</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Pointing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:450px">Calibrators: WVR</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Observe Check Source</div></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfb8480_X6a5b</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Excellent conditions</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">0.24</p></td>
+<td><p class="sd-card-text">&lt;1</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">65.4</p></td>
+<td><p class="sd-card-text">2022-07-17 14:07:17</p></td>
+<td><p class="sd-card-text">2022-07-17 15:25:26</p></td>
+<td><p class="sd-card-text">47.37</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfb8480_X178cb</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was unstable</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">1.16</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">42</p></td>
+<td><p class="sd-card-text">1.11%</p></td>
+<td><p class="sd-card-text">1.49</p></td>
+<td><p class="sd-card-text">4-5</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">99.8</p></td>
+<td><p class="sd-card-text">2022-07-19 12:02:10</p></td>
+<td><p class="sd-card-text">2022-07-19 13:21:27</p></td>
+<td><p class="sd-card-text">47.37</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfbb255_X2286</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was. very unstable</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
+<td><p class="sd-card-text">0.38</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">44</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">2.85</p></td>
+<td><p class="sd-card-text">6-7</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">137</p></td>
+<td><p class="sd-card-text">2022-07-20 14:03:55</p></td>
+<td><p class="sd-card-text">2022-07-20 14:59:55</p></td>
+<td><p class="sd-card-text">34.8</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfbb9c7_X6731</p></td>
+<td><p class="sd-card-text">4</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Very high atmosphere unstability</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">0.65</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">42</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">2.37</p></td>
+<td><p class="sd-card-text">5-6</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">123.62</p></td>
+<td><p class="sd-card-text">2022-07-21 14:01:35</p></td>
+<td><p class="sd-card-text">2022-07-21 15:20:52</p></td>
+<td><p class="sd-card-text">47.42</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xfbb9c7_Xd621</p></td>
+<td><p class="sd-card-text">5</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere was very unstable</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.010 %; Achieved angular   resolution is outside the expected range. Observed: 0.14, requested: 0.14 -   0.22</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">44</p></td>
+<td><p class="sd-card-text">1.73%</p></td>
+<td><p class="sd-card-text">0.84</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">81.444</p></td>
+<td><p class="sd-card-text">2022-07-22 11:30:28</p></td>
+<td><p class="sd-card-text">2022-07-22 12:49:58</p></td>
+<td><p class="sd-card-text">47.33</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xfbb9c7_Xe05e</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">The atmosphere. was unstable</p></td>
+<td><p class="sd-card-text">Achieved angular resolution is outside the expected range. Observed:   0.13, requested: 0.14 - 0.22</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-2617</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">0.00%</p></td>
+<td><p class="sd-card-text">0.63</p></td>
+<td><p class="sd-card-text">1-2</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73.95</p></td>
+<td><p class="sd-card-text">2022-07-22 12:59:16</p></td>
+<td><p class="sd-card-text">2022-07-22 14:18:16</p></td>
+<td><p class="sd-card-text">47.42</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur, J0435+2532</p></td>
+<td><p class="sd-card-text">J0435+2532</p></td>
+</tr>
+</tbody>
+</table>
+</table>
+</div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">→→→ <em>This table scrolls horizontally</em> →→→</p>
+<p class="sd-card-text"><strong>AB_Aur_a_06_TM1: member.uid___A001_X15a2_Xb6b</strong>.</p>
+</div>
+</div>
+</section>
+<section id="short-baseline-data-c-3-configuration">
+<h3>Short baseline data (C-3 configuration)<a class="headerlink" href="#short-baseline-data-c-3-configuration" title="Permalink to this heading">#</a></h3>
+<p>Below are further details on the TM2 scheduling block, compiled from a combination of <a class="reference internal" href="step0-weblog.html"><span class="doc std std-doc">the weblog and the QA reports</span></a>. Note that you can scroll through this table horizontally.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="table_wrapper">
+<table>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><div style="width:250px">Execution Block</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:120px">Session</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">QA0 ExecBlock Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">QA0 Status</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:500px">QA0 Comment</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:700px">QA0 Warnings</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Exec Fraction</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:80px">Band</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:300px">Repr. Frequency (GHz, Sky)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Baselines (m)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Antennas (total)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:220px">Shadowing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV (mm)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">PWV Octile</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (OT, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Tsys (EB, K)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Start</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">End</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Time on AB Aur (min)</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Atmosphere</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Calibrators: Bandpass</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Flux</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Phase</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Calibrators: Pointing</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:450px">Calibrators: WVR</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:250px">Observe Check Source</div></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xf7ad58_Xd406</p></td>
+<td><p class="sd-card-text">1</p></td>
+<td><p class="sd-card-text">SUCCESS</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">Some antennas shadowed due to high   declination (11.6%)</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged:   0.500 %</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">14-500</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">11.63%</p></td>
+<td><p class="sd-card-text">0.74</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73</p></td>
+<td><p class="sd-card-text">2022-04-19  7:25:22</p></td>
+<td><p class="sd-card-text">2022-04-19  8:20:05</p></td>
+<td><p class="sd-card-text">41</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">uid___A002_Xf8d822_Xa976 (discarded by ALMA pipeline)</p></td>
+<td><p class="sd-card-text">2</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Semi-pass</p></td>
+<td><p class="sd-card-text">APE2: 12m obs crash with ‘Failed to handle an interface method   invocation’. no band set - problem in dataset</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">0</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-500</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">0.74</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+<td><p class="sd-card-text">8.1</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">uid___A002_Xf8f6a9_X15c79</p></td>
+<td><p class="sd-card-text">3</p></td>
+<td><p class="sd-card-text">FAIL</p></td>
+<td><p class="sd-card-text">Pass</p></td>
+<td><p class="sd-card-text">DV 23 and DA54 presented issues. No other major issue.</p></td>
+<td><p class="sd-card-text">Percentage of calibration data flagged: 0.020 %; Achieved angular   resolution is outside the expected range. Observed: 0.55, requested: 0.64 -   0.96</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text">220.392</p></td>
+<td><p class="sd-card-text">15-680</p></td>
+<td><p class="sd-card-text">45</p></td>
+<td><p class="sd-card-text">12.79%</p></td>
+<td><p class="sd-card-text">0.69</p></td>
+<td><p class="sd-card-text">2-3</p></td>
+<td><p class="sd-card-text">116.5</p></td>
+<td><p class="sd-card-text">73.2</p></td>
+<td><p class="sd-card-text">2022-05-15 18:05:13</p></td>
+<td><p class="sd-card-text">2022-05-15 18:49:47</p></td>
+<td><p class="sd-card-text">32.4</p></td>
+<td><p class="sd-card-text">J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004</p></td>
+<td><p class="sd-card-text">J0510+1800</p></td>
+<td><p class="sd-card-text">J0438+3004, J0510+1800, AB_Aur</p></td>
+<td><p class="sd-card-text">N/A</p></td>
+</tr>
+</tbody>
+</table>
+ </table>
+ </div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">→→→ <em>This table scrolls horizontally</em> →→→</p>
+<p class="sd-card-text"><strong>AB_Aur_a_06_TM2: member.uid___A001_X15a2_Xb6d</strong>. The “second” execution block “uid___A002_Xf8d822_Xa976” was QA0 semi-pass, and was not included into the pipeline-delivered calibrated products. The QA0 comment (from the QA0 report) shows a fatal software error occurred and only 8 minutes of integration time on-source was achieved. We later looked at these data and considered re-running the pipeline calibration to include this EB, but in the end decided it was not worth it. The “third” execution block, “uid___A002_Xf8f6a9_X15c79”, is thus what we move forward with as “SB EB2”.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="correlator-setup">
+<h2>Correlator Setup<a class="headerlink" href="#correlator-setup" title="Permalink to this heading">#</a></h2>
+<p>Our correlator setup was designed for kinematic science.
+We placed five spectral windows (SPWs) over the four available basebands to target four molecular emission lines and the continuum.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/correlator-setup.png"><img alt="correlator-setup" class="mb-1" src="../_images/correlator-setup.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">ALMA Band 6 correlator setup.</p>
+</div>
+</div>
+<p>We centered one SPW at the <span class="math notranslate nohighlight">\(^{13}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> molecular emission line transition rest frequency (220.405 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with <span class="math notranslate nohighlight">\(N=2\)</span> by Hanning smoothing within the correlator data processor. (This was our “representative” window in the OT.)</p>
+<p>We placed a second SPW at the <span class="math notranslate nohighlight">\(^{12}\)</span>CO <span class="math notranslate nohighlight">\(J=2-1\)</span> rest frequency (230.545 GHz) covering the same bandwidth with the same number of channels, achieving a slighty higher spectral resolution of 39.684 m/s (due to the higher center frequency, of course).</p>
+<p>A third SPW was centered at the C<span class="math notranslate nohighlight">\(^{18}\)</span>O <span class="math notranslate nohighlight">\(J=2-1\)</span> rest frequency (219.567 GHz), and a fourth at the SO <span class="math notranslate nohighlight">\(6(5)-5(4)\)</span> rest frequency (219.956 GHz). Each of these SPWS covered the same bandwidth (58.594 MHz) but with <em>half</em> as many channels (960 channels) because they share a baseband. Thus they achieve a lower spectral resolution of 83.336 m/s and 83.189 m/s respectively.</p>
+<p>To enable self-calibration, our correlator setup sampled the continuum in a fifth SPW centered at 233.012 GHz with 128 channels each 15.625 MHz in width, obtaining the full available 2.0 GHz bandwidth.</p>
+<p>The weblog provides a detailed summary of the correlator setup.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/spectral-setup.png"><img alt="spectral-setup" class="mb-1" src="../_images/spectral-setup.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">ALMA Band 6 correlator setup (“Science Windows” tab in the weblog).</p>
+</div>
+</div>
+</section>
+<section id="pipeline-products">
+<h2>Pipeline Products<a class="headerlink" href="#pipeline-products" title="Permalink to this heading">#</a></h2>
+<p>Each scheduling block (TM1 and TM2) was calibrated by the Cycle 8 ALMA pipeline. The final tasks in the pipeline additionally generate imaging products, which we can view to get an initial idea of what the observations show.</p>
+<section id="channel-maps-tm1">
+<h3>Channel maps (TM1)<a class="headerlink" href="#channel-maps-tm1" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_12CO.mp4" type="video/mp4" alt="pipeline_TM1_12CO">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_13CO.mp4" type="video/mp4" alt="pipeline_TM1_13CO">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_C18O.mp4" type="video/mp4" alt="pipeline_TM1_C18O">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM1_SO.mp4" type="video/mp4" alt="pipeline_TM1_SO">
+</video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Pipeline-generated TM1 line images (task <code class="docutils literal notranslate"><span class="pre">hif_makeimages</span></code>).</p>
+</div>
+</div>
+</section>
+<section id="channel-maps-tm2">
+<h3>Channel maps (TM2)<a class="headerlink" href="#channel-maps-tm2" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_12CO.mp4" type="video/mp4" alt="pipeline_TM2_12CO">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_13CO.mp4" type="video/mp4" alt="pipeline_TM2_13CO">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_C18O.mp4" type="video/mp4" alt="pipeline_TM2_C18O">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/TM2_SO.mp4" type="video/mp4" alt="pipeline_TM2_SO">
+</video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Pipeline-generated TM2 line images (task <code class="docutils literal notranslate"><span class="pre">hif_makeimages</span></code>).</p>
+</div>
+</div>
+</section>
+<section id="spectral-line-profiles">
+<h3>Spectral line profiles<a class="headerlink" href="#spectral-line-profiles" title="Permalink to this heading">#</a></h3>
+<p>Our spectral windows cover a larger frequency range than the emission lines they target. It can be a good idea to take a look at what’s happening throughout the whole spectral window though, which we do the quick way here by creating spectral line profiles integrated over the full field of view. Note the different y-axis scale.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw31.png"><img alt="12CO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw31.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw29.png"><img alt="13CO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw29.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw27.png"><img alt="C18O-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw27.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_spw25.png"><img alt="SO-pipeline-line-profile" class="mb-1" src="../_images/pipeline_Zprofile_spw25.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Spectral line profiles, integrated over the full FOV. TM1 and TM2 overlaid.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM1.png"><img alt="TM1-pipeline-line-profiles-comparison" class="mb-1" src="../_images/pipeline_Zprofile_allspws_TM1.png" style="width: 98%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/pipeline_Zprofile_allspws_TM2.png"><img alt="TM2-pipeline-line-profiles-comparison" class="mb-1" src="../_images/pipeline_Zprofile_allspws_TM2.png" style="width: 98%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Spectral line profiles, integrated over the full FOV. All four molecules on the same scale.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./step0"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="step0-download-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Download the Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="step0-weblog.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inspecting the Weblog</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-summary">Observation Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-baseline-data-c-6-configuration">Long baseline data (C-6 configuration)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-baseline-data-c-3-configuration">Short baseline data (C-3 configuration)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlator-setup">Correlator Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-products">Pipeline Products</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm1">Channel maps (TM1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-maps-tm2">Channel maps (TM2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-line-profiles">Spectral line profiles</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jess Speedie
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

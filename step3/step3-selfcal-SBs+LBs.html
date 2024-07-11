@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Self-Calibration of SB+LB Data &#8212; Reduction Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'step3/step3-selfcal-SBs+LBs';</script>
+    <link rel="shortcut icon" href="../_static/abaur.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create Final Continuum Measurement Set" href="step3-continuum-ms-achieved.html" />
+    <link rel="prev" title="Self-Calibration of Short-Baseline Execution Blocks" href="step3-selfcal-SBs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/abaur.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/abaur.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-resources.html">Learning Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview-breakdown.html">Breakdown of Our Task</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-program-overview.html">Program Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-dictionaries.html">Useful Dictionaries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-continuum-images.html">Initial Continuum Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-self-calibration.html">Initial Self-Calibration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fstep3/step3-selfcal-SBs+LBs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/step3/step3-selfcal-SBs+LBs.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Self-Calibration of SB+LB Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-made-after-each-round">Images made after each round</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-before-and-after">The results, before and after</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tip admonition">
+<p class="admonition-title">Scripts for <strong>Step 3 - Self-calibration of the continuum</strong>:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step3_continuum_selfcal.py" target="_blank">step3_continuum_selfcal.py</a> # main script</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/selfcal_utils.py" target="_blank">selfcal_utils.py</a> # selfcal functions</p></li>
+</ul>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="self-calibration-of-sb-lb-data">
+<h1>Self-Calibration of SB+LB Data<a class="headerlink" href="#self-calibration-of-sb-lb-data" title="Permalink to this heading">#</a></h1>
+<p>Here, we self-calibrate the long-baseline and short-baseline continuum data together (phase-aligned and concatenated).</p>
+<section id="summary-of-path-through-self-calibration">
+<h2>Summary of path through self-calibration<a class="headerlink" href="#summary-of-path-through-self-calibration" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_path_selfcal.png"><img alt="ABAur_BB_path_selfcal" class="mb-1" src="../_images/ABAur_BB_path_selfcal.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Path through LB+SB self-cal.</strong> This table portrays the path taken through self-calibration through the choice of parameters in every round. Self-cal “starts” in the third column (“Round p0”) with the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task, and then proceeds to the fourth column (“Round p1”) with the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task, and so on. We performed six rounds of phase-only self-cal (“p1”, “p2”, “p3” etc.), and one round of amplitude+phase self-cal (“ap”). In each round, the parameters in the <code class="docutils literal notranslate"><span class="pre">tclean</span></code>, <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> and <code class="docutils literal notranslate"><span class="pre">applycal</span></code> tasks were set as listed in that round’s column. In CASA, setting a parameter to <code class="docutils literal notranslate"><span class="pre">''</span></code> means “all” or “nothing”. Rows to look at include <code class="docutils literal notranslate"><span class="pre">solint</span></code> (the solution interval), <code class="docutils literal notranslate"><span class="pre">calmode</span></code> (phase or amplitude+phase), <code class="docutils literal notranslate"><span class="pre">combine</span></code> (note <code class="docutils literal notranslate"><span class="pre">'spw'</span></code> is now always combined), and the number of failed solutions (that did not satisfy our SNR requirements). The <code class="docutils literal notranslate"><span class="pre">threshold</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task is not set because we clean interactively.</p>
+<p class="sd-card-text"><strong>(selfcal_dict.txt)</strong> The bottom few rows keep track of relevant quantities or image metrics as they change over the course of each round. Rows to look at include <strong>SNR</strong> (improved from 154 to 239), <strong>disk flux</strong> (slightly decreasing monotonically), and the beam major &amp; minor axes <strong>bmaj</strong> &amp; <strong>bmin</strong> (constant as data associated with failed solutions is <em>not</em> flagged out).</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/number-seconds-in-each-scan.png"><img alt="number-seconds-in-each-scan" class="mb-1" src="../_images/number-seconds-in-each-scan.png" style="width: 100%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Context for choice of <code class="docutils literal notranslate"><span class="pre">solint</span></code>: Scan lengths within each execution block.</strong> For example, the LB EB3 execution block contained 13 scans mostly 181 seconds long, though some were 121 seconds long. Thus, the <code class="docutils literal notranslate"><span class="pre">solint</span></code> choices of <code class="docutils literal notranslate"><span class="pre">900s,</span> <span class="pre">360s,</span> <span class="pre">180s,</span> <span class="pre">60s</span></code> for the LB+SB self-cal roughly correspond to five scans, two scans, one scan, and a third of a scan in the case of the LB data. Integer multiples of 60s were chosen to be harmonious with the LB scan lengths.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Additional explanation of parameter choices that are different from the SB-only self-cal<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">solint</span></code>: Previously in the SB-only self-cal, we used <code class="docutils literal notranslate"><span class="pre">solint</span></code>s that were nice fractions of the scan lengths. This wasn’t so possible for the LB+SB self-cal, because the LB scan lengths weren’t as consistent. Instead, we reverted to the DSHARP/MAPS <code class="docutils literal notranslate"><span class="pre">solint</span></code> sequence.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">combine</span></code>: This time it wasn’t possible to avoid <code class="docutils literal notranslate"><span class="pre">combine='spw'</span></code> without sacrificing a lot of data. What constitutes “a lot” is subjective, but my sense was that there were too many printouts of flagged solutions (see the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/step3_continuum_selfcal.py" target="_blank">the script</a>).</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">refant</span></code>: Again selected using the refant lists generated by the pipeline <code class="docutils literal notranslate"><span class="pre">hif_refant</span></code> task, shown in the weblog. This time the antenna rankings changed between the different executions, so I calculated an “overall ranking” by multiplying the rank of each antenna in each execution and taking the four with the smallest overall rank.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">minSNR</span></code>: Same as the SB-only self-cal. Perhaps it’s worth noting though that DSHARP decreased the <code class="docutils literal notranslate"><span class="pre">minSNR</span></code> to <code class="docutils literal notranslate"><span class="pre">1.5</span></code> for their SB+LB self-cal.</p></li>
+<li><p class="sd-card-text"><strong>num flagged solns</strong>: There are a lot more flagged solutions in the LB+SB self-cal than there were in the SB-only self-cal, but (!) we also have a lot more data in the SB+LB self-cal.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">applycal</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">applymode</span></code>: Here we are trusting the wisdom of DSHARP and copying them (they switch to <code class="docutils literal notranslate"><span class="pre">applymode='calonly'</span></code> for the SB+LB self-cal). This applies the calibrations, but <strong>does NOT flag the data</strong> where no calibration solutions are found. This means we do not lose data (so our beam size does not increase), but we also bring with data that has not been calibrated. CASA warns to use this with extreme caution.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">spwmap</span></code>: Since the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> <code class="docutils literal notranslate"><span class="pre">combine</span></code> includes SPW in all rounds, we need a <code class="docutils literal notranslate"><span class="pre">spwmap</span></code> in all rounds.</p></li>
+</ul>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">robust</span></code>: In my first SB+LB self-cal venture, I used <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> as before, but there were <em>a lot</em> of flagged solutions. Ryan suggested we can play with the <code class="docutils literal notranslate"><span class="pre">robust</span></code> parameter. Getting high SNR is important. We can image with a lower <code class="docutils literal notranslate"><span class="pre">robust</span></code> later for our final images if we want. So for the self-cal, we increase <code class="docutils literal notranslate"><span class="pre">robust</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+🐛 Error in Calibrater::solve: Mismatch between Solution frequencies and existing CalTable frequencies<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">I encountered this (<a href="https://github.com/e-merlin/eMERLIN_CASA_pipeline/issues/70" target="_blank">documented</a>) error in the <code class="docutils literal notranslate"><span class="pre">gaincal</span></code> task using CASA 6.2.1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Current</span> <span class="n">CalTable</span> <span class="n">nchan</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">Current</span> <span class="n">CalTable</span> <span class="n">freq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">224698702714</span><span class="p">]</span>
+<span class="n">Current</span> <span class="n">Solution</span> <span class="n">nchan</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">Current</span> <span class="n">Solution</span> <span class="n">freq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">224698702714</span><span class="p">]</span>
+<span class="n">Diff</span> <span class="o">=</span> <span class="p">[</span><span class="mf">6.103515625e-05</span><span class="p">]</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">52</span>	<span class="n">SEVERE</span>	<span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span>	<span class="n">Caught</span> <span class="n">exception</span><span class="p">:</span> <span class="n">Mismatch</span> <span class="n">between</span> <span class="n">Solution</span> <span class="n">frequencies</span> <span class="ow">and</span> <span class="n">existing</span> <span class="n">CalTable</span> <span class="n">frequencies</span> <span class="k">for</span> <span class="n">spw</span><span class="o">=</span><span class="mi">35</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">52</span>	<span class="n">SEVERE</span>		<span class="ne">Exception</span> <span class="n">Reported</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span>	<span class="n">SEVERE</span>	<span class="n">gaincal</span><span class="p">::::</span><span class="n">casa</span>	<span class="n">Task</span> <span class="n">gaincal</span> <span class="n">raised</span> <span class="n">an</span> <span class="n">exception</span> <span class="n">of</span> <span class="k">class</span> <span class="nc">RuntimeError</span> <span class="k">with</span> <span class="n">the</span> <span class="n">following</span> <span class="n">message</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">08</span> <span class="mi">21</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span>	<span class="n">SEVERE</span>	<span class="n">gaincal</span><span class="p">::::</span><span class="n">casa</span>	<span class="ne">Exception</span> <span class="n">Reported</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">gaincal</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">Calibrater</span><span class="p">::</span><span class="n">solve</span><span class="o">.</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To avoid this bug, it was necessary to switch to CASA 6.4.1 at this point in the reduction process.</p>
+</div>
+</details></section>
+<section id="achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">
+<h2>Achieved phase solutions as a function of time and antenna (the calibration tables)<a class="headerlink" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables" title="Permalink to this heading">#</a></h2>
+<p>All of SB EB1, SB EB2, LB EB1, LB EB2, LB EB3, LB EB4, LB EB5 and LB EB6 were self-calibrated together. The following plot shows the gain phase solutions as a function of time for a single EB and a single self-cal round.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws.png"><img alt="ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws" class="mb-1" src="../_images/ABAur_BB_concat_shifted_contp4.cal_phase-vs-time_EB3_allspws.png" style="width: 60%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Self-calibration solutions for LB EB1 (round “p4”).</strong>  Gain phase as a function of time. Blue shaded regions denote the target scans. The legend says “EB3” because in the combined SB+LB measurement set, the SB EBs take the index of 1 and 2 (so LB EB1 becomes SB+LB EB3). Since all SPWs are combined, points are coloured the same colour (happens to be purple).</p>
+</div>
+</div>
+<!-- ```{note}
+Message from Jess: More plots of the self-calibration solutions for the LB+SB self-cal (like shown in the movies on the previous page for the SB-only self-cal) are available upon request (jspeedie@uvic.ca). It's just quite time consuming to compile the many panels into videos (eight videos, if one for each EB).
+``` -->
+</section>
+<section id="images-made-after-each-round">
+<h2>Images made after each round<a class="headerlink" href="#images-made-after-each-round" title="Permalink to this heading">#</a></h2>
+<p>The following movie shows the continuum image achieved after each round of self-cal (with a large colour bar stretch to exaggerate faint emission).</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="85%" controls>
+  <source src="../_static/videos/BB_concat_shifted_cont.mp4" type="video/mp4">
+</video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>Continuum image achieved after each round of LB+SB self-cal.</strong> Things to notice: (1) the SNR increases; (2) the images visually improve; (3) the beam does not get bigger.</p>
+</div>
+</div>
+<!--
+```{note}
+Jess might add here: Figures showing inspection of flux recovery.
+``` -->
+</section>
+<section id="the-results-before-and-after">
+<h2>The results, before and after<a class="headerlink" href="#the-results-before-and-after" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/BB-before-after.gif"><img alt="BB-before-after" class="mb-1" src="../_images/BB-before-after.gif" style="width: 80%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><strong>A gif blinking between our initial image (round “p0”) and our final image (round “ap”).</strong> We achieve a decrease in rms noise by a factor of 1.6. The peak intensity decreases by about 0.3 mJy/beam. The SNR improves by a factor of 1.5. The outer ring becomes more well-defined. The inner cavity appears emptier; the inner disk appears unchanged.</p>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./step3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="step3-selfcal-SBs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Self-Calibration of Short-Baseline Execution Blocks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="step3-continuum-ms-achieved.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Create Final Continuum Measurement Set</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-path-through-self-calibration">Summary of path through self-calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achieved-phase-solutions-as-a-function-of-time-and-antenna-the-calibration-tables">Achieved phase solutions as a function of time and antenna (the calibration tables)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images-made-after-each-round">Images made after each round</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results-before-and-after">The results, before and after</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jess Speedie
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

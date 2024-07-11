@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Learning Resources &#8212; Reduction Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview/overview-resources';</script>
+    <link rel="shortcut icon" href="../_static/abaur.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Breakdown of Our Task" href="overview-breakdown.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/abaur.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/abaur.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Learning Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-breakdown.html">Breakdown of Our Task</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 0 - Getting set up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-download-data.html">Download the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-program-overview.html">Program Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-weblog.html">Inspecting the Weblog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-restoring-pipeline-calibration.html">Restoring the Pipeline Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step0/step0-dictionaries.html">Useful Dictionaries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 1 - Prepare the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-summary.html">Step 1 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-manual-flags.html">Manual Flagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-pseudo-continuum.html">Pseudo-continuum Measurement Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-continuum-images.html">Initial Continuum Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step1/step1-initial-self-calibration.html">Initial Self-Calibration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 2 - Phase alignment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary.html">Step 2 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-LBs.html">Align Long-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-align-SBs.html">Align Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step2/step2-summary-of-shifts.html">Summary of Phase Shifts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 3 - Self-calibration of the continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-summary.html">Step 3 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs.html">Self-Calibration of Short-Baseline Execution Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-selfcal-SBs%2BLBs.html">Self-Calibration of SB+LB Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step3/step3-continuum-ms-achieved.html">Create Final Continuum Measurement Set</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Step 4 - Prepare the lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-summary.html">Step 4 Overview &amp; Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-average-down-continuum.html">Averaging Down the Continuum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-phase-alignments.html">Apply Phase Shifts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-apply-self-cal-solutions.html">Apply Self-Calibration Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-continuum-subtraction.html">Continuum Subtraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../step4/step4-line-mses-achieved.html">Create Final Line Measurement Sets</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../science/science-wrap-up.html">Now on to the science!</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Foverview/overview-resources.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/overview/overview-resources.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Learning Resources</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="learning-resources">
+<h1>Learning Resources<a class="headerlink" href="#learning-resources" title="Permalink to this heading">#</a></h1>
+<p>Here’s a list of information sources that I found useful for building an understanding of the reduction, calibration and imaging processes.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CASA Guides</div>
+<p class="sd-card-text">See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target="_blank">ALMAguides</a> main page.</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=ALMA_Cycle_8_Imaging_Pipeline_Reprocessing" target="_blank">Examples for ALMA Imaging Pipeline Reprocessing</a> (Cycle 8 examples). Covers: Restoring the pipeline calibration, renormalization corrections, reproducing pipeline products, and re-imaging, including continuum subtraction, the aggregate continuum, revising continuum ranges, channel binning, and uvtapering.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Guide_to_the_NA_Imaging_Template" target="_blank">NA Imaging Template.</a> Designed to guide the user through the decisions needed when imaging ALMA data:</p>
+<ul>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Imaging_Prep" target="_blank">Prepare the Data for Imaging</a>: Workflow, splitting off pipeline calibrated data, listing MS files to image, reviewing the calibration, flagging bad data, flux equalization, combining MSes from multiple executions, splitting off science target data, regridding spectral window, and backing up data set. Note the incredible <a href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImagingPrep_template.py" target="_blank">scriptForImagingPrep_template.py</a> and <a href="https://github.com/aakepley/ALMAImagingScript/blob/master/scriptForImaging_template.py" target="_blank">scriptForImaging_template.py</a>.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Image_Continuum" target="_blank">Image the Continuum</a>: Creating an averaged continuum MS, imaging parameters, imaging the continuum, exporting the images.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Self-Calibration_Template" target="_blank">Self-Calibration</a>: Self-calibration on the continuum, including phase and amplitude self-cal.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Image_Line" target="_blank">Spectral Line Imaging</a>: Continuum subtraction, applying continuum self-cal to the line data, imaging line data, exporting the images.</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php/Automasking_Guide" target="_blank">Automasking Guide.</a> For using auto-multithresh to generate cleaning masks. Provides <u>Table of Standard Values</u> (!), and demonstration of varying different parameters, as well as best practices.</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CASA Guides Examples: With TW Hya continuum and N2H+ line data</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Imaging_CASA_6" target="_blank">A first look at imaging in CASA 6.2.</a> Getting the data, starting CASA, CASA basics, getting oriented with the data, inspecting the data, first look at TCLEAN, experimenting with TCLEAN, seeing the effects of calibration and flagging, imaging the science target (non-interactive/interactive), primary beam correction.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Self_Calibration_CASA_6" target="_blank">A first look at self-calibration in CASA 6.2.</a> Self-calibration (phase and amplitude calibration; multiple rounds).</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Line_Imaging_CASA_6" target="_blank">A first look at spectral line imaging in CASA 6.2.</a> Continuum subtraction, imaging the spectral line, primary beam correction.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=First_Look_at_Image_Analysis_CASA_6" target="_blank">A first look at image analysis in CASA 6.2.</a> Statistics, moments, exporting fits images.</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CASA Guides: Miscelleneous</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=Analysis_Utilities" target="_blank">Analysis Utilities.</a> A Python module containing utilities for analysis and plotting.</p></li>
+<li><p class="sd-card-text"><a href="https://casaguides.nrao.edu/index.php?title=ADMIT_Products_and_Usage" target="_blank">A guide for utilizing ADMIT for your data.</a> This guide discusses how to use ADMIT and customize it for your data.</p></li>
+<li><p class="sd-card-text"><a href="https://science.nrao.edu/facilities/alma/naasc-workshops/nrao-cd-wm16/Selfcal_Madison.pdf" target="_blank">When, why, and how to do self-calibration.</a> Slides by Sabrina Stierwalt.</p></li>
+<li><p class="sd-card-text"><a href="https://casa.nrao.edu/Release4.1.0/doc/UserMan/UserMansu82.html" target="_blank">Under the Hood: Structure of the Measurement Set.</a> More information regarding the structure of measurement sets. Know your columns!</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+ALMA Docs</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://arc.iram.fr/documents/cycle8/ALMA_Cycle8_Technical_Handbook.pdf" target="_blank">ALMA Cycle 8 2021 Technical Handbook.</a> All of Section 10.</p></li>
+<li><p class="sd-card-text"><a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8.</a> The whole document.</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+ALMA Primer View Series</div>
+<p class="sd-card-text"><em>“The <a href="https://www.youtube.com/@almaprimer920/videos" target="_blank">ALMA Primer Series</a> is an effort to help inform astronomers about topics in interferometry and specifically how to get the most out of their own ALMA data. The team has members from National Research Council of Canada (NRC Herzberg), the National Radio Astronomy Observatory (NRAO) and from universities across North America. The series is not yet complete; new videos are in production covering a broad range of topics covering radio interferometry, calibration, imaging, and more.”</em></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Cycle 9 ALMA Ambassador Workshop (Allison Towner)</div>
+<p class="sd-card-text"><a class="reference download internal" download="" href="../_downloads/9d35a5dacc21c973c559ec4c62bd105d/Selfcal_continuum_tutorial-withflowchart.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Continuum</span> <span class="pre">Self</span> <span class="pre">Calibration</span> <span class="pre">(by</span> <span class="pre">Allison</span> <span class="pre">Towner)</span></code></a>: Tutorial PDF using TWHya data.</p>
+<p class="sd-card-text"><a class="reference download internal" download="" href="../_downloads/c5ea9267feec37b35fe90ef454590efd/Selfcal_line_tutorial.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Line</span> <span class="pre">Self</span> <span class="pre">Calibration</span> <span class="pre">(by</span> <span class="pre">Allison</span> <span class="pre">Towner)</span></code></a>: Tutorial PDF using maser data.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Key Papers</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://ui.adsabs.harvard.edu/abs/2018ApJ...869L..41A/abstract" target="_blank">Andrews et al. (2018).</a> DSHARP Large Program (Section 3 and Section 4).</p></li>
+<li><p class="sd-card-text"><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....1O/abstract" target="_blank">Oberg et al. (2021).</a> MAPS Large Program (Section 3).</p></li>
+<li><p class="sd-card-text"><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract" target="_blank">Czekala et al. (2021).</a> MAPS Large Program (Section 2, 3, 4, 5; clean strategies and the JvM effect).</p></li>
+<li><p class="sd-card-text"><a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257...19H/abstract" target="_blank">Huang et al. (2021).</a> MAPS Large Program (Section 2.1; imaging strategies for GM Aur, a disk with wild spiral arms and non-Keplerian emission).</p></li>
+</ul>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Scripts</div>
+<ul class="simple">
+<li><p class="sd-card-text"><a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">Reduction/imaging scripts from DSHARP Large Program.</a> Continuum scripts and CO scripts for each disk, with some differences between disks. Useful for a grand overview, use of functions, choise of parameters, and how to handle multiple observation sets.</p></li>
+<li><p class="sd-card-text"><a href="https://almascience.eso.org/almadata/lp/DSHARP/scripts/reduction_utils.py" target="_blank">Python functions from DSHARP Large Program (reductions_utils.py).</a> Very useful functions, wrappers, etc.</p></li>
+<li><p class="sd-card-text"><a href="https://alma-maps.info/data.html" target="_blank">Line imaging scripts from MAPS Large Program (image_v3.py)</a>: Example of line imaging approach; Keplerian mask script and JvM correction script.</p></li>
+<li><p class="sd-card-text">Phase alignment script from exoALMA Large Program: To deal with decoherence between execution blocks; one important step in the self-calibration process. To be released as part of the exoALMA publications.</p></li>
+</ul>
+</div>
+</div>
+<!-- <a href="https://" target="_blank">target</a> -->
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Data Reduction Visit to the NAASC (f2f)</div>
+<p class="sd-card-text">I visited the North American ALMA Science Center (NAASC) in Charlottesville, VA for a week in Nov. 2022 and worked with Staff Scientist Ryan Loomis and Data Analysts Sarah Wood and Tristan Ashton. Their science support and guidance with the reduction and imaging of the ALMA data was invaluable. It was during this week that the big picture (the workflow <a class="reference internal" href="overview-breakdown.html"><span class="doc std std-doc">Breakdown of Our Task</span></a>) came together for me. The visit was fully funded by the NAASC and computational resources were provided on NAASC/NRAO clusters. I cannot recommend this program highly enough. <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">Learn about f2f visits here!</a></p>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./overview"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="overview-breakdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Breakdown of Our Task</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jess Speedie
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
