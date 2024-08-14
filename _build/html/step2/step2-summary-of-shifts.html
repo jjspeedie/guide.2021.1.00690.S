@@ -205,15 +205,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Preliminary Images</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="../imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
@@ -436,11 +433,19 @@ document.write(`
 <p class="sd-card-text">Each row pertains to a single EB-EB comparison. The grey-coloured MSes are ones that have been shifted; those rows are the “checks” where we expect the offsets to be small. When the reference and comparison MSes are the same MS (as in the top row), the offset is zero.</p>
 </div>
 </div>
-<p>Here’s a visualization of the values of the required offsets on the sky, in comparison to the size of the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">initial continuum image</span></a> beam of each EB. The numbers written next to each beam are <code class="docutils literal notranslate"><span class="pre">[the</span> <span class="pre">hypotenuse</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">deltaRA-deltaDec</span> <span class="pre">offset]/[the</span> <span class="pre">beam</span> <span class="pre">minor</span> <span class="pre">axis]</span></code>. The required offsets range 8-21% of a beam minor axis for the LB EBs, and 6-40% of a beam for the SB EBs. The offset for SB EB2 (yellow) was definitely noticeable in the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">initial continuum images</span></a>.</p>
+<p>Here’s a visualization of the values of the required offsets on the sky, in comparison to the size of the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">initial continuum image</span></a> beam of each EB. The numbers written next to each beam are <code class="docutils literal notranslate"><span class="pre">[the</span> <span class="pre">hypotenuse</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">deltaRA-deltaDec</span> <span class="pre">offset]/[the</span> <span class="pre">beam</span> <span class="pre">minor</span> <span class="pre">axis]</span></code>. The required offsets range 8-21% of a beam minor axis for the LB EBs, and 6-40% of a beam for the SB EBs.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <center>
 <a class="mb-1 reference internal image-reference" href="../_images/offsets.png"><img alt="images/offsets" class="mb-1" src="../_images/offsets.png" style="width: 85%;" /></a>
+</center>
+</div>
+</div>
+<p>The offset for SB EB2 (yellow in the above figure) was definitely noticeable in the <a class="reference internal" href="../step1/step1-initial-continuum-images.html"><span class="doc std std-doc">initial continuum images</span></a>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/SBEB1-SBEB2-blink.gif"><img alt="images/SBEB1-SBEB2-blink" class="mb-1" src="../_images/SBEB1-SBEB2-blink.gif" style="width: 65%;" /></a>
 </center>
 </div>
 </div>

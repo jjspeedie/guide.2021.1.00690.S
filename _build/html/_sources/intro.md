@@ -36,26 +36,26 @@ As an additional reference, the refereed journal articles where the data are or 
 :::{grid-item-card}
 
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper1.png">
+  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper1_placeholder.png">
 </a>
 
 <p></p>
 
 <!-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. 2024</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations. -->
-<sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1).
+<sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1). Speedie et al. in press.
 
 :::
 
 :::{grid-item-card}
 
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper2.png">
+  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper2_placeholder.png">
 </a>
 
 <p></p>
 
 <!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
-<sup>12</sup>CO and SO line observations (paper 2).
+<sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in prep.
 
 :::
 ::::

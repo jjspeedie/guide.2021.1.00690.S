@@ -21,13 +21,23 @@ Each row pertains to a single EB-EB comparison. The grey-coloured MSes are ones 
 ````
 
 
-Here's a visualization of the values of the required offsets on the sky, in comparison to the size of the [initial continuum image](../step1/step1-initial-continuum-images.md) beam of each EB. The numbers written next to each beam are ``[the hypotenuse of the deltaRA-deltaDec offset]/[the beam minor axis]``. The required offsets range 8-21% of a beam minor axis for the LB EBs, and 6-40% of a beam for the SB EBs. The offset for SB EB2 (yellow) was definitely noticeable in the [initial continuum images](../step1/step1-initial-continuum-images.md).
+Here's a visualization of the values of the required offsets on the sky, in comparison to the size of the [initial continuum image](../step1/step1-initial-continuum-images.md) beam of each EB. The numbers written next to each beam are ``[the hypotenuse of the deltaRA-deltaDec offset]/[the beam minor axis]``. The required offsets range 8-21% of a beam minor axis for the LB EBs, and 6-40% of a beam for the SB EBs.
 
 
 ````{card}
 <center>
 
 <img src="images/offsets.png" alt="images/offsets" class="mb-1" width="85%">
+
+</center>
+````
+
+The offset for SB EB2 (yellow in the above figure) was definitely noticeable in the [initial continuum images](../step1/step1-initial-continuum-images.md):
+
+````{card}
+<center>
+
+<img src="images/SBEB1-SBEB2-blink.gif" alt="images/SBEB1-SBEB2-blink" class="mb-1" width="65%">
 
 </center>
 ````
