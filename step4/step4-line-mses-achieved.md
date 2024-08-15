@@ -53,7 +53,7 @@ for spwi,molecule in enumerate(molecules):
 
 <!-- (I tried to follow the file naming conventions of the MAPS datasets.) -->
 
-<div style="background-color:#fff6cc;">
+<div style="background-color:#e1f2fc;">
 
 ````{card} Final line measurement sets achieved! 🥳
 Continuum-subtracted spectral line measurement sets:

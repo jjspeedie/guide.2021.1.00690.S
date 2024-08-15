@@ -44,153 +44,22 @@ What science will you do?
 :::{grid-item-card}
 <a href="https://doi.org/10.11570/24.0087" target="_blank">**Download <sup>13</sup>CO and C<sup>18</sup>O data products**</a>
 
-`````{dropdown} Full directory structure & file listing
-
-````
-./
-├── README.md
-├── 2021.1.00690.S
-│   ├── images_lines
-│   │   ├── 13CO
-│   │   │   ├── v11_robust0.5
-│   │   │   │   ├── ABAur_13CO.clean.JvMcorr.image.fits
-│   │   │   │   ├── ABAur_13CO.clean.JvMcorr.image.pbcor.fits
-│   │   │   │   ├── ABAur_13CO.clean.image.fits
-│   │   │   │   ├── ABAur_13CO.clean.image.pbcor.fits
-│   │   │   │   ├── ABAur_13CO.clean.mask.fits
-│   │   │   │   ├── ABAur_13CO.clean.model.fits
-│   │   │   │   ├── ABAur_13CO.clean.pb.fits
-│   │   │   │   ├── ABAur_13CO.clean.psf.fits
-│   │   │   │   ├── ABAur_13CO.clean.residual.fits
-│   │   │   │   ├── ABAur_13CO.clean.tclean.summary.npy
-│   │   │   │   ├── ABAur_13CO.imaging_info.csv
-│   │   │   │   └── moment_maps
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M0.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M0_filtered_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1_filtered_background.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1_filtered_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1_keplerian_model.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1_keplerian_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dM0.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dM1.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dwpdVb.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dwpdVr.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_wpdVb.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_wpdVr.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor_wpdVrdVb_filtered_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M0.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M0_filtered_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M1.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M1_filtered_background.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M1_filtered_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M1_keplerian_model.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_M1_keplerian_residuals.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_dM0.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_dM1.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_dwpdVb.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_dwpdVr.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_wpdVb.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_wpdVr.fits
-│   │   │   │       ├── ABAur_13CO.clean.JvMcorr.image_wpdVrdVb_filtered_residuals.fits
-│   │   │   │       ├── load_spiral_annotations.py
-│   │   │   │       ├── spiral_spines.txt
-│   │   │   │       └── spiral_spines_carta.txt
-│   │   │   └── v11_robust1.5
-│   │   │       ├── ABAur_13CO.clean.JvMcorr.image.fits
-│   │   │       ├── ABAur_13CO.clean.JvMcorr.image.pbcor.fits
-│   │   │       ├── ABAur_13CO.clean.image.fits
-│   │   │       ├── ABAur_13CO.clean.image.pbcor.fits
-│   │   │       ├── ABAur_13CO.clean.mask.fits
-│   │   │       ├── ABAur_13CO.clean.model.fits
-│   │   │       ├── ABAur_13CO.clean.pb.fits
-│   │   │       ├── ABAur_13CO.clean.psf.fits
-│   │   │       ├── ABAur_13CO.clean.residual.fits
-│   │   │       ├── ABAur_13CO.clean.tclean.summary.npy
-│   │   │       ├── ABAur_13CO.imaging_info.csv
-│   │   │       ├── line_centers
-│   │   │       │   ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dv0.fits
-│   │   │       │   ├── ABAur_13CO.clean.JvMcorr.image.pbcor_v0.fits
-│   │   │       │   ├── pv.wiggle.dv0.270deg.detrended.txt
-│   │   │       │   ├── pv.wiggle.dv0.270deg.txt
-│   │   │       │   ├── pv.wiggle.v0.270deg.detrended.txt
-│   │   │       │   └── pv.wiggle.v0.270deg.txt
-│   │   │       └── moment_maps
-│   │   │           ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M0.fits
-│   │   │           ├── ABAur_13CO.clean.JvMcorr.image.pbcor_M1.fits
-│   │   │           ├── ABAur_13CO.clean.JvMcorr.image.pbcor_dM0.fits
-│   │   │           └── ABAur_13CO.clean.JvMcorr.image.pbcor_dM1.fits
-│   │   └── C18O
-│   │       ├── v11_robust0.5
-│   │       │   ├── ABAur_C18O.clean.JvMcorr.image.fits
-│   │       │   ├── ABAur_C18O.clean.JvMcorr.image.pbcor.fits
-│   │       │   ├── ABAur_C18O.clean.image.fits
-│   │       │   ├── ABAur_C18O.clean.image.pbcor.fits
-│   │       │   ├── ABAur_C18O.clean.mask.fits
-│   │       │   ├── ABAur_C18O.clean.model.fits
-│   │       │   ├── ABAur_C18O.clean.pb.fits
-│   │       │   ├── ABAur_C18O.clean.psf.fits
-│   │       │   ├── ABAur_C18O.clean.residual.fits
-│   │       │   ├── ABAur_C18O.clean.tclean.summary.npy
-│   │       │   ├── ABAur_C18O.imaging_info.csv
-│   │       │   └── moment_maps
-│   │       │       ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M0.fits
-│   │       │       ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1.fits
-│   │       │       ├── ABAur_C18O.clean.JvMcorr.image.pbcor_dM0.fits
-│   │       │       └── ABAur_C18O.clean.JvMcorr.image.pbcor_dM1.fits
-│   │       └── v11_robust1.5
-│   │           ├── ABAur_C18O.clean.JvMcorr.image.fits
-│   │           ├── ABAur_C18O.clean.JvMcorr.image.pbcor.fits
-│   │           ├── ABAur_C18O.clean.image.fits
-│   │           ├── ABAur_C18O.clean.image.pbcor.fits
-│   │           ├── ABAur_C18O.clean.mask.fits
-│   │           ├── ABAur_C18O.clean.model.fits
-│   │           ├── ABAur_C18O.clean.pb.fits
-│   │           ├── ABAur_C18O.clean.psf.fits
-│   │           ├── ABAur_C18O.clean.residual.fits
-│   │           ├── ABAur_C18O.clean.tclean.summary.npy
-│   │           ├── ABAur_C18O.imaging_info.csv
-│   │           ├── line_centers
-│   │           │   ├── ABAur_C18O.clean.JvMcorr.image.pbcor_dv0.fits
-│   │           │   ├── ABAur_C18O.clean.JvMcorr.image.pbcor_v0.fits
-│   │           │   ├── pv.wiggle.dv0.270deg.detrended.txt
-│   │           │   ├── pv.wiggle.dv0.270deg.txt
-│   │           │   ├── pv.wiggle.v0.270deg.detrended.txt
-│   │           │   └── pv.wiggle.v0.270deg.txt
-│   │           └── moment_maps
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M0.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1_filtered_background.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1_filtered_residuals.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1_keplerian_model.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_M1_keplerian_residuals.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_dM0.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image.pbcor_dM1.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M0.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M1.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M1_filtered_background.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M1_filtered_residuals.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M1_keplerian_model.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_M1_keplerian_residuals.fits
-│   │               ├── ABAur_C18O.clean.JvMcorr.image_dM0.fits
-│   │               └── ABAur_C18O.clean.JvMcorr.image_dM1.fits
-│   └── measurement_sets
-│       ├── ABAur_13CO.bin30s.ms.contsub.tgz
-│       ├── ABAur_13CO.bin30s.ms.tgz
-│       ├── ABAur_C18O.bin30s.ms.contsub.tgz
-│       └── ABAur_C18O.bin30s.ms.tgz
-└── auxiliary
-├── SPHERE_Hband
-│   ├── V_AB_Aur_2019-12-18_Q_phi_median.fits
-│   ├── V_AB_Aur_2019-12-18_Q_phi_median_xR2.fits
-│   ├── load_spiral_annotations.py
-│   ├── spiral_spines.txt
-│   └── spiral_spines_carta.txt
-└── planet_candidates_dict.py
-
-18 directories, 122 files
-````
-`````
+<a href="https://ws-uv.canfar.net/minoc/files/dXJpPWNhZGM6dmF1bHQvZGU5YTU4ZGMtNDlmNS00Y2Y5LWE4NmQtY2Q3NzgyOTFjNThhJmdudD1SZWFkR3JhbnQmc3ViPTIwMDA2ODMxNjM=~f6pIcL6PdZTENf0xGwMx_ia9gWtExDd59Af0SmrEWevVMEkE-k2S8vat4xwZOwXTNEjD0xY2Kyr_4e1_ympnOrrBLWkJASwwoQiANNY2YOSPg3DtvTlJUoVMBAT9X-0bnhii_PSUYyrKSPv8Dr8eDis22Vnd3na2sYl1GGZTVTiGhpPvCDHAn9oevi5UM_caP2M3ULTLzLZu8OssUw8u3VeoiWg49lWZEhUG4FNgRnnz-0OokQVIs8r5o1dfyycaUAUutJC28UPcTRD1Sz4iTjyxZtDzid-hnhLcYStymlQ3_3oj_dBpic7MK4if2CvWjkyrGv-l35RXVIVTnUnikYz7s23JLxx1HaelSaKQyq76fdxSZxdh7I0uXxiNq3f2Cv1rjmOFVwIsO32uMWOC8jNjl1L7P5Ih3NaNrSJfJqxCpIXCITcIEAdvNhO7SF2cjFkNd6IlWWxwJHhhUkDLihdTFq4NGsvKELDyEy7DuLTl7lG8QCjSNST-78X3jaawd0PBwcGt8mxCZzhZma4oUSmxQLU1iF7j-N7WwIvDZCyPpmeWsvn48FjFTMMC44nM_R6g29nZr2Pie1taNHES3d58056mJDenC1IMcIKw6bubhZJYIWXlIAmu23Gfmv0AN6xbMgvQMyyifYcaVr2f4gCsxqmLVa-BmHcSwJOmkjc=/cadc:vault/de9a58dc-49f5-4cf9-a86d-cd778291c58a:fo/README.html" target="_blank">
+  <button style="
+        background-color: white;
+        border: 2px solid #4682b4;
+        border-radius: 12px;
+        color: black;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#e1f2fc';"
+        onmouseout="this.style.backgroundColor='white';">
+  Direct link to data repository's README
+  </button>
+</a>
 
 
 :::

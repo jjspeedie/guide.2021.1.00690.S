@@ -18,7 +18,7 @@ listobs(vis=final_cont_ms, listfile=final_cont_ms+'.listobs.txt')
 os.system('tar cvzf backups/' + final_cont_ms+'.tgz ' + final_cont_ms)
 ````
 
-<div style="background-color:#fff6cc;">
+<div style="background-color:#e1f2fc;">
 
 ````{card} Final continuum measurement set achieved! 🥳
 
