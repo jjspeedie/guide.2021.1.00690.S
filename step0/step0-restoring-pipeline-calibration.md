@@ -2,7 +2,7 @@
 
 This is also known as "Generating the calibrated visibilities". (If you do a <a href="https://science.nrao.edu/facilities/alma/visitors-shortterm" target="_blank">f2f visit to the NAASC</a>, your data will be staged on NAASC computers and all of the following will be done for you before you even arrive!).
 
-There are a couple different paths, depending on whether your program was calibrated by the pipeline or manually. See <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8, Section 5 (page 13)</a>. Our program was calibrated by the pipeline, so we follow **"Section 5.2: Running the `scriptForPI.py` in the case of pipeline-calibrated data"**. Section 5.4 is also helpful: "Section 5.4: Saving disk space during and after the execution of the ``scriptForPI.py``."
+There are a couple different paths, depending on whether your program was calibrated by the pipeline or manually. See <a href="https://almascience.nrao.edu/portal/documents-and-tools/cycle8/alma-qa2-data-products-for-cycle-8" target="_blank">ALMA QA2 Data Products for Cycle 8, Section 5 (page 13)</a>, or <a href="https://help.almascience.org/kb/articles/how-do-i-obtain-a-file-of-calibrated-visibilities-measurement-set-for-alma-data" target="_blank">this Knowledgebase article</a>. Our program was calibrated by the pipeline, so we follow **"Section 5.2: Running the `scriptForPI.py` in the case of pipeline-calibrated data"**. Section 5.4 is also helpful: "Section 5.4: Saving disk space during and after the execution of the ``scriptForPI.py``."
 
 ## Restoring the pipeline calibration using ``scriptForPI.py``
 
