@@ -54,6 +54,12 @@ See the <a href="https://casaguides.nrao.edu/index.php?title=ALMAguides" target=
 
 ````
 
+````{card} ALMA Memos
+
+* <a href="https://arxiv.org/abs/1805.05266" target="_blank">Advanced Gain Calibration Techniques in Radio Interferometry (Brogan, Hunter & Fomalont 2014).</a>
+
+````
+
 ````{card} ALMA Primer View Series
 
 *"The <a href="https://www.youtube.com/@almaprimer920/videos" target="_blank">ALMA Primer Series</a> is an effort to help inform astronomers about topics in interferometry and specifically how to get the most out of their own ALMA data. The team has members from National Research Council of Canada (NRC Herzberg), the National Radio Astronomy Observatory (NRAO) and from universities across North America. The series is not yet complete; new videos are in production covering a broad range of topics covering radio interferometry, calibration, imaging, and more."*
