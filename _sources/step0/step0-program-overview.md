@@ -84,14 +84,19 @@ We placed five spectral windows (SPWs) over the four available basebands to targ
 
 </center>
 +++
-ALMA Band 6 correlator setup.
+ALMA Band 6 correlator setup. Note the third column gives SPW center frequency, not the transition rest frequency.
 ````
 
-We centered one SPW at the $^{13}$CO $J=2-1$ molecular emission line transition rest frequency (220.405 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with $N=2$ by Hanning smoothing within the correlator data processor. (This was our "representative" window in the OT.)
+<!-- $^{12}$CO $J=2-1$ rest frequency 230.538 GHz
+$^{13}$CO $J=2-1$ rest frequency 220.399 GHz
+C$^{18}$O $J=2-1$ rest frequency 219.560 GHz
+SO $6(5)-5(4)$ rest frequency 219.949 GHz -->
 
-We placed a second SPW at the $^{12}$CO $J=2-1$ rest frequency (230.545 GHz) covering the same bandwidth with the same number of channels, achieving a slighty higher spectral resolution of 39.684 m/s (due to the higher center frequency, of course).
+We centered one SPW at the $^{13}$CO $J=2-1$ molecular emission line transition rest frequency (220.398 GHz), covering a bandwidth of 58.594 MHz with 1920 channels, resulting in the highest achievable spectral resolution of 41.510 m/s after default spectral averaging with $N=2$ by Hanning smoothing within the correlator data processor. (This was our "representative" window in the OT.)
 
-A third SPW was centered at the C$^{18}$O $J=2-1$ rest frequency (219.567 GHz), and a fourth at the SO $6(5)-5(4)$ rest frequency (219.956 GHz). Each of these SPWS covered the same bandwidth (58.594 MHz) but with *half* as many channels (960 channels) because they share a baseband. Thus they achieve a lower spectral resolution of 83.336 m/s and 83.189 m/s respectively.
+We placed a second SPW at the $^{12}$CO $J=2-1$ rest frequency (230.538 GHz) covering the same bandwidth with the same number of channels, achieving a slighty higher spectral resolution of 39.684 m/s (due to the higher center frequency, of course).
+
+A third SPW was centered at the C$^{18}$O $J=2-1$ rest frequency (219.560 GHz), and a fourth at the SO $6(5)-5(4)$ rest frequency (219.949 GHz). Each of these SPWS covered the same bandwidth (58.594 MHz) but with *half* as many channels (960 channels) because they share a baseband. Thus they achieve a lower spectral resolution of 83.336 m/s and 83.189 m/s respectively.
 
 To enable self-calibration, our correlator setup sampled the continuum in a fifth SPW centered at 233.012 GHz with 128 channels each 15.625 MHz in width, obtaining the full available 2.0 GHz bandwidth.
 
