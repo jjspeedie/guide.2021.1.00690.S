@@ -35,8 +35,8 @@ As an additional reference, the refereed journal articles where the data are or 
 
 :::{grid-item-card}
 
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper1.jpg">
+<a href="https://www.nature.com/articles/s41586-024-07877-0" target="_blank">
+  <img alt="https://www.nature.com/articles/s41586-024-07877-0" src="_static/paper1.jpg">
 </a>
 
 <!-- <p></p> -->
