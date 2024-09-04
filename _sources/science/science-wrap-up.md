@@ -1,40 +1,38 @@
 # Now on to the science!
 
-The science we did:
+<!-- The science we did: -->
 
 ::::{grid}
 :gutter: 2
 
 :::{grid-item-card}
 
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="../_static/paper1_placeholder.png">
+<a href="https://www.nature.com/articles/s41586-024-07877-0" target="_blank">
+  <img alt="https://www.nature.com/articles/s41586-024-07877-0" src="../_static/paper1.jpg">
 </a>
 
-<p></p>
+<!-- <p></p> -->
 
 <!-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. 2024</a> presents the program's <sup>13</sup>CO and C<sup>13</sup>O line observations. -->
-<sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1). Speedie et al. in press.
-
+<center><sup>13</sup>CO and C<sup>13</sup>O line observations (paper 1). <a href="https://www.nature.com/articles/s41586-024-07877-0" target="_blank">Speedie et al. 2024</a></center>
 :::
 
 :::{grid-item-card}
 
 <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="../_static/paper2_placeholder.png">
+  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="../_static/paper2.png">
 </a>
 
-<p></p>
+<!-- <p></p> -->
 
 <!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
-<sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in prep.
-
+<center><sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in prep.</center>
 :::
 ::::
 
 ## Download the data products
 
-What science will you do?
+<!-- What science will you do? -->
 
 
 ::::{grid}
