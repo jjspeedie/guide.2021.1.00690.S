@@ -54,7 +54,7 @@ As an additional reference, the refereed journal articles where the data are or 
 <!-- <p></p> -->
 
 <!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
-<center><sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in prep.</center>
+<center><sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in review</center>
 :::
 ::::
 
