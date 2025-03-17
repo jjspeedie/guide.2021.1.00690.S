@@ -22,9 +22,8 @@ os.system('tar cvzf backups/' + final_cont_ms+'.tgz ' + final_cont_ms)
 
 ````{card} Final continuum measurement set achieved! 🥳
 
-* **ABAur_continuum.bin30s.ms (524 MB)**
+* **<a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms (321 MB)</a>**
 
-(Available to download soon)
 
 ````
 </div>
