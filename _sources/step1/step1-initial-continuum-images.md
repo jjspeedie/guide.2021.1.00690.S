@@ -222,7 +222,8 @@ Just for reference, here is the equivalent plots but for each of ``[peak intensi
 
 </center>
 +++
-caption
+Peak intensity (**left**) and rms noise (**right**) in the initial continuum images compared across SPW and EB. 
+The LB executions have lower rms noise per beam than the SB executions, but the SB executions have that much more signal per beam.
 ````
 
-The LB executions have lower rms noise per beam than the SB executions, but the SB executions have that much more signal per beam.
+

@@ -15,7 +15,7 @@ This is a guide to the reduction and imaging of <a href="https://almascience.nra
 
 
 :::{grid-item-card}
-**<sup>12</sup>CO, SO & continuum data products** (Available soon)
+<a href="https://doi.org/10.11570/24.0098" target="_blank">**Download <sup>12</sup>CO, SO & continuum data products**</a>
 :::
 ::::
 
@@ -47,14 +47,14 @@ As an additional reference, the refereed journal articles where the data are or 
 
 :::{grid-item-card}
 
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">
-  <img alt="https://github.com/jjspeedie/workflow.2021.1.0690.S" src="_static/paper2.png">
+<a href="https://doi.org/10.3847/2041-8213/adb7d5" target="_blank">
+  <img alt="https://doi.org/10.3847/2041-8213/adb7d5" src="_static/paper2.jpg">
 </a>
 
 <!-- <p></p> -->
 
 <!-- The <sup>12</sup>CO and SO line observations will be presented in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">Speedie et al. in prep</a>. -->
-<center><sup>12</sup>CO and SO line observations (paper 2). Speedie et al. in review</center>
+<center><sup>12</sup>CO and SO line observations (paper 2). <a href="https://doi.org/10.3847/2041-8213/adb7d5" target="_blank">Speedie et al. 2025</a></center>
 :::
 ::::
 
