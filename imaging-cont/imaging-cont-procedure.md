@@ -14,7 +14,6 @@
 `````
 
 
-# Procedure
 
 ````{card}
 
