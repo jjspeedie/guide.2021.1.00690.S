@@ -1,27 +1,35 @@
-<!-- `````{admonition} Scripts for **Imaging - Continuum**:
+`````{admonition} Scripts for **Imaging - Continuum**:
 :class: tip
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_continuum.py" target="_blank">image_continuum.py</a> # main script
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script ([Czekala et al. 2021](https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract))
+`````
 
-````{card} And data (obtained after [step 3](../step3/step3-continuum-ms-achieved.md)):
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a> **could also link to log file
-````` -->
+`````{admonition} Visibility Data for **Imaging - Continuum** (obtained after [step 3](../step3/step3-continuum-ms-achieved.md)):
+:class: tip
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_continuum.bin30s.ms</a>
+`````
 
-# Preliminary Images
+`````{admonition} Links to download the resulting **Continuum Images** (shown below):
+:class: tip
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_continuum/v11_robust0.5" target="_blank">Continuum image fits files (`robust=0.5`)</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_continuum/v11_robust1.0" target="_blank">Continuum image fits files (`robust=1.0`)</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_continuum/v11_robust1.5" target="_blank">Continuum image fits files (`robust=1.5`)</a>
+`````
 
-[Coming soon.]
+# Continuum Images
 
-<!--
-WRONG: 2X RMS NOISE. The following images were cleaned non-interactively using a circular mask of radius 2 arcsec centered on 04:55:45.854900 +30.33.03.73320 (J2000), the hogbom deconvolver with a Briggs robust weighting and no uv-taper, a cell size of 0.04 arcsec and 2000 cells, and cleaned down to a threhold of 1x the rms noise measured in the dirty image within an annulus (inner radius 4 arcsec; outer radius 10 arcsec).
-Things to improve: The cell size should be dependent on the `robust` parameter (cell size should sample the beam ~5-10 times and the beam depends on the `robust` parameter); the beam minor axis is borderline-sampled in the robust=0 image. We could also try uv-tapering. It is strange to clean down to 1x the rms noise measured in the dirty image, but I felt the residuals after cleaning to 4x or 3x were still quite large (i.e. I felt the residuals were still well above the noise and more signal could be extracted).
+Below are three sets of continuum images, made with varying Briggs robust weighting (`robust=0.5`, `robust=1.0` and `robust=1.5`). 
+
+The images were cleaned non-interactively, using a circular mask of radius 3 arcsec centered on `04h55m45.8549s +30.33.03.733` (J2000). We used the Hogbom deconvolver. The cell size was set to 0.02 arcsec and the image size to 2048x2048 cells. We cleaned down to a threhold of 2x the rms noise, where the rms noise was measured in the dirty image within an annulus (inner radius 6 arcsec; outer radius 10 arcsec). All the parameter details you'd need to reproduce these images can be found in the CASA log files linked below.
 
 
-## Image made with Briggs robust = 0.5
+
+## Image made with Briggs robust = 0.5 (<a href="https://www.canfar.net/storage/vault/file/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_continuum/v11_robust0.5/casa-20230412-172540-robust0.5.log" target="_blank">CASA log file</a>)
 
 ````{card} Key values in imaging process
-| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (unitless)|
+| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|
 |---------------------|----------------|------------------|-------------------------------|
 |50.20    |0.1004   |0.4566|0.0992                    |
 ````
@@ -56,7 +64,7 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 ## Image made with Briggs robust = 1.0
 
 ````{card} Key values in imaging process
-| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (unitless)|
+| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|
 |---------------------|----------------|------------------|-------------------------------|
 |150.3    |0.3006   |0.3531 |0.2998                    |
 ````
@@ -92,7 +100,7 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 ## Image made with Briggs robust = 1.5
 
 ````{card} Key values in imaging process
-| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (unitless)|
+| Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|
 |---------------------|----------------|------------------|-------------------------------|
 |253.2    |0.5064   |0.3383|0.5064                    |
 ````
@@ -134,4 +142,4 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 
 
 
-# -->
+
