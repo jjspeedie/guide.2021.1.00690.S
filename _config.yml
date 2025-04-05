@@ -63,3 +63,6 @@ sphinx:
     nitpicky: true
     nitpick_ignore:
       - 'py:class reference not found'
+
+html:
+  extra_css: ["custom.css"]

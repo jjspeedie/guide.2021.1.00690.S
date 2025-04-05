@@ -30,7 +30,7 @@ The <a href="https://almascience.eso.org/almadata/lp/DSHARP/" target="_blank">DS
 
 ## Line dictionary
 
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a>: Dictionary of emission line properties and spectral parameters for line imaging. This dictionary also keeps track of the ~12 different sets of line images made while we were experimenting with our approach (``_v1``, ``_v2``, ``_v3`` etc; see [Initial Approaches](../imaging-lines/imaging-lines-initial-approaches.md)).
+<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a>: Dictionary of emission line properties and spectral parameters for line imaging. This dictionary also keeps track of the ~12 different sets of line images made while we were experimenting with our approach (``_v1``, ``_v2``, ``_v3`` etc; a selection is shown on the page [Journal of Challenges and Initial Experiments](../imaging-lines/imaging-lines-initial-approaches.md)).
 
 `````{admonition} **line_dict** is used for the following steps:
 :class: tip

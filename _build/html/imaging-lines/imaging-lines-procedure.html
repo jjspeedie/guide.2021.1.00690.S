@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Procedure &#8212; Reduction Guide</title>
+    <title>Summary of Challenges Motivating the Adopted Imaging Strategy &#8212; Reduction Guide</title>
   
   
   
@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,11 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'imaging-lines/imaging-lines-procedure';</script>
-    <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dirty Image Cubes" href="imaging-lines-dirty-images.html" />
-    <link rel="prev" title="Continuum Images" href="../imaging-cont/imaging-cont-preliminary-images.html" />
+    <link rel="next" title="Adopted Line Imaging Strategy" href="imaging-lines-adopted-approach.html" />
+    <link rel="prev" title="Journal of Challenges and Initial Experiments" href="imaging-lines-initial-approaches.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,10 +208,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines-initial-approaches.html">Journal of Challenges and Initial Experiments</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Summary of Challenges Motivating the Adopted Imaging Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines-adopted-approach.html">Adopted Line Imaging Strategy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
 <ul class="nav bd-sidenav">
@@ -257,53 +257,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fimaging-lines/imaging-lines-procedure.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -386,7 +339,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -397,11 +352,35 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Procedure</h1>
+    <h1>Summary of Challenges Motivating the Adopted Imaging Strategy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-missing-short-uv-spacings-negative-bowling">Challenge 1: Missing short uv-spacings (“Negative bowling”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-diagnosis">Description &amp; diagnosis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mitigation-strategy-force-more-major-cycles">Mitigation strategy: Force more major cycles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-force-more-major-cycles-make-the-minor-cycles-end-more-quickly">How to force more major cycles: Make the minor cycles end more quickly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#major-bonus-of-cleaning-with-many-major-cycles-relevant-for-challenge-2">Major bonus of cleaning with many major cycles (relevant for Challenge 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-tclean-consistently-not-cleaning-certain-channels-channel-dropout">Challenge 2: tclean consistently not cleaning certain channels (“Channel dropout”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description &amp; diagnosis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-different-about-the-dropout-channels">What’s different about the dropout channels?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-force-many-major-cycles-and-use-a-broad-clean-mask-same-solution-as-challenge-1">Solution: Force many major cycles and use a broad clean mask (same solution as Challenge 1)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -421,18 +400,18 @@ document.write(`
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a> # loads line_dict
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script ([Czekala et al. 2021](https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract))
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a> # modified version of [keplerian_mask](https://github.com/richteague/keplerian_mask) by [Rich Teague](https://richteague.github.io/)
+`````
 
-````{card} And data (obtained after [step 4](../step4/step4-line-mses-achieved.md)):
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
+`````{admonition} Visibility Data for **Imaging - Lines** (obtained after [step 4](../step4/step4-line-mses-achieved.md)):
+:class: tip
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
 ````` -->
-<section class="tex2jax_ignore mathjax_ignore" id="procedure">
-<h1>Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h1>
-<p>[Coming soon.]</p>
-<!--
-````{card}
+<section class="tex2jax_ignore mathjax_ignore" id="summary-of-challenges-motivating-the-adopted-imaging-strategy">
+<h1>Summary of Challenges Motivating the Adopted Imaging Strategy<a class="headerlink" href="#summary-of-challenges-motivating-the-adopted-imaging-strategy" title="Permalink to this heading">#</a></h1>
+<!-- ````{card}
 
 ```{image} images/line_imaging_procedure.jpg
 :alt: line_imaging_procedure
@@ -442,11 +421,320 @@ document.write(`
 ```
 +++
 caption
-````
+```` -->
+<!-- ## Velocity Regridding and Channel Selection
 
-## Velocity Regridding and Channel Selection
+Note [dirty images](imaging-lines-dirty-images) and [initial approaches](imaging-lines-initial-approaches.md) were done on cvel2 data. [adopted approach](imaging-lines-adopted-approach.md) was done without cvel2. 
+ -->
+<p>As documented on the the previous page (<a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">Journal of Challenges and Initial Experiments</span></a>), we encountered challenges with imaging the line data for this program.
+This page summarizes the two main challenges, and presents insights gained from an absolutely critical <a href="https://almascience.nrao.edu/documents-and-tools/cycle10/alma-na-arcguide" target="_blank">NAASC virtual chat</a>.</p>
+<p>In shorthand, the two challenges are: “negative bowling” and “channel dropout”. The former (“negative bowling”) is a known phenomenon and a result of fundamental properties of our interferometric data. The latter (“channel dropout”) is a glitch I’ve never seen documented elsewhere, possibly a bug related to our specific masking and deconvolving choices.</p>
+<section id="challenge-1-missing-short-uv-spacings-negative-bowling">
+<h2>Challenge 1: Missing short uv-spacings (“Negative bowling”)<a class="headerlink" href="#challenge-1-missing-short-uv-spacings-negative-bowling" title="Permalink to this heading">#</a></h2>
+<section id="description-diagnosis">
+<h3>Description &amp; diagnosis<a class="headerlink" href="#description-diagnosis" title="Permalink to this heading">#</a></h3>
+<p>In the central channels of the <sup>12</sup>CO channel maps, we can see that we’re getting these “negative bowls” around the recovered emission. Looking at Table 7.1 of the <a href="https://almascience.nrao.edu/proposing/technical-handbook" target="_blank">Technical Handbook</a>, the Maximum Recoverable Scale (MRS) of our short-baselinse configuration (C3) is <strong>7.02 arcsec</strong>. Compare this to the emission in one of the central <sup>12</sup>CO channels, i.e. the Largest Angular Scale (LAS) of our source. Very roughly speaking, you can imagine the emission in one such channel as a Gaussian with a FWHM of 10 arcsec. The Fourier transform of that Gaussian is going to have significant amounts of flux at scales in uv space smaller than what is achieved by the C3 configuration. In other words, due to the MRS of our data, we don’t have any measurements on small enough uv scales, meaning we can’t constrain the flux very well on the large spatial scales, and there’s probably a lot of flux that we’re <em>resolving out</em>. In short, we are in the situation where <strong>LAS &gt; MRS</strong>.</p>
+<p><em><strong>The only way to properly deal with “LAS &gt; MRS” is to increase our MRS, i.e., to get data on those missing shorter uv spacings.</strong></em> (We thus proposed for 7m observations in the next ALMA cycle). However, in the absence of this data, there are some imaging strategies we can use to mitigate the issue of missing short spacings. See “Mitigation strategy: Force more major cycles” below.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+See it in action: “Negative bowling”<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following movies are from “<a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">4th round of imaging experiments</span></a>”. The negative bowling is visible in both the <sup>12</sup>CO and <sup>13</sup>CO images:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/v3_robust1.5/v3_robust1.5_12CO.clean.JvMcorr.image.imview_channels.mp4" type="video/mp4" alt="v3_robust1.5_12CO.clean.JvMcorr.image.imview_channels">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/v3_robust1.5/v3_robust1.5_12CO.clean.residual.imview_channels.mp4" type="video/mp4" alt="v3_robust1.5_12CO.clean.residual.imview_channels">
+</video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><sup>12</sup>CO, after the re-started CLEAN: Final CLEAN JvM-corrected image (<em>left</em>) and residuals (<em>right</em>). White contours in both panels show the final auto-multithresh mask, after the last cleaning cycle.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<video width="49%" controls>
+  <source src="../_static/videos/v3_robust1.5/v3_robust1.5_13CO.clean.image.imview_channels.mp4" type="video/mp4" alt="v3_robust1.5_13CO.clean.image.imview_channels">
+</video>
+<video width="49%" controls>
+  <source src="../_static/videos/v3_robust1.5/v3_robust1.5_13CO.clean.residual.imview_channels.mp4" type="video/mp4" alt="v3_robust1.5_13CO.clean.residual.imview_channels">
+</video>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text"><sup>13</sup>CO, after the re-started CLEAN: Final CLEAN image (<em>left</em>) and residuals (<em>right</em>). White contours in both panels show the final auto-multithresh mask, after the last cleaning cycle.</p>
+</div>
+</div>
+<p class="rubric">What about the final (published) image cubes?</p>
+<p class="sd-card-text">It’s important to understand that even after employing the strategies described on this page to mitigate the effects of LAS &gt; MRS, we still do not get rid of the negative bowling altogether (of course). The following visualizations show this fact.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="reference internal image-reference" href="../_images/negative-bowling.gif"><img alt="negative-bowling gif" src="../_images/negative-bowling.gif" style="width: 75%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Negative bowling in <sup>12</sup>CO channel maps in the final published image cube. This gif is an exerpt from an <a href="https://figshare.com/articles/media/Mapping_the_merging_zone_of_late_infall_in_the_AB_Aur_planet-forming_system/28205066/1?file=51680894" target="_blank">animation</a> published as supplementary material to <a href="https://iopscience.iop.org/article/10.3847/2041-8213/adb7d5" target="_blank">Speedie et al. 2025</a>. To help visualize (exaggerate) the negative regions in the channels, the colorbar has been set to range +/- 5 times the rms noise.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/negative-bowling-azimuthal-PV-slice-r12arcsec.png"><img alt="negative-bowling-azimuthal-PV-slice-r12arcsec" class="mb-1" src="../_images/negative-bowling-azimuthal-PV-slice-r12arcsec.png" style="width: 80%;" /></a>
+</center>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">An alternative visualization. Negative bowling in the <sup>12</sup>CO image cube can also be seen in this PV diagram, which has been taken along a circle in the plane of the disk. This figure is a frame from an <a href="https://figshare.com/articles/media/Mapping_the_merging_zone_of_late_infall_in_the_AB_Aur_planet-forming_system/28205066/1?file=51680912" target="_blank">animation</a> published as supplementary material to <a href="https://iopscience.iop.org/article/10.3847/2041-8213/adb7d5" target="_blank">Speedie et al. 2025</a>. The negative bowling can be seen as black regions where we don’t see the zero noise floor (background sky).</p>
+</div>
+</div>
+</div>
+</details><!-- Recommendation: 
 
-Note [dirty images](imaging-lines-dirty-images) and [initial approaches](imaging-lines-initial-approaches.md) were done on cvel2 data. [adopted approach](imaging-lines-adopted-approach.md) was done without cvel2. -->
+- Ryan: It will be a couple hours of 7m time and it would dramatically improve the quality of your images.
+
+- 7m data at 230 GHz has a MRS of 29 arcsec (plenty short-enough spacings).
+
+- Throw a couple screengrabs of the negative bowls into the proposal. Ryan thinks such a figure would be very clear and compelling.
+
+- From Table 7.5 of the Technical Handbook, the C6 + C3 + 7m configuration combination has a multiplier for the 7m data of 0.6x the on-source time of the TM1 (C6) data.
+
+- Ask for 0.6x however much on-source time you have for the C6 data. Justify it in the proposal by making up your sensitivity such that it gives that amount of on-source time.
+
+- Sell your proposal: “This data is exquisite in quality, it’s already been able to answer X question, but in order to answer Y question, we really need to get the missing short spacings put in there, and it’ll fully unlock the quality of this data”.
+
+- Jess: Note that exoALMA got C6 + C3 + 7m data. -->
+</section>
+<section id="mitigation-strategy-force-more-major-cycles">
+<h3>Mitigation strategy: Force more major cycles<a class="headerlink" href="#mitigation-strategy-force-more-major-cycles" title="Permalink to this heading">#</a></h3>
+<p>When you go through a major cycle, you transform from the image plane into the Fourier plane. Specifically, you Fourier transform your clean model (the model that is built up so far) back into the Fourier plane everywhere. This process “fills out” the uv plane - even at spacings where you don’t actually have data.</p>
+<p>Because we are missing these short spacings, we want to clean <em>slowly</em> (i.e. with <em>a lot of major cycles</em>) to try to put as much of the model flux back into the full uv distribution as possible. This is the only thing we can do to address the missing short spacings, in the absence of having 7m data. The trade-off is that doing a lot of major cycles is computationally expensive.</p>
+<!-- In contrast, imagine that you do the entire clean in one major cycle. Throughout the whole clean, you would never have transformed the model back into the Fourier plane. This means it would have "cleaned in" inaccurate clean components.  -->
+<section id="how-to-force-more-major-cycles-make-the-minor-cycles-end-more-quickly">
+<h4>How to force more major cycles: Make the minor cycles end more quickly<a class="headerlink" href="#how-to-force-more-major-cycles-make-the-minor-cycles-end-more-quickly" title="Permalink to this heading">#</a></h4>
+<p>So how do we make <code class="docutils literal notranslate"><span class="pre">tclean</span></code> perform many, many major cycles? The answer is: Make the <em>minor cycles end more quickly</em>. There are two ways to trigger the end of a minor cycle:</p>
+<p><strong>1. Hit the maximum number of minor cycle iterations.</strong></p>
+<p>This is controlled by the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">cycleniter</span></code>.</p>
+<p>If clean hits <code class="docutils literal notranslate"><span class="pre">cycleniter</span></code> before it hits the minor cycle threshold, then that means that within one minor cycle, it would have assigned <code class="docutils literal notranslate"><span class="pre">cycleniter</span></code> clean components. Previously (during the <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">experiments</span></a>) I had <code class="docutils literal notranslate"><span class="pre">cycleniter</span></code> set to <code class="docutils literal notranslate"><span class="pre">300</span></code>. When doing a multi-scale clean (where the clean model components are Gaussians), <code class="docutils literal notranslate"><span class="pre">300</span></code> clean components can actually be <em>a lot</em> of flux! This is because the <em>peak</em> of the Gaussians are the quantities being assigned values, <em>not their total volumes</em>. You want to clean as little flux in each minor cycle as possible, to ensure that you are not assigning clean components inside sidelobes and are filling out the uv space. <strong>So turn down <code class="docutils literal notranslate"><span class="pre">cycleniter</span></code>.</strong></p>
+<p><strong>2. Hit the maximum minor cycle threshold.</strong></p>
+<p>There are a couple <code class="docutils literal notranslate"><span class="pre">tclean</span></code> parameters controlling this, including <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code> and <code class="docutils literal notranslate"><span class="pre">gain</span></code>.</p>
+<p>The minor cycle threshold is calculated as <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code>x<code class="docutils literal notranslate"><span class="pre">peaksidelobe</span></code>. The <code class="docutils literal notranslate"><span class="pre">peaksidelobe</span></code> is the peak value of your dirty beam’s sidelobes (e.g. 7%). <em>You want to avoid cleaning INSIDE what is actually a sidelobe.</em> For example, say there’s a bright point source at one place in the dirty image. Some fraction of its signal will appear in other places in the image, due to the beam having sidelobes. By setting the minor cycle threshold to <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code>x<code class="docutils literal notranslate"><span class="pre">peaksidelobe</span></code>, you avoid trying to assign clean components inside areas that could possibly only have signal due to this sidelobe-leakage. You want to go back and do a major cycle before you try to clean in that area.</p>
+<p>Therefore, <strong>we should turn up <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code></strong>. Previously (during the <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">experiments</span></a>) I had been using a <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code> of <code class="docutils literal notranslate"><span class="pre">1</span></code> (the default). We want to turn <code class="docutils literal notranslate"><span class="pre">cyclefactor</span></code> up to <code class="docutils literal notranslate"><span class="pre">1.5</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>. We started with <code class="docutils literal notranslate"><span class="pre">2</span></code>, and crossed fingers that <code class="docutils literal notranslate"><span class="pre">tclean</span></code> doesn’t take outrageously long to run.</p>
+<p>How does <code class="docutils literal notranslate"><span class="pre">gain</span></code> come in? When <code class="docutils literal notranslate"><span class="pre">tclean</span></code> identifies a pixel to clean, it says “I’m going to take this value I see here and assign it a clean component that is <code class="docutils literal notranslate"><span class="pre">gain</span></code>x[that value]”. In other words, if it identifies a 1 Jy pixel to try to clean, it will assign a Gaussian component to have a peak whose value is <code class="docutils literal notranslate"><span class="pre">gain</span></code> times 1 Jy. The default gain is 0.1, or 10%. <strong>We should turn down <code class="docutils literal notranslate"><span class="pre">gain</span></code></strong> to <code class="docutils literal notranslate"><span class="pre">0.05</span></code> or <code class="docutils literal notranslate"><span class="pre">0.02</span></code>.</p>
+</section>
+<section id="major-bonus-of-cleaning-with-many-major-cycles-relevant-for-challenge-2">
+<h4>Major bonus of cleaning with many major cycles (relevant for Challenge 2)<a class="headerlink" href="#major-bonus-of-cleaning-with-many-major-cycles-relevant-for-challenge-2" title="Permalink to this heading">#</a></h4>
+<p>If we change the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> parameters above, and if we don’t clean too deeply, <em>we might be able to get away with a broad clean mask</em> (i.e., <code class="docutils literal notranslate"><span class="pre">usemask</span> <span class="pre">=</span> <span class="pre">'pb'</span></code> and <code class="docutils literal notranslate"><span class="pre">pbmask</span> <span class="pre">=</span> <span class="pre">0.2</span></code>).</p>
+<p>Why? There’s not actually any theoretical basis for tight masking. People have used masking as a way to (1) get around having poor uv coverage, and (2) reduce the number of major cycles they need to run (to save computational time). If you run the clean algorithm <a href="https://ui.adsabs.harvard.edu/abs/1974A%26AS...15..417H/abstract" target="_blank">as originally designed by Hogbom</a> with <em>every cycle as a major cycle</em>, it should actually work perfectly fine with no mask. If you’re never cleaning very deep in any given major cycle, then <code class="docutils literal notranslate"><span class="pre">tclean</span></code> will never be in the situation where the sidelobes are stronger than the actual emission, and so it should keep assigning correct clean components.</p>
+<p>Cleaning with the broad mask may not be perfect, but we’ll be able to get away with a lot more. The broad mask will perform a lot better with this kind of “cautious” clean.</p>
+<!-- # Solutions (after NAASC Virtual Chat with Ryan Loomis)
+
+Outcomes: (1) Amanda Kepley provided a nice idea to borrow some guiding principles from the PHANGS-ALMA pipeline; (2) A meeting with Ryan is upcoming.
+
+Summary of what the problems were: -->
+</section>
+</section>
+</section>
+<section id="challenge-2-tclean-consistently-not-cleaning-certain-channels-channel-dropout">
+<h2>Challenge 2: tclean consistently not cleaning certain channels (“Channel dropout”)<a class="headerlink" href="#challenge-2-tclean-consistently-not-cleaning-certain-channels-channel-dropout" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Description &amp; diagnosis<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>“Channel dropout” is a shorthand term I’m using to describe a spectrally-discontinuous clean. When imaging a spectral cube, most channels get cleaned, but a small few do not. In other words, most channels of the clean model contain clean components, but a small few do not. I’ve never seen this documented elsewhere, and it didn’t occur in all the the <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">experiments</span></a>, only rounds 3 and 4. The best way I can describe it is to show it in action:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+See it in action: “Channel dropout” (Integrated intensity profiles)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/v3_robust1.5+0.5_12CO.clean.JvMcorr.image.line_profile.png"><img alt="v3_robust1.5+0.5_12CO.clean.JvMcorr.image.line_profile" class="mb-1" src="../_images/v3_robust1.5+0.5_12CO.clean.JvMcorr.image.line_profile.png" style="width: 48%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/v3_robust1.5+0.5_13CO.clean.JvMcorr.image.line_profile.png"><img alt="v3_robust1.5+0.5_13CO.clean.JvMcorr.image.line_profile" class="mb-1" src="../_images/v3_robust1.5+0.5_13CO.clean.JvMcorr.image.line_profile.png" style="width: 48%;" /></a>
+<a class="mb-1 reference internal image-reference" href="../_images/v3_robust1.5+0.5_C18O.clean.JvMcorr.image.line_profile.png"><img alt="v3_robust1.5+0.5_C18O.clean.JvMcorr.image.line_profile" class="mb-1" src="../_images/v3_robust1.5+0.5_C18O.clean.JvMcorr.image.line_profile.png" style="width: 48%;" /></a>
+</center>
+<p class="sd-card-text"><sup>12</sup>CO, <sup>13</sup>CO and C<sup>18</sup>O (<a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">4th round of imaging experiments</span></a>): Spatially-integrated line profiles of the JvM-corrected images. The channel dropout can be seen as discontinuous dips in the line profiles at some velocities, where no clean components (or insufficiently many clean components, or even negative clean components) have been added to the model. To point out the spectral locations of just a few instances: ~4 km/s in <sup>12</sup>CO, ~4.4 km/s in <sup>13</sup>CO, or ~6.6 km/s in C<sup>18</sup>O.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+See it in action: “Channel dropout” (Position-velocity diagrams)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<center>
+<a class="mb-1 reference internal image-reference" href="../_images/ABAur_12CO.clean.JvMcorr.image_test000.png"><img alt="ABAur_12CO.clean.JvMcorr.image" class="mb-1" src="../_images/ABAur_12CO.clean.JvMcorr.image_test000.png" style="width: 98%;" /></a>
+</center>
+<p class="sd-card-text"><sup>12</sup>CO (<a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">3rd round of imaging experiments</span></a>): Position-velocity diagram along the disk major axis of the JvM-corrected CLEAN image.</p>
+</div>
+</details><p>Here’s some additional details and lessons learned from <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">experiments</span></a> where it occurred:</p>
+<ul class="simple">
+<li><p>Version of CASA being used: modular CASA, version 6.4.3.27</p></li>
+<li><p>It occurred for different robust parameters, <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code></p></li>
+<li><p>It is obvious in the <sup>12</sup>CO and <sup>13</sup>CO cubes (e.g. looking at the integrated line profiles), but it occurred for C<sup>18</sup>O and SO as well, based on empty channels in the model cubes</p></li>
+<li><p>The channels that dropout are consistent in velocity, not the channel index. In other words, if I re-image with different channel <code class="docutils literal notranslate"><span class="pre">start</span></code> parameter, the dropout occurs at the same velocities</p></li>
+</ul>
+<section id="what-s-different-about-the-dropout-channels">
+<h4>What’s different about the dropout channels?<a class="headerlink" href="#what-s-different-about-the-dropout-channels" title="Permalink to this heading">#</a></h4>
+<p>We can look at the CASA logs and map the dropout channels to their respective CASA log messages. The dropout channels showed this message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;minor cycle stopped at large scale negative or diverging&quot;
+</pre></div>
+</div>
+<p><em>What is divergence?</em> I believe it is when, during the many minor cycles within a major cycle, <code class="docutils literal notranslate"><span class="pre">tclean</span></code> detects there has been an increase of 10% from the minimum peak residual so far. It therefore stops the minor cycle iterations for that plane (i.e., that channel). This definition is inferred from an old CASAGuide called <a href="https://casaguides.nrao.edu/index.php/TCLEAN_and_ALMA" target="_blank">TCLEAN_AND_ALMA</a>, which says:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; If tclean detects:
+
+-- divergence within minor cycle iterations
+
+-&gt; as an increase of 10% from the minimum peak residual so far
+
+    -&gt; it will stop minor cycle iterations for this plane.
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+See it in action: “Channel dropout” (CASA log file)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Can you see “an increase of 10% from the minimum peak residual so far” happening in the following CASA log snippet? The bolded message, <strong>MSClean minor cycle stopped at large scale negative or diverging</strong> appears toward the bottom.</p>
+<p class="sd-card-text">This snippet is focusing on channel 51 (a dropout channel) in a <code class="docutils literal notranslate"><span class="pre">tclean</span></code> call imaging <sup>13</sup>CO (v5).</p>
+<pre style="background-color: #faf0d4;">
+  <b>[13CO v5; 2nd tclean call (initializing tailored mask), channel 51]</b>
+
+
+  2023-03-07 23:07:41	INFO	task_tclean::MatrixCleaner::validatePsf() 	Peak of PSF = 1 at [1024, 1024]
+  2023-03-07 23:07:42	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 0
+  2023-03-07 23:07:42	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 1
+  2023-03-07 23:07:43	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 2
+  2023-03-07 23:07:43	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 3
+  2023-03-07 23:07:43	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 4
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 5
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 0
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 1
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 2
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 3
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 4
+  2023-03-07 23:07:44	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 5
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 1 = 1 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 2 = 5 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 3 = 15 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 4 = 30 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 5 = 50 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	scale 6 = 100 pixels with bias = 1
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	Cleaning using given mask
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	Cleaning pixels with mask values above 0.9
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	Starting iteration
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	
+  <b>Initial maximum residual is 1.39906 within the mask</b>
+
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	iteration    MaximumResidual   CleanedFlux
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	1      1.39906      0.139906
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  0    0
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  1    0
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  2    0
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  3    0
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  4    0.139906
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	  5    0
+  2023-03-07 23:07:45	INFO	task_tclean::MatrixCleaner::clean() 	
+  <b>Failed to reach stopping threshold</b>
+
+  2023-03-07 23:07:46	INFO	task_tclean::SDAlgorithmBase::deconvolve 	[/lustre/cv/users/jspeedie/data/images_lines/13CO/v5_robust0.5/ABAur_13CO.clean:C1] iters=1->2 [1],
+  <b>model=0->0.139905, peakres=0.141461->0.125274, Reached cycleniter</b>
+  .
+
+  <b>[13CO v5; 3rd tclean call (cleaning down to threshold with tailored mask and auto-multithresh), channel 51]</b>
+
+
+  2023-03-07 23:28:46	INFO	SDMaskHandler::autoMaskByMultiThreshold 	*** Start auto-multithresh processing for Channel 1***
+  2023-03-07 23:28:46	INFO	SDMaskHandler::autoMaskByMultiThreshold 	Start thresholding: create an initial mask by threshold
+  2023-03-07 23:28:46	INFO	SDMaskHandler::autoMaskByMultiThreshold 	End thresholding: time to create the initial threshold mask:  real 0.08s ( user 0.06s, system 0.03s)
+  2023-03-07 23:28:46	INFO	SDMaskHandler::autoMaskByMultiThreshold 	Start pruning: the initial threshold mask
+  2023-03-07 23:28:47	INFO	SDMaskHandler::YAPruneRegions 	 No regions are removed in pruning process.
+  2023-03-07 23:28:47	INFO	SDMaskHandler::autoMaskByMultiThreshold 	End pruning: time to prune the initial threshold mask: real 0.48s (user 0.47s, system 0s)
+  2023-03-07 23:28:47	INFO	SDMaskHandler::autoMaskByMultiThreshold 	Start smoothing: the initial threshold mask
+  2023-03-07 23:28:48	INFO	SDMaskHandler::autoMaskByMultiThreshold 	End smoothing: time to create the smoothed initial threshold mask: real 1.21s (user 2.06s, system 0.78s)
+  2023-03-07 23:28:48	INFO	SDMaskHandler::autoMaskByMultiThreshold 	Start thresholding: create a negative mask
+  2023-03-07 23:28:49	INFO	SDMaskHandler::autoMaskByMultiThreshold 	No negative region was found by auotmask.
+  2023-03-07 23:28:49	INFO	SDMaskHandler::autoMaskByMultiThreshold 	End thresholding: time to create the negative mask: real 0.8s (user 1s, system 0.26s)
+
+  2023-03-07 23:40:36	INFO	task_tclean::MatrixCleaner::validatePsf() 	Peak of PSF = 1 at [1024, 1024]
+  2023-03-07 23:40:37	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 0
+  2023-03-07 23:40:37	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 1
+  2023-03-07 23:40:38	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 2
+  2023-03-07 23:40:38	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 3
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 4
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makePsfScales() 	Calculating convolutions for scale 5
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 0
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 1
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 2
+  2023-03-07 23:40:39	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 3
+  2023-03-07 23:40:40	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 4
+  2023-03-07 23:40:40	INFO	task_tclean::MatrixCleaner::makeScaleMasks() 	Calculating mask convolution for scale 5
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 1 = 1 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 2 = 5 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 3 = 15 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 4 = 30 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 5 = 50 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	scale 6 = 100 pixels with bias = 1
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	Cleaning using given mask
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	Cleaning pixels with mask values above 0.9
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	Starting iteration
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	
+  <b>Initial maximum residual is 1.26355 within the mask</b>
+
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	iteration    MaximumResidual   CleanedFlux
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	
+  <b>Diverging due to large scale?</b>
+
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  0    0
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  1    0
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  2    0
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  3    0
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  4    0.240085
+  2023-03-07 23:40:41	INFO	task_tclean::MatrixCleaner::clean() 	  5    0.195194
+  2023-03-07 23:40:41	WARN	task_tclean::SDAlgorithmMSClean::takeOneStep (file src/code/synthesis/ImagerObjects/SDAlgorithmMSClean.cc, line 185)
+  <b>MSClean minor cycle stopped at large scale negative or diverging</b>
+
+  2023-03-07 23:40:41	INFO	task_tclean::SDAlgorithmBase::deconvolve 	[/lustre/cv/users/jspeedie/data/images_lines/13CO/v5_robust0.5/ABAur_13CO.clean:C1] iters=54->57 [3],
+  <b>model=0.139906->0.37999, peakres=0.126291->0.102837, Exited multiscale minor cycle without reaching any stopping criterion.</b>
+
+
+  2023-03-08 00:27:32	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	*** Start auto-multithresh processing for Channel 1***
+  2023-03-08 00:27:32	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start thresholding: create an initial mask by threshold
+  2023-03-08 00:27:32	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End thresholding: time to create the initial threshold mask:  real 0.08s ( user 0.06s, system 0.02s)
+  2023-03-08 00:27:32	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start pruning: the initial threshold mask
+  2023-03-08 00:27:33	INFO	task_tclean::SDMaskHandler::YAPruneRegions 	 No regions are removed in pruning process.
+  2023-03-08 00:27:33	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End pruning: time to prune the initial threshold mask: real 0.49s (user 0.48s, system 0.01s)
+  2023-03-08 00:27:33	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start smoothing: the initial threshold mask
+  2023-03-08 00:27:34	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End smoothing: time to create the smoothed initial threshold mask: real 1.2s (user 2.07s, system 0.76s)
+  2023-03-08 00:27:34	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start grow mask: growing the previous mask
+  2023-03-08 00:27:34	INFO	task_tclean::SDMaskHandler::binaryDilation 	grow iter done=1
+  2023-03-08 00:27:34	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End grow mask: time to grow the previous mask: real 0.35s (user 0.32s, system 0.03s)
+  2023-03-08 00:27:34	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start pruning: on the grow mask
+  2023-03-08 00:27:35	INFO	task_tclean::SDMaskHandler::YAPruneRegions 	 No regions are removed in pruning process.
+  2023-03-08 00:27:35	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End pruning: time to prune the grow mask: real 0.49s (user 0.48s, system 0.01s)
+  2023-03-08 00:27:35	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start smoothing: the grow mask
+  2023-03-08 00:27:36	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End smoothing: time to create the smoothed grow mask: real 1.21s (user 2.09s, system 0.75s)
+  2023-03-08 00:27:36	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	Start thresholding: create a negative mask
+  2023-03-08 00:27:37	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	No negative region was found by auotmask.
+  2023-03-08 00:27:37	INFO	task_tclean::SDMaskHandler::autoMaskByMultiThreshold 	End thresholding: time to create the negative mask: real 0.78s (user 1s, system 0.22s)
+</pre>
+</div>
+</details></section>
+</section>
+<section id="solution-force-many-major-cycles-and-use-a-broad-clean-mask-same-solution-as-challenge-1">
+<h3>Solution: Force many major cycles and use a broad clean mask (same solution as Challenge 1)<a class="headerlink" href="#solution-force-many-major-cycles-and-use-a-broad-clean-mask-same-solution-as-challenge-1" title="Permalink to this heading">#</a></h3>
+<p>The jury is still out as to what the underlying cause of the channel drop out is, but I suspect it’s an interplay between (1) multi-scale clean; (2) auto-multithresh masking; and (3) a lot of clean components trying to be assigned within one major cycle. Happily, our mitigation strategy for Challenge 1 (“Negative bowling”) took care of both (2) and (3)!</p>
+<p>In the end, we forced many major cycles (see section “Mitigation strategy: Force more major cycles” above), and we adopted a broad mask (see section “Major bonus of cleaning with many major cycles” above). With that change in approach, the channel dropout issue disappeared.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,20 +769,20 @@ Note [dirty images](imaging-lines-dirty-images) and [initial approaches](imaging
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../imaging-cont/imaging-cont-preliminary-images.html"
+       href="imaging-lines-initial-approaches.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Continuum Images</p>
+        <p class="prev-next-title">Journal of Challenges and Initial Experiments</p>
       </div>
     </a>
     <a class="right-next"
-       href="imaging-lines-dirty-images.html"
+       href="imaging-lines-adopted-approach.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dirty Image Cubes</p>
+        <p class="prev-next-title">Adopted Line Imaging Strategy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,6 +795,36 @@ Note [dirty images](imaging-lines-dirty-images) and [initial approaches](imaging
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-missing-short-uv-spacings-negative-bowling">Challenge 1: Missing short uv-spacings (“Negative bowling”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-diagnosis">Description &amp; diagnosis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mitigation-strategy-force-more-major-cycles">Mitigation strategy: Force more major cycles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-force-more-major-cycles-make-the-minor-cycles-end-more-quickly">How to force more major cycles: Make the minor cycles end more quickly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#major-bonus-of-cleaning-with-many-major-cycles-relevant-for-challenge-2">Major bonus of cleaning with many major cycles (relevant for Challenge 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-tclean-consistently-not-cleaning-certain-channels-channel-dropout">Challenge 2: tclean consistently not cleaning certain channels (“Channel dropout”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description &amp; diagnosis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-different-about-the-dropout-channels">What’s different about the dropout channels?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-force-many-major-cycles-and-use-a-broad-clean-mask-same-solution-as-challenge-1">Solution: Force many major cycles and use a broad clean mask (same solution as Challenge 1)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

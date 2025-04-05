@@ -8,56 +8,72 @@
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a> # loads line_dict
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script ([Czekala et al. 2021](https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract))
 - <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a> # modified version of [keplerian_mask](https://github.com/richteague/keplerian_mask) by [Rich Teague](https://richteague.github.io/)
+`````
 
-````{card} And data (obtained after [step 4](../step4/step4-line-mses-achieved.md)):
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
+`````{admonition} Visibility Data for **Imaging - Lines** (obtained after [step 4](../step4/step4-line-mses-achieved.md)):
+:class: tip
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
+- <a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
 ````` -->
 
 # Dirty Image Cubes
 
-[Coming soon.]
-<!--
-Details: Started with 0.1 km/s velocity resolution, smaller portion of the spectral axis, etc.
+Imaging line visibility data is relatively computationally expensive. 
+As a first step, we make dirty image cubes. The purpose is to simply get a first quick look at what we have on our hands before deciding how to spend more compute resources. Dirty images are images that have not been "cleaned", or deconvolved for the PSF or dirty beam. In other words, we run ``tclean`` with zero clean iterations.
 
-````{card}
+For additional time saving, these dirty images were also made with a degraded velocity resolution (0.1 km/s, which is 1.2x to 2.4x the native resolution) and over only a small portion of the spectral axis (3.0 km/s to 8.0 km/s). 
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card}
 <center>
 <video width="85%" controls>
   <source src="../_static/videos/ABAur_12CO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_12CO.dirty.image.channelpans">
 </video>
 </center>
 +++
-caption
-````
+Dirty <sup>12</sup>CO image cube with 0.1 km/s spectral resolution.
+:::
 
-````{card}
+:::{grid-item-card}
 <center>
 <video width="85%" controls>
   <source src="../_static/videos/ABAur_13CO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_13CO.dirty.image.channelpans">
 </video>
 </center>
 +++
-caption
-````
+Dirty <sup>13</sup>CO image cube with 0.1 km/s spectral resolution.
+:::
 
-````{card}
+::::
+
+
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card}
 <center>
 <video width="85%" controls>
   <source src="../_static/videos/ABAur_C18O.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_C18O.dirty.image.channelpans">
 </video>
 </center>
 +++
-caption
-````
+Dirty C<sup>18</sup>O image cube with 0.1 km/s spectral resolution.
+:::
 
-````{card}
+:::{grid-item-card}
 <center>
 <video width="85%" controls>
   <source src="../_static/videos/ABAur_SO.dirty.image.channelpans.mp4" type="video/mp4" alt="ABAur_SO.dirty.image.channelpans">
 </video>
 </center>
 +++
-caption
-```` -->
+Dirty SO image cube with 0.1 km/s spectral resolution.
+:::
+
+::::
+
