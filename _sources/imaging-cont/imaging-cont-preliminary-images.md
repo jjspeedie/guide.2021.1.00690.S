@@ -26,7 +26,10 @@ The images were cleaned non-interactively, using a circular mask of radius 3 arc
 
 
 
-## Image made with Briggs robust = 0.5 (<a href="https://www.canfar.net/storage/vault/file/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_continuum/v11_robust0.5/casa-20230412-172540-robust0.5.log" target="_blank">CASA log file</a>)
+## Image made with Briggs robust = 0.5
+
+Link to the <a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230412-172540-robust0.5.log" target="_blank">CASA log file</a> documenting the calls and parameters in this imaging run.
+
 
 ````{card} Key values in imaging process
 | Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|
@@ -63,6 +66,8 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 
 ## Image made with Briggs robust = 1.0
 
+Link to the <a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230412-172540-robust1.0.log" target="_blank">CASA log file</a> documenting the calls and parameters in this imaging run.
+
 ````{card} Key values in imaging process
 | Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|
 |---------------------|----------------|------------------|-------------------------------|
@@ -98,6 +103,8 @@ JvM-corrected and primary beam-corrected continuum image with `robust` parameter
 ````
 
 ## Image made with Briggs robust = 1.5
+
+Link to the <a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230412-172540-robust1.5.log" target="_blank">CASA log file</a> documenting the calls and parameters in this imaging run.
 
 ````{card} Key values in imaging process
 | Dirty Image RMS (uJy/beam)|CLEAN `threshold` (mJy/beam)|JvM Epsilon (unitless)      | Residual Image Peak (mJy/beam)|

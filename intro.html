@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,7 +63,6 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
-    <link rel="shortcut icon" href="_static/abaur.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Learning Resources" href="overview/overview-resources.html" />
@@ -203,15 +203,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html">Continuum Imaging Procedure</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html">Continuum Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Journal of Challenges and Initial Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Summary of Challenges Motivating the Adopted Imaging Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Line Imaging Strategy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
 <ul class="nav bd-sidenav">
@@ -257,53 +256,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -412,6 +364,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The workflow</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faq">FAQ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
         </div>
@@ -425,7 +379,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<p>This is a guide to the reduction and imaging of <a href="https://almascience.nrao.edu/aq/?observationsProjectCode=2021.1.00690.S" target="_blank">ALMA program 2021.1.00690.S</a> (PI: R. Dong), which is a deep and fine-kinematics gas program towards the AB Aurigae protoplanetary disk. The scripts associated with this guide can be found at the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">companion github repository</a>. All of the final data products (measurement sets, image cubes, VADPs) are or soon will be publicly available.</p>
+<p>This is a guide to the reduction and imaging of <a href="https://almascience.nrao.edu/aq/?observationsProjectCode=2021.1.00690.S" target="_blank">ALMA program 2021.1.00690.S</a> (PI: R. Dong), which is a deep and fine-kinematics gas program towards the AB Aurigae protoplanetary disk. The scripts associated with this guide can be found at the <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">companion github repository</a>. All of the final data products (measurement sets, image cubes, VADPs) are publicly available.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -455,9 +409,9 @@ document.write(`
 <ul class="simple">
 <li><p><strong>The HTML component (this collection of webpages) works together with <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S" target="_blank">the scripts</a>.</strong> The HTML component is intended to provide visualizations of the outputs or results after running each part of the scripts. It also provides some written context, explanation or motivation behind the chosen approaches, on a selective basis.</p></li>
 <li><p><strong>The chosen approaches are specific to our program and science goals.</strong> What works for your program might be different!</p></li>
-<li><p><strong>This guide is intended to be a snapshot, and will not be updated over time.</strong> The choices and steps it presents are a function of the wisdom at the time (and the people whose wisdom I was able to receive). Of course, the communal wisdom is constantly changing. Software is continuously changing too. What is presented here may not necessarily hold forever.</p></li>
+<li><p><strong>This guide is intended to be a snapshot, and will not be updated over time.</strong> The choices and steps it presents are a function of the wisdom at the time. Of course, the communal wisdom is constantly changing. Software is continuously changing too. What is presented here likely won’t hold forever.</p></li>
 </ul>
-<p>As an additional reference, the refereed journal articles where the data are or will be published are linked below. Their methods sections contain complete overlap with the content here.</p>
+<p>As an additional reference, the refereed journal articles where the data were published are linked below. Their methods sections contain complete overlap with the content here.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -549,17 +503,16 @@ document.write(`
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html">Continuum Imaging Procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-procedure.html#procedure">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-cont/imaging-cont-preliminary-images.html">Continuum Images</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-initial-approaches.html">Journal of Challenges and Initial Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-procedure.html">Summary of Challenges Motivating the Adopted Imaging Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html">Adopted Line Imaging Strategy</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -568,7 +521,33 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="science/science-wrap-up.html">Now on to the science!</a></li>
 </ul>
 </div>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<em>Where can I find information about the <strong>expanding kernel high-pass filter</strong> technique used in <a href="https://www.nature.com/articles/s41586-024-07877-0" target="_blank">Speedie et al. 2024</a> &amp; <a href="https://doi.org/10.3847/2041-8213/adb7d5" target="_blank">2025</a> to enhance image contrast in moment maps?</em><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">That’s in a separate github repository called <a href="https://github.com/jjspeedie/expanding_kernel" target="_blank"><code class="docutils literal notranslate"><span class="pre">expanding_kernel</span></code>, here</a>.
+The python function can be found in <a href="https://github.com/jjspeedie/expanding_kernel/blob/main/expanding_kernel.py" target="_blank">expanding_kernel.py</a> and there is a lengthy demonstration of use provided <a href="https://github.com/jjspeedie/expanding_kernel/blob/main/example_usage.md" target="_blank">here</a>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<em>Where can I find information about the <strong>anti-Keplerian masking</strong> used in <a href="https://doi.org/10.3847/2041-8213/adb7d5" target="_blank">Speedie et al. 2025</a> to isolate infall in the <sup>12</sup>CO line data?</em> <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Making an anti-Keplerian mask is trivial once you’ve created a Keplerian mask with Rich Teague’s <a href="https://github.com/richteague/keplerian_mask" target="_blank"><code class="docutils literal notranslate"><span class="pre">keplerian_mask</span></code></a> package. It’s simply a case of switching the ones to zeros and vice versa. You can find some lines of code doing that in <a href="https://github.com/jjspeedie/keplerian_mask/blob/master/use-case-2021.1.00690.S/make_keplerian_masks.py" target="_blank">this script</a> (lines 74-79 and lines 81-89).</p>
+<p class="sd-card-text">Please note the anti-Keplerian masking is <strong>not applied as a CLEAN mask</strong> during imaging. See details on our approach to the line imaging <a class="reference internal" href="imaging-lines/imaging-lines-adopted-approach.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+</details></section>
 <hr class="docutils" />
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
 <p>Sincere and special thanks go to Ryan Loomis, Sarah Wood and Tristan Ashton at the North American ALMA Science Center (NAASC) for providing science support and technical guidance on this ALMA data as part of a Data Reduction Visit to the NAASC, which was funded by the NAASC. The reduction and imaging of the ALMA data was performed on NAASC computing facilities.</p>
 <p>Comments and corrections are much appreciated (especially if you are a student!). Get in touch: <a class="reference external" href="mailto:jspeedie&#37;&#52;&#48;uvic&#46;ca">jspeedie<span>&#64;</span>uvic<span>&#46;</span>ca</a>.</p>
 </section>
@@ -635,6 +614,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The workflow</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faq">FAQ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
 

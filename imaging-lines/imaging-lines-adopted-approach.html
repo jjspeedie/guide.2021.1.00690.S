@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Adopted Approach &#8212; Reduction Guide</title>
+    <title>Adopted Line Imaging Strategy &#8212; Reduction Guide</title>
   
   
   
@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,11 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'imaging-lines/imaging-lines-adopted-approach';</script>
-    <link rel="shortcut icon" href="../_static/abaur.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Now on to the science!" href="../science/science-wrap-up.html" />
-    <link rel="prev" title="Initial Approaches" href="imaging-lines-initial-approaches.html" />
+    <link rel="prev" title="Summary of Challenges Motivating the Adopted Imaging Strategy" href="imaging-lines-procedure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -204,15 +204,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Continuum</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-procedure.html">Continuum Imaging Procedure</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../imaging-cont/imaging-cont-preliminary-images.html">Continuum Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Imaging - Lines</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines-procedure.html">Procedure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imaging-lines-dirty-images.html">Dirty Image Cubes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imaging-lines-initial-approaches.html">Initial Approaches</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adopted Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines-initial-approaches.html">Journal of Challenges and Initial Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imaging-lines-procedure.html">Summary of Challenges Motivating the Adopted Imaging Strategy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adopted Line Imaging Strategy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrap-up</span></p>
 <ul class="nav bd-sidenav">
@@ -258,53 +257,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/issues/new?title=Issue%20on%20page%20%2Fimaging-lines/imaging-lines-adopted-approach.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -387,7 +339,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -398,11 +352,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Adopted Approach</h1>
+    <h1>Adopted Line Imaging Strategy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resulting-line-image-cubes">Resulting Line Image Cubes</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -412,60 +374,213 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <!-- `````{admonition} Scripts for **Imaging - Lines**:
-:class: tip
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a> # main script ([adopted approach](imaging-lines-adopted-approach.md))
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_lines.py" target="_blank">image_lines.py</a> # earlier main script ([initial approaches](imaging-lines-initial-approaches.md))
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a> # loads disk_dict
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a> # loads line_dict
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script ([Czekala et al. 2021](https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract))
-- <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a> # modified version of [keplerian_mask](https://github.com/richteague/keplerian_mask) by [Rich Teague](https://richteague.github.io/)
-
-````{card} And data (obtained after [step 4](../step4/step4-line-mses-achieved.md)):
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a>
-- <a href="https://www.canfar.net/storage/vault/list/jspeedie/2021.1.00690.S/private/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a>
-````` -->
-<section class="tex2jax_ignore mathjax_ignore" id="adopted-approach">
-<h1>Adopted Approach<a class="headerlink" href="#adopted-approach" title="Permalink to this heading">#</a></h1>
-<p>[Coming soon.]</p>
-<!--
-Relevant script: [adopted approach](imaging-lines-adopted-approach.md).
-<a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a>
-
-All imaging was performed with the {\sc CASA} \texttt{tclean} task.
-% Our imaging strategy diverged from that of the {\sc DSHARP}\cite{andrews2018-dsharp1} and {\sc MAPS}\cite{oberg2021-maps1} programs.
-We used the multiscale %, multifrequency synthesis (assuming a flat spectrum)
-deconvolution algorithm\cite{cornwell2008} with
-% The adopted
-(Gaussian) deconvolution scales [$0.02''$, $0.1''$, $0.3''$, $0.6''$, $1.0''$].
-We did not image with a Keplerian mask so as not to restrict our ability to observe non-Keplerian emission.
-After experimentation with {\sc CASA}'s auto-multithresh masking algorithm\cite{kepley2020-automultithresh}, we adopted  
-an imaging strategy similar to {\sc PHANGS-ALMA}\cite{leroy2021-phangsalma},  
-
-```
-# Cautious/conservative clean:
-cycleniter             = 80    # Jess: Maximum number of minor-cycle iterations (per plane) before triggering a major cycle
-cyclefactor            = 3.0   # Ryan: 3x max_psf_sidelobe_level as minor cycle threshold (default is 1.0)
-gain                   = 0.02  # Ryan: assign clean component peaks to 2% of pixel value (default is 0.1)
-minpsffraction         = 0.5   # PHANGS: cycle threshold is never lower than 0.5 times the peak residual (default: 0.05)
-```
-
-in which we clean conservatively, with a broad mask (\texttt{usemask='pb'} and \texttt{pbmask=0.2}), forcing frequent major cycles\footnote{The $^{13}$CO robust 0.5 cube underwent 198 major cycles and the C$^{18}$O cube underwent 76.}.
-To achieve frequent major cycles we set
-the maximum number of minor cycle iterations per channel to \texttt{cycleniter=80},
-the minor cycle threshold to \texttt{max\_psf\_sidelobe\_level=3.0} and \texttt{minpsffraction=0.5},
-and the maximum assigned clean component to \texttt{gain=0.02} times the peak residual.
-We adopted a Briggs robust weighting scheme, and generated two sets of image cubes; one with a robust value of $0.5$ and a second with robust $1.5$.
-The corresponding beam sizes for $^{13}$CO are $237\times175$ mas, $1.2^\circ$ for robust $0.5$ and $390\times274$ mas, $-1.4^\circ$ for robust $1.5$. %(with similar results for C$^{18}$O
-We imaged \rev{with a FOV} out to the primary beam FWHM ($38''$) with $0.02''$ pixels ($9$ or $12$ pixels per synthesized beam minor or major axis, respectively). % 0.175 x 0.237'' beam
-We imaged in LSRK velocity channels at $42$ m/s for $^{13}$CO and $84$ m/s for C$^{18}$O respectively (nearly native channel spacing).
-The \texttt{CLEAN} threshold was set to $5\times$ the rms noise measured in $20$ line-free channels %(first and last 10 channels)
-of the dirty image cube.
-We applied JvM correction\cite{JvM1995-correction, czekala2021-maps2} and primary beam correction. The rms \rev{noise in} the resulting $^{13}$CO \rev{cubes imaged with robust $0.5$ and robust $1.5$} is $2.0$ mJy/beam and $1.2$ mJy/beam respectively, \rev{and $0.6$ mJy/beam in the C$^{18}$O cube imaged with robust $1.5$.} -->
+  <div class="tip admonition">
+<p class="admonition-title">Scripts for <strong>Imaging - Lines</strong>:</p>
+<ul class="simple">
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a> # main script (adopted approach described on the present page)</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/image_lines.py" target="_blank">image_lines.py</a> # experimental main script (initial experiments described on a <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">previous page</span></a>)</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_mask.py" target="_blank">dictionary_mask.py</a> # loads mask_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_data.py" target="_blank">dictionary_data.py</a> # loads data_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_disk.py" target="_blank">dictionary_disk.py</a> # loads disk_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a> # loads line_dict</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/JvM_correction_casa6.py" target="_blank">JvM_correction_casa6.py</a> # MAPS JvM correction script (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C/abstract">Czekala et al. 2021</a>)</p></li>
+<li><p><a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/keplerian_mask.py" target="_blank">keplerian_mask.py</a> # modified version of <a class="reference external" href="https://github.com/richteague/keplerian_mask">keplerian_mask</a> by <a class="reference external" href="https://richteague.github.io/">Rich Teague</a></p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Visibility Data for <strong>Imaging - Lines</strong> (obtained after <a class="reference internal" href="../step4/step4-line-mses-achieved.html"><span class="doc std std-doc">step 4</span></a>):</p>
+<ul class="simple">
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_12CO.bin30s.ms.contsub</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_13CO.bin30s.ms.contsub</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_C18O.bin30s.ms.contsub</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/measurement_sets" target="_blank">ABAur_SO.bin30s.ms.contsub</a></p></li>
+</ul>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="adopted-line-imaging-strategy">
+<h1>Adopted Line Imaging Strategy<a class="headerlink" href="#adopted-line-imaging-strategy" title="Permalink to this heading">#</a></h1>
+<p><em>The following text is a synthesis of the Methods section of <a href="https://www.nature.com/articles/s41586-024-07877-0" target="_blank">Speedie et al. 2024</a> and Section 2.2 of  <a href="https://doi.org/10.3847/2041-8213/adb7d5" target="_blank">Speedie et al. 2025</a>. The line imaging script in the companion github repository is <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/major_image_lines.py" target="_blank">major_image_lines.py</a>.</em></p>
+<p><strong>SOFTWARE:</strong> All imaging was performed with the CASA <code class="docutils literal notranslate"><span class="pre">tclean</span></code> task.</p>
+<p><strong>STRATEGY:</strong> The <sup>12</sup>CO data immediately presented two challenges:</p>
+<ol class="arabic simple">
+<li><p>Non-Keplerian large-scale diffuse emission with morphologies difficult to mask.</p></li>
+<li><p>Negative bowling (<a href="https://ui.adsabs.harvard.edu/abs/1985A&A...143..307B" target="_blank">Braun &amp; Walterbos 1985</a>), particularly in central channels.</p></li>
+</ol>
+<p>The latter issue is symptomatic of emission on spatial scales larger than the maximum recoverable scale of our short-baseline configuration C-3 (MRS ~ 7” at 230 GHz; <a href="https://ui.adsabs.harvard.edu/abs/2019athb.rept.....R" target="_blank">ALMA Technical Handbook</a>), and can only be solved by obtaining additional observations sampling the visibility function at smaller <em>uv</em>-spacings.</p>
+<p>In the absence of more data –and after experimentation with CASA’s auto-multithresh masking algorithm (<a href="https://ui.adsabs.harvard.edu/abs/2020PASP..132b4505K" target="_blank">Kepley et al. 2020</a>; see <a class="reference internal" href="imaging-lines-initial-approaches.html"><span class="doc std std-doc">experiments</span></a>)– we adopted the following strategies to mitigate both those two challenges (listed above):</p>
+<p><strong>First, we cleaned with a broad mask</strong> encompassing all emission within the field of view (FOV).</p>
+<p>To achieve this broad mask we used the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> arguments <code class="docutils literal notranslate"><span class="pre">usemask=`pb'</span></code> and <code class="docutils literal notranslate"><span class="pre">pbmask=0.2</span></code>, which sets a cleaning mask extending to where the 12m antenna primary beam gain reaches the 20% level, which is usually considered the edge of the FOV. The fact that we did not image with a Keplerian mask also meant we did not restrict our ability to observe non-Keplerian emission (critical for the science).</p>
+<p>In accordance with cleaning with this broad mask, <strong>we cleaned conservatively</strong> (i.e., relatively shallowly).
+The CLEAN <code class="docutils literal notranslate"><span class="pre">threshold</span></code> was set to 5x the rms noise measured in 20 line-free channels of the dirty image cube.</p>
+<p><strong>Second, we forced frequent major cycles</strong> to repeatedly re-populate the <em>uv</em>-plane and interpolate into the missing short <em>uv</em>-spacings.</p>
+<p>To achieve frequent major cycles we set the maximum number of minor cycle iterations per channel to <code class="docutils literal notranslate"><span class="pre">cycleniter=80</span></code>, the minor cycle threshold to <code class="docutils literal notranslate"><span class="pre">max_psf_sidelobe_level=3.0</span></code> and <code class="docutils literal notranslate"><span class="pre">minpsffraction=0.5</span></code>, and the maximum assigned clean component to <code class="docutils literal notranslate"><span class="pre">gain=0.02</span></code> times the peak residual. Here is an excerpt of the <code class="docutils literal notranslate"><span class="pre">tclean</span></code> function arguments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cautious/conservative clean:</span>
+<span class="n">cycleniter</span>             <span class="o">=</span> <span class="mi">80</span>    <span class="c1"># Jess: Maximum number of minor-cycle iterations (per plane) before triggering a major cycle</span>
+<span class="n">cyclefactor</span>            <span class="o">=</span> <span class="mf">3.0</span>   <span class="c1"># Ryan: 3x max_psf_sidelobe_level as minor cycle threshold (default is 1.0)</span>
+<span class="n">gain</span>                   <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># Ryan: assign clean component peaks to 2% of pixel value (default is 0.1)</span>
+<span class="n">minpsffraction</span>         <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># PHANGS: cycle threshold is never lower than 0.5 times the peak residual (default: 0.05)</span>
+</pre></div>
+</div>
+<p>To ensure we were successful in forcing frequency major cycles, we kept track of the number of major cycles that occurred in the imaging of each cube. For example, the <sup>12</sup>CO cube imaged with <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> underwent 282 major cycles and took 5 days to run. The <sup>13</sup>CO cube imaged with <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> underwent 198 major cycles; and the C<sup>18</sup>O cube imaged with <code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code> underwent 76 major cycles.</p>
+<p>To summarize: We clean conservatively, with a broad mask (<code class="docutils literal notranslate"><span class="pre">usemask='pb'</span></code> and <code class="docutils literal notranslate"><span class="pre">pbmask=0.2</span></code>), forcing frequent major cycles. This approached borrowed from the philosophy of the PHANGS-ALMA Large Program (<a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..255...19L" target="_blank">Leroy et al. 2021</a>).</p>
+<p><strong>DECONVOLUTION BASIS FUNCTIONS:</strong> We used the multiscale deconvolution algorithm (<a href="https://ui.adsabs.harvard.edu/abs/2008ISTSP...2..793C" target="_blank">Cornwell 2008</a>) with
+Gaussian deconvolution scales <code class="docutils literal notranslate"><span class="pre">[0.02&quot;,</span> <span class="pre">0.1&quot;,</span> <span class="pre">0.3&quot;,</span> <span class="pre">0.6&quot;,</span> <span class="pre">1.0&quot;]</span></code>, with an additional largest scale of <code class="docutils literal notranslate"><span class="pre">2.0&quot;</span></code> appended for <sup>12</sup>CO.</p>
+<p><strong>WEIGHTING:</strong>
+We adopted a Briggs robust weighting scheme, and generated two sets of image cubes; one with a robust value of <code class="docutils literal notranslate"><span class="pre">0.5</span></code> and a second with robust <code class="docutils literal notranslate"><span class="pre">1.5</span></code>.</p>
+<p><strong>FOV AND PIXEL SIZE:</strong>
+We imaged with a FOV out to the primary beam FWHM (38”) with 0.02” pixels (9 or 12 pixels per synthesized beam minor or major axis, respectively).</p>
+<p><strong>SPECTRAL GRIDDING:</strong>
+We imaged in LSRK velocity channels at 42 m/s for <sup>12</sup>CO &amp; <sup>13</sup>CO, and at 84 m/s for C<sup>18</sup>O and SO (nearly the native channel spacing of the data).</p>
+<p><strong>POST-DECONVOLUTION CORRECTIONS:</strong>
+We applied JvM correction (<a href="https://ui.adsabs.harvard.edu/abs/1995AJ....110.2037J" target="_blank">Jorsater &amp; van Moorsel 1995</a>, <a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..257....2C" target="_blank">Czekala et al. 2021</a>) and primary beam correction.</p>
+<section id="resulting-line-image-cubes">
+<h2>Resulting Line Image Cubes<a class="headerlink" href="#resulting-line-image-cubes" title="Permalink to this heading">#</a></h2>
+<p>Properties of the resulting line image cubes are provided in the table below. Note that this table scrolls horizontally. All the parameter details you’d need to reproduce these images can be found in the CASA log files linked in the second-to-last column of the table.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="table_wrapper">
+<table>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><div style="width:125px">Transition</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:150px">Rest Frequency</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:125px">Channel Width</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:80px"><code class="docutils literal notranslate"><span class="pre">robust</span></code></div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:175px">Beam        </div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:100px">rms Noise </div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:100px">JvM epsilon</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Number of major cycles</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:350px">CASA log file</div></p></th>
+<th class="head"><p class="sd-card-text"><div style="width:200px">Version name in <a href="https://github.com/jjspeedie/workflow.2021.1.0690.S/blob/main/dictionary_lines.py" target="_blank">dictionary_lines.py</a></div></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"></p></td>
+<td><p class="sd-card-text"><strong>(GHz)</strong></p></td>
+<td><p class="sd-card-text"><strong>(km/s)</strong></p></td>
+<td><p class="sd-card-text"></p></td>
+<td><p class="sd-card-text"><strong>(” x “, deg)</strong></p></td>
+<td><p class="sd-card-text"><strong>(mJy/beam)</strong></p></td>
+<td><p class="sd-card-text"></p></td>
+<td><p class="sd-card-text"></p></td>
+<td><p class="sd-card-text"></p></td>
+<td><p class="sd-card-text"></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><sup>12</sup>CO <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">230.538000</p></td>
+<td><p class="sd-card-text">0.042</p></td>
+<td><p class="sd-card-text">0.5</p></td>
+<td><p class="sd-card-text">0.235” × 0.172”, 0.2°</p></td>
+<td><p class="sd-card-text">1.63</p></td>
+<td><p class="sd-card-text">0.496</p></td>
+<td><p class="sd-card-text">282</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230411-171634-12CO.log" target="_blank">casa-20230411-171634-12CO.log</a> (77 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><sup>12</sup>CO <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">230.538000</p></td>
+<td><p class="sd-card-text">0.042</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">0.398” × 0.270”, -5.0°</p></td>
+<td><p class="sd-card-text">0.76</p></td>
+<td><p class="sd-card-text">0.325</p></td>
+<td><p class="sd-card-text">261</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230405-174838-12CO.log" target="_blank">casa-20230405-174838-12CO.log</a> (93 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><sup>13</sup>CO <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">220.398684</p></td>
+<td><p class="sd-card-text">0.042</p></td>
+<td><p class="sd-card-text">0.5</p></td>
+<td><p class="sd-card-text">0.237” × 0.175”, 1.2°</p></td>
+<td><p class="sd-card-text">1.84</p></td>
+<td><p class="sd-card-text">0.497</p></td>
+<td><p class="sd-card-text">198</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230324-185500-13CO.log" target="_blank">casa-20230324-185500-13CO.log</a> (39 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><sup>13</sup>CO <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">220.398684</p></td>
+<td><p class="sd-card-text">0.042</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">0.390” × 0.274”, -1.4°</p></td>
+<td><p class="sd-card-text">1.10</p></td>
+<td><p class="sd-card-text">0.339</p></td>
+<td><p class="sd-card-text">346</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230331-174529-13CO.log" target="_blank">casa-20230331-174529-13CO.log</a> (70 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">C<sup>18</sup>O <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">219.560358</p></td>
+<td><p class="sd-card-text">0.084</p></td>
+<td><p class="sd-card-text">0.5</p></td>
+<td><p class="sd-card-text">0.240” × 0.180”, -2.2°</p></td>
+<td><p class="sd-card-text">0.93</p></td>
+<td><p class="sd-card-text">0.510</p></td>
+<td><p class="sd-card-text">76</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230324-185500-C18O.log" target="_blank">casa-20230324-185500-C18O.log</a> (8.7 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">C<sup>18</sup>O <em>J</em>=2-1</p></td>
+<td><p class="sd-card-text">219.560358</p></td>
+<td><p class="sd-card-text">0.084</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">0.400” × 0.276”, -7.7°</p></td>
+<td><p class="sd-card-text">0.53</p></td>
+<td><p class="sd-card-text">0.330</p></td>
+<td><p class="sd-card-text">120</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230331-174529-C18O.log" target="_blank">casa-20230331-174529-C18O.log</a> (13 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text">SO <em>J</em><sub>N</sub> = 5<sub>6</sub>-4<sub>5</sub></p></td>
+<td><p class="sd-card-text">219.949442</p></td>
+<td><p class="sd-card-text">0.084</p></td>
+<td><p class="sd-card-text">0.5</p></td>
+<td><p class="sd-card-text">0.237” × 0.179”, -2.7°</p></td>
+<td><p class="sd-card-text">0.95</p></td>
+<td><p class="sd-card-text">0.511</p></td>
+<td><p class="sd-card-text">6</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230324-185500-SO.log" target="_blank">casa-20230324-185500-SO.log</a> (400 KB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text">SO <em>J</em><sub>N</sub> = 5<sub>6</sub>-4<sub>5</sub></p></td>
+<td><p class="sd-card-text">219.949442</p></td>
+<td><p class="sd-card-text">0.084</p></td>
+<td><p class="sd-card-text">1.5</p></td>
+<td><p class="sd-card-text">0.390” × 0.276”, -8.8°</p></td>
+<td><p class="sd-card-text">0.55</p></td>
+<td><p class="sd-card-text">0.340</p></td>
+<td><p class="sd-card-text">15</p></td>
+<td><p class="sd-card-text"><a href="https://github.com/jjspeedie/guide.2021.1.00690.S/blob/main/imaging-cont/casalogs/casa-20230331-174529-SO.log" target="_blank">casa-20230331-174529-SO.log</a> (1 MB)</p></td>
+<td><p class="sd-card-text">v11_</p></td>
+</tr>
+</tbody>
+</table>
+ </table>
+ </div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">→→→ <em>This table scrolls horizontally</em> →→→</p>
+<p class="sd-card-text"><strong>Properties of the published line image cubes.</strong> The metrics shown here correspond to the primary beam corrected, JvM corrected image cubes, though all <code class="docutils literal notranslate"><span class="pre">tclean</span></code> image output types are available in the public data repositories (see links below). All data has been continuum-subtracted, though SO images without continuum subtraction are available.
+The rms noise is measured in a line-free channel of the cubes within a circlular aperture of 10” radius centered on the star.</p>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Links to download the resulting <strong>Line Images</strong>:</p>
+<p>Moment maps and VADPs are also available.</p>
+<ul class="simple">
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/12CO/v11_robust0.5/full_cube" target="_blank"><sup>12</sup>CO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/12CO/v11_robust1.5" target="_blank"><sup>12</sup>CO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/images_lines/13CO/v11_robust0.5" target="_blank"><sup>13</sup>CO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/images_lines/13CO/v11_robust1.5" target="_blank"><sup>13</sup>CO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/images_lines/C18O/v11_robust0.5" target="_blank">C<sup>18</sup>O line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0087/data/2021.1.00690.S/images_lines/C18O/v11_robust1.5" target="_blank">C<sup>18</sup>O line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/SO/v11_robust0.5" target="_blank">SO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/SO/v11_robust1.5" target="_blank">SO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code>)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/SO/v11_withcont_robust0.5" target="_blank">SO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=0.5</span></code>, not continuum-subtracted)</a></p></li>
+<li><p><a href="https://www.canfar.net/storage/vault/list/AstroDataCitationDOI/CISTI.CANFAR/24.0098/data/2021.1.00690.S/images_lines/SO/v11_withcont_robust1.5" target="_blank">SO line images fits files (<code class="docutils literal notranslate"><span class="pre">robust=1.5</span></code>, not continuum-subtracted)</a></p></li>
+</ul>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -500,12 +615,12 @@ We applied JvM correction\cite{JvM1995-correction, czekala2021-maps2} and primar
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="imaging-lines-initial-approaches.html"
+       href="imaging-lines-procedure.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Initial Approaches</p>
+        <p class="prev-next-title">Summary of Challenges Motivating the Adopted Imaging Strategy</p>
       </div>
     </a>
     <a class="right-next"
@@ -526,6 +641,20 @@ We applied JvM correction\cite{JvM1995-correction, czekala2021-maps2} and primar
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resulting-line-image-cubes">Resulting Line Image Cubes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
