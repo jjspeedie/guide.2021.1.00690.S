@@ -2,4 +2,4 @@
 
 Companion repository with scripts: [https://github.com/jjspeedie/workflow.2021.1.0690.S](https://github.com/jjspeedie/workflow.2021.1.0690.S)
 
-![Guide to the reduction and imaging of ALMA program 2021.1.00690.S](./_static/webpage.png)
+![Guide to the reduction and imaging of ALMA program 2021.1.00690.S](./_static/preview.png)
